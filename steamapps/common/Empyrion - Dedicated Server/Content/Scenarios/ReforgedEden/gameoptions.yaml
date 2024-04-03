@@ -38,51 +38,50 @@ Options:
 
     #### SPECIAL COOP SETTING ####
   - ValidFor: [ MP, Survival ]
-    DecayTime: 24                     # default value
-    WipeTime: 0                       # default value
-    ProtectTime: 48                   # default value
-    ProtectDelay: 300                 # default value
-    MaxStructures: 2000                # default value
-    AntiGriefDistancePvE: 0
-    AntiGriefDistancePvP: 0
-    AntiGriefOresDistance: 0             
-    AntiGriefOresZone: PvE            # default value  
-    EnableTrading: All                # default value
-    EnableMaxBlockCount: False
-    EnableCPUPoints: True            # default value
-    EnableVolumeWeight: True         # default value
-    AutoMinerDepletion: False    
-    GroundedStructureSpawn: False
-    TurretUndergroundCheck: True   
-    OriginDefault: Neutral            # default value
-    OriginAccessOthers: True          # default value
-    OriginAutoAlliance: True          # default value
-    MaxSpawnedEnemies: 60             # default value
-    DespawnEscapePod: True 
-    RegeneratePOIs: False               
-    FOWTransparency: 0                # default value
-    DSLDistancePlanet: 1200           # default value
-    DSLDistanceSpace: 3000            # default value
-    ForcePvP: False       
-    OriginFactionStart: True   
-    ThrustersNeedOpenSpace: False      # default value
+    DecayTime: 0                        # Time after which player-built structures without core or less than 10 blocks get removed when not visited (0 = disabled)
+    WipeTime: 0                         # Time after which any player-built structures get removed when not visited (0 = disabled)
+    ProtectTime: 48                     # Time during which structures are offline protected [in real time hours]
+    ProtectDelay: 300                   # Delay until the offline protection is enabled [in real time sec]
+    MaxStructures: 99000                # Max number of structures per playfield (reduce if you have performance problems)
+    AntiGriefDistancePvE: 0             # Distance (in m) around a faction's base where no other faction's base can be built in PvE playfields (0 = disabled). Note: If 'LandClaimZone: Device' is set in playfield.yaml, AntiGriefZones will only exist for structures that have a Landclaim Device.
+    AntiGriefDistancePvP: 0             # Distance (in m) around a faction's base where no other faction's base can be built in PvP playfields (0 = disabled). Enable to avoid griefing when using offline protection. Note: If 'LandClaimZone: Device' is set in playfield.yaml, AntiGriefZones will only exist for structures that have a Landclaim Device.
+    AntiGriefOresDistance: 0            # Distance (in m) around ore deposits where no other faction's base can be built (0 = disabled)
+    AntiGriefOresZone: PvE              # Playfield type (All, PvP, PvE) where the AntiGriefOresDistance is valid
+    EnableTrading: All                  # Determines what kinds of trading is enabled, e.g. player-to-player or player-to-NPC
+    EnableMaxBlockCount: False          # Enable or disable the max counting of blocks such as the weapon limit
+    EnableCPUPoints: True               # Enable or disable the CPU points limit 
+    EnableVolumeWeight: True            # Enable or disable the volume and weight limit
+    AutoMinerDepletion: False           # Enable or disable whether autominers deplete resource deposits  
+    GroundedStructureSpawn: False       # Enable or disable whether blueprints must be placed on a base or capital vessel when being spawned
+    TurretUndergroundCheck: False       # Enable or disable check that disables turrets when they are placed below the terrain / water level
+    OriginDefault: Neutral              # The name of the default Origin
+    OriginAccessOthers: True            # false will not allow any alliances with or join to factions from other Origins
+    OriginAutoAlliance: True            # Factions are per default allied if they are in the same Origin
+    MaxSpawnedEnemies: 100              # Max number of NPCs that are spawned around a player
+    DespawnEscapePod: True              # Per default the escape pod will not despawn any more to allow a player base and sleep till the morning in SP
+    RegeneratePOIs: False               # Set to true to allow POI regeneration
+    FOWTransparency: 0                  # Set transparency of 'Fog-of-War': 0 to 100 => opaque to completely transparent (invisible)
+    DSLDistancePlanet: 2000             # Distance at which a structure on a planet will be invisible and finally unloaded if no player is near it. Minimum is 600
+    DSLDistanceSpace: 4000              # Distance at which a structure in space will be invisible and finally unloaded if no player is near it. Minimum is 1500
+    ForcePvP: True                      # Forces all playfield to be PvP. Useful for coop games
+    OriginFactionStart: True            # Player joining a game will always be in a default faction unique to the Origin. Useful for coop games
+    ThrustersNeedOpenSpace: False       # If true, a thruster needs open space behind it to work. Otherwise, the thruster will be deactivated.
     CustomPlayerTab: "Scenario Change Log;https://steamcommunity.com/sharedfiles/filedetails/changelog/2550354956"
 
-    ### In local Coop, following parameter are ignored since they are taken from Difficulty Settings window ###
-    FriendlyFireInPvP: True           # default value
-    DiffEscapePodContent: Medium      # default value
-    DiffPlayerProgression: Normal     # default value
-    DiffDegradationSpeed: Normal      # default value
-    DiffFoodConsumption: Normal       # default value
-    DiffOxygenConsumption: Normal     # default value
-    DiffRadiationTemperature: Normal  # default value
-    DiffAmountOfOre: Normal           # default value
-    DiffNumberOfDeposits: Normal      # default value
-    DiffAttackStrength: Easy        # default value
-    DiffDronePresence: Normal         # default value
-    DiffDroneBaseAttack: Normal       # default value
-    DiffConstrCraftTime: Normal       # default value
-    DiffBpProdTime: Instant            # default value
+    FriendlyFireInPvP: True             # false will not damage any allied structure even in PvP. Will still hurt players!
+    DiffEscapePodContent: Hard          # Determines the content of your equipment when you start a new game [Easy, Medium, Hard]
+    DiffPlayerProgression: Slower       # Influences the overall player progression speed by earning more or less XP [Faster, Normal, Slower]
+    DiffDegradationSpeed: Normal        # Influences the speed of degradation when using weapons and tools [Off, Low, Normal, High]
+    DiffFoodConsumption: Normal         # Influences the speed of oxygen consumption [Off, Low, Normal, High]
+    DiffOxygenConsumption: Normal       # Influences the speed of food consumption [Off, Low, Normal, High]
+    DiffRadiationTemperature: Normal    # Influences the impact of temperature and radiation on the player [Off, Low, Normal, High]
+    DiffAmountOfOre: Normal             # Influences the average amount of ore that a deposit contains [Rich, Normal, Poor]
+    DiffNumberOfDeposits: Few           # Influences the average number of deposits per planet [Plenty, Normal, Few]
+    DiffAttackStrength: Hard            # Influences the overall difficulty when attacking enemies [Easy, Medium, Hard]
+    DiffDronePresence: High             # Influences the overall number of drones that are present on a planet [Off, Low, Normal, High]
+    DiffDroneBaseAttack: Normal         # Influences the frequency of the drone base attacks [Off, Low, Normal, High]
+    DiffConstrCraftTime: Normal         # Influences the overall craft speed of constructors [Faster, Normal, Slower, Instant]
+    DiffBpProdTime: Instant             # Influences the overall production speed of the blueprint factory and the repair speed of the repair bay (Repair-2-Template and Repair Blocks) [Faster, Normal, Slower, Instant]
 
 
   - ValidFor: [ SP, Creative ]
