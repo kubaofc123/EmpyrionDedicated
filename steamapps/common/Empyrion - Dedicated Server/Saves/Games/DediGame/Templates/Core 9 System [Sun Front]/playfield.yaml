@@ -1,0 +1,426 @@
+PlayfieldType: Space
+TemperatureDay: -148
+Radiation: 9.24094391
+PlanetType: SunOrbit
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  A warp arrival point for a star.
+
+  [c][ffff00]Warp Rift:[-][/c] [c][ffffff]This sector cannot be locked or directly warped to. You can only warp to it from a different star system or via waypoint. Blueprint factory is disabled.[-][/c]
+
+  [c][ffffff][i]Don't leave anything behind.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: SunOrbit
+UseFixed: true
+Build: 4131
+AllowBlueprintSV: false
+AllowBlueprintCV: false
+AllowBlueprintHV: false
+AllowBlueprintBA: false
+Music: ColdDivide
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldFewBoxExclude
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 167
+    - -105
+    - -146
+  - Type: AsteroidVoxel03Silicon
+    Prefab: AsteroidVoxel03Silicon
+    Name: Silicon Asteroid
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 12824
+    - 948
+    - 5049
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Silicon
+    Prefab: AsteroidVoxel03Silicon
+    Name: Silicon Asteroid
+    Properties: *o0
+    Pos:
+    - 2149
+    - -464
+    - 2321
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_PolarisSecuritySat
+    Mode: Survival
+    Name: Security Satellite
+    InitPower: true
+    Faction: Polaris
+    Properties: &o1
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 5893
+    - 141
+    - 20010
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_PolarisExplorationSat
+    Mode: Survival
+    Name: Long Range Observatory
+    InitPower: true
+    Faction: Polaris
+    Properties: *o1
+    Pos:
+    - -18862
+    - -1555
+    - 8909
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_ColonistsCommonSat
+    Mode: Survival
+    Name: Communication Satellite
+    InitPower: true
+    Faction: Colonists
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 8440
+    - -254
+    - -8711
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_ARC
+    Mode: Survival
+    Name: ARC Territory
+    InitPower: true
+    Faction: ARC
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - -2738
+    - -440
+    - 1092
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Colonists
+    Mode: Survival
+    Name: Colonists Territory
+    InitPower: true
+    Faction: Colonists
+    FactionTerritory:
+    - Eden_ColonistsTerritory
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 4771
+    - -1110
+    - 1765
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Drone
+    Mode: Survival
+    Name: Drone Swarm Territory
+    InitPower: true
+    Faction: Eden_DroneHome
+    FactionTerritory:
+    - Eden_DroneHome
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 9740
+    - -1026
+    - -7742
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Farr
+    Mode: Survival
+    Name: Farr Territory
+    InitPower: true
+    Faction: Farr
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 3624
+    - -1103
+    - -2730
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Kriel
+    Mode: Survival
+    Name: Kriel Territory
+    InitPower: true
+    Faction: Kriel
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 9699
+    - -1822
+    - 5535
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Legacy
+    Mode: Survival
+    Name: Legacy Territory
+    InitPower: true
+    Faction: TheLegacy
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 304
+    - -360
+    - 5197
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Pirates
+    Mode: Survival
+    Name: Pirates Territory
+    InitPower: true
+    Faction: Pirates
+    FactionTerritory:
+    - Eden_PiratesTerritory
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 2410
+    - -1952
+    - 20720
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Polaris
+    Mode: Survival
+    Name: Polaris Territory
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory:
+    - Eden_PolarisTerritory
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - -2256
+    - 1402
+    - -3809
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Progen
+    Mode: Survival
+    Name: Progenitor Territory
+    InitPower: true
+    Faction: Eden_Progenitor
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - -8814
+    - 476
+    - -4366
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Solitude
+    Mode: Survival
+    Name: Solitude Territory
+    InitPower: true
+    Faction: Eden_SolitudeTerritory
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 15389
+    - -1208
+    - -14082
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Tesch
+    Mode: Survival
+    Name: Tesch Territory
+    InitPower: true
+    Faction: Tesch
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - -10095
+    - -897
+    - 5687
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Trader
+    Mode: Survival
+    Name: Trader Territory
+    InitPower: true
+    Faction: Trader
+    FactionTerritory:
+    - Eden_TraderTerritory
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 1991
+    - 1588
+    - 20764
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Warlord
+    Mode: Survival
+    Name: Warlord Territory
+    InitPower: true
+    Faction: Warlord
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 3304
+    - 1517
+    - -1116
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Wasteland
+    Mode: Survival
+    Name: Wastelanders Territory
+    InitPower: true
+    Faction: Wastelanders
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - -5531
+    - -1544
+    - -20114
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_Territory_Zirax
+    Mode: Survival
+    Name: Zirax Territory
+    InitPower: true
+    Faction: Zirax
+    FactionTerritory:
+    - Rados
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 2277
+    - -706
+    - -2633
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true

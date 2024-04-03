@@ -1,0 +1,740 @@
+PlayfieldType: Space
+TemperatureDay: -145
+Radiation: 6.32248497
+PlanetType: Station
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][ffff00]Medium[-][/c]
+
+  Sovereignty: [c][FFA500]Polaris[-][/c]
+
+
+  Trade stations such as these are commonly used as hubs for commerce or habitation.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Station
+UseFixed: true
+Build: 4139
+Music: ColdDivide
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldFewBoxExclude
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 170
+    - 57
+    - -59
+  - Type: AsteroidVoxel02Copper
+    Prefab: AsteroidVoxel02Copper
+    Name: Copper Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 3901
+    - -1074
+    - -1964
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RTSO_Variant4B
+    Mode: Survival
+    Name: Trade Station Lambda
+    InitPower: true
+    Faction: Polaris
+    Properties:
+    - Key: Discovery
+      Value: False
+    - Key: PvEArea
+      Value: 500
+    - Key: Music
+      Value: NebularClouds
+    - Key: RegenAfter
+      Value: 720
+    - Key: StationInterface
+      Value: Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20
+    - Key: AIManExcludeFromPatrol
+      Value: true
+    Pos:
+    - -2137
+    - 333
+    - 1494
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_TSO_PolHabitat
+    Mode: Survival
+    Name: Habitat
+    InitPower: true
+    Faction: Polaris
+    Properties:
+    - Key: Discovery
+      Value: False
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 3912
+    - -267
+    - 11218
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_PolSupplyStation
+    Mode: Survival
+    Name: Station Theta-4
+    InitPower: true
+    Faction: Polaris
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 5500
+    - 1179
+    - -2125
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_TSOPolaris01
+    Mode: Survival
+    Name: Kenex Station
+    InitPower: true
+    Faction: Polaris
+    Properties: *o0
+    Pos:
+    - -8395
+    - -1325
+    - -19097
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_PolarisGasRefinery
+    Mode: Survival
+    Name: Gas Refinery
+    InitPower: true
+    Faction: Polaris
+    Properties: *o0
+    Pos:
+    - -18285
+    - 603
+    - 10041
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_SmugOutpost5
+    Mode: Survival
+    Name: Smuggler Barge
+    InitPower: true
+    Faction: Pirates
+    Properties: &o1
+    - Key: MapDistance
+      Value: 6000
+    - Key: HudDistance
+      Value: 6000
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 2295
+    - -645
+    - 5033
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_SmugOutpost5
+    Mode: Survival
+    Name: Smuggler Barge
+    InitPower: true
+    Faction: Pirates
+    Properties: *o1
+    Pos:
+    - -5532
+    - 487
+    - -8843
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_SmugOutpost2
+    Mode: Survival
+    Name: Smuggler Hideout
+    InitPower: true
+    Faction: Pirates
+    Properties: *o1
+    Pos:
+    - 7354
+    - -628
+    - -7396
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_SmugOutpost1b
+    Mode: Survival
+    Name: Smuggler Waystation
+    InitPower: true
+    Faction: Pirates
+    Properties: *o1
+    Pos:
+    - -6062
+    - -1273
+    - -3093
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS5
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: &o3
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -7443
+    - 1965
+    - -7308
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS5
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: &o2
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -7451.32813
+    - 2006.22949
+    - -7320.91406
+    Rot:
+    - 317
+    - 324
+    - 287
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS3
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o2
+    Pos:
+    - -7455.41016
+    - 2017.62207
+    - -7273.75244
+    Rot:
+    - 266
+    - 233
+    - 97
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS3
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o3
+    Pos:
+    - 3967
+    - -1310
+    - -9646
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS1
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o2
+    Pos:
+    - 3918.41382
+    - -1296.51428
+    - -9608.23047
+    Rot:
+    - 166
+    - 332
+    - 214
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS2
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o2
+    Pos:
+    - 3977.8606
+    - -1290.17688
+    - -9686.06348
+    Rot:
+    - 149
+    - 97
+    - 340
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS1
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o2
+    Pos:
+    - 4007.30225
+    - -1314.81311
+    - -9592.69336
+    Rot:
+    - 219
+    - 115
+    - 260
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS1
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o3
+    Pos:
+    - 4265
+    - -877
+    - -3000
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS1
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o2
+    Pos:
+    - 4255.9585
+    - -897.727051
+    - -2973.28589
+    Rot:
+    - 172
+    - 210
+    - 21
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS5
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o2
+    Pos:
+    - 4265.55615
+    - -892.40332
+    - -3061.08545
+    Rot:
+    - 234
+    - 224
+    - 186
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS4
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o3
+    Pos:
+    - 14644
+    - 1740
+    - -14856
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS5
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o2
+    Pos:
+    - 14648.1934
+    - 1765.81458
+    - -14829.8271
+    Rot:
+    - 50
+    - 220
+    - 297
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS2
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o2
+    Pos:
+    - 14656.1523
+    - 1783.13135
+    - -14813.1514
+    Rot:
+    - 94
+    - 6
+    - 94
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS2
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o2
+    Pos:
+    - 14603.918
+    - 1788.88818
+    - -14823.6826
+    Rot:
+    - 33
+    - 273
+    - 231
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS3
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o3
+    Pos:
+    - -3566
+    - 805
+    - 166
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_AsteroidPentaxidS4
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o2
+    Pos:
+    - -3622.48486
+    - 771.915771
+    - 138.5065
+    Rot:
+    - 177
+    - 209
+    - 119
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - -4019.02954
+    - 223
+    - -4124.73975
+    DroneOnDuty:
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - 4038.04932
+      - -2426
+      - 5640.57813
+      Radius: 6111
+      Properties: &o4
+      - Key: AIManMaxPursuitRange
+        Value: 4500
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - -3942.66333
+      - -439
+      - -2746.53027
+      Radius: 1863
+      Properties: *o4
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - 1858.70508
+      - -1814
+      - 4753.52832
+      Radius: 8685
+      Properties: *o4
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - -2297.7334
+      - -1912
+      - -4361.80273
+      Radius: 1561
+      Properties: &o5
+      - Key: AIManPatrolFactions
+        Value: Polaris
+      - Key: AIManMaxPursuitRange
+        Value: 3000
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - 4435.89063
+      - -1548
+      - -136.815109
+      Radius: 8271
+      Properties: *o5
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - -342.893036
+      - 1864
+      - 2749.70264
+      Radius: 9685
+      Properties: *o5
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - 3443.47705
+      - -500
+      - 2160.25244
+      Radius: 7670
+      Properties: *o5
+    SpaceVessel:
+    - Name: OPVPolarisRG
+      Faction: Polaris
+      FixedMaxSpeed: 44
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - 1799.40417
+        - 2370.85815
+        - 2424.30469
+        Radius: 3295
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 2
+        Extra: 0
+      Properties:
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 27
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - 694
+          - 669
+          - 4387
+        - - -5844
+          - -2732
+          - -16792
+        - - 15674
+          - 6982
+          - 1948
+        - - 103
+          - -7056
+          - 366
+        - - 2673
+          - 1692
+          - 8905
+        - - -527
+          - 4827
+          - -2344
+        - - 4567
+          - 3674
+          - 3878
+        - - -289
+          - -2048
+          - -14933
+        - - 4577
+          - -4617
+          - -3020
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 1
+        Extra: 0
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 25
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - 5174
+          - 1192
+          - 4749
+        - - -6695
+          - 9089
+          - 19601
+        - - -12421
+          - 1707
+          - -8387
+        - - 2636
+          - -1405
+          - 2629
+        - - -21391
+          - 13834
+          - -5280
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 1
+        Extra: 0
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 32
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - 10528
+          - -756
+          - 5178
+        - - 3714
+          - -5722
+          - -6880
+        - - -5677
+          - 6045
+          - -7324
+        - - -4084
+          - -8296
+          - -4221
+        - - 1539
+          - -7678
+          - 84
+        - - 3360
+          - 1340
+          - -8830
+        - - -5544
+          - 10440
+          - -2525
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 1
+        Extra: 0
+    - Name: Freighter
+      Faction: Trader
+      FixedMaxSpeed: 14
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - 1715
+          - -84
+          - 3312
+        - - -1292
+          - -3139
+          - 1437
+        - - 3612
+          - 1392
+          - -7436
+        - - -3170
+          - 2450
+          - 666
+        - - 3687
+          - -676
+          - 347
+        - - 1539
+          - -1207
+          - -4123
+        - - 5306
+          - -426
+          - -6167
+      Stock:
+      - Name: SpaceDroneTraderLaser
+        Amount: 1
+        Extra: 0
+    - Name: Freighter
+      Faction: Trader
+      FixedMaxSpeed: 17
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - -3566
+          - -1499
+          - -3743
+        - - 3229
+          - -268
+          - -1595
+        - - -3323
+          - 941
+          - 1845
+      Stock:
+      - Name: SpaceDroneTraderLaser
+        Amount: 1
+        Extra: 0
+    - Name: Eden_FreighterColT1
+      Faction: Colonists
+      FixedMaxSpeed: 9
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - -9285
+          - -1887
+          - -2183
+        - - 4348
+          - -855
+          - 23597
+        - - -14202
+          - -4565
+          - -4696
+        - - 7658
+          - 7448
+          - -21494
+        - - -4423
+          - 8421
+          - -4255
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 1
+        Extra: 0

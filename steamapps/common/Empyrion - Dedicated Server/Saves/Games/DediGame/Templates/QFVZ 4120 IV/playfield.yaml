@@ -1,0 +1,348 @@
+PlayfieldType: Space
+TemperatureDay: -178
+Radiation: 8.97164536
+PlanetType: Asteroid Field
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][00ff00]Easy[-][/c]
+
+
+  A poor quality asteroid field. Not much is here.
+
+  May contain hidden asteroids not shown on map description.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Asteroid Field
+UseFixed: true
+Build: 4243
+Music: ColdDivide
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldRectangle2
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Sathium
+    Prefab: AsteroidVoxel01Sathium
+    Name: Sathium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -10611
+    - -45
+    - -17961
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Iron
+    Prefab: Eden_BA_Dummy
+    Mode: Survival
+    Name: EdenAsteroidScaninfo
+    InitPower: true
+    Faction: None
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 2154
+    - -3794
+    - 2689
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: RBAO_PolarisAsteroidMining
+    Mode: Survival
+    Name: Mining Facility
+    InitPower: true
+    Faction: Polaris
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    - Key: StationInterface
+      Value: Fuel:4,O2:4,IfNeutral:0,IfFriendly:-0.1,IfHonored:-0.20
+    Pos:
+    - -4845
+    - -1083
+    - 20289
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_SmugOutpost1c
+    Mode: Survival
+    Name: Smuggler Waystation
+    InitPower: true
+    Faction: Pirates
+    Properties:
+    - Key: MapDistance
+      Value: 6000
+    - Key: HudDistance
+      Value: 6000
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 1035
+    - -72
+    - 2392
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_JettisonedCargoPod
+    Mode: Survival
+    Name: Jettisoned Cargo Pod
+    InitPower: true
+    Faction: None
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: MapDistance
+      Value: 3000
+    - Key: HudDistance
+      Value: 3000
+    - Key: MapMarker
+      Value: Neutral
+    Pos:
+    - -9629
+    - 62
+    - 4008
+    Rot:
+    - 0
+    - 0
+    - 0
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - 5588.42188
+    - -1062
+    - -1127.36047
+    DroneOnDuty:
+    - Name: SpaceDronePlasma
+      Faction: Main
+      Pos:
+      - -734.100952
+      - -428
+      - 6921.17725
+      Radius: 5717
+      Properties: &o0
+      - Key: AIManMaxPursuitRange
+        Value: 7500
+    - Name: SpaceDroneLaser
+      Faction: Main
+      Pos:
+      - 4941.42285
+      - -1582
+      - -255.044617
+      Radius: 3366
+      Properties: *o0
+    - Name: SpaceDroneLaser
+      Faction: Main
+      Pos:
+      - -4894.36865
+      - -45
+      - 2586.97705
+      Radius: 9960
+      Properties: *o0
+    - Name: SpaceDroneLaser
+      Faction: Main
+      Pos:
+      - 2253.36353
+      - 520
+      - -1006.66583
+      Radius: 7282
+      Properties: *o0
+    - Name: SpaceDroneLaser
+      Faction: Main
+      Pos:
+      - 2859.30322
+      - 630.925171
+      - 2664.1416
+      Radius: 7664
+      Properties: *o0
+    - Name: SpaceDroneLaser
+      Faction: Main
+      Pos:
+      - -2401.49463
+      - -136
+      - 3431.05908
+      Radius: 7297
+      Properties: *o0
+    - Name: SpaceDroneLaser
+      Faction: Main
+      Pos:
+      - -107.698769
+      - -1713
+      - 2568.74341
+      Radius: 9364
+      Properties: &o1
+      - Key: AIManPatrolFactions
+        Value: Main
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: SpaceDronePlasma
+      Faction: Main
+      Pos:
+      - -3687.66992
+      - 1653
+      - -2982.80762
+      Radius: 5017
+      Properties: *o1
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      Pos:
+      - 4386.25439
+      - -209
+      - 4942.31055
+      Radius: 6663
+      Properties:
+      - Key: AIManMaxPursuitRange
+        Value: 7500
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -7455.84082
+      - -2468
+      - 784.502319
+      Radius: 2516
+      Properties: &o2
+      - Key: AIManMaxPursuitRange
+        Value: 10000
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -6070.87109
+      - -514
+      - -2674.78613
+      Radius: 5484
+      Properties: *o2
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -1690.04834
+      - -1595
+      - 401.13031
+      Radius: 8657
+      Properties: &o3
+      - Key: AIManPatrolFactions
+        Value: Main
+      - Key: AIManMaxPursuitRange
+        Value: 10000
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -5079.98096
+      - 2290
+      - 3664.8999
+      Radius: 3221
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - 6097.13623
+      - 1019
+      - -757.406372
+      Radius: 833
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -2175.56958
+      - -1329
+      - -4689.96777
+      Radius: 5783
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - 3970.85718
+      - 1576
+      - 4589.66797
+      Radius: 2115
+      Properties: *o3
+    SpaceVessel:
+    - Name: OPVKrielRG
+      Faction: Kriel
+      FixedMaxSpeed: 31
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -4052.73364
+        - 253.925461
+        - -11417.0996
+        Radius: 9559
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 2
+        Extra: 0
+      Properties:
+      - Key: AIManMaxPursuitRange
+        Value: 25000
+    - Name: Eden_FreighterColT1
+      Faction: Colonists
+      FixedMaxSpeed: 7
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - 7534
+          - 2152
+          - 2507
+        - - -10786
+          - 631
+          - 3859
+        - - -6515
+          - -5909
+          - 15955
+        - - -15798
+          - -7969
+          - -12737
+        - - -798
+          - -2823
+          - -5282
+        - - 5251
+          - -4058
+          - -2918
+        - - 3767
+          - 4450
+          - 4210
+        - - 9314
+          - 8213
+          - 16706
+        - - 19668
+          - -2967
+          - 177
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 1
+        Extra: 0

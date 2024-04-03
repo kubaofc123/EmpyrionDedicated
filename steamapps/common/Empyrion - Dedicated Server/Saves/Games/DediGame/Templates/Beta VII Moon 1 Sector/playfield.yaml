@@ -1,0 +1,236 @@
+PlayfieldType: Space
+TemperatureDay: -194
+Radiation: 9.91290855
+PlanetType: OrbitSectorStart
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: OrbitSectorStart
+UseFixed: true
+Build: 4131
+Music: Migration
+POIs:
+  Fixed:
+  - Type: AsteroidFieldFewBoxExclude
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 124
+    - 34
+    - 53
+  - Type: AsteroidVoxel02Copper
+    Prefab: AsteroidVoxel02Copper
+    Name: Copper Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -1583
+    - 1698
+    - -13650
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Cobalt
+    Prefab: AsteroidVoxel01Cobalt
+    Name: Cobalt Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -9180
+    - -663
+    - -10673
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_WaystationStory
+    Mode: Survival
+    Name: Waystation
+    InitPower: true
+    Faction: Colonists
+    Properties:
+    - Key: Music
+      Value: NebularClouds
+    - Key: Discovery
+      Value: False
+    - Key: PvEArea
+      Value: 500
+    - Key: StationInterface
+      Value: Fuel:1.1,O2:1.1,Warp:1.1,Ammo:2,Repair:2,Shield:2,IfNeutral:1,IfFriendly:-0.08,IfHonored:-0.16
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 10671
+    - -494
+    - -8537
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_TraderGasRefinery
+    Mode: Survival
+    Name: Gas Refinery
+    InitPower: true
+    Faction: Trader
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    - Key: StationInterface
+      Value: Fuel:1,O2:1,Repair:8,Shield:8,IfNeutral:0.05,IfFriendly:-0.08,IfHonored:-0.16
+    Pos:
+    - 1702
+    - 821
+    - 3075
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - 7179.61475
+    - -340
+    - 2066.14966
+    DroneOnDuty:
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - 6301.99268
+      - 688
+      - 2330.20386
+      Radius: 3978
+      Properties: &o0
+      - Key: AIManPatrolFactions
+        Value: Polaris, Trader
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - 3669.54053
+      - 1304
+      - -6610.83936
+      Radius: 6645
+      Properties: *o0
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - 3370.22168
+      - 314
+      - -4634.05908
+      Radius: 4945
+      Properties: *o0
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - 3932.94824
+      - -2149
+      - 5121.01221
+      Radius: 6338
+      Properties: *o0
+    - Name: SpaceDroneBattered01
+      Faction: Pirates
+      Pos:
+      - -3263.86499
+      - -1606
+      - -3238.64014
+      Radius: 3184
+      Properties: &o1
+      - Key: AIManPatrolFactions
+        Value: Pirates
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: SpaceDroneBattered02
+      Faction: Pirates
+      Pos:
+      - -7581.771
+      - -1814
+      - 965.503296
+      Radius: 7866
+      Properties: *o1
+    SpaceVessel:
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 27
+      Mission: Freighter
+      DelayBetweenRespawn: 317
+      DelayBeforeSelfDestruction: 205
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 425
+        DelayBeforeSelfDestruction: 209
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - 6684
+          - -4204
+          - -5536
+        - - 9857
+          - -7307
+          - 2058
+        - - 4633
+          - 3099
+          - 9181
+        - - -4314
+          - 5251
+          - 9399
+        - - -9906
+          - -3816
+          - 2455
+        - - -9048
+          - -2087
+          - -6945
+        - - -239
+          - 2784
+          - -12908
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 4
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 26
+      Mission: Freighter
+      DelayBetweenRespawn: 351
+      DelayBeforeSelfDestruction: 220
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 528
+        DelayBeforeSelfDestruction: 209
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - -3394
+          - -450
+          - 744
+        - - -1449
+          - -1730
+          - 2945
+        - - 1580
+          - -1548
+          - 3354
+        - - 3307
+          - 4318
+          - 784
+        - - 3009
+          - 2635
+          - -2358
+        - - 30
+          - 1196
+          - -3517
+        - - -2695
+          - -2706
+          - -2187
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 4

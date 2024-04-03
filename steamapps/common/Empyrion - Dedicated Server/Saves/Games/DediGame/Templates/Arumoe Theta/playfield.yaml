@@ -1,0 +1,156 @@
+PlayfieldType: Space
+TemperatureDay: -248
+Radiation: 7.70259285
+PlanetType: Exploration Site Class 2
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Type: [c][7FFFD4]Exploration Site[-][/c] - [c][00ff00]Class 2[-][/c]
+
+
+  Sensors pick up feint subspace signals coming from this sector.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Exploration Site Class 2
+UseFixed: true
+Build: 4233
+Music: EnergyMatrix
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidVoxel01Magnesium
+    Prefab: AsteroidVoxel01Magnesium
+    Name: Magnesium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -7680
+    - 337
+    - -7368
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_Antenna2
+    Mode: Survival
+    Name: Unknown Signal
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory:
+    - All
+    Properties:
+    - Key: Discovery
+      Value: False
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_HackT1_14
+    Mode: Survival
+    Name: Data Cache
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: &o0
+    - All
+    Properties: &o1
+    - Key: HudDistance
+      Value: 2500
+    - Key: MapDistance
+      Value: 2500
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 41.6283035
+    - -337.077972
+    - -165.920166
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_HackT1_11
+    Mode: Survival
+    Name: Data Cache
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - -336.364594
+    - 144.287323
+    - 173.39267
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_HackT1_14
+    Mode: Survival
+    Name: Data Cache
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - -144.677887
+    - 3.74781227
+    - -365.380981
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_HackT1_14
+    Mode: Survival
+    Name: Data Cache
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - 297.922424
+    - -22.9792004
+    - -256.807678
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+DroneBaseSetup:
+  Fixed:
+  - Name: MainDroneBase
+    Pos:
+    - -4002.7876
+    - 1641
+    - -6290.43896
+    DroneOnDuty:
+    - Name: SpaceDroneLaser
+      Pos:
+      - -2868.59644
+      - -1513
+      - 4305.97607
+      Radius: 346
+    - Name: SpaceDroneLaser
+      Pos:
+      - 237.070175
+      - 2281
+      - -981.782898
+      Radius: 634
+    SpaceVessel: []

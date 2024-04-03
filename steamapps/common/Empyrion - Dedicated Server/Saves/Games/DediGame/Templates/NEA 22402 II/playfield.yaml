@@ -1,0 +1,264 @@
+PlayfieldType: Space
+TemperatureDay: -123
+Radiation: 9.7767868
+PlanetType: Pirate Battlestation
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][ff0000]Hard[-][/c]
+
+  Sovereignty: [c][ffff00]Pirates[-][/c]
+
+
+  This asteroid field contains a heavily armed pirate battlestation. Caution is advised.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Pirate Battlestation
+UseFixed: true
+Build: 4133
+Music: Vanguard
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidField
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Magnesium
+    Prefab: AsteroidVoxel02Magnesium
+    Name: Magnesium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -7644
+    - 131
+    - 12507
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Zascosium
+    Prefab: AsteroidVoxel03Zascosium
+    Name: Zascosium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 14029
+    - 656
+    - 4998
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_PirateMain1
+    Mode: Survival
+    Name: Pirate Battlestation
+    InitPower: true
+    Faction: Pirates
+    Properties:
+    - Key: Discovery
+      Value: False
+    - Key: RegenAfter
+      Value: 720
+    - Key: StationInterface
+      Value: Ammo:0.5,Repair:12,IfNeutral:0.2,IfHonored:-0.20
+    Pos:
+    - -1673
+    - 1329
+    - -10296
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Gold
+    Prefab: Eden_AsteroidGold1
+    Mode: Survival
+    Name: Gold Asteroid
+    Faction: None
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -2073.56055
+    - 979.722961
+    - -10087.1992
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Gold
+    Prefab: Eden_AsteroidGold3
+    Mode: Survival
+    Name: Gold Asteroid
+    Faction: None
+    Properties: *o0
+    Pos:
+    - -1882.49976
+    - 1757.80566
+    - -10472.9648
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Gold
+    Prefab: Eden_AsteroidGold1
+    Mode: Survival
+    Name: Gold Asteroid
+    Faction: None
+    Properties: *o0
+    Pos:
+    - -1365.74744
+    - 1680.02869
+    - -9959.8457
+    Rot:
+    - 0
+    - 0
+    - 0
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - 954.652649
+    - 1327
+    - 845.140991
+    DroneOnDuty:
+    - Name: SpaceDronePlasma
+      Faction: Pirates
+      Pos:
+      - 5807.22119
+      - -2411
+      - -2888.66431
+      Radius: 2824
+      Properties: &o1
+      - Key: AIManMaxPursuitRange
+        Value: 10000
+    - Name: SpaceDroneBattered01
+      Faction: Pirates
+      Pos:
+      - -3925.04248
+      - -600
+      - 3666.29028
+      Radius: 1000
+      Properties: *o1
+    - Name: SpaceDroneBattered01
+      Faction: Pirates
+      Pos:
+      - -2146.45288
+      - 2150
+      - 978.580872
+      Radius: 9098
+      Properties: *o1
+    - Name: SpaceDroneBattered01
+      Faction: Pirates
+      Pos:
+      - -5887.89648
+      - 1776
+      - -3765.47412
+      Radius: 5556
+      Properties: *o1
+    - Name: SpaceDroneBattered01
+      Faction: Pirates
+      Pos:
+      - 7573.09521
+      - -1689
+      - -1103.01233
+      Radius: 5047
+      Properties: &o2
+      - Key: AIManPatrolFactions
+        Value: Zirax
+      - Key: AIManMaxPursuitRange
+        Value: 7500
+    - Name: SpaceDroneBattered01
+      Faction: Pirates
+      Pos:
+      - 626.059814
+      - -2199
+      - -1526.61365
+      Radius: 7125
+      Properties: *o2
+    - Name: SpaceDronePlasma
+      Faction: Pirates
+      Pos:
+      - -823.175049
+      - -861
+      - 177.050339
+      Radius: 8267
+      Properties: *o2
+    - Name: SpaceDroneBattered01
+      Faction: Pirates
+      Pos:
+      - 4250.85889
+      - 1572
+      - -3273.13647
+      Radius: 5193
+      Properties: *o2
+    SpaceVessel:
+    - Name: OPVPiratesRG
+      Faction: Pirates
+      FixedMaxSpeed: 46
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 3090.97412
+        - 1350.4917
+        - -1977.34802
+        POINameAsPositionRef: &o3
+        - RBAO_PirateMain1
+        Radius: 2089
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 2
+        Extra: 0
+      Properties: &o4
+      - Key: AIManMaxPursuitRange
+        Value: 12000
+    - Name: OPVPiratesRG
+      Faction: Pirates
+      FixedMaxSpeed: 46
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -3105.39624
+        - -2531.55908
+        - -3488.1189
+        POINameAsPositionRef: *o3
+        Radius: 1231
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 3
+        Extra: 0
+      Properties: *o4
+    - Name: OPVPiratesRG
+      Faction: Pirates
+      FixedMaxSpeed: 51
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 1693.01428
+        - -2448.57935
+        - 5143.48877
+        POINameAsPositionRef: *o3
+        Radius: 1874
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 2
+        Extra: 0
+      Properties: *o4

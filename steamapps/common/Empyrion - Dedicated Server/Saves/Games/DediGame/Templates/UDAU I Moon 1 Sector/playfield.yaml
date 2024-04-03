@@ -1,0 +1,3589 @@
+PlayfieldType: Space
+TemperatureDay: -156
+Radiation: 14.8228045
+PlanetType: Orbit
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][00ff00]Easy[-][/c]
+
+
+  Orbit arouund a gas giant moon.
+
+  [b]Orbital Stats:[/b] Gas Giant Moon Orbit
+
+  [c][D2AF00][b]Increased:[/b][-][/c][c][DBDBDB] Mining, refining, industry.[-][/c]
+
+  [c][D2AF00][b]Decreased:[/b][-][/c][c][DBDBDB] Military, civilian.[-][/c]
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Orbit
+UseFixed: true
+Build: 4139
+Music: ColdDivide
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldFewBoxExclude
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 38
+    - -143
+    - -132
+  - Type: AsteroidVoxel02Copper
+    Prefab: AsteroidVoxel02Copper
+    Name: Copper Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 4610
+    - 100
+    - 1933
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Silicon
+    Prefab: AsteroidVoxel02Silicon
+    Name: Silicon Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 8251
+    - -362
+    - -9212
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Promethium
+    Prefab: AsteroidVoxel02Promethium
+    Name: Promethium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 1724
+    - -872
+    - -5222
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: Eden_SectorNebulaXLOrangeDim
+    Prefab: Eden_SectorNebulaXLOrangeDim
+    Mode: Survival
+    Name: Gas Cloud
+    InitPower: true
+    Faction: Xenu
+    FactionTerritory: &o0
+    - Xenu
+    Properties: &o1
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 3222
+    - -75
+    - -4101
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: Eden_SectorNebulaXLOrangeDim
+    Prefab: Eden_SectorNebulaXLOrangeDim
+    Mode: Survival
+    Name: Gas Cloud
+    InitPower: true
+    Faction: Xenu
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - 4910
+    - -45
+    - -9202
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_XenuProduction
+    Mode: Survival
+    Name: Orbital Production
+    InitPower: true
+    Faction: Zirax
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    - Key: StationInterface
+      Value: Fuel:1.6,O2:1.6,IfNeutral:0.2,IfFriendly:-0.05,IfHonored:-0.10
+    Pos:
+    - -2363
+    - -29
+    - 4232
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_ZiraxGas
+    Mode: Survival
+    Name: Gas Refinery
+    InitPower: true
+    Faction: Rados
+    Properties: &o2
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -10017
+    - -1881
+    - 2844
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_ZiraxGas
+    Mode: Survival
+    Name: Gas Refinery
+    InitPower: true
+    Faction: Rados
+    Properties: *o2
+    Pos:
+    - 4245
+    - -612
+    - -13902
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_XenuSupplyStation
+    Mode: Survival
+    Name: Xenu Supply Station
+    InitPower: true
+    Faction: Zirax
+    FactionTerritory: &o3
+    - Xenu
+    Properties: &o4
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    - Key: StationInterface
+      Value: Fuel:1.2,O2:1.2,Warp:1.2,Ammo:3,IfNeutral:0.2,IfFriendly:-0.05,IfHonored:-0.10
+    Pos:
+    - 5825
+    - -1861
+    - 7071
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_XenuProduction
+    Mode: Survival
+    Name: Xenu Production
+    InitPower: true
+    Faction: Zirax
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - -7348
+    - -544
+    - 6863
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_XenuAuxT1_2
+    Mode: Survival
+    Name: Transfer Station
+    InitPower: true
+    Faction: Xenu
+    Properties: &o5
+    - Key: RegenAfter
+      Value: 720
+    - Key: StationInterface
+      Value: Fuel:1.6,O2:1.6,Warp:1.6,Ammo:3,Repair:2,Shield:3,IfNeutral:0.2,IfFriendly:-0.05,IfHonored:-0.10
+    Pos:
+    - 8826
+    - 705
+    - 9014
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_XenuAuxT1_1
+    Mode: Survival
+    Name: Thermica Station
+    InitPower: true
+    Faction: Xenu
+    Properties: *o5
+    Pos:
+    - -12638
+    - 1031
+    - 4810
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_GhystShipyard
+    Mode: Survival
+    Name: Shipyard
+    InitPower: true
+    Faction: Ghyst
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    - Key: StationInterface
+      Value: Fuel:1.6,O2:1.6,Warp:1.6,Ammo:3,Repair:2,Shield:3,IfNeutral:0.2,IfFriendly:-0.05,IfHonored:-0.10
+    Pos:
+    - -1594
+    - 500
+    - 984
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence1
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Ghyst
+    Properties: &o6
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - -8797
+    - 904
+    - -18915
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence1
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Ghyst
+    Properties: *o6
+    Pos:
+    - 9347
+    - -396
+    - -6477
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence2
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Ghyst
+    Properties: *o6
+    Pos:
+    - 4973
+    - -1713
+    - 10611
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry1
+    Mode: Survival
+    Name: Sentry I
+    InitPower: true
+    Faction: Zirax
+    FactionTerritory: &o7
+    - Epsilon
+    Properties: &o8
+    - Key: HudDistance
+      Value: 2500
+    - Key: MapDistance
+      Value: 2500
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 617
+    - 1881
+    - 7581
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Ion1
+    Mode: Survival
+    Name: Plasma Sentry I
+    InitPower: true
+    Faction: Zirax
+    FactionTerritory: *o7
+    Properties: *o8
+    Pos:
+    - -2217
+    - 558
+    - 8687
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry1
+    Mode: Survival
+    Name: Sentry I
+    InitPower: true
+    Faction: Zirax
+    FactionTerritory: *o7
+    Properties: *o8
+    Pos:
+    - 12847
+    - 831
+    - -5532
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry1
+    Mode: Survival
+    Name: Sentry I
+    InitPower: true
+    Faction: Zirax
+    FactionTerritory: *o7
+    Properties: *o8
+    Pos:
+    - 5680
+    - -820
+    - -5727
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry2
+    Mode: Survival
+    Name: Sentry II
+    InitPower: true
+    Faction: Zirax
+    FactionTerritory: *o7
+    Properties: *o8
+    Pos:
+    - -14667
+    - -200
+    - -14834
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolGas2
+    Mode: Survival
+    Name: Gas Refinery
+    InitPower: true
+    Faction: Polaris
+    Properties: &o9
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 9344
+    - 380
+    - 9066
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolGas2
+    Mode: Survival
+    Name: Gas Refinery
+    InitPower: true
+    Faction: Polaris
+    Properties: *o9
+    Pos:
+    - 9937
+    - 1404
+    - 8932
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolGas
+    Mode: Survival
+    Name: Gas Refinery
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: &o10
+    - Eden_PolarisTerritory
+    Properties: &o11
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -10575
+    - -278
+    - -10360
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolGas
+    Mode: Survival
+    Name: Gas Refinery
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o10
+    Properties: *o11
+    Pos:
+    - 9654
+    - -446
+    - -5930
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_TSO_PolFactoryT1
+    Mode: Survival
+    Name: Basic Component Factory
+    InitPower: true
+    Faction: Polaris
+    Properties:
+    - Key: Discovery
+      Value: False
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 7475
+    - 2121
+    - -7274
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_TSO_PolRobotics
+    Mode: Survival
+    Name: Robotics Factory
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory:
+    - Eden_PolarisTerritory
+    Properties:
+    - Key: Discovery
+      Value: False
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -4253
+    - 1942
+    - 3018
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolResearch
+    Mode: Survival
+    Name: Orbital Research Site
+    InitPower: true
+    Faction: Polaris
+    Properties: &o12
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -10288
+    - -643
+    - 1716
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolResearch
+    Mode: Survival
+    Name: Orbital Research Site
+    InitPower: true
+    Faction: Polaris
+    Properties: *o12
+    Pos:
+    - 4060
+    - 957
+    - -9608
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolMiningHub
+    Mode: Survival
+    Name: Asteroid Mining Hub
+    InitPower: true
+    Faction: Polaris
+    Properties: *o12
+    Pos:
+    - 3410
+    - -2336
+    - -4091
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolResearch
+    Mode: Survival
+    Name: Orbital Research Site
+    InitPower: true
+    Faction: Polaris
+    Properties: *o12
+    Pos:
+    - 9724
+    - 3430
+    - -3772
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolResearch
+    Mode: Survival
+    Name: Orbital Research Site
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: &o13
+    - Eden_PolarisDefense
+    Properties: &o14
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 1407
+    - -55
+    - 4189
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolMiningHub
+    Mode: Survival
+    Name: Asteroid Mining Hub
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o13
+    Properties: *o14
+    Pos:
+    - -236
+    - 2738
+    - -5707
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolMiningHub
+    Mode: Survival
+    Name: Asteroid Mining Hub
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o13
+    Properties: *o14
+    Pos:
+    - 975
+    - -755
+    - -5851
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolResearch
+    Mode: Survival
+    Name: Orbital Research Site
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o13
+    Properties: *o14
+    Pos:
+    - 4679
+    - 2331
+    - 3121
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_PolSupplyStation
+    Mode: Survival
+    Name: Station Theta-4
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: &o15
+    - Eden_PolarisDefense
+    Properties: &o16
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 3146
+    - 301
+    - 488
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_PolarisGasRefinery
+    Mode: Survival
+    Name: Gas Refinery
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o15
+    Properties: *o16
+    Pos:
+    - -5676
+    - 2565
+    - 1080
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_TSOPolaris01
+    Mode: Survival
+    Name: Kenex Station
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o15
+    Properties: *o16
+    Pos:
+    - -16158
+    - 3056
+    - -13194
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_TSOPolaris01
+    Mode: Survival
+    Name: Kenex Station
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o15
+    Properties: *o16
+    Pos:
+    - -3664
+    - -882
+    - 4423
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_PolSupplyStation
+    Mode: Survival
+    Name: Station Theta-4
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o15
+    Properties: *o16
+    Pos:
+    - 10079
+    - -430
+    - -2681
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolSecurity2
+    Mode: Survival
+    Name: Laser Sentry I
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: &o17
+    - Eden_PolarisDefense
+    Properties: &o18
+    - Key: MapDistance
+      Value: 3000
+    - Key: HudDistance
+      Value: 3000
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 8170
+    - -2996
+    - 6482
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolSecurity1
+    Mode: Survival
+    Name: Sentry I
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o17
+    Properties: *o18
+    Pos:
+    - -5927
+    - 2661
+    - -865
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolSecurity1
+    Mode: Survival
+    Name: Sentry I
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o17
+    Properties: *o18
+    Pos:
+    - -3271
+    - 1048
+    - -892
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyPOI
+    Mode: Survival
+    Name: Dummy
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: &o19
+    - Eden_PolarisTerritory
+    Properties: &o20
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 1733
+    - 100
+    - -418
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolSecurity1
+    Mode: Survival
+    Name: Sentry I
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: &o21
+    - Eden_PolarisTerritory
+    Properties: &o22
+    - Key: HudDistance
+      Value: 2500
+    - Key: MapDistance
+      Value: 2500
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 1622.66125
+    - 135.55275
+    - -329.245544
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyPOI
+    Mode: Survival
+    Name: Dummy
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o19
+    Properties: *o20
+    Pos:
+    - -3726
+    - 100
+    - 1105
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolSecurity1
+    Mode: Survival
+    Name: Sentry I
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o21
+    Properties: *o22
+    Pos:
+    - -3804.09277
+    - 167.187744
+    - 1156.11096
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyPOI
+    Mode: Survival
+    Name: Dummy
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o19
+    Properties: *o20
+    Pos:
+    - 3471
+    - 100
+    - -2378
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolSecurity2
+    Mode: Survival
+    Name: Laser Sentry I
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o21
+    Properties: *o22
+    Pos:
+    - 3551.21704
+    - 162.864502
+    - -2478.31104
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyPOI
+    Mode: Survival
+    Name: Dummy
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o19
+    Properties: *o20
+    Pos:
+    - -2285
+    - 100
+    - -1723
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolSecurity2
+    Mode: Survival
+    Name: Laser Sentry I
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o21
+    Properties: *o22
+    Pos:
+    - -2217.17139
+    - 42.6503067
+    - -1670.85327
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolSecurity2
+    Mode: Survival
+    Name: Laser Sentry I
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o21
+    Properties: *o22
+    Pos:
+    - -2355.40088
+    - 37.5623169
+    - -1658.64758
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyPOI
+    Mode: Survival
+    Name: Dummy
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o19
+    Properties: *o20
+    Pos:
+    - 281
+    - 100
+    - -2222
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolSecurity1
+    Mode: Survival
+    Name: Sentry I
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o21
+    Properties: *o22
+    Pos:
+    - 197.980133
+    - 156.854172
+    - -2130.50513
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyPOI
+    Mode: Survival
+    Name: Dummy
+    InitPower: true
+    Faction: Polaris
+    FactionTerritory: *o19
+    Properties: *o20
+    Pos:
+    - -1690
+    - 100
+    - -768
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_TraderGas
+    Mode: Survival
+    Name: Gas Refinery
+    InitPower: true
+    Faction: Trader
+    Properties: &o23
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -3457
+    - 1659
+    - -5657
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_TraderGas
+    Mode: Survival
+    Name: Gas Refinery
+    InitPower: true
+    Faction: Trader
+    Properties: *o23
+    Pos:
+    - -12324
+    - -133
+    - 5975
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_PiratesHideout
+    Mode: Survival
+    Name: Hideout
+    InitPower: true
+    Faction: Pirates
+    FactionTerritory: &o24
+    - Eden_PiratesDefense
+    Properties: &o25
+    - Key: RegenAfter
+      Value: 720
+    - Key: MapDistance
+      Value: 6000
+    - Key: HudDistance
+      Value: 6000
+    Pos:
+    - 18180
+    - -274
+    - -10229
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_PiratesSlaveMarket
+    Mode: Survival
+    Name: Slave Market
+    InitPower: true
+    Faction: Pirates
+    FactionTerritory: *o24
+    Properties: *o25
+    Pos:
+    - 2941
+    - 396
+    - -10607
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_PiratesDefense2
+    Mode: Survival
+    Name: Dagger Defense
+    InitPower: true
+    Faction: Pirates
+    FactionTerritory: *o24
+    Properties: *o25
+    Pos:
+    - -11919
+    - -1949
+    - -2346
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_PiratesBC02Husk
+    Mode: Survival
+    Name: BC02-Husk
+    InitPower: true
+    Faction: Pirates
+    FactionTerritory: *o24
+    Properties: *o25
+    Pos:
+    - 3655
+    - -711
+    - -3873
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_PiratesDefense2b
+    Mode: Survival
+    Name: Defense Stake
+    InitPower: true
+    Faction: Pirates
+    FactionTerritory: *o24
+    Properties: *o25
+    Pos:
+    - -7756
+    - 1049
+    - 2008
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_SyndOutpost1
+    Mode: Survival
+    Name: Syndicate Waystation
+    InitPower: true
+    Faction: Pirates
+    Properties: &o26
+    - Key: RegenAfter
+      Value: 720
+    - Key: StationInterface
+      Value: Ammo:1,IfNeutral:0.2,IfHonored:-0.20
+    Pos:
+    - 19448
+    - 523
+    - 7541
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_SyndOutpost3
+    Mode: Survival
+    Name: Syndicate Lookout
+    InitPower: true
+    Faction: Pirates
+    Properties: *o26
+    Pos:
+    - -11704
+    - -3191
+    - 17267
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash1V3
+    Mode: Survival
+    Name: Smuggler Stash
+    InitPower: true
+    Faction: Pirates
+    Properties: &o27
+    - Key: MapDistance
+      Value: 3000
+    - Key: HudDistance
+      Value: 3000
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 20570
+    - -2193
+    - 3464
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash2V3
+    Mode: Survival
+    Name: Smuggler Stash
+    InitPower: true
+    Faction: Pirates
+    Properties: *o27
+    Pos:
+    - -2206
+    - 2321
+    - 20743
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash5V2
+    Mode: Survival
+    Name: Suspicious Asteroid
+    InitPower: true
+    Faction: Pirates
+    Properties: *o27
+    Pos:
+    - 6203
+    - 1597
+    - -8385
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash1V3
+    Mode: Survival
+    Name: Smuggler Stash
+    InitPower: true
+    Faction: Pirates
+    Properties: *o27
+    Pos:
+    - -16182
+    - -2489
+    - -13165
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash2V2
+    Mode: Survival
+    Name: Smuggler Stash
+    InitPower: true
+    Faction: Pirates
+    Properties: *o27
+    Pos:
+    - -5895
+    - -4690
+    - -80
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_KrielBeacon
+    Mode: Survival
+    Name: Kriel Warp Beacon
+    InitPower: true
+    Faction: Kriel
+    Properties: &o28
+    - Key: Music
+      Value: NebularClouds
+    - Key: Discovery
+      Value: False
+    - Key: StationInterface
+      Value: Fuel:1,O2:1,Repair:3,Shield:8,IfNeutral:0.05,IfFriendly:-0.08,IfHonored:-0.16
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 12390
+    - 1567
+    - 5814
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_KrielBeacon
+    Mode: Survival
+    Name: Kriel Warp Beacon
+    InitPower: true
+    Faction: Kriel
+    Properties: *o28
+    Pos:
+    - 9839
+    - 1112
+    - -18394
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_WarAuxT1_1
+    Mode: Survival
+    Name: Luark Station
+    InitPower: true
+    Faction: Warlord
+    Properties: &o29
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -6913
+    - 3667
+    - -7811
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_WarAuxT1_1
+    Mode: Survival
+    Name: Luark Station
+    InitPower: true
+    Faction: Warlord
+    Properties: *o29
+    Pos:
+    - -347
+    - -1791
+    - -5865
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyBandit
+    Mode: Survival
+    Name: Bandit Rally Point
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory:
+    - Warlord
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 19774
+    - 404
+    - 27183
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: RBAO_FarrProspectTS
+    Mode: Survival
+    Name: Trade Station
+    InitPower: true
+    Faction: Farr
+    Properties:
+    - Key: Discovery
+      Value: False
+    - Key: PvEArea
+      Value: 500
+    - Key: Music
+      Value: NebularClouds
+    - Key: RegenAfter
+      Value: 720
+    - Key: StationInterface
+      Value: Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20
+    - Key: AIManExcludeFromPatrol
+      Value: true
+    Pos:
+    - 2965
+    - 500
+    - 2387
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: RBAO_FarrSupplyStation
+    Mode: Survival
+    Name: Resupply station
+    InitPower: true
+    Faction: Farr
+    Properties:
+    - Key: Music
+      Value: NebularClouds
+    - Key: Discovery
+      Value: False
+    - Key: StationInterface
+      Value: Fuel:1,O2:1,Repair:3,Shield:8,IfNeutral:0,IfFriendly:-0.15,IfHonored:-0.30
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 8118
+    - -1085
+    - 8114
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: Eden_SectorNebulaIceField
+    Prefab: Eden_SectorNebulaIceField
+    Mode: Survival
+    Name: Dense Ice Field
+    InitPower: true
+    Faction: None
+    Properties:
+    - Key: Discovery
+      Value: False
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -17726
+    - 141
+    - 10997
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_AsteroidIceT3_3
+    Mode: Survival
+    Name: Dense Ice Asteroids
+    InitPower: true
+    Faction: Prey
+    FactionTerritory: &o30
+    - All
+    Properties: &o31
+    - Key: MapDistance
+      Value: 3000
+    - Key: HudDistance
+      Value: 3000
+    - Key: RegenAfter
+      Value: 4320
+    - Key: MapMarker
+      Value: Neutral
+    Pos:
+    - -17921.3379
+    - 326.035461
+    - 10776.2979
+    Rot:
+    - 271
+    - 138
+    - 29
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_AsteroidIceT3_4
+    Mode: Survival
+    Name: Dense Ice Asteroids
+    InitPower: true
+    Faction: Prey
+    FactionTerritory: *o30
+    Properties: *o31
+    Pos:
+    - -17562.1836
+    - 276.279724
+    - 10869.0645
+    Rot:
+    - 211
+    - 209
+    - 58
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk3V2
+    Mode: Survival
+    Name: Abandoned Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: &o32
+    - All
+    Properties: &o33
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 902
+    - -1168
+    - 5136
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT1_4
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 2906
+    - 1131
+    - 1752
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk3V3
+    Mode: Survival
+    Name: Abandoned Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - -4262
+    - -2705
+    - 3006
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk3V3
+    Mode: Survival
+    Name: Abandoned Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - -1311
+    - -1068
+    - -5048
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_TankPromT1Trap
+    Mode: Survival
+    Name: Promethium Pellet Tank
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - -4745
+    - 105
+    - -2166
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT1_3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 365
+    - -1879
+    - 5202
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk3V2
+    Mode: Survival
+    Name: Abandoned Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - -1699
+    - -1240
+    - 10290
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_TankPromT1Trap
+    Mode: Survival
+    Name: Promethium Pellet Tank
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 206
+    - -748
+    - 3542
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT1_4
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 4942
+    - -1485
+    - -1664
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT1_3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 3319
+    - -523
+    - -4023
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_TankPromT1_1
+    Mode: Survival
+    Name: Promethium Pellet Tank
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - -2717
+    - 1765
+    - -2253
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT1_3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 10017
+    - 2792
+    - 2902
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk3V3
+    Mode: Survival
+    Name: Abandoned Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 8402
+    - 2982
+    - -6180
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk3V4
+    Mode: Survival
+    Name: Boobytrapped Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 2822
+    - 2026
+    - 3234
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk2
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - -10084
+    - 289
+    - -2665
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk2V2
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 2994
+    - 1929
+    - 3123
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_TankToxicT1_1
+    Mode: Survival
+    Name: Toxic Waste
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 1370
+    - -622
+    - -3092
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT1_3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - -5028
+    - -1320
+    - 1385
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_TankToxicT1_1
+    Mode: Survival
+    Name: Toxic Waste
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 4325
+    - 1223
+    - -2173
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT1_1
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 5140
+    - -2604
+    - 878
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk3V2
+    Mode: Survival
+    Name: Abandoned Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - 3123
+    - -1767
+    - -1936
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Box1
+    Mode: Survival
+    Name: Cargo Container
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o32
+    Properties: *o33
+    Pos:
+    - -3266
+    - 2815
+    - -4067
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: &o36
+    - All
+    Properties: &o37
+    - Key: MapDistance
+      Value: 6000
+    - Key: HudDistance
+      Value: 6000
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -6306
+    - -1358
+    - 655
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT1_4
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: &o34
+    - All
+    Properties: &o35
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -6427.42139
+    - -1353.05762
+    - 679.6651
+    Rot:
+    - 24
+    - 250
+    - 133
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT1_2
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - -6362.22217
+    - -1405.82874
+    - 578.924622
+    Rot:
+    - 174
+    - 71
+    - 20
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_1
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: &o38
+    - All
+    Properties: &o39
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -6239.06494
+    - -1398.23621
+    - 592.544189
+    Rot:
+    - 281
+    - 168
+    - 91
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk2V3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - -6247.75684
+    - -1282.93262
+    - 592.003052
+    Rot:
+    - 206
+    - 351
+    - 89
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_DebriField3
+    Mode: Survival
+    Name: Debris
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: &o40
+    - All
+    Properties: &o41
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -6342.9375
+    - -1433.23047
+    - 631.654785
+    Rot:
+    - 189
+    - 67
+    - 271
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_5
+    Mode: Survival
+    Name: Station Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o36
+    Properties: *o37
+    Pos:
+    - -2427
+    - 4417
+    - -10144
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_TankPromT1_1
+    Mode: Survival
+    Name: Promethium Pellet Tank
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - -2456.15601
+    - 4375.41699
+    - -10218.3018
+    Rot:
+    - 69
+    - 337
+    - 315
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_4
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o38
+    Properties: *o39
+    Pos:
+    - -2439.7356
+    - 4367.09912
+    - -10062.9834
+    Rot:
+    - 196
+    - 296
+    - 131
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk3V4
+    Mode: Survival
+    Name: Boobytrapped Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - -2381.45361
+    - 4494.5752
+    - -10080.6943
+    Rot:
+    - 99
+    - 342
+    - 336
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_DebriField1
+    Mode: Survival
+    Name: Debris
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o40
+    Properties: *o41
+    Pos:
+    - -2354.54126
+    - 4416.43701
+    - -10072.2129
+    Rot:
+    - 117
+    - 39
+    - 186
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o36
+    Properties: *o37
+    Pos:
+    - -5171
+    - 1537
+    - -3992
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Box1
+    Mode: Survival
+    Name: Cargo Container
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - -5124.77734
+    - 1453.59595
+    - -3902.17651
+    Rot:
+    - 207
+    - 69
+    - 321
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_4
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o38
+    Properties: *o39
+    Pos:
+    - -5123.78955
+    - 1491.76038
+    - -3942.51733
+    Rot:
+    - 235
+    - 97
+    - 306
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk2V2
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - -5166.94287
+    - 1479.0177
+    - -4059.39868
+    Rot:
+    - 192
+    - 52
+    - 200
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_DebriField1
+    Mode: Survival
+    Name: Debris
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o40
+    Properties: *o41
+    Pos:
+    - -5257.72461
+    - 1584.8894
+    - -4032.42871
+    Rot:
+    - 50
+    - 44
+    - 13
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_DebriField3
+    Mode: Survival
+    Name: Debris
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o40
+    Properties: *o41
+    Pos:
+    - -5070.21436
+    - 1581.85889
+    - -3979.71436
+    Rot:
+    - 298
+    - 259
+    - 163
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk3V3
+    Mode: Survival
+    Name: Abandoned Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - -5212.15723
+    - 1569.20825
+    - -3913.86719
+    Rot:
+    - 236
+    - 153
+    - 49
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_TankPromT1Trap
+    Mode: Survival
+    Name: Promethium Pellet Tank
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - -5218.65332
+    - 1599.85327
+    - -4037.3833
+    Rot:
+    - 105
+    - 198
+    - 108
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_2
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o36
+    Properties: *o37
+    Pos:
+    - 15181
+    - 3575
+    - 14306
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT1_3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - 15249.8379
+    - 3574.11768
+    - 14254.458
+    Rot:
+    - 279
+    - 188
+    - 306
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT1_1
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - 15116.126
+    - 3678.31177
+    - 14283.7744
+    Rot:
+    - 5
+    - 319
+    - 102
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk3V3
+    Mode: Survival
+    Name: Abandoned Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - 15115.4893
+    - 3613.2749
+    - 14359.7803
+    Rot:
+    - 312
+    - 6
+    - 316
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_DebriField1
+    Mode: Survival
+    Name: Debris
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o40
+    Properties: *o41
+    Pos:
+    - 15142.2148
+    - 3647.19653
+    - 14349.958
+    Rot:
+    - 306
+    - 320
+    - 152
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_DebriField2
+    Mode: Survival
+    Name: Debris
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o40
+    Properties: *o41
+    Pos:
+    - 15155.1689
+    - 3637.11304
+    - 14343.4668
+    Rot:
+    - 253
+    - 171
+    - 99
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_TankPromT1Trap
+    Mode: Survival
+    Name: Promethium Pellet Tank
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - 15229.5859
+    - 3482.12012
+    - 14249.665
+    Rot:
+    - 209
+    - 237
+    - 163
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_5
+    Mode: Survival
+    Name: Station Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o38
+    Properties: *o39
+    Pos:
+    - 15215.915
+    - 3495.54126
+    - 14351.5107
+    Rot:
+    - 291
+    - 232
+    - 250
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_TankToxicT1_1
+    Mode: Survival
+    Name: Toxic Waste
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - 15103.3389
+    - 3548.96826
+    - 14241.9131
+    Rot:
+    - 340
+    - 328
+    - 99
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_1
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o36
+    Properties: *o37
+    Pos:
+    - 10322
+    - 2796
+    - -1493
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk3V4
+    Mode: Survival
+    Name: Boobytrapped Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - 10354.542
+    - 2809.69409
+    - -1415.67932
+    Rot:
+    - 107
+    - 293
+    - 341
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk2V2
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - 10419.8828
+    - 2876.9939
+    - -1532.34363
+    Rot:
+    - 312
+    - 8
+    - 134
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk2V3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - 10299.4238
+    - 2803.35449
+    - -1588.0802
+    Rot:
+    - 236
+    - 118
+    - 119
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_DebriField1
+    Mode: Survival
+    Name: Debris
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o40
+    Properties: *o41
+    Pos:
+    - 10258.9404
+    - 2882.49707
+    - -1570.2384
+    Rot:
+    - 120
+    - 151
+    - 190
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_TankPromT1Trap
+    Mode: Survival
+    Name: Promethium Pellet Tank
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - 10305.001
+    - 2682.85791
+    - -1481.38684
+    Rot:
+    - 70
+    - 268
+    - 35
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Box1
+    Mode: Survival
+    Name: Cargo Container
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - 10360.5723
+    - 2700.48926
+    - -1556.48926
+    Rot:
+    - 237
+    - 11
+    - 115
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_TankToxicT1_1
+    Mode: Survival
+    Name: Toxic Waste
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - 10209.1201
+    - 2738.97852
+    - -1518.45068
+    Rot:
+    - 172
+    - 77
+    - 13
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_1
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o38
+    Properties: *o39
+    Pos:
+    - 10363.165
+    - 2770.0271
+    - -1553.94934
+    Rot:
+    - 169
+    - 18
+    - 93
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_4
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o36
+    Properties: *o37
+    Pos:
+    - -5698
+    - 1765
+    - -1355
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk2V3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - -5723.94336
+    - 1831.7323
+    - -1407.86536
+    Rot:
+    - 161
+    - 264
+    - 328
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_5
+    Mode: Survival
+    Name: Station Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o38
+    Properties: *o39
+    Pos:
+    - -5693.79297
+    - 1863.69312
+    - -1302.21777
+    Rot:
+    - 308
+    - 61
+    - 323
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_DebriField1
+    Mode: Survival
+    Name: Debris
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o40
+    Properties: *o41
+    Pos:
+    - -5724.73438
+    - 1815.18823
+    - -1304.57751
+    Rot:
+    - 292
+    - 146
+    - 181
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Junk3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o34
+    Properties: *o35
+    Pos:
+    - -5786.71582
+    - 1723.49463
+    - -1379.65405
+    Rot:
+    - 227
+    - 231
+    - 13
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_JunkT2_3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o38
+    Properties: *o39
+    Pos:
+    - -5740.7876
+    - 1814.0105
+    - -1243.60791
+    Rot:
+    - 165
+    - 281
+    - 155
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_JettisonedCargoPod
+    Mode: Survival
+    Name: Jettisoned Cargo Pod
+    InitPower: true
+    Faction: None
+    Properties: &o42
+    - Key: RegenAfter
+      Value: 720
+    - Key: MapDistance
+      Value: 3000
+    - Key: HudDistance
+      Value: 3000
+    - Key: MapMarker
+      Value: Neutral
+    Pos:
+    - -5223
+    - -2587
+    - 357
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAOJ_FWS_Med1
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: None
+    Properties: *o42
+    Pos:
+    - 6303
+    - -2211
+    - 830
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAOJ_FWS_Lrg1
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: None
+    Properties: *o42
+    Pos:
+    - 4560
+    - -393
+    - 2700
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_SeveredShip
+    Mode: Survival
+    Name: Severed Ship
+    InitPower: true
+    Faction: None
+    Properties: *o42
+    Pos:
+    - 5376
+    - 1516
+    - 4397
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_TornThrusterArray
+    Mode: Survival
+    Name: Torn Thruster Array
+    InitPower: true
+    Faction: None
+    Properties: *o42
+    Pos:
+    - -1058
+    - -1631
+    - 4703
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAOJ_FWS_Med3
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: None
+    FactionTerritory: &o43
+    - Epsilon
+    Properties: &o44
+    - Key: RegenAfter
+      Value: 720
+    - Key: MapDistance
+      Value: 3000
+    - Key: HudDistance
+      Value: 3000
+    - Key: MapMarker
+      Value: Neutral
+    Pos:
+    - 2509
+    - 1500
+    - -1303
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAOJ_FWS_Med1
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: None
+    FactionTerritory: *o43
+    Properties: *o44
+    Pos:
+    - -4988
+    - -3016
+    - -3170
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_SeveredShip
+    Mode: Survival
+    Name: Severed Ship
+    InitPower: true
+    Faction: None
+    FactionTerritory: *o43
+    Properties: *o44
+    Pos:
+    - 13979
+    - 130
+    - -15483
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_BurntOutReconVessel
+    Mode: Survival
+    Name: Burnt Out Recon Vessel
+    InitPower: true
+    Faction: None
+    FactionTerritory: *o43
+    Properties: *o44
+    Pos:
+    - -4923
+    - 1694
+    - 4934
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAOJ_FWS_Med1
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: None
+    FactionTerritory: *o43
+    Properties: *o44
+    Pos:
+    - 9614
+    - -3347
+    - -4043
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAOJ_FWS_Lrg2
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: None
+    FactionTerritory: *o43
+    Properties: *o44
+    Pos:
+    - -6318
+    - -3186
+    - -1839
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_2
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: &o45
+    - Key: MapDistance
+      Value: 4500
+    - Key: HudDistance
+      Value: 4500
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -3160
+    - -999
+    - -11747
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_4
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o45
+    Pos:
+    - 4280
+    - -1899
+    - 4595
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_3
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o45
+    Pos:
+    - 12390
+    - -1436
+    - 5249
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_5
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o45
+    Pos:
+    - 2102
+    - 1022
+    - 5977
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: AsteroidVoxel03Titan
+    Mode: Survival
+    Name: Claimed Titanium Asteroid
+    Faction: Main
+    FactionTerritory:
+    - Rados
+    - Eden_PolarisTerritory
+    - Trader
+    - Eden_PiratesTerritory
+    Properties:
+    - Key: MapDistance
+      Value: 6000
+    - Key: HudDistance
+      Value: 6000
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -16695
+    - 1973
+    - -12507
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_Asteroid_PentT1_4
+    Mode: Survival
+    Name: Claimed Pentaxid Asteroid
+    Faction: Main
+    FactionTerritory: &o46
+    - Eden_PolarisTerritory
+    - Rados
+    Properties: &o47
+    - Key: MapDistance
+      Value: 6000
+    - Key: HudDistance
+      Value: 6000
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 2894
+    - 1633
+    - 3057
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_Asteroid_PentT1_1
+    Mode: Survival
+    Name: Claimed Pentaxid Asteroid
+    Faction: Main
+    FactionTerritory: *o46
+    Properties: *o47
+    Pos:
+    - -10670
+    - 1906
+    - -3577
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_Asteroid_PentT1_3
+    Mode: Survival
+    Name: Claimed Pentaxid Asteroid
+    Faction: Main
+    FactionTerritory: *o46
+    Properties: *o47
+    Pos:
+    - 13161
+    - 1791
+    - -6608
+    Rot:
+    - 0
+    - 0
+    - 0
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - 6811.55029
+    - 369
+    - -443.916565
+    DroneOnDuty:
+    - Name: SpaceDronePlasma
+      Faction: Main
+      Pos:
+      - -3407.99805
+      - 1196
+      - -4051.1709
+      Radius: 6561
+      Properties: &o48
+      - Key: AIManMaxPursuitRange
+        Value: 7500
+    - Name: SpaceDroneLaser
+      Faction: Main
+      Pos:
+      - 3258.56885
+      - 2327
+      - -7091.13135
+      Radius: 9532
+      Properties: *o48
+    - Name: SpaceDronePlasma
+      Faction: Main
+      Pos:
+      - -6345.76904
+      - -609
+      - 1799.56311
+      Radius: 4635
+      Properties: &o49
+      - Key: AIManPatrolFactions
+        Value: Main
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: SpaceDronePlasma
+      Faction: Main
+      Pos:
+      - 5221.27832
+      - 2431
+      - 3455.19458
+      Radius: 3676
+      Properties: *o49
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      Pos:
+      - -7825.16113
+      - 1772
+      - -838.897888
+      Radius: 1350
+      Properties: &o50
+      - Key: AIManMaxPursuitRange
+        Value: 7500
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      Pos:
+      - -5497.57715
+      - -519
+      - -3405.69189
+      Radius: 9870
+      Properties: *o50
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      Pos:
+      - -5254.55225
+      - -274
+      - -6031.06006
+      Radius: 4088
+      Properties: *o50
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      Pos:
+      - 5129.09033
+      - 1588
+      - -3486.72314
+      Radius: 4084
+      Properties: *o50
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      Pos:
+      - -6816.73682
+      - -243
+      - 2127.43652
+      Radius: 6859
+      Properties: &o51
+      - Key: AIManPatrolFactions
+        Value: Zirax
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      Pos:
+      - 5729.78174
+      - -1840
+      - -493.563995
+      Radius: 5432
+      Properties: *o51
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      Pos:
+      - -4419.31006
+      - -1210.13367
+      - 5596.90088
+      Radius: 6181
+      Properties: *o51
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -5281.89844
+      - 1329
+      - -4289.05127
+      Radius: 2271
+      Properties: &o52
+      - Key: AIManMaxPursuitRange
+        Value: 10000
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -3152.47534
+      - 769
+      - -6178.18701
+      Radius: 2871
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -3113.22607
+      - -1749
+      - -3639.00317
+      Radius: 1656
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -2659.78418
+      - -1533
+      - 3966.82788
+      Radius: 1752
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - 1052.53699
+      - -1714
+      - -7393.45605
+      Radius: 6317
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -2972.9917
+      - 1646
+      - -6868.15625
+      Radius: 5424
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -4775.68555
+      - 370
+      - -6079.57129
+      Radius: 4006
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - 7492.23584
+      - 973
+      - -454.346802
+      Radius: 9133
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -2161.22266
+      - 794.78064
+      - 6806.44922
+      Radius: 8730
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -4814.59863
+      - -958
+      - 3470.42798
+      Radius: 7320
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -5472.38477
+      - -1047
+      - -3002.59302
+      Radius: 4268
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - 3286.19312
+      - 1873
+      - -4602.16846
+      Radius: 8934
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - 835.280518
+      - -783
+      - 6663.85498
+      Radius: 9719
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -819.915771
+      - -919
+      - -7932.73975
+      Radius: 5117
+      Properties: *o52
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - 297.295532
+      - -216
+      - -6352.04639
+      Radius: 5858
+      Properties: &o53
+      - Key: AIManPatrolFactions
+        Value: Main
+      - Key: AIManMaxPursuitRange
+        Value: 10000
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -4875.20947
+      - -1639
+      - 5469.66699
+      Radius: 7411
+      Properties: *o53
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - -3462.75757
+      - -680
+      - 4373.03076
+      Radius: 4829
+      Properties: *o53
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      Pos:
+      - 4183.22266
+      - -40
+      - -6529.98242
+      Radius: 5475
+      Properties: *o53
+    SpaceVessel:
+    - Name: OPVZiraxRG
+      Faction: Xenu
+      FixedMaxSpeed: 49
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 3233.48584
+        - 1440.17969
+        - -5962.74756
+        Radius: 7020
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 2
+        Extra: 0
+      Properties:
+      - Key: AIManMaxPursuitRange
+        Value: 10000
+    - Name: Freighter
+      Faction: Rados
+      FixedMaxSpeed: 13
+      Mission: Freighter
+      DelayBetweenRespawn: 1956
+      DelayBeforeSelfDestruction: 3600
+      Freighter:
+        DelayBetweenRespawn: 2979
+        DelayBeforeSelfDestruction: 3600
+        PathWayPoint:
+        - - 4091
+          - -529
+          - -6053
+        - - 6790
+          - 7490
+          - -1939
+        - - 6669
+          - 7538
+          - 2977
+        - - 3324
+          - 4405
+          - 6833
+        - - -1767
+          - 5907
+          - 7057
+        - - -5124
+          - -6323
+          - 3715
+        - - -5726
+          - -10296
+          - -406
+        - - -3879
+          - -7134
+          - -3753
+        - - -513
+          - 6279
+          - -4936
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 5
+        Extra: 0
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 36
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        PathWayPoint:
+        - - -1574
+          - 1326
+          - 5781
+        - - 4859
+          - 3531
+          - 4899
+        - - 6229
+          - -5608
+          - -1642
+        - - 1889
+          - -5565
+          - -6939
+        - - -5286
+          - -1002
+          - -5329
+        - - -7585
+          - -3004
+          - 1999
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 1
+        Extra: 0
+    - Name: OPVTraderRG
+      Faction: Trader
+      FixedMaxSpeed: 23
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -592.618774
+        - -1414.40625
+        - 5515.37842
+        Radius: 1371
+      Stock:
+      - Name: SpaceDroneTraderLaser
+        Amount: 3
+        Extra: 0
+      Properties: &o54
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: OPVTraderRG
+      Faction: Trader
+      FixedMaxSpeed: 19
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -2009.81775
+        - -591.410156
+        - -2490.27466
+        Radius: 3583
+      Stock:
+      - Name: SpaceDroneTraderLaser
+        Amount: 3
+        Extra: 0
+      Properties: *o54
+    - Name: OPVKrielRG
+      Faction: Kriel
+      FixedMaxSpeed: 11
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 4513.17529
+        - -1672.25049
+        - 2690.26929
+        Radius: 5540
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 3
+        Extra: 0
+      Properties: &o55
+      - Key: AIManMaxPursuitRange
+        Value: 25000
+    - Name: OPVKrielRG
+      Faction: Kriel
+      FixedMaxSpeed: 24
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 5462.56494
+        - -409.847473
+        - -3739.55005
+        Radius: 9536
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 2
+        Extra: 0
+      Properties: *o55
+    - Name: OPVKrielRG
+      Faction: Kriel
+      FixedMaxSpeed: 34
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 2405.54224
+        - 1702.39771
+        - 2739.89844
+        Radius: 8359
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 3
+        Extra: 0
+      Properties: *o55
+    - Name: OPVTesch
+      Faction: Tesch
+      FixedMaxSpeed: 42
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 5881.7627
+        - 1013.88062
+        - -7871.74951
+        Radius: 2109
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 0
+        Extra: 0
+      Properties: &o56
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: OPVTesch
+      Faction: Tesch
+      FixedMaxSpeed: 34
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 5336.90576
+        - -636.905579
+        - -2578.13867
+        Radius: 3035
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 0
+        Extra: 0
+      Properties: *o56
+    - Name: OPVTesch
+      Faction: Tesch
+      FixedMaxSpeed: 32
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -471.93396
+        - 275.062653
+        - 9296.39941
+        Radius: 1250
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 0
+        Extra: 0
+      Properties: *o56
+    - Name: OPVFarrRG
+      Faction: Farr
+      FixedMaxSpeed: 33
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        PathWayPoint:
+        - - 9648
+          - -2611
+          - -3353
+        - - -197
+          - 1997
+          - -9748
+        - - -10265
+          - 10216
+          - -3106
+        - - -5894
+          - -10845
+          - 8469
+        - - 5405
+          - 1778
+          - 7131
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 1
+        Extra: 0
+    - Name: OPVFarrRG
+      Faction: Farr
+      FixedMaxSpeed: 31
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        PathWayPoint:
+        - - -5952
+          - -2814
+          - -2020
+        - - -5953
+          - -7353
+          - 3819
+        - - -733
+          - -3290
+          - 7112
+        - - 5329
+          - -4325
+          - 5230
+        - - 8410
+          - 7937
+          - -1027
+        - - 5072
+          - -919
+          - -8244
+        - - -2878
+          - -2318
+          - -7984
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 1
+        Extra: 0
+    - Name: OPVPolarisRG
+      Faction: Polaris
+      FixedMaxSpeed: 15
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -6973.9082
+        - -2197.14136
+        - -7841.14014
+        Radius: 5992
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 2
+        Extra: 0
+      Properties:
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 35
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        PathWayPoint:
+        - - 9845
+          - -1265
+          - 4693
+        - - 2189
+          - -12930
+          - 9422
+        - - -5280
+          - -13126
+          - 6675
+        - - -8797
+          - 7030
+          - 34
+        - - -4863
+          - 1622
+          - -6049
+        - - 1889
+          - -11355
+          - -8430
+        - - 7853
+          - 10750
+          - -3820
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 1
+        Extra: 0
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 32
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        PathWayPoint:
+        - - 3399
+          - 5124
+          - -5132
+        - - 6784
+          - 440
+          - -1377
+        - - 5228
+          - 1325
+          - 3462
+        - - 1257
+          - 4771
+          - 6190
+        - - -3447
+          - -2489
+          - 5204
+        - - -5802
+          - -6130
+          - 1178
+        - - -4248
+          - -8966
+          - -2814
+        - - -1060
+          - 8537
+          - -5222
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 1
+        Extra: 0
+    - Name: OPVColonists
+      Faction: Colonists
+      FixedMaxSpeed: 61
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 4748.71729
+        - -880.978882
+        - 3495.40234
+        Radius: 4287
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 2
+        Extra: 0
+      Properties:
+      - Key: AIManMaxPursuitRange
+        Value: 5000

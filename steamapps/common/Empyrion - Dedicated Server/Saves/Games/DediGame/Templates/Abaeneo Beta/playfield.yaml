@@ -1,0 +1,312 @@
+PlayfieldType: Space
+TemperatureDay: -109
+Radiation: 5.45268917
+PlanetType: Mining Site Class 2
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Type: [c][A0522D]Mining Site[-][/c] - [c][00ff00]Class 2[-][/c]
+
+
+  Gravimetric anomalies indicate the presence of ore bearing asteroids.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Mining Site Class 2
+UseFixed: true
+Build: 4139
+Music: Sanctuary
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldFewBoxExclude
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: Eden_SectorNebulaLDustCircle2
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Iron
+    Prefab: Eden_BA_DummyPOI
+    Mode: Survival
+    Name: EdenAsteroidScaninfo
+    InitPower: true
+    Faction: None
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyPOI
+    Mode: Survival
+    Name: Class 2 Mining Site
+    InitPower: true
+    Faction: None
+    Properties:
+    - Key: Discovery
+      Value: False
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry2
+    Mode: Survival
+    Name: Sentry II
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory: &o0
+    - All
+    Properties: &o1
+    - Key: HudDistance
+      Value: 800
+    - Key: MapDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -79.3102798
+    - -330.337097
+    - 161.131271
+    Rot:
+    - 31
+    - 202
+    - 249
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Laser1
+    Mode: Survival
+    Name: Laser Sentry I
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - 239.013763
+    - -231.671997
+    - -142.283234
+    Rot:
+    - 48
+    - 89
+    - 284
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry2
+    Mode: Survival
+    Name: Sentry II
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - 128.522842
+    - -289.314911
+    - 158.413284
+    Rot:
+    - 278
+    - 285
+    - 272
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry1
+    Mode: Survival
+    Name: Sentry I
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - -268.110474
+    - 324.080444
+    - -233.344437
+    Rot:
+    - 160
+    - 326
+    - 36
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_OreTitan
+    Mode: Survival
+    Name: Common Ore Site
+    InitPower: true
+    Faction: None
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 4320
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - -739.750305
+    - 1047
+    - 2611.23853
+    DroneOnDuty:
+    - Name: SpaceDroneLaser
+      Faction: Warlord
+      POINameAsPositionRef: &o2
+      - Eden_BA_DummyPOI
+      Pos:
+      - 4357.3125
+      - 1690
+      - -6174.30859
+      Radius: 2922
+      Properties: &o3
+      - Key: AIManPatrolFactions
+        Value: Warlord
+      - Key: AIManMaxPursuitRange
+        Value: 2500
+    - Name: SpaceDronePlasma
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - -6554.5957
+      - -2463
+      - -2171.70386
+      Radius: 2948
+      Properties: *o3
+    - Name: SpaceDronePlasma
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - 790.50885
+      - 589
+      - -592.654846
+      Radius: 1136
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - 1041.77063
+      - -1897
+      - -2522.3313
+      Radius: 506
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - 679.139404
+      - -259
+      - -242.096252
+      Radius: 1864
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - -104.287445
+      - -157
+      - 138.033081
+      Radius: 1379
+      Properties: *o3
+    SpaceVessel:
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 70
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - 1610.34766
+        - -1208.31689
+        - 1222.34753
+        POINameAsPositionRef: &o4
+        - Eden_BA_DummyPOI
+        Radius: 1625
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 14
+        Extra: 0
+      Properties: &o5
+      - Key: AIManPatrolRoute
+        Value: -400,50,400;400,50,400;400,50,-400;-400,50,-400
+      - Key: AIManMaxPursuitRange
+        Value: 3000
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 70
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -2005.72351
+        - 278.33844
+        - -3868.37524
+        POINameAsPositionRef: *o4
+        Radius: 2150
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 16
+        Extra: 0
+      Properties: *o5
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 60
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - 1525.45264
+        - -606.838318
+        - -1755.02185
+        POINameAsPositionRef:
+        - Eden_BA_DummyPOI
+        Radius: 1943
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 13
+        Extra: 0
+      Properties:
+      - Key: AIManPatrolRoute
+        Value: -350,125,350;350,125,350;350,125,-350;-350,125,-350
+      - Key: AIManMaxPursuitRange
+        Value: 3000

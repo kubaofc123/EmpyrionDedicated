@@ -1,0 +1,294 @@
+PlayfieldType: Space
+TemperatureDay: -186
+Radiation: 5.71856976
+PlanetType: Mining Site Class 2
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Type: [c][A0522D]Mining Site[-][/c] - [c][00ff00]Class 2[-][/c]
+
+
+  Gravimetric anomalies indicate the presence of ore bearing asteroids.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Mining Site Class 2
+UseFixed: true
+Build: 4139
+Music: Sanctuary
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldFewBoxExclude
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Iron
+    Prefab: Eden_BA_DummyPOI
+    Mode: Survival
+    Name: EdenAsteroidScaninfo
+    InitPower: true
+    Faction: None
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyPOI
+    Mode: Survival
+    Name: Class 2 Mining Site
+    InitPower: true
+    Faction: None
+    Properties:
+    - Key: Discovery
+      Value: False
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Laser1
+    Mode: Survival
+    Name: Laser Sentry I
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory: &o0
+    - All
+    Properties: &o1
+    - Key: HudDistance
+      Value: 800
+    - Key: MapDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -204.568695
+    - -311.530701
+    - -281.405853
+    Rot:
+    - 271
+    - 185
+    - 228
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Ion1
+    Mode: Survival
+    Name: Plasma Sentry I
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - -78.2641449
+    - 130.379288
+    - 422.465332
+    Rot:
+    - 44
+    - 148
+    - 5
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry1
+    Mode: Survival
+    Name: Sentry I
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - 189.173126
+    - 292.193512
+    - -52.3495636
+    Rot:
+    - 330
+    - 120
+    - 269
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_OreCobalt
+    Mode: Survival
+    Name: Common Ore Site
+    InitPower: true
+    Faction: None
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 4320
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - 3981.68457
+    - 607
+    - -4353.87109
+    DroneOnDuty:
+    - Name: SpaceDroneLaser
+      Faction: Warlord
+      POINameAsPositionRef: &o2
+      - Eden_BA_DummyPOI
+      Pos:
+      - -6392.81152
+      - 525
+      - -4510.75732
+      Radius: 2951
+      Properties: &o3
+      - Key: AIManPatrolFactions
+        Value: Warlord
+      - Key: AIManMaxPursuitRange
+        Value: 2500
+    - Name: SpaceDroneLaser
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - -3221.27759
+      - 1410
+      - 6406.7627
+      Radius: 581
+      Properties: *o3
+    - Name: SpaceDronePlasma
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - 2128.86157
+      - -201
+      - -2788.19165
+      Radius: 502
+      Properties: *o3
+    - Name: SpaceDronePlasma
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - 7019.54541
+      - -1706
+      - 2868.42773
+      Radius: 2188
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - 235.113266
+      - -1999
+      - -3120.1543
+      Radius: 1395
+      Properties: *o3
+    - Name: SpaceDronePlasma
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - -576.198303
+      - -1614
+      - 1127.27625
+      Radius: 2210
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - 4403.55664
+      - 1661
+      - -3293.58301
+      Radius: 1311
+      Properties: *o3
+    SpaceVessel:
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 70
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -71.215889
+        - -198.89357
+        - 2253.00195
+        POINameAsPositionRef: &o4
+        - Eden_BA_DummyPOI
+        Radius: 1957
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 17
+        Extra: 0
+      Properties: &o5
+      - Key: AIManPatrolRoute
+        Value: -400,50,400;400,50,400;400,50,-400;-400,50,-400
+      - Key: AIManMaxPursuitRange
+        Value: 3000
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 70
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -7287.17334
+        - 3021.63525
+        - -2258.35693
+        POINameAsPositionRef: *o4
+        Radius: 1975
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 12
+        Extra: 0
+      Properties: *o5
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 60
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - 2221.99854
+        - 689.936157
+        - -237.547195
+        POINameAsPositionRef:
+        - Eden_BA_DummyPOI
+        Radius: 2388
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 15
+        Extra: 0
+      Properties:
+      - Key: AIManPatrolRoute
+        Value: -350,125,350;350,125,350;350,125,-350;-350,125,-350
+      - Key: AIManMaxPursuitRange
+        Value: 3000

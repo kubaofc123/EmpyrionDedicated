@@ -1,0 +1,1063 @@
+PlayfieldType: Moon
+Gravity: -4.26805258
+PlanetAxis: -10.033205
+AtmosphereDensity: 0.0144113246
+AtmosphereO2: 0
+TemperatureNight: 67
+Radiation: 1.26523912
+SeaLevel: -1
+TerrainLevel: 140
+BaseLevel: 90
+PlanetType: ZiraxHomeworldMoon
+Water: WaterBlue
+Difficulty: 2
+SunFlare: EnvironmentalEffects/SunFlareWhite3
+SpecialEffectsGlobal:
+- Name: Clear
+  InitialDelay: 0
+  Delay: 0
+  Lifetime: 1000
+  Type: Weather
+AtmosphereColor: 0.25, 0.315, 0.31
+AtmosphereParams:
+- 0
+- -1
+SkyColor: 0, 0, 0.01
+SkyHorizonColor: 0, 0.07, 0.03
+LightZenithColor: 0.98, 0.90, 0.8
+LightHorizonColor: 0.5, 0.35, 0.171
+NightLightColor: 0.83, 0.85, 0.80
+CloudsZenithColor: 0.89, 0.92, 1
+CloudsHorizonColor: 1, 0.3, 0.1
+CloudsOpacity: 0
+FogCloudIntensity: 0
+DayLightIntensity: 1
+NightLightIntensity: 0.550000012
+DayShadowStrength: 1
+NightShadowStrength: 1
+CloudsSharpness: 1
+CloudsBrightness: 0
+WindSpeed: 0
+FogColor: 1, 1, 1
+GroundFogIntensity: 0.0399999991
+GroundFogHeight: 75
+Description: "[c]Backwater world; meager resources. [-][/c] \n[i][c][808080][i](Calculating the [b]map markers[/b] by statistical probability. - Sorry, no guarantees given!)[/i][-][/c] \n \n[i]Once upon a time,[/i] ... the planets were still forming. Gaining mass and changing their paths around their star. \n \nGravitational disturbances sweeped through the whole system, hurtling planetisimals everywhere. \n \n... This is a wanderer, born and expelled from the stellar asteroid belt. \nIt got caught up by the nearby large planet. - Somehow avoiding to collide, or to be flung away. \n \nBut during those narrow, chaotic first passes, it experienced massive tidal forces. - \nKneading it like dough, close of ripping it apart. \n \n \n- Times are much calmer now. \n \nAnd with that, all those scars make for impressive vistas, and stories of adventure."
+Seed: 919956
+TemperatureMinMax:
+- -110
+- -91
+HumidityMinMax:
+- 0.104783081
+- 0.294215739
+TemperatureHeightRange:
+- 0
+- 195
+TemperatureGradientRange:
+- 0.75
+- 0.100000001
+TemperatureNoiseFac: 0.5
+HumidityHeightFac:
+- 0
+- 365
+HumidityNoiseFac: 0.600000024
+TerrainHeightMapMax: 495
+BiomeStampTries: 60
+PlayfieldLevel: 1
+PlanetClass: ZiraxHomeworldMoon
+UseRandom: true
+Build: 4131
+Music: ColdDivide
+RandomResources:
+- Name: MagnesiumResource
+  CountMinMax:
+  - 1
+  - 2
+  SizeMinMax:
+  - 2
+  - 3
+  DepthMinMax:
+  - 5
+  - 10
+  DroneProb: 0.699999988
+  Biome:
+  - Mountains
+  - Regolith
+  - RegolithEdge
+- Name: MagnesiumResource
+  CountMinMax:
+  - 0
+  - 2
+  SizeMinMax:
+  - 6
+  - 7
+  DepthMinMax:
+  - 70
+  - 80
+  DroneProb: 0.200000003
+  Biome:
+  - LayeredIce
+  - IceSheet
+  - CrustedIce
+- Name: CobaltResource
+  CountMinMax:
+  - 1
+  - 3
+  SizeMinMax:
+  - 3
+  - 4
+  DepthMinMax:
+  - 4
+  - 9
+  DroneProb: 0.699999988
+  Biome:
+  - Mountains
+  - Regolith
+  - RegolithEdge
+- Name: CobaltResource
+  CountMinMax:
+  - 0
+  - 2
+  SizeMinMax:
+  - 8
+  - 9
+  DepthMinMax:
+  - 60
+  - 80
+  DroneProb: 0.200000003
+  Biome:
+  - LayeredIce
+  - IceSheet
+  - CrustedIce
+AsteroidResources:
+- Name: CobaltResource
+  Threshold: 0.200000003
+  Amount: 0.200000003
+  InitialDelay: -1
+  Delay: -1
+Biome:
+- BiomeClusterData:
+  - Name: Pole
+    Texture:
+    - 0
+    - 0
+    - 0.0199999996
+    Color:
+    - 0.600000024
+    - 0.600000024
+    - 0.600000024
+    SelectionCriteria:
+    - +Lat > 0.975
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: DeepCanyon
+    Decorations:
+    - - CrystalsPyramidBlue
+      - 0.08
+      - Tree
+    - - RockResourcePromethium
+      - 0.002
+      - Free
+    - - CrystalStraight
+      - 0.008
+      - Free
+    - - RockResourceMagnesium
+      - 0.02
+      - Tree
+    - - RockResourceMagnesium
+      - 0.002
+      - Free
+    Texture:
+    - 11
+    - 11
+    - 0.200000003
+    Color:
+    - 0
+    - 1
+    - 0
+    SelectionCriteria:
+    - Height < 11
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 11
+      - -1
+    - - 19
+      - 1
+    - - 15
+      - 1
+  - Name: LowMountains
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - RockResourceCopper
+      - 0.0001
+      - Free
+    - - RockResourceSilicon
+      - 0.0003
+      - Free
+    Texture:
+    - 1
+    - 2
+    - -0.200000003
+    Color:
+    - 0.699999988
+    - 0.699999988
+    - 0.699999988
+    SelectionCriteria:
+    - Height > 200
+    StampTries: 7
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - IceBergs_01, 0.9
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 1
+      - 0
+    - - 1
+      - 6
+    - - 15
+      - -1
+    - - 11
+      - 1
+  - Name: RegolithEdge
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    Texture:
+    - 1
+    - 1
+    - 0.5
+    - 6
+    - 2
+    - 0.5
+    - -0.25
+    Color:
+    - 0.5
+    - 0.300000012
+    - 1
+    SelectionCriteria:
+    - Height > 135
+    - Height < 160
+    - +Lat < 0.92
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 1
+      - 3
+    - - 10
+      - 1
+    - - 11
+      - 2
+    - - 12
+      - 3
+    - - 10
+      - 3
+    - - 12
+      - 1
+    - - 11
+      - 30
+    - - 10
+      - 1
+    - - 12
+      - -1
+    - - 11
+      - 1
+    - - 10
+      - 1
+    - - 19
+      - 1
+    - - 15
+      - 20
+    - - 11
+      - 1
+  - Name: Regolith
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    Texture:
+    - 1
+    - 1
+    - 0.5
+    - 6
+    - 6
+    - 1
+    - -0.25
+    Color:
+    - 0.5
+    - 0.5
+    - 1
+    SelectionCriteria:
+    - Height > 120
+    - Height < 160
+    - +Lat < 0.92
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 1
+      - 3
+    - - 10
+      - 1
+    - - 11
+      - 2
+    - - 12
+      - 3
+    - - 10
+      - 3
+    - - 12
+      - 1
+    - - 11
+      - 30
+    - - 10
+      - 1
+    - - 12
+      - -1
+    - - 11
+      - 1
+    - - 10
+      - 1
+    - - 19
+      - 1
+    - - 15
+      - 20
+    - - 11
+      - 1
+  - Name: PlainsEdge
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalsPyramidBlue
+      - 0.00005
+      - Free
+    Texture:
+    - 0
+    - 0
+    - 0.5
+    - 2
+    - 7
+    - 0.800000012
+    - 0.5
+    Color:
+    - 0.100000001
+    - 0.100000001
+    - 0.300000012
+    SelectionCriteria:
+    - Height > 80
+    - Height < 89
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 0
+      - 1
+    - - 10
+      - 1
+    - - 11
+      - 1
+    - - 12
+      - -1
+    - - 15
+      - 20
+    - - 11
+      - 1
+  - Name: Flats
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey01Large
+      - 0.001
+      - BigPlant
+    - - CrystalStraight
+      - 0.001
+      - Free
+    - - CrystalsPyramidBlue
+      - 0.0002
+      - Free
+    - - PromethiumStone
+      - 0.005
+      - Tree
+    - - RockResourceMagnesium
+      - 0.001
+      - BigPlant
+    Texture:
+    - 4
+    - 10
+    - 0.25
+    Color:
+    - 0.300000012
+    - 0.300000012
+    - 0.300000012
+    SelectionCriteria:
+    - Height < 80
+    StampProb: 0.100000001
+    Stamps:
+    - CraterMoon_1, 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 11
+      - 2
+    - - 10
+      - 2
+    - - 19
+      - 2
+    - - 12
+      - 40
+    - - 19
+      - 1
+    - - 15
+      - 20
+    - - 11
+      - 1
+  - Name: Rifts_1
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalsPyramidBlue
+      - 0.0001
+      - Free
+    Texture:
+    - 2
+    - 11
+    - -1
+    Color:
+    - 0.800000012
+    - 0.5
+    - 0.200000003
+    SelectionCriteria:
+    - false
+    StampTries: 15
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - CliffPlate_01, 0.9
+    - Flats_2, 0.5
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 11
+      - 2
+    - - 10
+      - 1
+    - - 12
+      - -1
+    - - 10
+      - 1
+    - - 12
+      - 25
+    - - 19
+      - 1
+    - - 15
+      - 20
+    - - 11
+      - 1
+  - Name: Rifts
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalsPyramidBlue
+      - 0.0001
+      - Free
+    Texture:
+    - 2
+    - 11
+    - 0
+    Color:
+    - 0.699999988
+    - 0.200000003
+    - 0.200000003
+    SelectionCriteria:
+    - false
+    StampTries: 10
+    StampProb: 1
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOther
+    Stamps:
+    - ErosionIce_01, 0.7
+    - ErosionIce_02, 0.7
+    - ErosionIce_03, 0.7
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 11
+      - 2
+    - - 10
+      - 1
+    - - 12
+      - -1
+    - - 10
+      - 1
+    - - 12
+      - 25
+    - - 19
+      - 1
+    - - 15
+      - 20
+    - - 11
+      - 1
+  - Name: Dunes
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalStraight
+      - 0.0001
+      - Free
+    Texture:
+    - 1
+    - 0
+    - -0.200000003
+    Color:
+    - 0.899999976
+    - 0
+    - 0.200000003
+    SelectionCriteria:
+    - false
+    StampTries: 25
+    StampProb: 1
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOther
+    Stamps:
+    - IceDunes_01a, 0.5
+    - IceDunes_01b, 0.5
+    UndergroundLayers:
+    - - 1
+      - 3
+    - - 10
+      - 1
+    - - 12
+      - 1
+    - - 10
+      - 1
+    - - 12
+      - -1
+    - - 19
+      - 1
+    - - 15
+      - 20
+    - - 11
+      - 1
+  - Name: SmallCrater
+    Temperature: -10
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalsPyramidBlue
+      - 0.0005
+      - Free
+    - - RockResourceCopper
+      - 0.0001
+      - Free
+    - - RockResourceSilicon
+      - 0.0003
+      - Free
+    Texture:
+    - 8
+    - 9
+    - 0.5
+    - 3
+    - 3
+    - 0.5
+    - -0.100000001
+    Color:
+    - 0.899999976
+    - 0.300000012
+    - 0.300000012
+    SelectionCriteria:
+    - false
+    StampTries: 2000
+    StampProb: 1
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOff
+    Stamps:
+    - CraterMoon_01, 1
+    - CraterMoon_02, 0.7
+    - CraterMoon_03, 0.5
+    - CraterMoon_1, 0.3
+    - CraterMoon_2, 0.2
+    - CraterMoon_3, 0.1
+    - CraterMoon_6, 0.001
+    UndergroundLayers:
+    - - 8
+      - 0
+    - - 9
+      - 2
+    - - 10
+      - 1
+    - - 12
+      - 3
+    - - 11
+      - 2
+    - - 12
+      - 3
+    - - 10
+      - 3
+    - - 12
+      - 1
+    - - 11
+      - 30
+    - - 10
+      - 1
+    - - 12
+      - -1
+    - - 11
+      - 1
+    - - 10
+      - 1
+    - - 19
+      - 1
+    - - 15
+      - 20
+    - - 11
+      - 1
+  - Name: RayCrater
+    Temperature: -20
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalsPyramidBlue
+      - 0.0005
+      - Free
+    - - RockResourceCopper
+      - 0.0001
+      - Free
+    - - RockResourceSilicon
+      - 0.0003
+      - Free
+    Texture:
+    - 8
+    - 9
+    - 0.5
+    - 3
+    - 3
+    - 0.5
+    - 0.150000006
+    Color:
+    - 0.899999976
+    - 0.800000012
+    - 0.300000012
+    SelectionCriteria:
+    - false
+    StampTries: 8
+    StampProb: 1
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOther
+    Stamps:
+    - CraterMoon_14, 0.05
+    UndergroundLayers:
+    - - 19
+      - 5
+    - - 10
+      - 2
+    - - 12
+      - -1
+    - - 11
+      - 1
+    - - 10
+      - 1
+    - - 19
+      - 1
+    - - 15
+      - 20
+    - - 11
+      - 1
+  - Name: LayeredIce
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.0001
+    - - RockResourceIron
+      - 0.0005
+      - Free
+    - - RockResourceMagnesium
+      - 0.01
+      - Tree
+    Texture:
+    - 0
+    - 4
+    - 0.899999976
+    - 6
+    - 6
+    - 1
+    - 0
+    Color:
+    - 0.400000006
+    - 0.400000006
+    - 0.400000006
+    SelectionCriteria:
+    - Height > 100
+    StampProb: 0.200000003
+    StampForcesBiomeType: OverlapOther
+    Stamps:
+    - IceSlabs_01, 0.5
+    UndergroundLayers:
+    - - 0
+      - 3
+    - - 19
+      - 2
+    - - 12
+      - 2
+    - - 10
+      - 1
+    - - 12
+      - 2
+    - - 10
+      - 2
+    - - 11
+      - 2
+    - - 10
+      - 1
+    - - 11
+      - 1
+    - - 12
+      - 2
+    - - 10
+      - 2
+    - - 12
+      - 1
+    - - 10
+      - 3
+    - - 12
+      - -1
+    - - 19
+      - 1
+    - - 15
+      - 20
+    - - 11
+      - 1
+  - Name: IceSheet
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    Texture:
+    - 0
+    - 6
+    - -0.449999988
+    Color:
+    - 0.5
+    - 0.5
+    - 0.5
+    SelectionCriteria:
+    - true
+    StampTries: 4
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - CliffPlate_02, 0.5
+    - Rift_Fissure_SM, 0.7
+    UndergroundLayers:
+    - - 12
+      - 3
+    - - 10
+      - 8
+    - - 11
+      - 3
+    - - 10
+      - 2
+    - - 12
+      - -1
+    - - 11
+      - 1
+    - - 10
+      - 1
+    - - 19
+      - 1
+    - - 15
+      - 20
+    - - 11
+      - 1
+    UndergroundLayersDefault: true
+POIs:
+  Random:
+  - GroupName: ResourceMarker01
+    Faction: None
+    IsImportant: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: MapDistance
+      Value: 10000
+    SpawnResource:
+    - SiliconResource:0-1
+    - CobaltResource:1-1
+    - MagnesiumResource:0-1
+    SpawnResourceRange:
+    - 150
+    - 2000
+    Biome:
+    - LowMountains
+  - GroupName: SignalMarker01
+    IsImportant: true
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: MapDistance
+      Value: 10000
+    Biome:
+    - LowMountains
+    - Flats
+    - DeepCanyon
+    - Rifts
+    - Rifts_1
+    - RayCrater
+  - GroupName: RadosAuxT2RG
+    Faction: Rados
+    Territory: false
+    IsImportant: true
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - SignalMarker01
+    SpawnPOINearRange:
+    - 200
+    - 800
+  - GroupName: RadosAuxT1RG
+    Faction: Rados
+    Territory: false
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - RadosAuxT2RG
+    SpawnPOINearRange:
+    - 500
+    - 1000
+  - GroupName: SmugglerHideout
+    Faction: None
+    IsScalingCount: true
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    ReserveCount: 1
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOIAvoid:
+    - SmugglerHideout
+    - RadosAuxT2RG
+    - PolarisLogisticsMainRG
+    SpawnPOINearRange:
+    - 80
+    - 2000
+    SpawnPOIAvoidDistance: 2000
+  - GroupName: ProgenitorArtifacts
+    Faction: None
+    IsScalingCount: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    DroneProb: 1
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 4
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: CrashedShip
+    Faction: None
+    IsImportant: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+    Biome:
+    - RayCrater
+    - DeepCanyon
+    - Flats
+  - GroupName: SignalMarker02
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapDistance
+      Value: 10000
+    SpawnPOINear:
+    - CrashedShip
+    PlaceAt: ResourceAll
+    SpawnPOINearRange:
+    - 500
+    - 800
+  - GroupName: JunkT1
+    Faction: None
+    AvoidFactionTerritory: true
+    Count:
+      Max: 2
+    CountMinMax:
+    - 0
+    - 2
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: JunkT3_Engine
+    Faction: None
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+    Biome:
+    - DeepCanyon
+    - Flats
+    - Rifts
+    - Rifts_1
+  FixedPlayerStart:
+  - Mode: Debug
+    Pos:
+    - -596
+    - 104
+    - -1063
+    RotY: 125
+  - Mode: Survival
+    Spawn: EscapePod
+    Armor: ArmorMedium
+DroneBaseSetup:
+  Random:
+  - GroupName: DroneBaseSetup
+    Stock:
+    - Name: DroneSmallFast01Rocket
+      Amount: 100
+      Extra: 0
+    - Name: DroneSmallFast01Minigun
+      Amount: 200
+      Extra: 0
+    - Name: DroneLargeSlow01Minigun
+      Amount: 100
+      Extra: 0
+    - Name: DroneSmallSlow01Cannon
+      Amount: 200
+      Extra: 0
+    - Name: DroneSmallAttackBase
+      Amount: 300
+      Extra: 1
+    - Name: DroneTroopsTransport
+      Amount: Infinite
+      Extra: 2
+    - Name: ZiraxMinigun
+      Amount: 500
+      Extra: 3
+    - Name: Crawler
+      Amount: 400
+      Extra: 3
+DroneSpawning:
+  Random:
+  - DronesMinMax:
+    - 5
+    - 10
+    CenterX: -2500
+    Radius: 1500
+  - DronesMinMax:
+    - 5
+    - 10
+    CenterX: 2500
+    Radius: 1500
+SpawnRateZones:
+- SpawnAt:
+  - SignalMarker01
+  - SignalMarker02
+  - ResourceMarker01
+  Radius: 120
+  RateMultiplyerCenter: 1
+  RateMultiplyerEdge: 1
+  AffectEnemies: true
+  Color: 1.0, 0.8, 0.5, 1.0
+- SpawnAt:
+  - ResourceMarker01
+  Radius: 180
+  RateMultiplyerCenter: 1
+  RateMultiplyerEdge: 1
+  AffectEnemies: true
+  Color: 1.0, 0.8, 0.5, 1.0

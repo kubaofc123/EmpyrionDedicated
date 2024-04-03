@@ -1,0 +1,526 @@
+PlayfieldType: Space
+TemperatureDay: -145
+Radiation: 9.74632454
+PlanetType: Combat Site Class 2
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Type: [c][ff0000]Combat Site[-][/c] - [c][00ff00]Class 2[-][/c]
+
+  Factions: [c][ff0000]Bandits[-][/c]
+
+  Gravitational Anomaly: [c][ffff00]Capital Vessels Restricted from warping to this sector.[-][/c]
+
+  Sensors pick up high levels of radio signals indicating the presence of ships or stations.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Combat Site Class 2
+UseFixed: true
+Build: 4139
+AllowCV: false
+AllowBA: false
+Music: Vanguard
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldBoxExclude
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 67
+    - -54
+    - 49
+  - Type: AsteroidVoxel03Copper
+    Prefab: AsteroidVoxel03Copper
+    Name: Copper Asteroid
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 1353
+    - -31
+    - -2229
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Copper
+    Prefab: AsteroidVoxel01Copper
+    Name: Copper Asteroid
+    Properties: *o0
+    Pos:
+    - 9348
+    - 44
+    - -4625
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_PolDistress1
+    Mode: Survival
+    Name: Sieged Freighter
+    InitPower: true
+    Faction: Eden_Defender
+    FactionTerritory:
+    - Warlord
+    Properties:
+    - Key: Discovery
+      Value: False
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 0
+    - 5
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyBandit
+    Mode: Survival
+    Name: Bandit Rally Point
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory:
+    - Warlord
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -500
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyBandit
+    Mode: Survival
+    Name: Bandit Rally Point
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory:
+    - Warlord
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 500
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyBandit
+    Mode: Survival
+    Name: Bandit Rally Point
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory:
+    - Warlord
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 0
+    - 0
+    - -500
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyBandit
+    Mode: Survival
+    Name: Bandit Rally Point
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory:
+    - Warlord
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - 5190.74951
+    - -1145
+    - 1756.84998
+    DroneOnDuty:
+    - Name: Eden_SpaceDroneBandit
+      Faction: Warlord
+      POINameAsPositionRef: &o1
+      - Eden_BA_DummyBandit
+      Pos:
+      - -2711.26147
+      - -1762
+      - -435.404388
+      Radius: 203
+      Properties: &o2
+      - Key: AIManPatrolFactions
+        Value: Warlord
+      - Key: AIManMaxPursuitRange
+        Value: 3000
+    - Name: Eden_SpaceDroneBandit
+      Faction: Warlord
+      POINameAsPositionRef: *o1
+      Pos:
+      - -1168.65222
+      - -967
+      - -507.275146
+      Radius: 495
+      Properties: *o2
+    - Name: Eden_SpaceDroneBandit
+      Faction: Warlord
+      POINameAsPositionRef: *o1
+      Pos:
+      - -2679.23633
+      - -962
+      - 5986.83301
+      Radius: 638
+      Properties: *o2
+    - Name: Eden_SpaceDroneBandit
+      Faction: Warlord
+      POINameAsPositionRef: *o1
+      Pos:
+      - 2082.09277
+      - 639
+      - 1197.70361
+      Radius: 373
+      Properties: *o2
+    - Name: Eden_SpaceDroneBandit
+      Faction: Warlord
+      POINameAsPositionRef: *o1
+      Pos:
+      - -5153.55859
+      - 812
+      - -5177.24463
+      Radius: 712
+      Properties: *o2
+    - Name: Eden_SpaceDroneBandit
+      Faction: Warlord
+      POINameAsPositionRef: *o1
+      Pos:
+      - 2050.59668
+      - -539
+      - 3420.40869
+      Radius: 354
+      Properties: *o2
+    - Name: Eden_SpaceDroneBandit
+      Faction: Warlord
+      POINameAsPositionRef: *o1
+      Pos:
+      - 176.761597
+      - -1126
+      - 530.3172
+      Radius: 344
+      Properties: *o2
+    - Name: Eden_SpaceDroneBandit
+      Faction: Warlord
+      POINameAsPositionRef: *o1
+      Pos:
+      - 352.646698
+      - -2403
+      - 530.480225
+      Radius: 344
+      Properties: *o2
+    - Name: Eden_SpaceDroneBandit
+      Faction: Warlord
+      POINameAsPositionRef: *o1
+      Pos:
+      - 1639.47546
+      - 1726
+      - -4484.72363
+      Radius: 666
+      Properties: *o2
+    - Name: Eden_SpaceDroneBandit
+      Faction: Warlord
+      POINameAsPositionRef: *o1
+      Pos:
+      - -5479.90381
+      - 1512
+      - -3381.03125
+      Radius: 744
+      Properties: *o2
+    - Name: Eden_NPCBountyColonists6
+      Faction: Warlord
+      POINameAsPositionRef:
+      - Eden_BA_DummyBandit
+      Pos:
+      - -4895.2666
+      - -55
+      - 4492.11523
+      Radius: 331
+      Properties:
+      - Key: AIManPatrolFactions
+        Value: Warlord
+      - Key: AIManMaxPursuitRange
+        Value: 3000
+    SpaceVessel:
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 54
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -1274.5791
+        - 2590.49146
+        - 3186.38135
+        POINameAsPositionRef: &o3
+        - Eden_BA_DummyBandit
+        Radius: 700
+      Stock:
+      - Name: Eden_SpaceDroneBandit
+        Amount: 19
+        Extra: 0
+      Properties: &o4
+      - Key: MapDistance
+        Value: 3000
+      - Key: HudDistance
+        Value: 3000
+      - Key: AIManPatrolFactions
+        Value: Warlord
+      - Key: AIManMaxPursuitRange
+        Value: 3000
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 41
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - 2318.67822
+        - -2683.30029
+        - -2470.7229
+        POINameAsPositionRef: *o3
+        Radius: 314
+      Stock:
+      - Name: Eden_SpaceDroneBandit
+        Amount: 16
+        Extra: 0
+      Properties: *o4
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 50
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - 4772.45117
+        - -2914.61255
+        - 5968.89551
+        POINameAsPositionRef: *o3
+        Radius: 463
+      Stock:
+      - Name: Eden_SpaceDroneBandit
+        Amount: 15
+        Extra: 0
+      Properties: *o4
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 58
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -518.828491
+        - 892.545349
+        - 2191.54346
+        POINameAsPositionRef: *o3
+        Radius: 637
+      Stock:
+      - Name: Eden_SpaceDroneBandit
+        Amount: 19
+        Extra: 0
+      Properties: *o4
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 55
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -1869.97412
+        - 375.214294
+        - -8040.11914
+        POINameAsPositionRef: *o3
+        Radius: 411
+      Stock:
+      - Name: Eden_SpaceDroneBandit
+        Amount: 12
+        Extra: 0
+      Properties: *o4
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 55
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - 1209.46802
+        - 1452.92761
+        - -1278.97009
+        POINameAsPositionRef: *o3
+        Radius: 659
+      Stock:
+      - Name: Eden_SpaceDroneBandit
+        Amount: 16
+        Extra: 0
+      Properties: *o4
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 55
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -2620.69312
+        - 3827.24707
+        - 6935.68066
+        POINameAsPositionRef: *o3
+        Radius: 704
+      Stock:
+      - Name: Eden_SpaceDroneBandit
+        Amount: 15
+        Extra: 0
+      Properties: *o4
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 40
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -1772.49976
+        - 3059.97803
+        - -2553.50073
+        POINameAsPositionRef: *o3
+        Radius: 649
+      Stock:
+      - Name: Eden_SpaceDroneBandit
+        Amount: 13
+        Extra: 0
+      Properties: *o4
+    - Name: Eden_OPVRaiderT3
+      Faction: Warlord
+      FixedMaxSpeed: 26
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - 391.995483
+        - 1079.64612
+        - 2070.83252
+        POINameAsPositionRef: &o5
+        - Eden_BA_DummyBandit
+        Radius: 714
+      Stock:
+      - Name: Eden_SpaceDroneBandit
+        Amount: 14
+        Extra: 0
+      Properties: &o6
+      - Key: MapDistance
+        Value: 3000
+      - Key: HudDistance
+        Value: 3000
+      - Key: AIManPatrolFactions
+        Value: Warlord
+      - Key: AIManMaxPursuitRange
+        Value: 3000
+    - Name: Eden_OPVRaiderT3
+      Faction: Warlord
+      FixedMaxSpeed: 23
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -3751.81763
+        - -2209.04688
+        - -948.770142
+        POINameAsPositionRef: *o5
+        Radius: 336
+      Stock:
+      - Name: Eden_SpaceDroneBandit
+        Amount: 15
+        Extra: 0
+      Properties: *o6
+    - Name: Eden_OPVRaiderT3
+      Faction: Warlord
+      FixedMaxSpeed: 25
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - 1462.01404
+        - 1376.52747
+        - 1177.26611
+        POINameAsPositionRef: *o5
+        Radius: 715
+      Stock:
+      - Name: Eden_SpaceDroneBandit
+        Amount: 12
+        Extra: 0
+      Properties: *o6

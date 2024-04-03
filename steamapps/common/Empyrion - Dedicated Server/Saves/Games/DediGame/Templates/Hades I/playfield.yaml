@@ -1,0 +1,1071 @@
+PlayfieldType: Planet
+Gravity: -8.2562027
+PlanetAxis: -7.22997761
+AtmosphereDensity: 1.59469175
+AtmosphereO2: 0
+Radiation: 3.23485804
+TerrainLevel: 134
+BaseLevel: 130
+PlanetType: Ice Giant
+PlanetSize: 5
+Water: WaterGreen
+Difficulty: 10
+SunFlare: EnvironmentalEffects/SunFlareWhite3Space
+SpecialEffectsGlobal:
+- Name: CloudsLight
+  InitialDelay: 0
+  Delay: 4
+  Lifetime: 180
+  Type: Weather
+- Name: CloudsMedium
+  InitialDelay: 0
+  Delay: 4
+  Lifetime: 180
+  Type: Weather
+- Name: Clouds
+  InitialDelay: 0
+  Delay: 4
+  Lifetime: 180
+  Type: Weather
+- Name: Wind
+  InitialDelay: 0
+  Delay: 4
+  Lifetime: 180
+  Type: Weather
+- Name: AcidRainHeay
+  InitialDelay: 0
+  Delay: 4
+  Lifetime: 180
+  Type: Weather
+- Name: SnowHeavy
+  InitialDelay: 0
+  Delay: 4
+  Lifetime: 180
+  Type: Weather
+- Name: Storm
+  InitialDelay: 0
+  Delay: 4
+  Lifetime: 180
+  Type: Weather
+- Name: Hail
+  InitialDelay: 0
+  Delay: 4
+  Lifetime: 180
+  Type: Weather
+- Name: RockFall
+  InitialDelay: 0
+  Delay: 4
+  Lifetime: 180
+  Type: Weather
+- Name: MeteorFireRain
+  InitialDelay: 24
+  Delay: 48
+  Lifetime: 180
+  Type: Weather
+- Name: ThunderAndLightningPurple
+  SpawnY: 100
+  Time: Day
+  InitialDelay: 4
+  Delay: 16
+  PlyDist: 50
+  Struct: Avoid
+  Lifetime: 300
+- Name: ThunderAndLightning
+  SpawnY: 100
+  Time: Night
+  InitialDelay: 4
+  Delay: 16
+  PlyDist: 50
+  Struct: Avoid
+  Lifetime: 300
+AtmosphereColor: 0, 0.3, 1.5
+AtmosphereParams:
+- 1
+- 2
+OrbitUsesLightColor: true
+SkyColor: 0, 0.3, 0.5
+SkyHorizonColor: 0, 0.5, 0.5
+LightZenithColor: 0.85, 0.85, 1
+LightHorizonColor: 0, 0.8, 1
+NightLightColor: 0.78, 0.78, 1
+CloudsZenithColor: 0, 0.3, 1
+CloudsHorizonColor: 0, 1, 1
+CloudsNightZenithColor: 0, 0.4, 0.4
+CloudsNightHorizonColor: 0, 1, 1
+CloudsOpacity: 2
+FogCloudIntensity: 0.400000006
+NightLightIntensity: 0.550000012
+DayShadowStrength: 1
+NightShadowStrength: 1
+CloudsDensity: 1
+CloudsSharpness: 0.600000024
+CloudsBrightness: 2
+WindSpeed: 140
+FogColor: 0, 0.6, 1
+GroundFogIntensity: 0.200000003
+GroundFogHeight: 800
+Description: >-
+  Difficulty: [c][ff0000]***[-][/c][c][ff00ff][b] ULTRA [/b][-][/c][c][ff0000]***[-][/c]
+
+  [c][ffffff][i](Ultra difficulty presents extreme challenges and may result in loss of your ship with little warning)[-][/i][/c]
+
+
+  Sensor Interference: [c][ffff00]POI identification range reduced.[-][/c]
+
+
+  This planet is a work in progress and is not complete yet.
+
+
+  With a thick atmosphere composed mostly of Hydrogen and Helium and surface winds that can reach 2,000km/h, Ice Giants have some of the most extreme environments found in the solar system.
+
+  A signal beacon on the surface warns travelers away from a quarantine zone.
+
+
+  Anomalous sensor readings are coming from below the planet's icy crust.
+
+
+  [c][808080][i]Originally created by Needleship.[/i][-][/c]
+Seed: 971468
+TemperatureMinMax:
+- -247
+- -180
+HumidityMinMax:
+- 0.0792862177
+- 0.311923087
+TemperatureHeightRange:
+- 330
+- 107
+TemperatureGradientRange:
+- 1
+- 0
+TemperatureNoiseFac: 0.159999996
+HumidityHeightFac:
+- 0
+- 420
+HumidityNoiseFac: 1
+TerrainHeightMapMax: 490
+PlayfieldLevel: 1
+PlanetClass: Ice Giant
+UseRandom: true
+Build: 4131
+Music: Magnitude
+LandClaimZone: Device
+RandomResources:
+- Name: ErestrumResource
+  CountMinMax:
+  - 35
+  - 50
+  SizeMinMax:
+  - 5
+  - 6
+  DepthMinMax:
+  - 100
+  - 250
+  Biome:
+  - CryoVolcano
+  - Mountains
+- Name: PentaxidResource
+  CountMinMax:
+  - 35
+  - 50
+  SizeMinMax:
+  - 3
+  - 3
+  DepthMinMax:
+  - 75
+  - 175
+  Biome:
+  - CryoVolcano
+  - Mountains
+Biome:
+- BiomeClusterData:
+  - Name: Pole
+    AmbientSound: ArcticLowPlains
+    Texture:
+    - 11
+    - 11
+    - 0.200000003
+    Color:
+    - 0
+    - 0
+    - 0
+    SelectionCriteria:
+    - +Lat > 0.975
+    StampProb: 1
+    IgnoreForcedBiome: true
+    Weather: PoleFog
+  - Name: WaterChecker
+    Temperature: 5
+    AmbientSound: SmallLake
+    Texture:
+    - 0
+    - 8
+    - 0.200000003
+    Color:
+    - 1
+    - 0
+    - 0
+    SelectionCriteria:
+    - Height < SeaLevel - 3
+    - Temperature > -16
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 0
+      - 3
+    - - 10
+      - -1
+    - - 9
+      - 1
+  - Name: Rifts
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalsPyramidBlue
+      - 0.0001
+      - Free
+    Texture:
+    - 10
+    - 10
+    - 0.5
+    Color:
+    - 0.699999988
+    - 0.200000003
+    - 0.200000003
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 25
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - RiftIce_01, 0.3
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 0
+      - 3
+    - - 1
+      - 4
+    - - 2
+      - 4
+    - - 3
+      - 4
+    - - 4
+      - 4
+    - - 5
+      - 4
+    - - 6
+      - 4
+    - - 7
+      - 4
+    - - 8
+      - 4
+    - - 9
+      - 4
+    - - 10
+      - 4
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: CryoVolcano
+    AmbientSound: LavaPlains
+    Decorations:
+    - - DesertRock1
+      - 0.002
+    - - DesertRock2
+      - 0.002
+    - - Boulder1
+      - 0.001
+    - - Boulder2
+      - 0.001
+    - - Boulder3
+      - 0.001
+    - - Boulder4
+      - 0.0015
+    - - Boulder5
+      - 0.0015
+    - - RockResourceSathium
+      - 0.018
+    - - RockResourceNeodymium
+      - 0.009
+    Texture:
+    - 6
+    - 7
+    - 0.200000003
+    - 4
+    - 5
+    - 0.5
+    - 0.00200000009
+    Color:
+    - 0.400000006
+    - 0.400000006
+    - 0.400000006
+    SelectionCriteria:
+    - Height > 160
+    StampTries: 3
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - Volcano_2, 0.1
+    - Volcano_3, 0.1
+    - Volcano_1, 0.1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 0
+      - 3
+    - - 1
+      - 4
+    - - 2
+      - 4
+    - - 3
+      - 4
+    - - 4
+      - 4
+    - - 5
+      - 4
+    - - 6
+      - 4
+    - - 7
+      - 4
+    - - 8
+      - 4
+    - - 9
+      - 4
+    - - 10
+      - 4
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Mountains
+    AmbientSound: LavaPlains
+    Decorations:
+    - - DesertRock1
+      - 0.002
+    - - DesertRock2
+      - 0.002
+    - - Boulder1
+      - 0.001
+    - - Boulder2
+      - 0.001
+    - - Boulder3
+      - 0.001
+    - - Boulder4
+      - 0.0015
+    - - Boulder5
+      - 0.0015
+    - - RockResourceSathium
+      - 0.018
+    - - RockResourceNeodymium
+      - 0.009
+    Texture:
+    - 6
+    - 7
+    - 0.200000003
+    - 4
+    - 5
+    - 0.5
+    - 0.00200000009
+    Color:
+    - 0.400000006
+    - 0.400000006
+    - 0.400000006
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 4
+    StampProb: 1
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOwn
+    Stamps:
+    - Volcanic_02b, 0.4
+    - Volcanic_02 , 0.4
+    - Volcanic_03, 0.4
+    - Volcanic_04, 0.4
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 0
+      - 3
+    - - 1
+      - 4
+    - - 2
+      - 4
+    - - 3
+      - 4
+    - - 4
+      - 4
+    - - 5
+      - 4
+    - - 6
+      - 4
+    - - 7
+      - 4
+    - - 8
+      - 4
+    - - 9
+      - 4
+    - - 10
+      - 4
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Band_01to3
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceIron
+      - 0.003
+    Texture:
+    - 1
+    - 1
+    - 0.5
+    Color:
+    - 0.540000021
+    - 0.699999988
+    - 0.790000021
+    SelectionCriteria:
+    - Temperature > -193
+    - Temperature < -185
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 0
+      - 3
+    - - 1
+      - 4
+    - - 2
+      - 4
+    - - 3
+      - 4
+    - - 4
+      - 4
+    - - 5
+      - 4
+    - - 6
+      - 4
+    - - 7
+      - 4
+    - - 8
+      - 4
+    - - 9
+      - 4
+    - - 10
+      - 4
+    - - 11
+      - -1
+    - - 11
+      - 1
+    UndergroundLayersDefault: true
+  - Name: Band_01b
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceSilicon
+      - 0.003
+    Texture:
+    - 2
+    - 2
+    - 0.800000012
+    - 1
+    - 1
+    - 0.5
+    - 0.5
+    Color:
+    - 0.75
+    - 0.680000007
+    - 0.779999971
+    SelectionCriteria:
+    - Temperature > -195
+    - Temperature < -185
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_02a
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceCopper
+      - 0.003
+    Texture:
+    - 0
+    - 0
+    - 0.5
+    Color:
+    - 0.949999988
+    - 0.680000007
+    - 0.879999995
+    SelectionCriteria:
+    - Temperature > -196
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_02
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceCobalt
+      - 0.003
+    Texture:
+    - 1
+    - 1
+    - 0.5
+    Color:
+    - 0.850000024
+    - 0.779999971
+    - 0.879999995
+    SelectionCriteria:
+    - Temperature > -197
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_02b
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceSathium
+      - 0.003
+    Texture:
+    - 2
+    - 2
+    - 0.5
+    Color:
+    - 0.899999976
+    - 0.779999971
+    - 0.949999988
+    SelectionCriteria:
+    - Temperature > -199
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_03ablu
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceNeodymium
+      - 0.001
+    Texture:
+    - 0
+    - 6
+    - 0.200000003
+    - 1
+    - 1
+    - 0.5
+    - 0.5
+    Color:
+    - 0.349999994
+    - 0.680000007
+    - 0.779999971
+    SelectionCriteria:
+    - Temperature > -200
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_03abluDark
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceErestrum
+      - 0.001
+    Texture:
+    - 0
+    - 3
+    - 0.200000003
+    - 1
+    - 1
+    - 0.5
+    - 0.5
+    Color:
+    - 0.75
+    - 0.680000007
+    - 0.379999995
+    SelectionCriteria:
+    - Temperature > -201
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_03
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceZascosium
+      - 0.001
+    Texture:
+    - 2
+    - 2
+    - 0.5
+    Color:
+    - 1.07000005
+    - 0.720000029
+    - 0.74000001
+    SelectionCriteria:
+    - Temperature > -202
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_04
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceGold
+      - 0.001
+    Texture:
+    - 3
+    - 3
+    - 0.5
+    Color:
+    - 1
+    - 0.769999981
+    - 1
+    SelectionCriteria:
+    - Temperature > -205
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_04b
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourcePromethium
+      - 0.001
+    Texture:
+    - 4
+    - 7
+    - 0.200000003
+    - 1
+    - 1
+    - 0.5
+    - 0.5
+    Color:
+    - 0.5
+    - 0.769999981
+    - 1
+    SelectionCriteria:
+    - Temperature > -206.5
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_05
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceZascosium
+      - 0.001
+    Texture:
+    - 5
+    - 5
+    - 0.5
+    Color:
+    - 1
+    - 1
+    - 1
+    SelectionCriteria:
+    - Temperature > -209
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_06
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceErestrum
+      - 0.001
+    Texture:
+    - 6
+    - 6
+    - 0.5
+    Color:
+    - 0.850000024
+    - 1
+    - 0.800000012
+    SelectionCriteria:
+    - Temperature > -213
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_07
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceNeodymium
+      - 0.001
+    Texture:
+    - 7
+    - 7
+    - 0.5
+    Color:
+    - 0.99000001
+    - 1
+    - 0.850000024
+    SelectionCriteria:
+    - Temperature > -214
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_08
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceGold
+      - 0.001
+    Texture:
+    - 8
+    - 8
+    - 0.5
+    Color:
+    - 0.839999974
+    - 1.02999997
+    - 0.540000021
+    SelectionCriteria:
+    - Temperature > -215
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_08b
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceSathium
+      - 0.003
+    Texture:
+    - 8
+    - 9
+    - 0.200000003
+    - 9
+    - 9
+    - 0
+    - 5
+    - 0.5
+    Color:
+    - 0.74000001
+    - 1
+    - 0.439999998
+    SelectionCriteria:
+    - Temperature > -220
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_09a
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceIron
+      - 0.003
+    Texture:
+    - 9
+    - 8
+    - 0.5
+    - 9
+    - 9
+    - 0
+    - 5
+    - 0.5
+    Color:
+    - 1
+    - 1
+    - 0.550000012
+    SelectionCriteria:
+    - Temperature > -222
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_09
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceSilicon
+      - 0.003
+    Texture:
+    - 9
+    - 9
+    - 0.5
+    Color:
+    - 1
+    - 1
+    - 0.469999999
+    SelectionCriteria:
+    - Temperature > -224
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_09b
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceCopper
+      - 0.003
+    Texture:
+    - 9
+    - 2
+    - 0.5
+    - 10
+    - 10
+    - 0
+    - 5
+    - 0.5
+    Color:
+    - 1
+    - 1
+    - 0.349999994
+    SelectionCriteria:
+    - Temperature > -228
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_10a
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourcePromethium
+      - 0.001
+    Texture:
+    - 10
+    - 9
+    - 0.5
+    - 10
+    - 10
+    - 0
+    - 5
+    - 0.5
+    Color:
+    - 0.899999976
+    - 0.899999976
+    - 0.340000004
+    SelectionCriteria:
+    - Temperature > -31
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_10
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceErestrum
+      - 0.001
+    Texture:
+    - 10
+    - 10
+    - 0.5
+    Color:
+    - 1.22000003
+    - 1.23000002
+    - 0.340000004
+    SelectionCriteria:
+    - Temperature > -235
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_10b
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceIron
+      - 0.003
+    Texture:
+    - 10
+    - 11
+    - 0.5
+    - 10
+    - 10
+    - 0
+    - 5
+    - 0.5
+    Color:
+    - 0.899999976
+    - 1
+    - 0.340000004
+    SelectionCriteria:
+    - Temperature > -238
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_11
+    AmbientSound: ArcticLowPlains
+    Decorations:
+    - - RockResourceNeodymium
+      - 0.001
+    Texture:
+    - 11
+    - 11
+    - 0.5
+    Color:
+    - 1
+    - 1
+    - 1
+    SelectionCriteria:
+    - Temperature > -242
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: Band_00
+    AmbientSound: ArcticLowPlains
+    Texture:
+    - 11
+    - 11
+    - 0.5
+    Color:
+    - 0.699999988
+    - 0.699999988
+    - 0.400000006
+    StampProb: 1
+    IgnoreForcedBiome: true
+POIs:
+  Random:
+  - GroupName: Eden_DeepCoreMine
+    Faction: Alien
+    NoShieldReload: true
+    IsImportant: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: Discovery
+      Value: False
+    - Key: RegenAfter
+      Value: 720
+    SpawnResource:
+    - PentaxidResource:1-2
+    SpawnResourceRange:
+    - 1
+    - 10
+  - GroupName: Eden_SignalQuarantine
+    Faction: Admin
+    IsImportant: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - Eden_DeepCoreMine
+    SpawnPOINearRange:
+    - 300
+    - 400
+  - GroupName: Eden_DeepCoreDefense
+    Faction: Alien
+    NoShieldReload: true
+    Count:
+      Min: 6
+      Max: 8
+    CountMinMax:
+    - 6
+    - 8
+    Properties:
+    - Key: MapDistance
+      Value: 100
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - Eden_DeepCoreMine
+    SpawnPOIAvoid:
+    - Eden_DeepCoreDefense
+    SpawnPOINearRange:
+    - 125
+    - 250
+    SpawnPOIAvoidDistance: 50
+  - GroupName: Eden_Geyser
+    Faction: None
+    Count:
+      Min: 4
+      Max: 6
+    CountMinMax:
+    - 4
+    - 6
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - Eden_DeepCoreMine
+    SpawnPOINearRange:
+    - 150
+    - 250
+  - GroupName: NullPOI
+    IsImportant: true
+    Count:
+      Min: 25
+      Max: 25
+    CountMinMax:
+    - 25
+    - 25
+    SpawnPOIAvoid:
+    - NullPOI
+    SpawnResource:
+    - ErestrumResource:4-7
+    - PentaxidResource:4-7
+    SpawnPOIAvoidDistance: 2000
+    SpawnResourceRange:
+    - 125
+    - 500
+    Biome:
+    - CryoVolcano
+    - Mountains
+  - GroupName: Eden_PolCrawler
+    Faction: Polaris
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    Properties:
+    - Key: MapDistance
+      Value: 100
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: Eden_BuriedCVT3
+    Faction: None
+    IsScalingCount: true
+    Count:
+      Min: 8
+      Max: 12
+    CountMinMax:
+    - 8
+    - 12
+    Properties:
+    - Key: MapDistance
+      Value: 25
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: Eden_BuriedPod
+    Faction: Alien
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    Properties:
+    - Key: MapDistance
+      Value: 25
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 720
+  FixedPlayerStart:
+  - Mode: Debug
+    Pos:
+    - 0
+    - 120
+    - 0
+  - Mode: Survival
+    Spawn: EscapePod
+    Armor: ArmorMedium
+DroneBaseSetup:
+  Random:
+  - GroupName: DroneBaseSetup
+    Difficulty: 6
+    PresetStyle: 3
+    Stock:
+    - Name: DroneSmallFast01Minigun
+      Amount: 300
+      Extra: 0
+    - Name: DroneSmallFast01Rocket
+      Amount: 100
+      Extra: 0
+    - Name: DroneBomberAttackBase
+      Amount: Infinite
+      Extra: 1
+    - Name: EnemyDroneV2Plasma
+      Amount: Infinite
+      Extra: 1
+    - Name: DroneTroopsTransport
+      Amount: Infinite
+      Extra: 2
+    - Name: ZiraxMinigun
+      Amount: 500
+      Extra: 3
+    - Name: ZiraxRocket
+      Amount: 500
+      Extra: 3
+    - Name: Crawler
+      Amount: 150
+      Extra: 3
+    - Name: AlienAssassinGrey
+      Amount: 300
+      Extra: 3
+DroneSpawning:
+  Random:
+  - DronesMinMax:
+    - 0
+    - 0
+    CenterX: -5000
+  - DronesMinMax:
+    - 0
+    - 0
+    CenterX: 5000

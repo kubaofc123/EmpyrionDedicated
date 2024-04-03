@@ -1,0 +1,579 @@
+PlayfieldType: Space
+TemperatureDay: -122
+Radiation: 3.93047237
+PlanetType: Orbit
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty [c][00ff00]Easy[-][/c]
+
+
+  The orbit around a default starting planet. Contains the story mission POIs needed to progress the default missions.
+
+  [c][ffffff][i]Mission POIs can sometimes have an invulnerable core, making the entire structure indestructable except for specific blocks or devices (turrets, some grates, etc).[/i][-][/c]
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Orbit
+UseFixed: true
+Build: 4131
+Music: moonstone
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldRing
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - -160
+    - 107
+    - 151
+  - Type: AsteroidVoxel03Iron
+    Prefab: AsteroidVoxel03Iron
+    Name: Iron Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 10468
+    - -747
+    - -18043
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Silicon
+    Prefab: AsteroidVoxel02Silicon
+    Name: Silicon Asteroid
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -8192
+    - 1273
+    - 8766
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Silicon
+    Prefab: AsteroidVoxel02Silicon
+    Name: Silicon Asteroid
+    Properties: *o0
+    Pos:
+    - -11059
+    - 485
+    - 9025
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Copper
+    Prefab: AsteroidVoxel01Copper
+    Name: Copper Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 8330
+    - -475
+    - -730
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Cobalt
+    Prefab: AsteroidVoxel01Cobalt
+    Name: Cobalt Asteroid
+    Properties: &o1
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 6599
+    - 1398
+    - 8270
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Cobalt
+    Prefab: AsteroidVoxel01Cobalt
+    Name: Cobalt Asteroid
+    Properties: *o1
+    Pos:
+    - 4390
+    - -229
+    - 440
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Promethium
+    Prefab: AsteroidVoxel01Promethium
+    Name: Promethium Asteroid
+    Properties: &o2
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 4208
+    - 458
+    - 13923
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Promethium
+    Prefab: AsteroidVoxel02Promethium
+    Name: Promethium Asteroid
+    Properties: *o2
+    Pos:
+    - 261
+    - -321
+    - 5449
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: TSO_AkuaOrbit
+    Mode: Survival
+    Name: Orbital Trading Station
+    InitPower: true
+    Faction: Colonists
+    Properties:
+    - Key: Music
+      Value: NebularClouds
+    - Key: PvEArea
+      Value: 500
+    - Key: Discovery
+      Value: False
+    - Key: StationInterface
+      Value: Fuel:1.1,O2:1.1,Warp:1.1,Ammo:1,Repair:2,Shield:2,IfNeutral:0,IfFriendly:-0.1,IfHonored:-0.20
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 8280
+    - 953
+    - 258
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_TOPSpiceDestillery
+    Mode: Survival
+    Name: TOP Destillery
+    InitPower: true
+    Faction: Colonists
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - 16398
+    - 489
+    - 12892
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BA_EleonsInferno
+    Mode: Survival
+    Name: INFERNO Club
+    InitPower: true
+    Faction: Colonists
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: ExtraktTechno
+    - Key: StationInterface
+      Value: Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20
+    Pos:
+    - 14725
+    - 251
+    - 166
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_PirateBaseStory
+    Mode: Survival
+    Name: Hidden Station
+    InitPower: true
+    Faction: Pirates
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: DarkSoundscape3
+    - Key: StationInterface
+      Value: All,IfNeutral:0.05,IfFriendly:-0.05,IfHonored:-0.10
+    Pos:
+    - 8080
+    - 64
+    - 8678
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: RBAO_RadosRepairStation
+    Mode: Survival
+    Name: Resupply Station
+    InitPower: true
+    Faction: Zirax
+    Properties: &o3
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    - Key: StationInterface
+      Value: Fuel:1.2,O2:1.2,Warp:1.2,Ammo:3,IfNeutral:0.2,IfFriendly:-0.05,IfHonored:-0.10
+    Pos:
+    - 14886
+    - 638
+    - -14614
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: RBAO_RadosRepairStation
+    Mode: Survival
+    Name: Resupply Station
+    InitPower: true
+    Faction: Zirax
+    Properties: *o3
+    Pos:
+    - -7375
+    - -179
+    - 7758
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: RBAO_GhystShipyard
+    Mode: Survival
+    Name: Shipyard
+    InitPower: true
+    Faction: Zirax
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    - Key: StationInterface
+      Value: Fuel:1.6,O2:1.6,Warp:1.6,Ammo:3,Repair:2,Shield:3,IfNeutral:0.2,IfFriendly:-0.05,IfHonored:-0.10
+    Pos:
+    - -8743
+    - 27
+    - 331
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence1
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: &o4
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - -7592
+    - -32
+    - 9802
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence2
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: *o4
+    Pos:
+    - -19110
+    - -954
+    - 8365
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence2
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: *o4
+    Pos:
+    - 14581
+    - 850
+    - 2172
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence1
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: *o4
+    Pos:
+    - -5424
+    - -711
+    - 937
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Player
+    Prefab: BAO_Ramparts
+    Mode: Creative
+    SubMode: Normal
+    Name: Outpost Akua Orbit
+    InitPower: true
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 65
+    - -2000
+    - -6800
+    Rot:
+    - 0
+    - 75
+    - 0
+  - Type: BA_Player
+    Prefab: BA_EmptyPlane
+    Mode: Creative
+    SubMode: Empty
+    Name: Platform
+    InitPower: true
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 65
+    - -2000
+    - -6800
+    Rot:
+    - 0
+    - 75
+    - 0
+  - Type: SV_Player
+    Prefab: SV_Viper
+    Mode: Creative
+    SubMode: Normal
+    Name: Fighter MKII
+    InitPower: true
+    Pos:
+    - 56.5999985
+    - -1961.30005
+    - -6805.5
+    Rot:
+    - 0
+    - -115
+    - 0
+  - Type: SV_Player
+    Prefab: SV_Viper
+    Mode: Creative
+    SubMode: Empty
+    Name: Fighter MKII
+    InitPower: true
+    Pos:
+    - 69
+    - -1997
+    - -6799
+    Rot:
+    - 0
+    - -69
+    - 0
+  FixedPlayerStart:
+  - Mode: Creative
+    SubMode: Empty
+    Pos:
+    - 61
+    - -1996
+    - -6805
+    RotY: 14
+    Armor: ArmorMedium
+  - Mode: Creative
+    SubMode: Normal
+    Pos:
+    - 89
+    - -1932
+    - -6795
+    RotY: -90
+    Armor: ArmorMedium
+  - Mode: Debug
+    Pos:
+    - 65
+    - -1900
+    - -6800
+    RotY: 160
+DroneBaseSetup:
+  Fixed:
+  - Name: MainDroneBase
+    Pos:
+    - 6596.26709
+    - 3655.28955
+    - -5174.0415
+    DroneOnDuty:
+    - Name: Eden_SpaceDroneLaserEasy
+      Faction: Main
+      Pos:
+      - 8245.61621
+      - 60.3494797
+      - 7365.61719
+      Radius: 577
+    - Name: Eden_SpaceDroneLaserEasy
+      Faction: Main
+      Pos:
+      - -8834.66797
+      - -3414.74072
+      - -2629.94556
+      Radius: 742
+    SpaceVessel:
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 24
+      Mission: Freighter
+      DelayBetweenRespawn: 308
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 322
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - 4561
+          - 3144
+          - -298
+        - - 4972
+          - 5098
+          - 3647
+        - - 1672
+          - -2275
+          - 6837
+        - - -2800
+          - 1686
+          - 5676
+        - - -5580
+          - -2607
+          - 2454
+        - - -5018
+          - -6102
+          - -1463
+        - - -2851
+          - 5562
+          - -4268
+        - - 573
+          - 466
+          - -5233
+        - - 3652
+          - 341
+          - -3495
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 3
+        Extra: 0
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 24
+      Mission: Freighter
+      DelayBetweenRespawn: 441
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 364
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - 2705
+          - 1999
+          - 3805
+        - - 4578
+          - 154
+          - -433
+        - - 1864
+          - 1441
+          - -4073
+        - - -2461
+          - 2213
+          - -3463
+        - - -3613
+          - -3411
+          - 341
+        - - -1545
+          - -1027
+          - 3376
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 3
+        Extra: 0
+    - Name: OPVPolarisRG
+      Faction: Polaris
+      FixedMaxSpeed: 38
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 373
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - 3553.70264
+        - -4536.42871
+        - 969.515442
+        Radius: 2461
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 4
+        Extra: 0
+    - Name: Eden_OPVZiraxEasy
+      Faction: Zirax
+      FixedMaxSpeed: 21
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 572
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - 1266.81128
+        - -5393.15186
+        - -2881.38281
+        Radius: 2319
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 3
+        Extra: 0

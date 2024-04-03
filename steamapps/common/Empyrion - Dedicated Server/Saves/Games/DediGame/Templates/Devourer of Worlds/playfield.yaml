@@ -1,0 +1,593 @@
+PlayfieldType: Planet
+Gravity: 1
+PlanetAxis: 3.54142547
+AtmosphereO2: 0
+Radiation: 100
+SeaLevel: -1
+TerrainLevel: 150
+BaseLevel: 150
+PlanetType: Progenitor Core
+PlanetSize: 9
+Emissive: true
+Water: RockLava03
+Difficulty: 2
+SunFlare: EnvironmentalEffects/SunFlareWhite4Space
+SpecialEffectsGlobal:
+- Name: Clear
+  InitialDelay: 120
+  Delay: 120
+  Lifetime: 30
+  Type: Weather
+AtmosphereEnabled: false
+AtmosphereColor: 0.1, 0.5, 0.2
+AtmosphereParams:
+- 1
+- 2
+SkyColor: 0, 0, 0
+SkyHorizonColor: 0.1, 0, 0
+LightZenithColor: 0.90, 0.98, 0.90
+LightHorizonColor: 0.15, 1, 0.15
+NightLightColor: 0.78, 1, 0.78
+CloudsZenithColor: 0.1, 0.03, 0.03
+CloudsHorizonColor: 1, 0.3, 0.1
+CloudsOpacity: 0
+FogCloudIntensity: 0
+DayLightIntensity: 0.400000006
+NightLightIntensity: 0.400000006
+DayShadowStrength: 1
+NightShadowStrength: 1
+CloudsSharpness: 1
+CloudsBrightness: 0
+WindSpeed: 0
+FogColor: 1, 1, 1
+Description: >-
+  Difficulty: [c][ffffff]Unknown[-][/c]
+
+  [c][ffff00]Gravity Anomaly:[-][/c] [c][ffffff]This artifact is producing gravimetric distortions in the fabric of space-time. Gravity may not behave like normal. Extreme caution is advised.[-][/c]
+
+
+  The planet's crust is made out of an impenetrable alloy. UCH scientists have determined that a special key is required to access any of the structures on the surface.
+Seed: 122132
+TemperatureMinMax:
+- -273
+- -273
+HumidityMinMax:
+- 0.113411322
+- 0.284782082
+TemperatureHeightRange:
+- 800
+- 800
+TemperatureGradientRange:
+- 0.75
+- 0.100000001
+TemperatureNoiseFac: 0.5
+HumidityHeightFac:
+- 0
+- 365
+HumidityNoiseFac: 0.600000024
+TerrainHeightMapMax: 490
+BiomeStampTries: 20
+PlayfieldLevel: 1
+PlanetClass: Progenitor Core
+UseRandom: true
+Build: 4131
+IndestructibleTerrain: true
+Music: EvilWhispering
+LandClaimZone: Device
+Biome:
+- BiomeClusterData:
+  - Name: Pole
+    Texture:
+    - 11
+    - 11
+    - 0.0199999996
+    Color:
+    - 0.600000024
+    - 0.600000024
+    - 0.600000024
+    SelectionCriteria:
+    - +Lat > 0.975
+    StampProb: 1
+    IgnoreForcedBiome: true
+    Weather: PoleFog
+  - Name: Symbols
+    AmbientSound: BarrenFog
+    Texture:
+    - 0
+    - 0
+    - 0.200000003
+    Color:
+    - 1
+    - 0
+    - 0
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 30
+    StampProb: 1
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOther
+    Stamps:
+    - MenhirCircle, 0.6
+    - Plantation_01, 0.3
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_1
+    Texture:
+    - 0
+    - 0
+    - 0.5
+    Color:
+    - 0
+    - 1
+    - 0
+    SelectionCriteria:
+    - +Long < 0.27
+    - -Long > 0.26
+    - +Lat < 0.5
+    - -Lat < 0.7
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_2
+    Texture:
+    - 1
+    - 1
+    - 0.5
+    Color:
+    - 0
+    - 0.800000012
+    - 0
+    SelectionCriteria:
+    - +Long < 0.8
+    - -Long > 0.26
+    - +Lat < 0.5
+    - -Lat > 0.48
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_3
+    Texture:
+    - 2
+    - 2
+    - 0.5
+    Color:
+    - 0
+    - 0.600000024
+    - 0
+    SelectionCriteria:
+    - +Long < 0.33
+    - -Long > 0.30
+    - +Lat < 0.8
+    - +Lat > 0.3
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_4
+    Texture:
+    - 3
+    - 3
+    - 0.5
+    Color:
+    - 0
+    - 0.400000006
+    - 0
+    SelectionCriteria:
+    - +Long < 0.77
+    - +Lat < 0.77
+    - +Lat > 0.75
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_5
+    Texture:
+    - 4
+    - 4
+    - 0.5
+    Color:
+    - 0
+    - 0.200000003
+    - 0
+    SelectionCriteria:
+    - +Long < 0.55
+    - -Long > 0.05
+    - +Lat < 0.55
+    - +Lat > 0.54
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_6
+    Texture:
+    - 5
+    - 5
+    - 0.5
+    Color:
+    - 0
+    - 0.200000003
+    - 0
+    SelectionCriteria:
+    - -Long < 0.13
+    - +Long > 0.12
+    - -Lat < 0.05
+    - +Lat < 0.85
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_7
+    Texture:
+    - 6
+    - 6
+    - 0.5
+    Color:
+    - 0
+    - 0.200000003
+    - 0.200000003
+    SelectionCriteria:
+    - -Long < 0.90
+    - +Long > 0.12
+    - -Lat < 0.05
+    - +Lat < 0.06
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_8
+    Texture:
+    - 7
+    - 7
+    - 0.5
+    Color:
+    - 0
+    - 0.200000003
+    - 0.400000006
+    SelectionCriteria:
+    - -Long < 0.90
+    - +Long > 0
+    - -Lat < 0
+    - +Lat < 0.01
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_9
+    Texture:
+    - 8
+    - 8
+    - 0.5
+    Color:
+    - 0
+    - 0.200000003
+    - 0.600000024
+    SelectionCriteria:
+    - +Long < 0.34
+    - +Long > 0.33
+    - -Lat < 0.65
+    - +Lat < 0.65
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_10
+    Texture:
+    - 9
+    - 9
+    - 0.5
+    Color:
+    - 0
+    - 0.200000003
+    - 0.800000012
+    SelectionCriteria:
+    - +Long < 0.25
+    - +Long > 0.23
+    - -Lat < 0.87
+    - +Lat < 0.75
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_11
+    Texture:
+    - 10
+    - 10
+    - 0.5
+    Color:
+    - 0
+    - 0.200000003
+    - 1
+    SelectionCriteria:
+    - -Long < 0.79
+    - +Long > 0
+    - +Lat > 0.25
+    - +Lat < 0.27
+    - -Lat > 0.23
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_12
+    Texture:
+    - 0
+    - 0
+    - 0.5
+    Color:
+    - 0
+    - 0.400000006
+    - 1
+    SelectionCriteria:
+    - +Long < 0.07
+    - -Long > 0.04
+    - +Lat < 0.9
+    - +Lat > 0.2
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_13
+    Texture:
+    - 0
+    - 0
+    - 0.5
+    Color:
+    - 0
+    - 0.400000006
+    - 1
+    SelectionCriteria:
+    - -Long < 0.45
+    - +Long > 0.43
+    - +Lat < 0.9
+    - +Lat > 0.2
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Channel_14
+    Texture:
+    - 0
+    - 0
+    - 0.5
+    Color:
+    - 0
+    - 0.600000024
+    - 1
+    SelectionCriteria:
+    - -Long < 0.78
+    - +Long > 0.77
+    - +Lat < 0.95
+    - +Lat > 0.1
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Metal
+    Texture:
+    - 11
+    - 11
+    - 0.200000003
+    Color:
+    - 0.300000012
+    - 0.300000012
+    - 0.300000012
+    SelectionCriteria:
+    - true
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+    UndergroundLayersDefault: true
+POIs:
+  FixedPlayerStart:
+  - Mode: Debug
+    Pos:
+    - -596
+    - 104
+    - -1063
+    RotY: 125
+  - Mode: Survival
+    Spawn: EscapePod
+    Armor: ArmorMedium
+DroneBaseSetup:
+  Random:
+  - GroupName: DroneBaseSetup
+    Stock:
+    - Name: DroneSmallFast01Rocket
+      Amount: 100
+      Extra: 0
+    - Name: DroneSmallFast01Minigun
+      Amount: 200
+      Extra: 0
+    - Name: DroneLargeSlow01Minigun
+      Amount: 100
+      Extra: 0
+    - Name: DroneSmallSlow01Cannon
+      Amount: 200
+      Extra: 0
+    - Name: DroneSmallAttackBase
+      Amount: 300
+      Extra: 1
+    - Name: DroneTroopsTransport
+      Amount: Infinite
+      Extra: 2
+    - Name: ZiraxMinigun
+      Amount: 500
+      Extra: 3
+    - Name: RipperDog
+      Amount: 400
+      Extra: 3
+DroneSpawning:
+  Random:
+  - DronesMinMax:
+    - 0
+    - 0
+    CenterX: -2500
+    Radius: 1500
+  - DronesMinMax:
+    - 0
+    - 0
+    CenterX: 2500
+    Radius: 1500

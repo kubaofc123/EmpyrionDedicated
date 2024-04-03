@@ -1,0 +1,376 @@
+PlayfieldType: Space
+TemperatureDay: -186
+Radiation: 5.74193621
+PlanetType: Combat Site Class 2
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Type: [c][ff0000]Combat Site[-][/c] - [c][00ff00]Class 2[-][/c]
+
+  Factions: [c][ff0000]Bandits[-][/c]
+
+  Sensors pick up high levels of radio signals indicating the presence of ships or stations.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Combat Site Class 2
+UseFixed: true
+Build: 4139
+Music: Vanguard
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: Eden_SectorNebulaPirateYellow
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Iron
+    Prefab: AsteroidVoxel01Iron
+    Name: Iron Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 1339
+    - -30
+    - -20817
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Cobalt
+    Prefab: AsteroidVoxel03Cobalt
+    Name: Cobalt Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 20764
+    - 43
+    - -1998
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_BanditAuxT1_2
+    Mode: Survival
+    Name: Bandit Outpost
+    InitPower: true
+    Faction: Warlord
+    Properties:
+    - Key: MapDistance
+      Value: 25000
+    - Key: HudDistance
+      Value: 25000
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash2V4
+    Mode: Survival
+    Name: Smuggler Stash
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory: &o0
+    - Warlord
+    Properties: &o1
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 1500
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 14.2185564
+    - -427.072571
+    - -223.004181
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash1V2
+    Mode: Survival
+    Name: Smuggler Stash
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - -193.165604
+    - 253.613739
+    - -409.546234
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash1
+    Mode: Survival
+    Name: Smuggler Stash
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - 284.525269
+    - 55.7649117
+    - 203.105057
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash5V3
+    Mode: Survival
+    Name: Suspicious Asteroid
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - -391.622437
+    - -85.640213
+    - -326.476044
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_SmugOutpost1c
+    Mode: Survival
+    Name: Smuggler Waystation
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory:
+    - Warlord
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 1500
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 323.258881
+    - 65.6491852
+    - 213.641953
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash5V2
+    Mode: Survival
+    Name: Suspicious Asteroid
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - -390.211456
+    - 264.297852
+    - -40.1332932
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyPOI
+    Mode: Survival
+    Name: Dummy
+    InitPower: true
+    Faction: Warlord
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - 6836.0918
+    - 1427
+    - 199.414505
+    DroneOnDuty:
+    - Name: SpaceDroneLaser
+      Faction: Warlord
+      POINameAsPositionRef: &o2
+      - Eden_DummyPOI
+      Pos:
+      - 736.009399
+      - 1967
+      - 1331.06396
+      Radius: 2127
+      Properties: &o3
+      - Key: AIManPatrolFactions
+        Value: Warlord
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: SpaceDroneLaser
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - 667.54718
+      - 126
+      - -2043.74182
+      Radius: 1234
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - 3843.21851
+      - 1868
+      - -6333.09863
+      Radius: 2662
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Warlord
+      POINameAsPositionRef: *o2
+      Pos:
+      - 71.8263779
+      - -1689
+      - 27.7483673
+      Radius: 2091
+      Properties: *o3
+    SpaceVessel:
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 103
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -9053.62793
+        - 875.931885
+        - -4269.89648
+        POINameAsPositionRef: &o4
+        - Eden_BA_DummyPOI
+        Radius: 1603
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 13
+        Extra: 0
+      Properties: &o5
+      - Key: MapDistance
+        Value: 3000
+      - Key: HudDistance
+        Value: 3000
+      - Key: AIManPatrolFactions
+        Value: Warlord
+      - Key: AIManMaxPursuitRange
+        Value: 7500
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 98
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -5817.82764
+        - 1511.31152
+        - -8906.19141
+        POINameAsPositionRef: *o4
+        Radius: 2276
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 17
+        Extra: 0
+      Properties: *o5
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 104
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -4401.95947
+        - -860.997742
+        - -4416.54297
+        POINameAsPositionRef: *o4
+        Radius: 2040
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 12
+        Extra: 0
+      Properties: *o5
+    - Name: Eden_OPVBanditT1
+      Faction: Warlord
+      FixedMaxSpeed: 102
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - 479.048889
+        - -211.911469
+        - -4335.00293
+        POINameAsPositionRef: *o4
+        Radius: 2585
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 13
+        Extra: 0
+      Properties: *o5
+    - Name: Eden_OPVBanditT1Boss
+      Faction: Warlord
+      FixedMaxSpeed: 78
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      RangePatrol:
+        Position3D:
+        - -205.462341
+        - -155.004364
+        - 3474.69043
+        POINameAsPositionRef:
+        - Eden_BA_DummyPOI
+        Radius: 1531
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 15
+        Extra: 0
+      Properties:
+      - Key: MapDistance
+        Value: 3000
+      - Key: HudDistance
+        Value: 3000
+      - Key: AIManPatrolFactions
+        Value: Warlord
+      - Key: AIManMaxPursuitRange
+        Value: 5000

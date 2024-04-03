@@ -1,0 +1,953 @@
+PlayfieldType: Moon
+Gravity: -27.1731644
+PlanetAxis: 20.3605576
+AtmosphereDensity: 1.32097089
+AtmosphereO2: 0
+TemperatureNight: -50
+SeaLevel: 39
+TerrainLevel: 133
+PlanetType: Eerie Moon
+Water: WaterGreen
+Difficulty: 2
+SunFlare: EnvironmentalEffects/SunFlareBlue
+SpecialEffectsLocal:
+- Name: Grime
+  MaxHeight: 10
+  Time: Day
+  Biome:
+  - Any
+SpecialEffectsGlobal:
+- Name: Clouds
+  InitialDelay: 24
+  Delay: 5
+  Lifetime: 1000
+  Type: Weather
+- Name: Wind
+  InitialDelay: 48
+  Delay: 12
+  Lifetime: 600
+  Type: Weather
+- Name: RainMedium
+  InitialDelay: 48
+  Delay: 12
+  Lifetime: 600
+  Type: Weather
+- Name: RainHeavy
+  InitialDelay: 72
+  Delay: 24
+  Lifetime: 600
+  Type: Weather
+- Name: Storm
+  InitialDelay: 72
+  Delay: 24
+  Lifetime: 600
+  Type: Weather
+AtmosphereColor: 0.2, 0.2, 0.2
+SkyColor: 0.1, 0.1, 0.1
+SkyHorizonColor: 1, 0.5, 0
+NightLightColor: 0.78, 0.78, 1
+CloudsZenithColor: 0.5, 0.5, 0.7
+CloudsHorizonColor: 0.2, 0.2, 0.6
+CloudsOpacity: 1
+FogCloudIntensity: 0.800000012
+DayLightIntensity: 0.00100000005
+NightLightIntensity: 0.100000001
+DayShadowStrength: 0
+NightShadowStrength: 0
+AtmosphereFog: 1
+CloudsDensity: 1
+CloudsSharpness: 1
+CloudsBrightness: 0.100000001
+Description: >-
+  Difficulty: [c][ffff00]Medium[-][/c]
+
+
+  A strange moon, filled with ooze and other unknown substances. Strong radiation can be detected coming from the ooze.
+
+
+  [c][808080][i]Originally created by Tellrog.[/i][-][/c]
+Seed: 685759
+TemperatureMinMax:
+- -50
+- -5
+HumidityMinMax:
+- 0
+- 1
+LandWaterRatio: 0.056997072
+TemperatureHeightRange:
+- 30
+- 50
+TemperatureGradientRange:
+- 0.550000012
+- 0
+TemperatureNoiseFac: 0.75
+HumidityHeightFac:
+- 0
+- 270
+HumidityNoiseFac: 0.899999976
+TerrainHeightMapMax: 490
+HumidityMasks:
+- Global_3
+- Global_4
+BiomeStampTries: 50
+PlayfieldLevel: 1
+PlanetClass: Eerie Moon
+UseRandom: true
+Build: 4139
+Music: alien
+LandClaimZone: Device
+RandomResources:
+- Name: ErestrumResource
+  IsScalingCount: true
+  CountMinMax:
+  - 3
+  - 4
+  SizeMinMax:
+  - 3
+  - 4
+  DepthMinMax:
+  - 0
+  - 0
+  BiomesExcluded:
+  - Ooze
+- Name: SathiumResource
+  IsScalingCount: true
+  CountMinMax:
+  - 2
+  - 3
+  SizeMinMax:
+  - 5
+  - 6
+  DepthMinMax:
+  - 0
+  - 0
+  BiomesExcluded:
+  - Ooze
+- Name: PentaxidResource
+  IsScalingCount: true
+  CountMinMax:
+  - 1
+  - 2
+  SizeMinMax:
+  - 4
+  - 4
+  DepthMinMax:
+  - 0
+  - 3
+  Biome:
+  - Ooze
+- Name: PentaxidResource
+  IsScalingCount: true
+  CountMinMax:
+  - 3
+  - 4
+  SizeMinMax:
+  - 2
+  - 3
+  DepthMinMax:
+  - 0
+  - 1
+  BiomesExcluded:
+  - Ooze
+Biome:
+- BiomeClusterData:
+  - Name: Pole
+    Temperature: -6
+    AmbientSound: ArcticLowPlains
+    Texture:
+    - 5
+    - 11
+    - 0.200000003
+    Color:
+    - 1
+    - 1
+    - 1
+    SelectionCriteria:
+    - +Lat > 0.975
+    StampProb: 1
+    IgnoreForcedBiome: true
+    Weather: PoleFog
+    UndergroundLayers:
+    - - 0
+      - 2
+    - - 10
+      - 4
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: LiquidDeep
+    Radiation: 150
+    AmbientSound: Swamp
+    Decorations:
+    - - AlienDeadTree
+      - 0.2
+      - Tree
+    - - SkeletonDragonHead
+      - 0.1
+      - Tree
+    - - SkeletonDragonTorso
+      - 0.1
+      - Tree
+    - - SkeletonMammothTorso
+      - 0.1
+      - Tree
+    - - SkeletonMammothHead
+      - 0.1
+      - Tree
+    - - SkeletonWhaleFull
+      - 0.1
+      - Tree
+    - - SkeletonWhaleHead
+      - 0.1
+      - Tree
+    - - SkeletonWhalePart
+      - 0.1
+      - Tree
+    - - ScalyPodsHarvested
+      - 0.04
+      - Plant
+    - - RockResourcePromethium
+      - 0.007
+      - Free
+    - - RockResourceErestrum
+      - 0.007
+      - Free
+    - - RockResourceGold
+      - 0.007
+      - Free
+    - - CrystalsPyramidBlue
+      - 0.05
+      - Free
+    Texture:
+    - 2
+    - 11
+    - 0.200000003
+    Color:
+    - 0
+    - 0
+    - 1
+    SelectionCriteria:
+    - Height < SeaLevel - 4
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 0
+      - 2
+    - - 12
+      - 4
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: Liquid
+    Radiation: 100
+    AmbientSound: Swamp
+    Texture:
+    - 2
+    - 11
+    - 0.200000003
+    Color:
+    - 0
+    - 0
+    - 1
+    SelectionCriteria:
+    - Height < SeaLevel
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 0
+      - 2
+    - - 12
+      - 4
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: Shore
+    AmbientSound: Swamp
+    Texture:
+    - 2
+    - 11
+    - 0.200000003
+    Color:
+    - 0
+    - 0.400000006
+    - 1
+    SelectionCriteria:
+    - Height < SeaLevel + 3
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 0
+      - 2
+    - - 12
+      - 4
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: Boneyard
+    Decorations:
+    - - SkeletonDragonHead
+      - 0.1
+      - Tree
+    - - SkeletonDragonTorso
+      - 0.1
+      - Tree
+    - - SkeletonMammothTorso
+      - 0.1
+      - Tree
+    - - SkeletonMammothHead
+      - 0.1
+      - Tree
+    - - SkeletonWhaleFull
+      - 0.1
+      - Tree
+    - - SkeletonWhaleHead
+      - 0.1
+      - Tree
+    - - SkeletonWhalePart
+      - 0.1
+      - Tree
+    - - ScalyPodsHarvested
+      - 0.04
+      - Plant
+    Texture:
+    - 1
+    - 1
+    - 0.5
+    Color:
+    - 0
+    - 0
+    - 0
+    SelectionCriteria:
+    - Humidity > .8
+    StampTries: 200
+    StampProb: 0.5
+    Stamps:
+    - Hollow_01_SUB
+    UndergroundLayers:
+    - - 1
+      - 1
+    - - 1
+      - 0
+    - - 1
+      - 1
+  - Name: Ooze
+    Radiation: 100
+    LevelMod: +8
+    AmbientSound: BarrenFog
+    Decorations:
+    - - SkeletonWhaleHead
+      - 0.0001
+      - Tree
+    - - SkeletonWhaleFull
+      - 0.0001
+      - Tree
+    - - SkeletonWhalePart
+      - 0.0001
+      - Tree
+    Texture:
+    - 2
+    - 11
+    - 0.200000003
+    Color:
+    - 1
+    - 0
+    - 1
+    SelectionCriteria:
+    - Humidity < .2
+    StampTries: 5
+    StampProb: 0.300000012
+    StampForcesBiomeType: OverlapOwn
+    Stamps:
+    - DunesSea_01b
+    - Flats_1b_BM
+    UndergroundLayers:
+    - - 0
+      - 2
+    - - 12
+      - 4
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: Bonecoast
+    Radiation: 50
+    Decorations:
+    - - SkeletonWhalePart
+      - 0.01
+      - Tree
+    - - SkeletonWhaleHead
+      - 0.01
+      - Tree
+    - - SkeletonWhaleFull
+      - 0.01
+      - Tree
+    - - SkeletonMammothTorso
+      - 0.01
+      - Tree
+    - - SkeletonMammothHead
+      - 0.01
+      - Tree
+    - - SkeletonDragonTorso
+      - 0.01
+      - Tree
+    - - SkeletonDragonHead
+      - 0.01
+      - Tree
+    Texture:
+    - 1
+    - 1
+    - 1
+    Color:
+    - 0
+    - 0
+    - 0
+    SelectionCriteria:
+    - Humidity < .205
+    - Humidity > .20
+    StampTries: 5
+    StampProb: 0.200000003
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOwn
+    Stamps:
+    - RiftLava_1_BM, 0
+    UndergroundLayers:
+    - - 1
+      - 1
+    - - 1
+      - 0
+    - - 1
+      - 1
+  - Name: Flats
+    Radiation: -10
+    Temperature: -5
+    LevelMod: +10
+    Decorations:
+    - - PulpitFungus
+      - 0.01
+      - Tree
+    - - RockResourceErestrum
+      - 0.0001
+    Grass:
+    - Name: GrassGreen01
+      Density: 0.00999999978
+      YScale: 0.200000003
+      Preset: GrassPatches4b
+    Texture:
+    - 5
+    - 4
+    - 0
+    Color:
+    - 1
+    - 0.270000011
+    - 0
+    SelectionCriteria:
+    - Temperature < -25
+    StampTries: 50
+    StampProb: 0.200000003
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOwn
+    Stamps:
+    - IceDunes_01b
+    UndergroundLayers:
+    - - 10
+      - 1
+    - - 11
+      - 0
+    - - 12
+      - 1
+  - Name: Forest
+    Decorations:
+    - - DeadTree01
+      - 0.1
+      - Tree
+    - - DeadTree02a
+      - 0.1
+      - Tree
+    - - DeadTree02b
+      - 0.1
+      - Tree
+    - - DeadTree02c
+      - 0.1
+      - Tree
+    Grass:
+    - Name: GrassGreen01
+      Density: 0.00999999978
+      YScale: 0.200000003
+      Preset: GrassPatches2
+    Texture:
+    - 5
+    - 4
+    - 0.200000003
+    Color:
+    - 0
+    - 0
+    - 0
+    SelectionCriteria:
+    - Temperature > -25
+    StampTries: 5
+    StampProb: 0.5
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOwn
+    Stamps:
+    - Valley_1
+POIs:
+  Random:
+  - GroupName: Eden_HarvestVoidiumT2
+    Faction: None
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 4320
+  - GroupName: Eden_HarvestVoidiumT2
+    Faction: None
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 4320
+    SpawnPOINear:
+    - Eden_HarvestVoidiumT2
+    SpawnPOINearRange:
+    - 35
+    - 250
+  - GroupName: Eden_HarvestVoidiumT2
+    Faction: None
+    FactionTerritory:
+    - Kriel
+    - Eden_DroneHome
+    - TheLegacy
+    - Tesch
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 4320
+    SpawnPOINear:
+    - Eden_HarvestVoidiumT2
+    SpawnPOINearRange:
+    - 35
+    - 250
+  - GroupName: Eden_HarvestVoidiumT1
+    Faction: None
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 4320
+  - GroupName: Eden_NestLarge
+    Faction: Alien
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapDistance
+      Value: 250
+    - Key: RegenAfter
+      Value: 720
+    Biome:
+    - Ooze
+    - Boneyard
+  - GroupName: Eden_Nest
+    Faction: Alien
+    NoShieldReload: true
+    Count:
+      Min: 3
+      Max: 5
+    CountMinMax:
+    - 3
+    - 5
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapDistance
+      Value: 250
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - Eden_NestLarge
+    SpawnPOINearRange:
+    - 500
+    - 1500
+  - GroupName: Eden_TreasureTank
+    Faction: None
+    IsScalingCount: true
+    Count:
+      Min: 10
+      Max: 15
+    CountMinMax:
+    - 10
+    - 15
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+    Biome:
+    - Forest
+    - Flats
+    - Boneyard
+  - GroupName: Eden_TreasureTank
+    Faction: None
+    IsScalingCount: true
+    Count:
+      Min: 10
+      Max: 15
+    CountMinMax:
+    - 10
+    - 15
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+    PlaceAt: ResourceAll
+    Biome:
+    - Shore
+    - Liquid
+    - LiquidDeep
+  - GroupName: Eden_HarvestSilver
+    Faction: None
+    FactionTerritory:
+    - Kriel
+    - Tesch
+    - TheLegacy
+    - Eden_DroneHome
+    - Xenu
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 2
+      Max: 3
+    CountMinMax:
+    - 2
+    - 3
+    DroneProb: 0.75
+    Drones:
+      Min: 2
+      Max: 4
+    DronesMinMax:
+    - 2
+    - 4
+    ReserveCount: 3
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 4320
+  - GroupName: Eden_HarvestSilver
+    Faction: None
+    FactionTerritory:
+    - Wastelanders
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    DroneProb: 0.5
+    Drones:
+      Min: 1
+      Max: 3
+    DronesMinMax:
+    - 1
+    - 3
+    ReserveCount: 3
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 4320
+  FixedPlayerStart:
+  - Mode: Creative
+    SubMode: Empty
+    Pos:
+    - -1177
+    - 37.5999985
+    - 1452.59998
+    RotY: 105
+    Armor: ArmorLight
+  - Mode: Creative
+    SubMode: Normal
+    Pos:
+    - -1114.40002
+    - 44.9000015
+    - 1476
+    RotY: 150
+    Armor: ArmorLight
+  - Mode: Debug
+    Pos:
+    - 0
+    - 147
+    - 0
+    RotY: 160
+  - Mode: Survival
+    Spawn: EscapePod
+    Pos:
+    - -350
+    - 0
+    Items:
+    - SurvivalTool, PowerBar:2, Medikit04:3, Bandages:2, Flashlight, AntibioticOintment:2, SurvivalTent, MobileAirCon
+    - SurvivalTool, PowerBar:1, Medikit04:2, Bandages:1, Flashlight, AntibioticOintment:1, SurvivalTent, MobileAirCon
+    - SurvivalTool, PowerBar:1, Medikit04:1, Flashlight, SurvivalTent
+    - '#FreshStart: SurvivalTool, Medikit04:1, Flashlight, SurvivalTent'
+    Status:
+    - 'Food: 400, Health: 400'
+    - 'Food: 250, Health: 250'
+    - 'Food: 150, Health: 150'
+    - '#FreshStart:Food: 250, Health: 250'
+DroneBaseSetup:
+  Random:
+  - GroupName: DroneBaseSetup
+    Difficulty: 5
+    PresetStyle: 4
+    Stock:
+    - Name: DroneSmallFast01Minigun
+      Amount: 300
+      Extra: 0
+    - Name: DroneSmallFast01Rocket
+      Amount: 100
+      Extra: 0
+    - Name: DroneSmallFast01Minigun
+      Amount: Infinite
+      Extra: 1
+    - Name: DroneSmallAttackBase
+      Amount: Infinite
+      Extra: 1
+    - Name: DroneTroopsTransport
+      Amount: Infinite
+      Extra: 2
+    - Name: ZiraxMinigun
+      Amount: 500
+      Extra: 3
+    - Name: ZiraxRocket
+      Amount: 200
+      Extra: 3
+    - Name: RipperDog
+      Amount: 150
+      Extra: 3
+DroneSpawning:
+  Random:
+  - DronesMinMax:
+    - 10
+    - 10
+    CenterX: -5000
+  - DronesMinMax:
+    - 10
+    - 10
+    CenterX: 5000
+CreatureSpawning:
+- Biomes:
+  - Flats
+  Entities:
+  - Name: GolemsSwamp
+    Amount: 2
+    Color: 1.0, 0, 0
+    DelayMinMax:
+    - 20
+    - 24
+    Period: Always
+    Delay: -1
+  - Name: AlienAssassinGreys
+    Amount: 6
+    Color: 1.0, 1.0, 1.0, 0.0
+    DelayMinMax:
+    - 0
+    - 0
+    Period: Always
+    Delay: -1
+- Biomes:
+  - Forest
+  Entities:
+  - Name: TotalHorrors
+    Amount: 5
+    Color: 1.0, 0, 0
+    DelayMinMax:
+    - 20
+    - 24
+    Period: Always
+    Delay: -1
+  - Name: AlienAssassinGreys
+    Amount: 1
+    Color: 1.0, 1.0, 1.0, 0.0
+    DelayMinMax:
+    - 0
+    - 0
+    Period: Always
+    Delay: -1
+- Biomes:
+  - Ooze
+  - Shore
+  Entities:
+  - Name: GolemsSwamp
+    Amount: 4
+    Color: 1.0, 0, 0
+    DelayMinMax:
+    - 20
+    - 24
+    Period: Always
+    Delay: -1
+  - Name: Slimes
+    Amount: 6
+    Color: 1.0, 1.0, 1.0, 0.0
+    DelayMinMax:
+    - 0
+    - 0
+    Delay: -1
+  - Name: Creepys
+    Amount: 4
+    Color: 1.0, 1.0, 1.0, 0.0
+    DelayMinMax:
+    - 0
+    - 0
+    Period: Day
+    Delay: -1
+- Biomes:
+  - LiquidDeep
+  - Liquid
+  - Shore
+  Entities:
+  - Name: Telluropods
+    Amount: 50
+    Color: 1.0, 1.0, 1.0, 0.0
+    AllowInWater: true
+    DelayMinMax:
+    - 6
+    - 10
+    Period: Always
+    Delay: -1
+SpawnZones:
+- SpawnAt:
+  - Eden_NestLarge
+  Radius: 400
+  RadiusRandom: 100
+  RateMultiplyerCenter: 1
+  RateMultiplyerEdge: 0.5
+  Color: 0.0, 1.0, 0.0, 1.0
+  Entities:
+  - Names:
+    - Creepys
+    Biomes:
+    - Ooze
+    - Forest
+    - Flats
+    - Boneyard
+    Amount: 400
+    DelayMinMax:
+    - 15
+    - 25
+    Period: Always
+- SpawnAt:
+  - Eden_Nest
+  Radius: 250
+  RadiusRandom: 50
+  RateMultiplyerCenter: 1
+  RateMultiplyerEdge: 0.5
+  Color: 0.0, 0.0, 0.0, 0.5
+  Entities:
+  - Names:
+    - Creepys
+    Biomes:
+    - Ooze
+    - Forest
+    - Flats
+    - Boneyard
+    Amount: 200
+    DelayMinMax:
+    - 15
+    - 25
+    Period: Always

@@ -1,0 +1,222 @@
+PlayfieldType: Space
+TemperatureDay: -151
+Radiation: 5.71791077
+PlanetType: Asteroid Field
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][00ff00]Easy[-][/c]
+
+
+  An unclaimed asteroid field.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Asteroid Field
+UseFixed: true
+Build: 4131
+Music: Artefact
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldRectangle2
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Copper
+    Prefab: AsteroidVoxel02Copper
+    Name: Copper Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -10781
+    - 1111
+    - -8657
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Silicon
+    Prefab: AsteroidVoxel01Silicon
+    Name: Silicon Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -11743
+    - -755
+    - 3344
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Neodymium
+    Prefab: AsteroidVoxel02Neodymium
+    Name: Neodymium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 5166
+    - -1784
+    - 11006
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_RadosRepairStation
+    Mode: Survival
+    Name: Resupply Station
+    InitPower: true
+    Faction: Zirax
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - 2726
+    - -1520
+    - -11691
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: CV_LightCarrierWreck
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: None
+    Properties: &o0
+    - Key: HudDistance
+      Value: 0
+    - Key: MapDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 19756
+    - 1257
+    - -6696
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: CV_LightCarrierWreck
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: None
+    Properties: *o0
+    Pos:
+    - -14385
+    - 173
+    - -15108
+    Rot:
+    - 0
+    - 0
+    - 0
+DroneBaseSetup:
+  Fixed:
+  - Name: MainDroneBase
+    Pos:
+    - -3450.37549
+    - 1224
+    - 3807.09253
+    DroneOnDuty:
+    - Name: SpaceDronePlasma
+      Pos:
+      - 5449.94775
+      - -1989
+      - 149.564896
+      Radius: 2846
+    - Name: SpaceDronePlasma
+      Pos:
+      - 1175.7594
+      - 1247
+      - 6989.80225
+      Radius: 1863
+    - Name: SpaceDronePlasma
+      Pos:
+      - -470.366943
+      - 1204
+      - 831.131714
+      Radius: 1585
+    - Name: SpaceDroneLaser
+      Pos:
+      - 759.674988
+      - 2248
+      - 677.656189
+      Radius: 1567
+    - Name: SpaceDronePlasma
+      Pos:
+      - 1805.37402
+      - 1323
+      - -7645.74121
+      Radius: 2850
+    - Name: SpaceDroneLaser
+      Pos:
+      - 720.830078
+      - 2497
+      - -854.592346
+      Radius: 1566
+    - Name: SpaceDroneLaser
+      Pos:
+      - 384.238739
+      - 2198
+      - -362.138885
+      Radius: 2494
+    SpaceVessel:
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 35
+      Mission: Freighter
+      DelayBetweenRespawn: 302
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 422
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - 1791
+          - 5269
+          - -4625
+        - - 1847
+          - 4501
+          - 3850
+        - - 1738
+          - 1002
+          - 3266
+        - - -235
+          - 9985
+          - 81
+        - - 2470
+          - 3035
+          - 398
+        - - -89
+          - -4358
+          - 1449
+        - - 152
+          - 9202
+          - -142
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 3
+        Extra: 0
+      Properties:
+      - Key: MapDistance
+        Value: 6000

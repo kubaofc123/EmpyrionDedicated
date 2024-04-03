@@ -1,0 +1,212 @@
+PlayfieldType: Space
+TemperatureDay: -163
+Radiation: 6.26662302
+PlanetType: Asteroid Field
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][00ff00]Easy[-][/c]
+
+
+  An unclaimed asteroid field.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Asteroid Field
+UseFixed: true
+Build: 4131
+Music: space
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldRectangle2
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Iron
+    Prefab: AsteroidVoxel03Iron
+    Name: Iron Asteroid
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 11739
+    - -1866
+    - -17244
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Iron
+    Prefab: AsteroidVoxel01Iron
+    Name: Iron Asteroid
+    Properties: *o0
+    Pos:
+    - 8897
+    - 210
+    - 3867
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Cobalt
+    Prefab: AsteroidVoxel02Cobalt
+    Name: Cobalt Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -3719
+    - -380
+    - -7932
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Titan
+    Prefab: AsteroidVoxel03Titan
+    Name: Titan Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 9093
+    - 1465
+    - 10029
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_PolarisAsteroidMining
+    Mode: Survival
+    Name: Mining Facility
+    InitPower: true
+    Faction: Polaris
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - -5592
+    - -1215
+    - 6393
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence2
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: &o1
+    - Key: HudDistance
+      Value: 2500
+    - Key: MapDistance
+      Value: 2500
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - 10877
+    - -1775
+    - -17800
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence2
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: *o1
+    Pos:
+    - 7508
+    - -1593
+    - 7145
+    Rot:
+    - 0
+    - 0
+    - 0
+DroneBaseSetup:
+  Fixed:
+  - Name: MainDroneBase
+    Pos:
+    - -6546.70996
+    - 883
+    - -4128.94434
+    DroneOnDuty:
+    - Name: SpaceDronePlasma
+      Pos:
+      - 2734.92603
+      - -869
+      - 457.940338
+      Radius: 1922
+    - Name: SpaceDroneLaser
+      Pos:
+      - 5285.79199
+      - 560
+      - -5682.73926
+      Radius: 2728
+    - Name: SpaceDronePlasma
+      Pos:
+      - 139.204849
+      - 1559
+      - 129.313599
+      Radius: 1603
+    - Name: SpaceDroneLaser
+      Pos:
+      - 3876.77075
+      - -138
+      - -2826.91553
+      Radius: 2898
+    - Name: SpaceDroneLaser
+      Pos:
+      - 1290.91333
+      - -310
+      - 7352.53516
+      Radius: 2294
+    - Name: SpaceDronePlasma
+      Pos:
+      - -1445.78369
+      - -564
+      - 922.461121
+      Radius: 2306
+    - Name: SpaceDroneLaser
+      Pos:
+      - 875.066162
+      - -739
+      - -4270.26221
+      Radius: 2469
+    SpaceVessel:
+    - Name: RBAO_GhystShipyard
+      Faction: Zirax
+      Mission: Immobile
+      DelayBeforeSelfDestruction: 30
+      Immobile:
+        Position3D:
+        - 1691.30164
+        - 820.102661
+        - -3790.3689
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 18
+        Extra: 0
+      Properties:
+      - Key: RegenAfter
+        Value: 720

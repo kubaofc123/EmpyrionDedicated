@@ -1,0 +1,888 @@
+PlayfieldType: Moon
+Gravity: -10.0426884
+PlanetAxis: 16.4012966
+AtmosphereDensity: 1.07371175
+AtmosphereO2: 0.00545487367
+TemperatureNight: 59
+Radiation: 17.1949825
+SeaLevel: 29
+TerrainLevel: 126
+BaseLevel: 12
+PlanetType: Methane Moon
+Water: WaterBlue
+Difficulty: 2
+SunFlare: EnvironmentalEffects/SunFlareYellow
+SpecialEffectsLocal:
+- Name: Grime
+SpecialEffectsGlobal:
+- Name: CloudsDark
+  InitialDelay: 0
+  Delay: 36
+  Lifetime: 600
+  Type: Weather
+- Name: Wind
+  InitialDelay: 0
+  Delay: 12
+  Lifetime: 600
+  Type: Weather
+- Name: Hail
+  InitialDelay: 48
+  Delay: 24
+  Lifetime: 300
+  Type: Weather
+- Name: ColdWave
+  InitialDelay: 48
+  Delay: 24
+  Lifetime: 5
+  Type: Weather
+- Name: MeteorShower
+  SpawnY: 100
+  Time: Day
+  InitialDelay: 1
+  Delay: 5
+  PlyDist: 200
+  Struct: Avoid
+  Lifetime: 60
+- Name: ThunderAndLightningPurple
+  SpawnY: 500
+  Time: Night
+  InitialDelay: 1.5
+  Delay: 4
+  Struct: Avoid
+  Lifetime: 300
+AtmosphereColor: 1, 1, 0
+AtmosphereParams:
+- 1
+- 1.60000002
+SkyColor: 0.2, 0.01, 0.0
+SkyHorizonColor: 0.5, 0.01, 0
+LightZenithColor: 1, 0.95, 0.95
+LightHorizonColor: 1, 0.4, 0
+CloudsZenithColor: 1, 0.4, 0
+CloudsHorizonColor: 1, .6, 0
+CloudsNightZenithColor: 1, 0.3, 0
+CloudsNightHorizonColor: 1, 0.3, 0
+CloudsOpacity: 1
+FogCloudIntensity: 1
+DayLightIntensity: 0.800000012
+NightLightIntensity: 0.75
+DayShadowStrength: 0.949999988
+NightShadowStrength: 0.5
+CloudsDensity: 1
+CloudsSharpness: 0.200000003
+CloudsBrightness: 0.300000012
+WindSpeed: 3
+FogColor: 1, 1, 0
+FogIntensity: 1
+FogStartDistance: 300
+GroundFogIntensity: 0.122836992
+GroundFogHeight: 82.9017944
+Description: "Difficulty: [c][ffff00]Medium[-][/c] \n\nThis cold moon is covered in thick layers of sulfur and deep pools of liquid methane.\n\n[c][808080][i]Originally created by Techie.[/i][-][/c]"
+Seed: 827246
+TemperatureMinMax:
+- -117
+- -11
+HumidityMinMax:
+- 0.0660390556
+- 0.300554186
+LandWaterRatio: 0.178190619
+TemperatureHeightRange:
+- 14
+- 160
+TemperatureGradientRange:
+- 0.75
+- 0.100000001
+TemperatureNoiseFac: 0.49000001
+HumidityHeightFac:
+- 20
+- 325
+HumidityNoiseFac: 0.540000021
+TerrainHeightMapMax: 490
+BiomeStampTries: 20
+PlayfieldLevel: 1
+PlanetClass: Methane Moon
+UseRandom: true
+Build: 4233
+Music: Encryptor
+LandClaimZone: Device
+RandomResources:
+- Name: CopperResource
+  IsScalingCount: true
+  CountMinMax:
+  - 2
+  - 3
+  SizeMinMax:
+  - 5
+  - 7
+  DepthMinMax:
+  - 0
+  - 3
+  DroneProb: 0.200000003
+  MaxDroneCount: 2
+- Name: SathiumResource
+  IsScalingCount: true
+  CountMinMax:
+  - 2
+  - 3
+  SizeMinMax:
+  - 6
+  - 7
+  DepthMinMax:
+  - 1
+  - 1
+  DroneProb: 1
+  MaxDroneCount: 5
+- Name: NeodymiumResource
+  IsScalingCount: true
+  CountMinMax:
+  - 2
+  - 3
+  SizeMinMax:
+  - 5
+  - 6
+  DepthMinMax:
+  - 1
+  - 1
+  DroneProb: 1
+  MaxDroneCount: 5
+- Name: PromethiumResource
+  IsScalingCount: true
+  CountMinMax:
+  - 2
+  - 3
+  SizeMinMax:
+  - 7
+  - 8
+  DepthMinMax:
+  - 0
+  - 1
+  DroneProb: 0.699999988
+  MaxDroneCount: 2
+AsteroidResources:
+- Name: CopperResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+- Name: SathiumResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+- Name: NeodymiumResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+- Name: PromethiumResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+Biome:
+- BiomeClusterData:
+  - Name: MethaneLake
+    Temperature: -250
+    Texture:
+    - 7
+    - 0
+    - 0.25
+    Color:
+    - 0
+    - 0
+    - 1
+    SelectionCriteria:
+    - Height < SeaLevel
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 15
+      - 1
+    - - 15
+      - -1
+    - - 15
+      - 1
+  - Name: IceCap
+    Decorations:
+    - - CrystalsPyramidBlue
+      - 0.01
+    Texture:
+    - 8
+    - 11
+    - 0.200000003
+    Color:
+    - 1
+    - 1
+    - 1
+    SelectionCriteria:
+    - Height < 200
+    - Temperature < -50
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 10
+      - 4
+    - - 11
+      - -1
+    - - 10
+      - 1
+    PoleBiome: true
+  - Name: Mountains
+    AmbientSound: Mountains
+    Decorations:
+    - - Boulder1
+      - 0.01
+      - Free
+    - - Boulder2
+      - 0.01
+      - Free
+    - - Boulder3
+      - 0.01
+      - Free
+    - - Boulder4
+      - 0.01
+      - Free
+    - - Boulder5
+      - 0.01
+      - Free
+    - - DesertRock1
+      - 0.001
+      - Free
+    - - DesertRock2
+      - 0.001
+      - Free
+    Texture:
+    - 1
+    - 10
+    - 0.5
+    - 11
+    - 2
+    - 0.800000012
+    - 0.200000003
+    Color:
+    - 0.600000024
+    - 0.600000024
+    - 0.600000024
+    SelectionCriteria:
+    - Height > 150
+    - Temperature > -50
+    StampTries: 60
+    StampProb: 0.600000024
+    Stamps:
+    - Mountain_3b, 0.5
+    - Mountain_10b, 0.3
+    - Mountain_21, 0.3
+    - Mountain_9, 0.4
+    - Mountain_11, 0.3
+    - Mountain_13, 0.5
+    - Mountain_14, 0.3
+    - Mountain_15, 0.3
+    - Mountain_23, 0.5
+    - Volcano_2, 0.2
+    - Mountain_14a, 0.9
+    - Mountain_15a, 0.9
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 10
+      - 0
+    - - 10
+      - -1
+    - - 10
+      - 1
+  - Name: SulfuricDesert
+    Temperature: -150
+    Decorations:
+    - - Boulder1
+      - 0.01
+      - Free
+    - - Boulder2
+      - 0.01
+      - Free
+    - - Boulder3
+      - 0.01
+      - Free
+    - - Boulder4
+      - 0.01
+      - Free
+    - - Boulder5
+      - 0.01
+      - Free
+    - - DesertRock1
+      - 0.001
+      - Free
+    - - DesertRock2
+      - 0.001
+      - Free
+    - - DesertRockMedium1
+      - 0.001
+      - Free
+    - - DesertRockMedium2
+      - 0.001
+      - Free
+    - - DesertRockLarge
+      - 0.001
+      - BigPlant
+    - - ModRocksBrown01
+      - 0.002
+      - BigPlant
+    - - ModRocksBrown02
+      - 0.002
+      - BigPlant
+    - - ModRocksBrown03
+      - 0.002
+      - BigPlant
+    - - ModRocksBrown04
+      - 0.002
+      - BigPlant
+    - - AridRockYellow01
+      - 0.0001
+      - Tree
+    - - AridRockYellow02
+      - 0.0001
+      - Tree
+    - - AridRockYellow03
+      - 0.0001
+      - Tree
+    Texture:
+    - 1
+    - 6
+    - 0.550000012
+    - 11
+    - 11
+    - 0.5
+    - 0.200000003
+    Color:
+    - 1
+    - 1
+    - 0
+    SelectionCriteria:
+    - true
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 8
+    - - 13
+      - 5
+    - - 14
+      - 5
+    - - 15
+      - -1
+    - - 15
+      - 1
+POIs:
+  Random:
+  - GroupName: DroneBaseT1RG
+    DroneBaseSetup: DroneBaseSetup
+    Faction: Zirax
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    DroneProb: 1
+    Drones:
+      Min: 2
+      Max: 3
+    DronesMinMax:
+    - 2
+    - 3
+    ReserveCount: 5
+    Properties:
+    - Key: Music
+      Value: lava2
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: PlanetVesselBase
+    PlanetVesselBaseSetup: PlanetVesselBaseSetup
+    Faction: Zirax
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    DroneProb: 1
+    Drones:
+      Min: 2
+      Max: 3
+    DronesMinMax:
+    - 2
+    - 3
+    ReserveCount: 3
+    Properties:
+    - Key: Music
+      Value: lava
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: RadosBunkerRG
+    Faction: Zirax
+    NoShieldReload: true
+    IsImportant: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    DroneProb: 1
+    TroopTransport: true
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: Eden_RadosSiloNeodymium
+    Faction: Zirax
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    DroneProb: 1
+    Drones:
+      Min: 2
+      Max: 5
+    DronesMinMax:
+    - 2
+    - 5
+    SpawnPOINear:
+    - RadosBunkerRG
+    SpawnResource:
+    - NeodymiumResource:1-1
+    SpawnPOINearRange:
+    - 75
+    - 300
+    SpawnResourceRange:
+    - 125
+    - 200
+  - GroupName: Eden_RadosSiloSathium
+    Faction: Zirax
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    DroneProb: 1
+    Drones:
+      Min: 2
+      Max: 5
+    DronesMinMax:
+    - 2
+    - 5
+    SpawnPOINear:
+    - RadosBunkerRG
+    SpawnResource:
+    - SathiumResource:1-1
+    SpawnPOINearRange:
+    - 75
+    - 300
+    SpawnResourceRange:
+    - 125
+    - 200
+  - GroupName: RadosAuxT1RG
+    Faction: Zirax
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    DroneProb: 0.800000012
+    TroopTransport: true
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - RadosBunkerRG
+    SpawnPOINearRange:
+    - 200
+    - 300
+  - GroupName: RadosDefenceT1RG
+    Faction: Zirax
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    DroneProb: 0.800000012
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - RadosBunkerRG
+    SpawnPOINearRange:
+    - 300
+    - 400
+  - GroupName: Eden_RadosSiloNeodymium
+    Faction: Zirax
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 2
+      Max: 3
+    CountMinMax:
+    - 2
+    - 3
+    DroneProb: 1
+    Drones:
+      Min: 2
+      Max: 5
+    DronesMinMax:
+    - 2
+    - 5
+    SpawnResource:
+    - NeodymiumResource:1-1
+    SpawnResourceRange:
+    - 125
+    - 200
+  - GroupName: Eden_RadosSiloSathium
+    Faction: Zirax
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 2
+      Max: 3
+    CountMinMax:
+    - 2
+    - 3
+    DroneProb: 1
+    Drones:
+      Min: 2
+      Max: 5
+    DronesMinMax:
+    - 2
+    - 5
+    SpawnResource:
+    - SathiumResource:1-1
+    SpawnResourceRange:
+    - 125
+    - 200
+  - GroupName: Eden_RadosSiloPromethium
+    Faction: Zirax
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 2
+      Max: 3
+    CountMinMax:
+    - 2
+    - 3
+    Drones:
+      Min: 2
+      Max: 5
+    DronesMinMax:
+    - 2
+    - 5
+    SpawnResource:
+    - PromethiumResource:1-1
+    SpawnResourceRange:
+    - 125
+    - 200
+  - GroupName: Eden_RadosSiloNeodymium
+    Faction: Zirax
+    FactionTerritory:
+    - Xenu
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 2
+      Max: 3
+    CountMinMax:
+    - 2
+    - 3
+    DroneProb: 1
+    TroopTransport: true
+    Drones:
+      Min: 5
+      Max: 8
+    DronesMinMax:
+    - 5
+    - 8
+    ReserveCount: 3
+  - GroupName: RadosAuxT1RG
+    Faction: Zirax
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 2
+      Max: 3
+    CountMinMax:
+    - 2
+    - 3
+    DroneProb: 0.800000012
+    TroopTransport: true
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: ArtifactsFloating
+    Faction: Alien
+    NoShieldReload: true
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    Properties:
+    - Key: Music
+      Value: EvilWhispering
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 720
+    PlaceAt: OnWater
+  - GroupName: ArtifactsFloating
+    Faction: Alien
+    NoShieldReload: true
+    Count:
+      Min: 2
+      Max: 3
+    CountMinMax:
+    - 2
+    - 3
+    Properties:
+    - Key: Music
+      Value: EvilWhispering
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - ArtifactsFloating
+    PlaceAt: Terrain, OnWater
+    SpawnPOINearRange:
+    - 75
+    - 150
+  - GroupName: Eden_HarvestVoidiumT2
+    Faction: None
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 4320
+  - GroupName: Eden_HarvestVoidiumT2
+    Faction: None
+    FactionTerritory:
+    - Kriel
+    - Eden_DroneHome
+    - TheLegacy
+    - Tesch
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    Drones:
+      Min: 1
+      Max: 1
+    DronesMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 4320
+    SpawnPOINear:
+    - Eden_HarvestVoidiumT2
+    SpawnPOINearRange:
+    - 35
+    - 250
+  - GroupName: Eden_HarvestSilver
+    Faction: None
+    FactionTerritory:
+    - Kriel
+    - Tesch
+    - TheLegacy
+    - Eden_DroneHome
+    - Xenu
+    Count:
+      Min: 2
+      Max: 3
+    CountMinMax:
+    - 2
+    - 3
+    DroneProb: 0.75
+    Drones:
+      Min: 2
+      Max: 4
+    DronesMinMax:
+    - 2
+    - 4
+    ReserveCount: 3
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 4320
+  - GroupName: Eden_HarvestSilver
+    Faction: None
+    FactionTerritory:
+    - Wastelanders
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    DroneProb: 0.5
+    Drones:
+      Min: 1
+      Max: 3
+    DronesMinMax:
+    - 1
+    - 3
+    ReserveCount: 3
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 4320
+  FixedPlayerStart:
+  - Mode: Debug
+    Pos:
+    - 977
+    - 109
+    - 645
+DroneBaseSetup:
+  Random:
+  - GroupName: DroneBaseSetup
+    Difficulty: 7
+    PresetStyle: 3
+    Stock:
+    - Name: DroneSmallFast01Plasma
+      Amount: 200
+      Extra: 0
+    - Name: DroneLargeSlow01Plasma
+      Amount: 200
+      Extra: 0
+    - Name: DroneLargeSlow02Minigun
+      Amount: 200
+      Extra: 0
+    - Name: DroneLargeSlow02Cannon
+      Amount: 200
+      Extra: 0
+    - Name: DroneBomberAttackBase
+      Amount: Infinite
+      Extra: 1
+    - Name: DroneLargeAttackBase
+      Amount: Infinite
+      Extra: 1
+    - Name: EnemyDroneV2Minigun
+      Amount: Infinite
+      Extra: 1
+    - Name: DroneTroopsTransport
+      Amount: Infinite
+      Extra: 2
+    - Name: ZiraxRocket
+      Amount: 500
+      Extra: 3
+    - Name: ZiraxLaser
+      Amount: 500
+      Extra: 3
+    PlanetVesselBase:
+      Name: PlanetVesselBaseSetup
+      Position3D:
+      - 0
+      - 102
+      - 0
+      BaseType: PlanetVesselBase
+      PlanetVessel:
+      - Name: Patrol-M-Hard
+        Mission: PlanetPatrol
+        FixedMaxSpeed: 10
+        RespawnDelay: 12
+        RangePatrolTask:
+          Position3D:
+          - 1500
+          - 80
+          - 0
+          Radius: 800
+          DistToGround: 80
+        AttackCVCircleAround:
+          DistToTarget: 220
+DroneSpawning:
+  Random:
+  - DronesMinMax:
+    - 10
+    - 15
+    CenterX: -2500
+    Radius: 1500
+  - DronesMinMax:
+    - 10
+    - 15
+    CenterX: 2500
+    Radius: 1500
+CreatureSpawning:
+- Biomes:
+  - SulfuricDesert
+  Entities:
+  - Name: Overseers
+    Amount: 5
+    Color: 1.0, 1.0, 1.0, 0.0
+    DelayMinMax:
+    - 10
+    - 20
+    Period: Day
+    Delay: -1
+  - Name: GolemsDesert
+    Amount: 5
+    Color: 1.0, 1.0, 1.0, 0.0
+    DelayMinMax:
+    - 10
+    - 20
+    Delay: -1

@@ -1,0 +1,700 @@
+PlayfieldType: Moon
+Gravity: -4.46559525
+PlanetAxis: 13.7668438
+AtmosphereDensity: 0.0163821392
+AtmosphereO2: 0
+TemperatureNight: 25
+Radiation: 5.0899601
+SeaLevel: 5
+TerrainLevel: 184
+BaseLevel: 72
+PlanetType: Lava
+Emissive: true
+Water: RockLava03
+Difficulty: 3
+SunFlare: EnvironmentalEffects/SunFlareWhiteMoon
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+DayShadowStrength: 0.949999988
+AtmosphereFog: 0.272775352
+CloudsSharpness: 1
+GroundFogIntensity: 0.0481948815
+GroundFogHeight: 14.9845276
+Description: >-
+  Difficulty: [c][ffff00]Medium[-][/c]
+
+
+  This infant moon already lost its atmosphere by the relentless push of the stellar wind. Undisturbed, the last open lava seas crystallize in bizarre forms.
+Seed: 683522
+TemperatureMinMax:
+- 23
+- 54
+HumidityMinMax:
+- 0.139806658
+- 0.336333603
+TemperatureHeightRange:
+- 70
+- 388
+TemperatureGradientRange:
+- 0.75
+- 0.100000001
+TemperatureNoiseFac: 0.5
+HumidityHeightFac:
+- 0
+- 365
+HumidityNoiseFac: 0.600000024
+TerrainHeightMapMax: 490
+GroundShapes:
+- GroundShape_3, 0.5
+BiomeStampTries: 20
+PlayfieldLevel: 1
+PlanetClass: Lava
+UseRandom: true
+Build: 4131
+Music: BarrenMoon
+LandClaimZone: Device
+RandomResources:
+- Name: IronResource
+  IsScalingCount: true
+  CountMinMax:
+  - 3
+  - 5
+  SizeMinMax:
+  - 7
+  - 10
+  DepthMinMax:
+  - 5
+  - 10
+  DroneProb: 0.300000012
+- Name: SiliconResource
+  IsScalingCount: true
+  CountMinMax:
+  - 3
+  - 5
+  SizeMinMax:
+  - 8
+  - 9
+  DepthMinMax:
+  - 5
+  - 10
+  DroneProb: 0.400000006
+- Name: MagnesiumResource
+  IsScalingCount: true
+  CountMinMax:
+  - 4
+  - 5
+  SizeMinMax:
+  - 3
+  - 4
+  DepthMinMax:
+  - 3
+  - 5
+  DroneProb: 0.699999988
+- Name: PromethiumResource
+  IsScalingCount: true
+  CountMinMax:
+  - 2
+  - 4
+  SizeMinMax:
+  - 3
+  - 6
+  DepthMinMax:
+  - 0
+  - 1
+  DroneProb: 0.699999988
+- Name: PentaxidResource
+  IsScalingCount: true
+  CountMinMax:
+  - 4
+  - 5
+  SizeMinMax:
+  - 2
+  - 3
+  DepthMinMax:
+  - 0
+  - 5
+  DroneProb: 0.600000024
+  MaxDroneCount: 2
+AsteroidResources:
+- Name: IronResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+- Name: SiliconResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+- Name: MagnesiumResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+- Name: PromethiumResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+- Name: PentaxidResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+Biome:
+- BiomeClusterData:
+  - Name: Pole
+    Texture:
+    - 0
+    - 0
+    - 0.0199999996
+    Color:
+    - 0.600000024
+    - 0.600000024
+    - 0.600000024
+    SelectionCriteria:
+    - +Lat > 0.975
+    StampProb: 1
+    IgnoreForcedBiome: true
+    Weather: PoleFog
+  - Name: LavaLake
+    Temperature: 100
+    Texture:
+    - 11
+    - 11
+    - 0.200000003
+    Color:
+    - 0
+    - 1
+    - 0
+    SelectionCriteria:
+    - Height < SeaLevel
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 15
+      - -1
+    - - 15
+      - 1
+  - Name: Mountains
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    Texture:
+    - 1
+    - 6
+    - 0.5
+    - 2
+    - 7
+    - 0.800000012
+    - 0.150000006
+    Color:
+    - 0.699999988
+    - 0.699999988
+    - 0.699999988
+    SelectionCriteria:
+    - Height > 170
+    StampTries: 15
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - Mountain_4a, 0.1
+    - Mountain_4b, 0.1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 1
+      - 3
+    - - 10
+      - 50
+    - - 9
+      - 10
+    - - 11
+      - 20
+    - - 15
+      - -1
+    - - 15
+      - 1
+  - Name: MareEdge
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalStraight
+      - 0.0001
+      - Free
+    Texture:
+    - 0
+    - 0
+    - 0.5
+    - 2
+    - 7
+    - 0.800000012
+    - 0.5
+    Color:
+    - 0.100000001
+    - 0.100000001
+    - 0.300000012
+    SelectionCriteria:
+    - Height < 102
+    - Height > 99
+    StampProb: 1
+    UndergroundLayers:
+    - - 4
+      - 3
+    - - 9
+      - 2
+    - - 10
+      - 10
+    - - 9
+      - 10
+    - - 11
+      - 10
+    - - 15
+      - -1
+    - - 15
+      - 1
+  - Name: Mare
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalStraight
+      - 0.0001
+      - Free
+    Texture:
+    - 4
+    - 5
+    - 0.5
+    - 2
+    - 7
+    - 0.5
+    - 0.5
+    Color:
+    - 0.300000012
+    - 0.300000012
+    - 0.300000012
+    SelectionCriteria:
+    - Height < 102
+    - Height > 10
+    StampProb: 0.899999976
+    Stamps:
+    - CraterMoon_1, 1
+    UndergroundLayers:
+    - - 4
+      - 3
+    - - 9
+      - 2
+    - - 10
+      - 10
+    - - 9
+      - 10
+    - - 11
+      - 10
+    - - 15
+      - -1
+    - - 15
+      - 1
+  - Name: LargeCrater
+    Temperature: 30
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalStraight
+      - 0.0001
+      - Free
+    Texture:
+    - 8
+    - 9
+    - 0.5
+    - 3
+    - 7
+    - 0.5
+    - 0.00100000005
+    Color:
+    - 0.699999988
+    - 0.200000003
+    - 0.200000003
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 56
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - CraterMoon_10, 0.09
+    - CraterMoon_11, 0.055
+    - CraterMoon_12, 0.019
+    - CraterMoon_13, 0.011
+    UndergroundLayers:
+    - - 9
+      - 10
+    - - 11
+      - 30
+    - - 15
+      - -1
+    - - 15
+      - 1
+  - Name: RayCrater
+    Temperature: 20
+    Texture:
+    - 8
+    - 9
+    - 0.5
+    - 3
+    - 7
+    - 0.5
+    - 0.00100000005
+    Color:
+    - 0.699999988
+    - 0.699999988
+    - 0.200000003
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 19
+    StampProb: 1
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOther
+    Stamps:
+    - CraterMoon_14, 0.025
+    - CraterMoon_14b, 0.007
+    UndergroundLayers:
+    - - 9
+      - 10
+    - - 11
+      - 30
+    - - 15
+      - -1
+    - - 15
+      - 1
+  - Name: SmallCrater
+    Temperature: 15
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalStraight
+      - 0.0001
+      - Free
+    Texture:
+    - 8
+    - 9
+    - 0.5
+    - 3
+    - 3
+    - 0.5
+    - 0.00100000005
+    Color:
+    - 0.899999976
+    - 0.300000012
+    - 0.300000012
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 2200
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - CraterMoon_1, 1
+    - CraterMoon_2, 0.20
+    - CraterMoon_3, 0.30
+    - CraterMoon_4, 0.04
+    - CraterMoon_5, 0.10
+    - CraterMoon_6, 0.08
+    - CraterMoon_7, 0.02
+    - CraterMoon_8, 0.015
+    - CraterMoon_9, 0.008
+    - CraterMoon_10, 0.003
+    UndergroundLayers:
+    - - 9
+      - 10
+    - - 11
+      - 30
+    - - 15
+      - -1
+    - - 15
+      - 1
+  - Name: LowMountains
+    Texture:
+    - 1
+    - 6
+    - 0.5
+    - 7
+    - 7
+    - 1
+    - 0.25
+    Color:
+    - 0.5
+    - 0.5
+    - 1
+    SelectionCriteria:
+    - Height > 150
+    - Height < 280
+    StampProb: 1
+    UndergroundLayers:
+    - - 1
+      - 3
+    - - 10
+      - 20
+    - - 9
+      - 10
+    - - 11
+      - 30
+    - - 15
+      - -1
+    - - 15
+      - 1
+  - Name: RegolithEdge
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    Texture:
+    - 0
+    - 5
+    - 0.899999976
+    - 3
+    - 3
+    - 1
+    - 0.200000003
+    Color:
+    - 0.400000006
+    - 0.400000006
+    - 0.400000006
+    SelectionCriteria:
+    - Height > 140
+    StampProb: 1
+    UndergroundLayers:
+    - - 0
+      - 3
+    - - 10
+      - 20
+    - - 9
+      - 10
+    - - 11
+      - 30
+    - - 15
+      - -1
+    - - 15
+      - 1
+  - Name: Regolith
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    Texture:
+    - 0
+    - 7
+    - 0.200000003
+    Color:
+    - 0.5
+    - 0.5
+    - 0.5
+    SelectionCriteria:
+    - Height > 130
+    StampTries: 2
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - CraterMoon_15, 0.7
+  - Name: LavaFolds
+    Temperature: 5
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    Texture:
+    - 10
+    - 5
+    - 0.5
+    - 2
+    - 7
+    - 0.5
+    - 0.0199999996
+    Color:
+    - 0.600000024
+    - 0.600000024
+    - 0.600000024
+    SelectionCriteria:
+    - Height > 90
+    StampTries: 6
+    StampProb: 1
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOther
+    Stamps:
+    - CraterLava_3, 1
+    UndergroundLayers:
+    - - 10
+      - 3
+    - - 9
+      - 2
+    - - 10
+      - 20
+    - - 9
+      - 10
+    - - 11
+      - 30
+    - - 15
+      - -1
+    - - 15
+      - 1
+    UndergroundLayersDefault: true
+  - Name: Flats
+    Texture:
+    - 0
+    - 0
+    - 0.200000003
+    Color:
+    - 0
+    - 1
+    - 0
+    StampProb: 1
+POIs:
+  Random:
+  - GroupName: DroneBaseT1RG
+    DroneBaseSetup: DroneBaseSetup
+    Faction: Zirax
+    NoShieldReload: true
+    IsCommandCenter: true
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    DroneProb: 1
+    Drones:
+      Min: 4
+      Max: 5
+    DronesMinMax:
+    - 4
+    - 5
+    ReserveCount: 5
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: ProgenitorArtifacts
+    Faction: None
+    IsScalingCount: true
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    DroneProb: 1
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 4
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: CrashedShip
+    Faction: None
+    IsScalingCount: true
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    DroneProb: 1
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 4
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: GhystAuxT1RG
+    Faction: Zirax
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 3
+      Max: 4
+    CountMinMax:
+    - 3
+    - 4
+    DroneProb: 0.699999988
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 2
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnResource:
+    - PentaxidResource:0-1
+    SpawnResourceRange:
+    - 80
+    - 400
+  FixedPlayerStart:
+  - Mode: Debug
+    Pos:
+    - -596
+    - 104
+    - -1063
+    RotY: 125
+  - Mode: Survival
+    Spawn: EscapePod
+    Armor: ArmorMedium
+DroneBaseSetup:
+  Random:
+  - GroupName: DroneBaseSetup
+    Stock:
+    - Name: DroneSmallFast01Rocket
+      Amount: 100
+      Extra: 0
+    - Name: DroneSmallFast01Minigun
+      Amount: 200
+      Extra: 0
+    - Name: DroneLargeSlow01Minigun
+      Amount: 100
+      Extra: 0
+    - Name: DroneSmallSlow01Cannon
+      Amount: 200
+      Extra: 0
+    - Name: DroneSmallAttackBase
+      Amount: 300
+      Extra: 1
+    - Name: DroneTroopsTransport
+      Amount: Infinite
+      Extra: 2
+    - Name: ZiraxMale
+      Amount: 500
+      Extra: 3
+    - Name: RipperDog
+      Amount: 400
+      Extra: 3
+DroneSpawning:
+  Random:
+  - DronesMinMax:
+    - 5
+    - 10
+    CenterX: -2500
+    Radius: 1500
+  - DronesMinMax:
+    - 5
+    - 10
+    CenterX: 2500
+    Radius: 1500

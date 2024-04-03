@@ -1,0 +1,1048 @@
+PlayfieldType: Moon
+Gravity: -6.97603369
+PlanetAxis: 0.124099255
+AtmosphereDensity: 0.13414675
+AtmosphereO2: 0
+TemperatureNight: 29
+Radiation: 8.17458534
+TerrainLevel: 184
+BaseLevel: 72
+PlanetType: Varnished Barren Moon
+Water: RockLava03
+Difficulty: 3
+SunFlare: EnvironmentalEffects/SunFlareWhiteMoon
+AtmosphereColor: 0.30, 0.35, 0.35
+AtmosphereParams:
+- 5
+- 1.60000002
+SkyColor: 0.05, 0.10, 0.00
+SkyHorizonColor: 0.4, 0.1, 0
+LightZenithColor: 1, 0.92, 0.84
+LightHorizonColor: 0.5, 0.4, 0.45
+NightLightColor: 0.78, 0.78, 1
+CloudsZenithColor: 0.0, -0.1, -0.1
+CloudsHorizonColor: 1, 0.3, 0.1
+CloudsOpacity: 0
+FogCloudIntensity: 0
+DayLightIntensity: 1.60000002
+DayShadowStrength: 1
+NightShadowStrength: 1
+CloudsSharpness: 1
+CloudsBrightness: 0
+WindSpeed: 0
+FogColor: 0.9, 0.9, 0.1
+GroundFogIntensity: 0.0795951933
+GroundFogHeight: 127.726326
+Description: >-
+  Difficulty: [c][00ff00]Easy[-][/c]
+
+
+  This copper rich moon has a very thin atmosphere - It is shielded by an unusually large magetic field of the nearby planet, and the moon is dense enough to keep some gases from drifting into space. By this it has accumulated extreme amounts of desert varnish.
+Seed: 764626
+TemperatureMinMax:
+- -4
+- 38
+HumidityMinMax:
+- 0.142116994
+- 0.280878812
+TemperatureHeightRange:
+- 70
+- 388
+TemperatureGradientRange:
+- 0.75
+- 0.100000001
+TemperatureNoiseFac: 0.5
+HumidityHeightFac:
+- 0
+- 365
+HumidityNoiseFac: 0.600000024
+TerrainHeightMapMax: 490
+GroundShapes:
+- GroundShape_3, 0.5
+BiomeStampTries: 10
+PlayfieldLevel: 1
+PlanetClass: Varnished Barren Moon
+UseRandom: true
+Build: 4233
+Music: BarrenMoon
+LandClaimZone: Device
+RandomResources:
+- Name: SiliconResource
+  IsScalingCount: true
+  CountMinMax:
+  - 3
+  - 5
+  SizeMinMax:
+  - 8
+  - 9
+  DepthMinMax:
+  - 5
+  - 10
+  DroneProb: 0.400000006
+- Name: CopperResource
+  IsScalingCount: true
+  CountMinMax:
+  - 2
+  - 2
+  SizeMinMax:
+  - 11
+  - 12
+  DepthMinMax:
+  - 65
+  - 80
+  DroneProb: 1
+  MaxDroneCount: 5
+- Name: CopperResource
+  IsScalingCount: true
+  CountMinMax:
+  - 5
+  - 7
+  SizeMinMax:
+  - 5
+  - 7
+  DepthMinMax:
+  - 2
+  - 3
+  DroneProb: 1
+  MaxDroneCount: 5
+- Name: CobaltResource
+  IsScalingCount: true
+  CountMinMax:
+  - 1
+  - 2
+  SizeMinMax:
+  - 4
+  - 5
+  DepthMinMax:
+  - 5
+  - 10
+  DroneProb: 0.699999988
+- Name: PromethiumResource
+  IsScalingCount: true
+  CountMinMax:
+  - 2
+  - 4
+  SizeMinMax:
+  - 3
+  - 6
+  DepthMinMax:
+  - 0
+  - 1
+  DroneProb: 0.699999988
+AsteroidResources:
+- Name: SiliconResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+- Name: CopperResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+- Name: CobaltResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+- Name: PromethiumResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+Biome:
+- BiomeClusterData:
+  - Name: Pole
+    Texture:
+    - 0
+    - 0
+    - 0.0199999996
+    Color:
+    - 0.600000024
+    - 0.600000024
+    - 0.600000024
+    SelectionCriteria:
+    - +Lat > 0.975
+    StampProb: 1
+    IgnoreForcedBiome: true
+    Weather: PoleFog
+  - Name: Unknown
+    Temperature: 10
+    Texture:
+    - 11
+    - 11
+    - 0.200000003
+    Color:
+    - 0
+    - 1
+    - 0
+    SelectionCriteria:
+    - Height < SeaLevel
+    StampProb: 1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 15
+      - -1
+    - - 15
+      - 1
+  - Name: Dunes
+    Decorations:
+    - - RockGrey01Large
+      - 0.0001
+    - - RockGrey02Large
+      - 0.0001
+    Texture:
+    - 4
+    - 5
+    - -0.25
+    Color:
+    - 0.300000012
+    - 0.300000012
+    - 0.5
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 15
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - IceDunes_01a, 0.5
+    - IceDunes_01b, 0.5
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 0
+      - 2
+    - - 10
+      - 2
+    - - 11
+      - 1
+    - - 15
+      - 30
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: Mountains
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    Texture:
+    - 1
+    - 6
+    - 0.5
+    - 2
+    - 7
+    - 0.800000012
+    - 0.180000007
+    Color:
+    - 0.699999988
+    - 0.699999988
+    - 0.699999988
+    SelectionCriteria:
+    - Height > 170
+    StampTries: 15
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - Mountain_4a, 0.1
+    - Mountain_4b, 0.1
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 1
+      - 3
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: MareEdge
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalStraight
+      - 0.0001
+      - Free
+    Texture:
+    - 0
+    - 0
+    - 0.5
+    - 2
+    - 7
+    - 0.800000012
+    - 0
+    Color:
+    - 0.100000001
+    - 0.100000001
+    - 0.300000012
+    SelectionCriteria:
+    - Height < 102
+    - Height > 99
+    StampProb: 1
+  - Name: Mare
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalStraight
+      - 0.0001
+      - Free
+    Texture:
+    - 4
+    - 4
+    - 0.5
+    - 7
+    - 7
+    - 0.5
+    - -0.100000001
+    Color:
+    - 0.300000012
+    - 0.300000012
+    - 0.300000012
+    SelectionCriteria:
+    - Height < 102
+    - Height > 10
+    StampProb: 0.899999976
+    Stamps:
+    - CraterMoon_1, 1
+    UndergroundLayers:
+    - - 10
+      - 2
+    - - 11
+      - 1
+    - - 15
+      - 30
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: Rifts
+    Temperature: 5
+    Texture:
+    - 7
+    - 2
+    - 0.200000003
+    Color:
+    - 0.600000024
+    - 0.699999988
+    - 0.200000003
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 1
+    StampProb: 1
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOther
+    Stamps:
+    - RiftLava_1b_BM, 0.5
+    UndergroundLayers:
+    - - 9
+      - 2
+    - - 15
+      - 2
+    - - 9
+      - 2
+    - - 15
+      - 17
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: LargeCrater
+    Temperature: 5
+    Decorations:
+    - - RockGrey01Large
+      - 0.004
+    - - RockGrey02Large
+      - 0.004
+    - - RockResourceSilicon
+      - 0.0001
+      - Free
+    - - RockResourceCobalt
+      - 0.0001
+      - Free
+    - - RockResourceIron
+      - 0.0002
+      - Free
+    - - CrystalStraight
+      - 0.00015
+      - Free
+    Texture:
+    - 9
+    - 8
+    - 0.5
+    - 3
+    - 2
+    - 0.5
+    - -0.0500000007
+    Color:
+    - 0.699999988
+    - 0.200000003
+    - 0.200000003
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 56
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - CraterMoon_10, 0.09
+    - CraterMoon_11, 0.055
+    - CraterMoon_12, 0.019
+    - CraterMoon_13, 0.011
+    UndergroundLayers:
+    - - 8
+      - 1
+    - - 9
+      - 3
+    - - 15
+      - 3
+    - - 9
+      - 2
+    - - 15
+      - 6
+    - - 9
+      - 1
+    - - 15
+      - 9
+    - - 11
+      - 3
+    - - 15
+      - 10
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: RayCrater
+    Temperature: 5
+    Texture:
+    - 9
+    - 8
+    - 0.5
+    - 3
+    - 7
+    - 0.5
+    - 0.00100000005
+    Color:
+    - 0.699999988
+    - 0.699999988
+    - 0.200000003
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 19
+    StampProb: 1
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOther
+    Stamps:
+    - CraterMoon_14, 0.025
+    - CraterMoon_14b, 0.007
+    UndergroundLayers:
+    - - 9
+      - 2
+    - - 15
+      - 2
+    - - 9
+      - 2
+    - - 15
+      - 17
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: SmallCrater
+    Temperature: 5
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalStraight
+      - 0.0001
+      - Free
+    Texture:
+    - 9
+    - 8
+    - 0.5
+    - 3
+    - 3
+    - 0.5
+    - 0.100000001
+    Color:
+    - 0.899999976
+    - 0.300000012
+    - 0.300000012
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 1200
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - CraterMoon_1, 0.3
+    - CraterMoon_2, 0.05
+    - CraterMoon_3, 0.15
+    - CraterMoon_4, 0.04
+    - CraterMoon_5, 0.10
+    - CraterMoon_6, 0.08
+    - CraterMoon_7, 0.02
+    - CraterMoon_8, 0.015
+    - CraterMoon_9, 0.008
+    - CraterMoon_10, 0.003
+    UndergroundLayers:
+    - - 8
+      - 1
+    - - 9
+      - 2
+    - - 15
+      - 2
+    - - 9
+      - 2
+    - - 15
+      - 17
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: LowMountains
+    Texture:
+    - 1
+    - 6
+    - 0.5
+    - 7
+    - 7
+    - 1
+    - 0
+    Color:
+    - 0.5
+    - 0.5
+    - 1
+    SelectionCriteria:
+    - Height > 150
+    - Height < 280
+    StampProb: 1
+    UndergroundLayers:
+    - - 1
+      - 1
+    - - 15
+      - 30
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: RegolithEdge
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    Texture:
+    - 0
+    - 5
+    - 0.899999976
+    - 3
+    - 3
+    - 1
+    - 0
+    Color:
+    - 0.400000006
+    - 0.400000006
+    - 0.400000006
+    SelectionCriteria:
+    - Height > 140
+    StampProb: 1
+    UndergroundLayers:
+    - - 0
+      - 2
+    - - 10
+      - 2
+    - - 11
+      - 1
+    - - 15
+      - 30
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: Regolith
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - RockResourceIron
+      - 0.0001
+      - Free
+    Texture:
+    - 0
+    - 7
+    - 0.100000001
+    Color:
+    - 0.5
+    - 0.5
+    - 0.5
+    SelectionCriteria:
+    - Height > 130
+    StampProb: 1
+    UndergroundLayers:
+    - - 0
+      - 3
+    - - 10
+      - 1
+    - - 11
+      - 1
+    - - 15
+      - 60
+    - - 11
+      - -1
+    - - 10
+      - 1
+  - Name: Flats
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    Texture:
+    - 10
+    - 0
+    - 0.800000012
+    - 7
+    - 3
+    - 0.600000024
+    - 0
+    Color:
+    - 0.600000024
+    - 0.600000024
+    - 0.600000024
+    SelectionCriteria:
+    - Height > 90
+    StampProb: 1
+    UndergroundLayers:
+    - - 10
+      - 2
+    - - 11
+      - 3
+    - - 10
+      - 1
+    - - 11
+      - 12
+    - - 15
+      - 40
+    - - 11
+      - -1
+    - - 10
+      - 1
+    UndergroundLayersDefault: true
+  - Name: GreetingsStranger
+    Temperature: 5
+    Decorations:
+    - - GlowTube01
+      - 1
+    Texture:
+    - 8
+    - 9
+    - 0.5
+    - 3
+    - 3
+    - 0.5
+    - 0.00100000005
+    Color:
+    - 0.300000012
+    - 0.300000012
+    - 0.300000012
+    StampTries: 1
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - CraterMoon_1_BM, 0.3
+POIs:
+  Random:
+  - GroupName: DroneBaseT1RG
+    DroneBaseSetup: DroneBaseSetup
+    Faction: Zirax
+    NoShieldReload: true
+    IsCommandCenter: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    DroneProb: 1
+    Drones:
+      Min: 4
+      Max: 5
+    DronesMinMax:
+    - 4
+    - 5
+    ReserveCount: 5
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: Eden_PolPentaCorp
+    Faction: Trader
+    NoShieldReload: true
+    IsImportant: true
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    Properties:
+    - Key: Music
+      Value: SunnySkies
+    - Key: RegenAfter
+      Value: 720
+    - Key: StationInterface
+      Value: Warp:2,IfNeutral:1.5,IfHonored:-0.10
+    SpawnPOIAvoid:
+    - DroneBaseT1RG
+    SpawnPOIAvoidDistance: 1000
+  - GroupName: TraderSettlementRG
+    Faction: Trader
+    NoShieldReload: true
+    Count:
+      Max: 2
+    CountMinMax:
+    - 0
+    - 2
+    Properties:
+    - Key: Music
+      Value: AlteredPhase
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - Eden_PolPentaCorp
+    SpawnPOINearRange:
+    - 100
+    - 250
+  - GroupName: TraderDefenseB
+    Faction: Trader
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    Properties:
+    - Key: Music
+      Value: AlteredPhase
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - Eden_PolPentaCorp
+    SpawnPOINearRange:
+    - 100
+    - 250
+  - GroupName: TraderDefenseA
+    Faction: Trader
+    NoShieldReload: true
+    Count:
+      Max: 2
+    CountMinMax:
+    - 0
+    - 2
+    Properties:
+    - Key: Music
+      Value: AlteredPhase
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - TraderSettlementRG
+    SpawnPOINearRange:
+    - 100
+    - 250
+  - GroupName: Eden_PolPentaCorp
+    Faction: Polaris
+    NoShieldReload: true
+    IsImportant: true
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    Properties:
+    - Key: Music
+      Value: SunnySkies
+    - Key: RegenAfter
+      Value: 720
+    - Key: StationInterface
+      Value: Warp:2,IfNeutral:1.5,IfHonored:-0.10
+    SpawnPOIAvoid:
+    - DroneBaseT1RG
+    SpawnPOIAvoidDistance: 1000
+  - GroupName: FactoryPolarisRG3
+    Faction: Polaris
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: FactoryPolarisRG1
+    Faction: Polaris
+    FactionTerritory:
+    - Eden_PolarisTerritory
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: TraderSettlementRG
+    Faction: Trader
+    NoShieldReload: true
+    Count:
+      Min: 3
+      Max: 5
+    CountMinMax:
+    - 3
+    - 5
+    Properties:
+    - Key: Music
+      Value: AlteredPhase
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: PiratesMainRG
+    Faction: Pirates
+    NoShieldReload: true
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: PiratesAuxRG
+    Faction: Pirates
+    NoShieldReload: true
+    Count:
+      Max: 3
+    CountMinMax:
+    - 0
+    - 3
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: CivilSettlementRG
+    Faction: Colonists
+    Territory: false
+    NoShieldReload: true
+    Count:
+      Max: 2
+    CountMinMax:
+    - 0
+    - 2
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: MineT2PolarisRG
+    Faction: Colonists
+    Territory: false
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - CivilSettlementRG
+    SpawnPOINearRange:
+    - 100
+    - 200
+  - GroupName: MineT1PolarisRG
+    Faction: Colonists
+    Territory: false
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - CivilSettlementRG
+    SpawnPOINearRange:
+    - 200
+    - 600
+  - GroupName: MineGraphitePolarisRG
+    Faction: Colonists
+    Territory: false
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - CivilSettlementRG
+    SpawnPOINearRange:
+    - 500
+    - 1000
+  - GroupName: CrashedShipLargeDesert
+    Faction: None
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    DroneProb: 1
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 4
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: GhystAuxT1RG
+    Faction: Zirax
+    NoShieldReload: true
+    Count:
+      Min: 3
+      Max: 4
+    CountMinMax:
+    - 3
+    - 4
+    DroneProb: 0.699999988
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 2
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+  - GroupName: Eden_HarvestTungsten
+    Faction: None
+    FactionTerritory:
+    - Warlord
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    DroneProb: 0.5
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 3
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 4320
+  - GroupName: Eden_HarvestTungsten
+    Faction: None
+    FactionTerritory:
+    - Wastelanders
+    - Eden_SolitudeTerritory
+    - Eden_ColonistsTerritory
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    DroneProb: 0.5
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 3
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: SI
+      Value: Off
+    - Key: RegenAfter
+      Value: 4320
+  FixedPlayerStart:
+  - Mode: Debug
+    Pos:
+    - -596
+    - 104
+    - -1063
+    RotY: 125
+  - Mode: Survival
+    Spawn: EscapePod
+    Armor: ArmorMedium
+DroneBaseSetup:
+  Random:
+  - GroupName: DroneBaseSetup
+    Stock:
+    - Name: DroneSmallFast01Rocket
+      Amount: 100
+      Extra: 0
+    - Name: DroneSmallFast01Minigun
+      Amount: 200
+      Extra: 0
+    - Name: DroneLargeSlow01Minigun
+      Amount: 100
+      Extra: 0
+    - Name: DroneSmallSlow01Cannon
+      Amount: 200
+      Extra: 0
+    - Name: DroneSmallAttackBase
+      Amount: 300
+      Extra: 1
+    - Name: DroneTroopsTransport
+      Amount: Infinite
+      Extra: 2
+    - Name: ZiraxMale
+      Amount: 500
+      Extra: 3
+    - Name: RipperDog
+      Amount: 400
+      Extra: 3
+DroneSpawning:
+  Random:
+  - DronesMinMax:
+    - 5
+    - 10
+    CenterX: -2500
+    Radius: 1500
+  - DronesMinMax:
+    - 5
+    - 10
+    CenterX: 2500
+    Radius: 1500

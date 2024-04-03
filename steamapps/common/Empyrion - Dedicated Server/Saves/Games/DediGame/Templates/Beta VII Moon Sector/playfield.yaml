@@ -1,0 +1,268 @@
+PlayfieldType: Space
+TemperatureDay: -109
+Radiation: 6.65773487
+PlanetType: OrbitSectorStart
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: OrbitSectorStart
+UseFixed: true
+Build: 4131
+Music: moonstone
+POIs:
+  Fixed:
+  - Type: AsteroidFieldFewBoxExclude
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 136
+    - 108
+    - 174
+  - Type: BA_Alien
+    Prefab: BAO_WaystationStory
+    Mode: Survival
+    Name: Waystation
+    InitPower: true
+    Faction: Colonists
+    Properties:
+    - Key: Music
+      Value: NebularClouds
+    - Key: Discovery
+      Value: False
+    - Key: PvEArea
+      Value: 500
+    - Key: StationInterface
+      Value: Fuel:1.1,O2:1.1,Warp:1.1,Ammo:2,Repair:2,Shield:2,IfNeutral:1,IfFriendly:-0.08,IfHonored:-0.16
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 9280
+    - -720
+    - 5494
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_XenuProduction
+    Mode: Survival
+    Name: Orbital Production
+    InitPower: true
+    Faction: Zirax
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    - Key: StationInterface
+      Value: Fuel:1.6,O2:1.6,IfNeutral:0.2,IfFriendly:-0.05,IfHonored:-0.10
+    Pos:
+    - -8528
+    - 1953
+    - 2087
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: RBAO_RadosRepairStation
+    Mode: Survival
+    Name: Resupply Station
+    InitPower: true
+    Faction: Zirax
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    - Key: StationInterface
+      Value: Fuel:1.2,O2:1.2,Warp:1.2,Ammo:3,IfNeutral:0.2,IfFriendly:-0.05,IfHonored:-0.10
+    Pos:
+    - 6556
+    - -1515
+    - 2783
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence2
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - -10378
+    - -1030
+    - -4811
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence2
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: *o0
+    Pos:
+    - -18890
+    - -1936
+    - 8850
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence2
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: *o0
+    Pos:
+    - 4259
+    - 583
+    - 1382
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - 791.288513
+    - 182
+    - 5803.30176
+    DroneOnDuty:
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - 2475.26196
+      - -264
+      - -6208.77881
+      Radius: 5748
+      Properties: &o1
+      - Key: AIManPatrolFactions
+        Value: Polaris, Trader
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - 4208.02002
+      - 898
+      - -5277.79004
+      Radius: 5473
+      Properties: *o1
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - 2501.42261
+      - 1364
+      - 7564.12402
+      Radius: 4260
+      Properties: *o1
+    - Name: SpaceDroneBattered01
+      Faction: Pirates
+      Pos:
+      - 4767.62988
+      - 1584
+      - 2926.18115
+      Radius: 5060
+      Properties: &o2
+      - Key: AIManPatrolFactions
+        Value: Pirates
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: SpaceDroneBattered01
+      Faction: Pirates
+      Pos:
+      - -2244.27954
+      - -2289
+      - 4572.96875
+      Radius: 3408
+      Properties: *o2
+    SpaceVessel:
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 37
+      Mission: Freighter
+      DelayBetweenRespawn: 351
+      DelayBeforeSelfDestruction: 214
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 440
+        DelayBeforeSelfDestruction: 242
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - -1415
+          - -5010
+          - 4217
+        - - -6289
+          - 404
+          - -61
+        - - -2023
+          - -999
+          - -6439
+        - - 5276
+          - 5371
+          - -3755
+        - - 4568
+          - -3407
+          - 3387
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 4
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 27
+      Mission: Freighter
+      DelayBetweenRespawn: 590
+      DelayBeforeSelfDestruction: 241
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 562
+        DelayBeforeSelfDestruction: 236
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - -4031
+          - 2706
+          - -3482
+        - - 205
+          - -2548
+          - -5219
+        - - 4267
+          - 7253
+          - -3136
+        - - 5765
+          - -2053
+          - 1556
+        - - 2067
+          - 102
+          - 4764
+        - - -2160
+          - 6672
+          - 4068
+        - - -4563
+          - 2141
+          - 854
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 4

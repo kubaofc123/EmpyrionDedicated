@@ -1,0 +1,529 @@
+PlayfieldType: Moon
+Gravity: -34.654686
+PlanetAxis: 43.0003853
+AtmosphereDensity: 0.0898884162
+AtmosphereO2: 0
+TemperatureNight: 35
+Radiation: 11.0443869
+SeaLevel: -1
+TerrainLevel: 184
+BaseLevel: 72
+PlanetType: Metallic Moon
+Emissive: true
+Water: RockLava03
+Difficulty: 2
+SunFlare: EnvironmentalEffects/SunFlareWhite
+SpecialEffectsGlobal:
+- Name: Clear
+  InitialDelay: 120
+  Delay: 120
+  Lifetime: 30
+  Type: Weather
+AtmosphereColor: 0.4, 0.3, 0.3
+AtmosphereParams:
+- 1
+- 2
+SkyColor: 0, 0, 0
+SkyHorizonColor: 0.1, 0, 0
+LightZenithColor: 0.98, 0.90, 0.90
+LightHorizonColor: 1, 0.6, 0.15
+NightLightColor: 1, 0.78, 0.78
+CloudsZenithColor: 0.1, 0.03, 0.03
+CloudsHorizonColor: 1, 0.3, 0.1
+CloudsOpacity: 0
+FogCloudIntensity: 0
+DayLightIntensity: 0.400000006
+NightLightIntensity: 0.400000006
+DayShadowStrength: 1
+NightShadowStrength: 1
+CloudsSharpness: 1
+CloudsBrightness: 0
+WindSpeed: 0
+FogColor: 1, 1, 1
+GroundFogIntensity: 0.0634930953
+GroundFogHeight: 139.552643
+Description: >-
+  Difficulty: [c][ffff00]Medium[-][/c]
+
+  [c][ffff00]High Gravity Warning[-][/c]
+
+
+  A dense iron core covered by an impenetrable layer of solidified metal. Hotspots of molten gold allow access to the softer mantle, providing a way of mining the gold deposits trapped beneath the crust.
+
+  Sensors detect Iron deposits that can be indefinitely mined via autominer without depleting. Platinum deposits can be mined the same way but will deplete.
+Seed: 749479
+TemperatureMinMax:
+- 122
+- 190
+HumidityMinMax:
+- 0.146243736
+- 0.314099252
+TemperatureHeightRange:
+- 0
+- 195
+TemperatureGradientRange:
+- 0.75
+- 0.100000001
+TemperatureNoiseFac: 0.5
+HumidityHeightFac:
+- 0
+- 365
+HumidityNoiseFac: 0.600000024
+TerrainHeightMapMax: 490
+BiomeStampTries: 20
+PlayfieldLevel: 1
+PlanetClass: Metallic Moon
+UseRandom: true
+Build: 4243
+Music: Anomalous
+LandClaimZone: Device
+RandomResources:
+- Name: IronResource
+  IsScalingCount: true
+  CountMinMax:
+  - 2
+  - 3
+  SizeMinMax:
+  - 4
+  - 4
+  DepthMinMax:
+  - 50
+  - 60
+- Name: GoldResource
+  IsScalingCount: true
+  CountMinMax:
+  - 7
+  - 9
+  SizeMinMax:
+  - 7
+  - 8
+  DepthMinMax:
+  - 10
+  - 15
+  Biome:
+  - Metal
+- Name: PlatinResource
+  CountMinMax:
+  - 1
+  - 3
+  SizeMinMax:
+  - 7
+  - 8
+  DepthMinMax:
+  - 50
+  - 60
+- Name: PromethiumResource
+  IsScalingCount: true
+  CountMinMax:
+  - 2
+  - 4
+  SizeMinMax:
+  - 3
+  - 6
+  DepthMinMax:
+  - 15
+  - 20
+  Biome:
+  - Metal
+AsteroidResources:
+- Name: GoldResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+- Name: PromethiumResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+- Name: PromethiumResource
+  Threshold: 0.200000003
+  Amount: 0.100000001
+  InitialDelay: -1
+  Delay: -1
+Biome:
+- BiomeClusterData:
+  - Name: Pole
+    Texture:
+    - 11
+    - 11
+    - 0.0199999996
+    Color:
+    - 0.600000024
+    - 0.600000024
+    - 0.600000024
+    SelectionCriteria:
+    - +Lat > 0.975
+    StampProb: 1
+    IgnoreForcedBiome: true
+    Weather: PoleFog
+  - Name: Unknown
+    Decorations:
+    - - GlowTube01
+      - 0.002
+    - - CrystalsPyramidBlue
+      - 0.008
+    - - ScalyPods
+      - 0.05
+    Texture:
+    - 11
+    - 11
+    - 0.200000003
+    Color:
+    - 0
+    - 1
+    - 0
+    SelectionCriteria:
+    - Height < 11
+    StampProb: 1
+    IgnoreForcedBiome: true
+  - Name: RiftsDeep
+    Temperature: 200
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalsPyramidBlue
+      - 0.0001
+      - Free
+    Texture:
+    - 0
+    - 0
+    - 0.5
+    Color:
+    - 0.699999988
+    - 0.200000003
+    - 0.200000003
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 50
+    StampProb: 1
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOff
+    Stamps:
+    - RiftLava_1, 0.3
+    - RiftLava_2, 0.3
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Rifts
+    Temperature: 150
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalsPyramidBlue
+      - 0.0001
+      - Free
+    Texture:
+    - 1
+    - 1
+    - 0.5
+    Color:
+    - 0.699999988
+    - 0.200000003
+    - 0.200000003
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 70
+    StampProb: 1
+    StampForcesBiome: true
+    StampForcesBiomeType: OverlapOff
+    Stamps:
+    - RiftIce_01, 0.3
+    IgnoreForcedBiome: true
+    UndergroundLayers:
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Gold
+    Temperature: 250
+    Decorations:
+    - - RockGrey01Large
+      - 0.005
+    - - RockGrey02Large
+      - 0.005
+    - - CrystalsPyramidBlue
+      - 0.0005
+      - Free
+    - - RockResourceCopper
+      - 0.0001
+      - Free
+    - - RockResourceSilicon
+      - 0.0003
+      - Free
+    Texture:
+    - 10
+    - 10
+    - 0.5
+    Color:
+    - 0.899999976
+    - 0.300000012
+    - 0.300000012
+    SelectionCriteria:
+    - Height > 600
+    StampTries: 50
+    StampProb: 1
+    StampForcesBiome: true
+    Stamps:
+    - CraterMoon_1, 1
+    - CraterMoon_2, 0.20
+    - CraterMoon_3, 0.30
+    - CraterMoon_4, 0.04
+    - CraterMoon_5, 0.7
+    - CraterMoon_6, 0.04
+    - CraterMoon_7, 0.02
+    - CraterMoon_8, 0.01
+    - CraterMoon_9, 0.004
+    UndergroundLayers:
+    - - 10
+      - 1
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+  - Name: Metal
+    Texture:
+    - 11
+    - 11
+    - 0.200000003
+    Color:
+    - 0
+    - 1
+    - 0
+    SelectionCriteria:
+    - true
+    StampProb: 1
+    UndergroundLayers:
+    - - 11
+      - 4
+    - - 12
+      - 5
+    - - 13
+      - 5
+    - - 14
+      - 20
+    - - 11
+      - -1
+    - - 11
+      - 1
+    UndergroundLayersDefault: true
+POIs:
+  Random:
+  - GroupName: Eden_ZiraxMain
+    Faction: Zirax
+    NoShieldReload: true
+    IsImportant: true
+    Count:
+      Max: 1
+    CountMinMax:
+    - 0
+    - 1
+    DroneProb: 1
+    TroopTransport: true
+    Drones:
+      Min: 3
+      Max: 5
+    DronesMinMax:
+    - 3
+    - 5
+    ReserveCount: 5
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnResource:
+    - GoldResource:1-1
+    SpawnResourceRange:
+    - 150
+    - 300
+  - GroupName: Eden_ZiraxAuxT2
+    Faction: Zirax
+    NoShieldReload: true
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    DroneProb: 1
+    TroopTransport: true
+    Drones:
+      Min: 2
+      Max: 4
+    DronesMinMax:
+    - 2
+    - 4
+    ReserveCount: 3
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - Eden_ZiraxMain
+    SpawnPOINearRange:
+    - 300
+    - 450
+  - GroupName: Eden_ZiraxDefenseT3
+    Faction: Zirax
+    NoShieldReload: true
+    Count:
+      Min: 2
+      Max: 6
+    CountMinMax:
+    - 2
+    - 6
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 3
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - Eden_ZiraxMain
+    SpawnPOIAvoid:
+    - Eden_ZiraxDefenseT3
+    SpawnPOINearRange:
+    - 400
+    - 600
+    SpawnPOIAvoidDistance: 600
+  - GroupName: Eden_ZiraxAuxT2
+    Faction: Zirax
+    NoShieldReload: true
+    IsScalingCount: true
+    Count:
+      Min: 2
+      Max: 4
+    CountMinMax:
+    - 2
+    - 4
+    DroneProb: 1
+    TroopTransport: true
+    Drones:
+      Min: 2
+      Max: 4
+    DronesMinMax:
+    - 2
+    - 4
+    ReserveCount: 3
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    SpawnPOINear:
+    - Eden_ZiraxMain
+    SpawnPOINearRange:
+    - 1000
+    - 5000
+  - GroupName: Eden_PolMineGold2
+    Faction: Polaris
+    NoShieldReload: true
+    IsImportant: true
+    Count:
+      Min: 1
+      Max: 1
+    CountMinMax:
+    - 1
+    - 1
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Biome:
+    - Gold
+  - GroupName: CrashedShip
+    Faction: None
+    IsScalingCount: true
+    Count:
+      Min: 1
+      Max: 2
+    CountMinMax:
+    - 1
+    - 2
+    DroneProb: 1
+    Drones:
+      Min: 1
+      Max: 2
+    DronesMinMax:
+    - 1
+    - 2
+    ReserveCount: 4
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+  FixedPlayerStart:
+  - Mode: Debug
+    Pos:
+    - -596
+    - 104
+    - -1063
+    RotY: 125
+  - Mode: Survival
+    Spawn: EscapePod
+    Armor: ArmorMedium
+DroneBaseSetup:
+  Random:
+  - GroupName: DroneBaseSetup
+    Stock:
+    - Name: DroneSmallFast01Rocket
+      Amount: 100
+      Extra: 0
+    - Name: DroneSmallFast01Minigun
+      Amount: 200
+      Extra: 0
+    - Name: DroneLargeSlow01Minigun
+      Amount: 100
+      Extra: 0
+    - Name: DroneSmallSlow01Cannon
+      Amount: 200
+      Extra: 0
+    - Name: DroneSmallAttackBase
+      Amount: 300
+      Extra: 1
+    - Name: DroneTroopsTransport
+      Amount: Infinite
+      Extra: 2
+    - Name: ZiraxMinigun
+      Amount: 500
+      Extra: 3
+    - Name: RipperDog
+      Amount: 400
+      Extra: 3
+DroneSpawning:
+  Random:
+  - DronesMinMax:
+    - 0
+    - 0
+    CenterX: -2500
+    Radius: 1500
+  - DronesMinMax:
+    - 0
+    - 0
+    CenterX: 2500
+    Radius: 1500
