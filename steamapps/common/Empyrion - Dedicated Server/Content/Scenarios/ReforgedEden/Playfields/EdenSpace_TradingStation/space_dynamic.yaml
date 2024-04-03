@@ -1,0 +1,975 @@
+# Playfield Characteristics
+Description: "Difficulty: [c][00ff00]Easy[-][/c]
+
+
+A trading station belonging to the owning faction is based out of this sector.
+
+
+[c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]"
+
+Gravity: 0
+AtmosphereEnabled: False
+PvPProb: 0
+UseFixed: True
+
+# Habitable Star
+Radiation: [5,10]
+TemperatureDay: [-200,-100]
+Music: [moonstone, space, DistantWorlds, Migration, Artefact, ColdDivide]
+# Music: [Sanctuary, Vanguard, Helios, ColdDivide, AlteredPhase] # POI
+
+PlayfieldType: Space
+LandClaimZone: Device
+PlanetType: Trading Station
+
+# ===========================================================================================================================================================================================
+# ===========================================================================================================================================================================================
+# ===========================================================================================================================================================================================
+
+### Resource Asteroid
+Resources:
+    - Name: [ AsteroidVoxel01Iron, AsteroidVoxel02Iron, AsteroidVoxel03Iron]
+      DisplayName: Iron Asteroid
+      CountMinMax: [ 1, 2 ]
+      Probability: 0.2
+      Properties:
+        - Key: RegenAfter
+          Value: 180
+
+### POIs
+POIs:
+# Asteroid Fields and sector nebula
+    - Name: [AsteroidFieldBoxExclude, AsteroidFieldBoxExclude, AsteroidFieldFewBoxExclude, AsteroidFieldFewBoxExclude, AsteroidRingPlanet, AsteroidRingPlanet, AsteroidFieldRing, AsteroidFieldRingOld]
+      FieldName: [AsteroidFieldBoxExclude, AsteroidFieldFewBoxExclude] # used if playfield is not an orbit
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.3
+      BaseField: True
+      RandomRotation: True
+
+    - Name: [Eden_SectorNebulaXLDustDim, Eden_SectorNebulaXLDustDim, Eden_SectorNebulaXLCyanDim, Eden_SectorNebulaXLOrangeDim, Eden_SectorNebulaXLYellowDim]
+      FieldName: [Eden_SectorNebulaXLDustDim, Eden_SectorNebulaXLDustDim, Eden_SectorNebulaXLCyanDim, Eden_SectorNebulaXLOrangeDim, Eden_SectorNebulaXLYellowDim] # used if playfield is not an orbit
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.15
+      Position:
+         PosXZMinMax: [50, 100]
+         PosYMax: 50
+
+    - Name: [Eden_SectorNebulaXLDustDim, Eden_SectorNebulaXLDustDim, Eden_SectorNebulaXLCyanDim, Eden_SectorNebulaXLOrangeDim, Eden_SectorNebulaXLYellowDim]
+      FieldName: [Eden_SectorNebulaXLDustDim, Eden_SectorNebulaXLDustDim, Eden_SectorNebulaXLCyanDim, Eden_SectorNebulaXLOrangeDim, Eden_SectorNebulaXLYellowDim] # used if playfield is not an orbit
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.15
+      Position:
+         PosXZMinMax: [50, 100]
+         PosYMax: 50
+
+# Dummy POI for anchor
+    - Type: BA_Alien
+      Name: [Eden_BA_DummyPOI]
+      DisplayName: Dummy
+      Faction: None
+      FactionTerritory: [All]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [0, 250, 0]
+      Rot: [0, 0, 0]
+      Properties:
+        - Key: MapDistance
+          Value: 0
+        - Key: HudDistance
+          Value: 0
+        - Key: RegenAfter
+          Value: 720
+
+# Trading stations
+# Zirax
+    - Type: BA_Alien
+      GroupName: TSOZiraxRG
+      Faction: Zirax
+      FactionTerritory: [Rados]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: StationInterface
+          Value: "Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20"
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_BountySpaceZirax
+      Faction: Zirax
+      FactionTerritory: [Rados]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [1500, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_TSOZiraxBulk
+      Faction: Zirax
+      FactionTerritory: [Rados]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [-1500, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_ZiraxHackCacheSpace
+      Faction: Zirax
+      FactionTerritory: [Xenu]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 2 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Position:
+         PosXZMinMax: [100, 2500]
+         PosYMax: 2500
+      Properties: 
+        - Key: RegenAfter
+          Value: 4320
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+# Polaris
+    - Type: BA_Alien
+      GroupName: TSOPolarisRG
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: StationInterface
+          Value: "Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20"
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_BountySpacePolaris
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [1500, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_TSOPolarisBulk
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [-1500, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_PolHackCacheSpace
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 2 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Position:
+         PosXZMinMax: [100, 2500]
+         PosYMax: 2500
+      Properties: 
+        - Key: RegenAfter
+          Value: 4320
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+# Brotherhood of Farr
+    - Type: BA_Alien
+      GroupName: BAOFarrTradingRG
+      Faction: Farr
+      FactionTerritory: [Farr]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [0, 0, 1500]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: StationInterface
+          Value: "Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20"
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+# Trader
+    - Type: BA_Alien
+      GroupName: TSOTraderRG
+      Faction: Trader
+      FactionTerritory: [Eden_TraderTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: StationInterface
+          Value: "Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20"
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_BountySpaceTrader
+      Faction: Trader
+      FactionTerritory: [Eden_TraderTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [1500, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_TSOTraderBulk
+      Faction: Trader
+      FactionTerritory: [Eden_TraderTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [-1500, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+# Pirates
+    - Type: BA_Alien
+      # GroupName: TSOPirates
+      Name: [BAO_PiratesBlackMarket, BAO_PiratesHideout, BAO_PiratesSlaveMarket]
+      DisplayName: Asteroid Station
+      Faction: Pirates
+      FactionTerritory: [Eden_PiratesTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: StationInterface
+          Value: "Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20"
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_BountySpacePirates
+      Faction: Pirates
+      FactionTerritory: [Eden_PiratesTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [1500, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_TSOPiratesBulk
+      Faction: Pirates
+      FactionTerritory: [Eden_PiratesTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [-1500, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_RavHackCacheSpace
+      Faction: Warlord
+      FactionTerritory: [Eden_PiratesTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.5
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Position:
+         PosXZMinMax: [100, 2500]
+         PosYMax: 2500
+      Properties: 
+        - Key: RegenAfter
+          Value: 4320
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_PirHackCacheSpace
+      Faction: Pirates
+      FactionTerritory: [Eden_PiratesTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 2 ]
+      Probability: 0.5
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Position:
+         PosXZMinMax: [100, 2500]
+         PosYMax: 2500
+      Properties: 
+        - Key: RegenAfter
+          Value: 4320
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+# Kriel
+    - Type: BA_Alien
+      GroupName: TSOKriel
+      Faction: Kriel
+      FactionTerritory: [Kriel]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: StationInterface
+          Value: "Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20"
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+# Tesch
+    - Type: BA_Alien
+      GroupName: BAOTesch
+      Faction: Tesch
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      InitPower: True
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      Properties:
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: StationInterface
+          Value: "Fuel:2,O2:2,Warp:6,Ammo:2,Repair:2,Shield:2,IfNeutral:1,IfFriendly:-0.06,IfHonored:-0.12"
+
+# Colonists
+    - Type: BA_Alien
+      GroupName: TSOColonists
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: StationInterface
+          Value: "Fuel:3,O2:2.4,Warp:2,IfNeutral:0.2,IfHonored:-0.20"
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_BountySpaceColonists
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [1500, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_TSOColBulk
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [-1500, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_ColHackCacheSpace
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 2 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Position:
+         PosXZMinMax: [100, 2500]
+         PosYMax: 2500
+      Properties: 
+        - Key: RegenAfter
+          Value: 4320
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+
+# Wastelanders
+    - Type: BA_Alien
+      GroupName: BAOWSTTrading
+      Faction: Wastelanders
+      # FactionTerritory: [Eden_ColonistsTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: Discovery
+          Value: False
+        - Key: PvEArea
+          Value: 500
+        - Key: Music
+          Value: NebularClouds
+        - Key: RegenAfter
+          Value: 720
+        - Key: StationInterface
+          Value: "Fuel:3,O2:2.4,Warp:2,IfNeutral:0.2,IfHonored:-0.20"
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+
+
+
+# ARC
+    - Type: BA_Alien
+      GroupName: Eden_ARCHackCacheSpace
+      Faction: ARC
+      FactionTerritory: [Wastelanders, Eden_ColonistsTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.75
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Position:
+         PosXZMinMax: [100, 2500]
+         PosYMax: 2500
+      Properties: 
+        - Key: RegenAfter
+          Value: 4320
+        - Key: AIManExcludeFromPatrol
+          Value: true
+
+
+
+# The Legacy
+    - Type: BA_Alien
+      Name: [RBAO_LGCInfectedStation, BA_LegacyAnomalousStatB]
+      DisplayName: Infested Station
+      Faction: TheLegacy
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      InitPower: True
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      Properties: 
+        - Key: RegenAfter
+          Value: 720
+        - Key: Music
+          Value: Encryptor
+
+
+# ================================================================================================================================================================================= Drone Base Setup
+DroneBaseSetup:
+
+# ================================================================================================================================================================================= Drones
+      - FreeDrones:
+
+# ------------------------------------------------------------------------------------------------- Faction Main
+# Asteroid Patrols
+          - Name: [SpaceDronePolarisLaser]
+          # - Name: [Eden_SpaceDroneCargoShuttle2]
+            Faction: None
+            CanNotBeControlledByMasterAI: False
+            POINameAsPositionRef: [Eden_BA_DummyPOI]
+            Count: [0, 0]
+            Radius: [500, 2000]
+            Properties:
+              # - Key: AIManPatrolGroups
+                # Value: "TSO_AkuaOrbit, RBAO_PolarisGasRefinery, RBAO_PolarisAlloySynthesis"
+              - Key: AIManPatrolFactions
+                Value: "Zirax, Polaris, Trader, Colonists, Pirates, Farr"
+              - Key: AIManMaxPursuitRange
+                Value: 0
+
+          # # - Name: [SpaceDronePolarisLaser]
+          # - Name: [Eden_SpaceDroneCargoShuttle2]
+            # Faction: Admin
+            # CanNotBeControlledByMasterAI: False
+            # POINameAsPositionRef: [Eden_BA_DummyPOI]
+            # Count: [10, 15]
+            # Radius: [500, 2000]
+            # Properties:
+              # # - Key: AIManPatrolGroups
+                # # Value: "TSO_AkuaOrbit, RBAO_PolarisGasRefinery, RBAO_PolarisAlloySynthesis"
+              # - Key: AIManPatrolFactions
+                # Value: "Zirax, Polaris, Trader, Colonists, Pirates, Farr"
+              # - Key: AIManMaxPursuitRange
+                # Value: 0
+
+          # # - Name: [SpaceDronePolarisLaser]
+          # - Name: [Eden_SpaceDroneCargoShuttle2]
+            # Faction: Main
+            # CanNotBeControlledByMasterAI: False
+            # POINameAsPositionRef: [Eden_BA_DummyPOI]
+            # Count: [10, 15]
+            # Radius: [500, 2000]
+            # Properties:
+              # # - Key: AIManPatrolGroups
+                # # Value: "TSO_AkuaOrbit, RBAO_PolarisGasRefinery, RBAO_PolarisAlloySynthesis"
+              # - Key: AIManPatrolFactions
+                # Value: "Zirax, Polaris, Trader, Colonists, Pirates, Farr"
+              # - Key: AIManMaxPursuitRange
+                # Value: 0
+
+# ------------------------------------------------------------------------------------------------- Faction Trader
+# ------------------------------------------------------------------------------------------------- Faction Pirates
+# ------------------------------------------------------------------------------------------------- Faction UCH
+
+# ------------------------------------------------------------------------------------------------- Faction Kriel
+
+# ------------------------------------------------------------------------------------------------- Faction Drone Swarm
+# ------------------------------------------------------------------------------------------------- Faction Ancient Progenitor
+# ------------------------------------------------------------------------------------------------- Faction Tesch
+# ------------------------------------------------------------------------------------------------- Faction Warlord
+# ------------------------------------------------------------------------------------------------- Faction Colonists
+# ------------------------------------------------------------------------------------------------- Faction Civilian
+# ------------------------------------------------------------------------------------------------- Faction TheLegacy
+# ------------------------------------------------------------------------------------------------- Faction Alien
+
+# ================================================================================================================================================================================= Ships
+        SpaceVessels:
+# ================================================================================================================================================================================= Patrol Vessels and Freighters and Bases
+# ------------------------------------------------------------------------------------------------- Faction Main
+
+
+# ------------------------------------------------------------------------------------------------- Faction Zirax
+# Patrol vessels
+
+# ------------------------------------------------------------------------------------------------- Faction Polaris
+# Freighters
+          - Name: [Freighter]
+            FixedMaxSpeed: [5, 10]
+            Mission: Freighter
+            CountMinMax: [2, 4]
+            Probability: 1
+            Faction: Polaris
+            MissionDescription:
+              DelayBetweenRespawnMinMax: [3600, 3600]
+              DelayBeforeSelfDestructionMinMax: [3600, 3600]
+              IsRespawnAfterDestruction: True
+              Position:
+                PosXZMinMax: [1000, 6000]
+                PosYMax: 1000
+            StockDescription:
+              Name: [SpaceDronePolarisLaser]
+              AmountMinMax: [1, 2]
+              ExtraMinMax: [0,0]
+              Type: FighterDrone
+
+# Polaris Freighters
+          - Name: [OPVPolarisRG]
+            Faction: Polaris
+            CountMinMax: [1, 2]
+            Probability: 1
+            CanNotBeControlledByMasterAI: False
+            FixedMaxSpeed: [20, 30]
+            Mission: SpacePatrol
+            MissionDescription:
+              DelayBetweenRespawnMinMax: [3600, 3600]
+              DelayBeforeSelfDestructionMinMax: [3600, 3600]
+              IsRespawnAfterDestruction: True
+              RadiusMinMax: [500, 750]
+              # POINameAsPositionRef: [Eden_GasCloudOrangeL]
+              POINameAsPositionRef: [Eden_BA_DummyPOI]
+              Position:
+                PosXZMinMax: [500, 1500]
+                PosYMax: 250
+            StockDescription:
+              Name: [SpaceDronePolarisLaser]
+              AmountMinMax: [12, 20]
+              ExtraMinMax: [0,0]
+              Type: FighterDrone
+            Properties:
+              # - Key: SelfDestructionWithNoCore
+                # Value: True
+              # - Key: Discovery
+                # Value: Discovery
+              # - Key: AIManPatrolGroups #which POI groups can the vessel patrol? Asteroids will be ignored
+                # Value: "Eden_BA_DummyPOI2"
+              - Key: AIManPatrolFactions #POI's of which factions can be patrolled?
+                Value: "Polaris"
+              # - Key: AIManPatrolFactions #POI's of which factions can be patrolled?
+                # Value: "Pirates"
+              - Key: AIManMaxPursuitRange
+                Value: 3000
+
+
+
+
+
+
+
+
+
+
+
+# ================================================================================================================================================================================= Drone Base Setup
+# DroneBaseSetup:
+
+# # ================================================================================================================================================================================= Drones
+      # - FreeDrones:
+
+# # ------------------------------------------------------------------------------------------------- Faction Main
+# # Asteroid Patrols
+          # - Name: [SpaceDroneLaser, SpaceDronePlasma]
+            # Faction: Warlord
+            # CanNotBeControlledByMasterAI: False
+            # POINameAsPositionRef: [Eden_DummyPOI]
+            # Count: [3, 6]
+            # Radius: [500, 3000]
+            # Properties:
+              # # - Key: AIManPatrolGroups
+                # # Value: "Eden_DummyPOI"
+              # - Key: AIManPatrolFactions
+                # Value: "Warlord"
+              # - Key: AIManMaxPursuitRange
+                # Value: 5000
+
+# # ================================================================================================================================================================================= Ships
+        # SpaceVessels:
+# # ================================================================================================================================================================================= Patrol Vessels and Freighters and Bases
+
+# # Warlord
+          # - Name: [Eden_OPVBanditT1]
+            # Faction: Warlord
+            # CountMinMax: [3, 5]
+            # Probability: 1
+            # CanNotBeControlledByMasterAI: False
+            # FixedMaxSpeed: [90, 110]
+            # Mission: SpacePatrol
+            # MissionDescription:
+              # DelayBetweenRespawnMinMax: [3600, 3600]
+              # DelayBeforeSelfDestructionMinMax: [3600, 3600]
+              # IsRespawnAfterDestruction: True
+              # RadiusMinMax: [1500, 3000]
+              # # POINameAsPositionRef: [Eden_GasCloudOrangeL]
+              # POINameAsPositionRef: [Eden_BA_DummyPOI]
+              # Position:
+                # PosXZMinMax: [1500, 3000]
+                # PosYMax: 500
+            # StockDescription:
+              # Name: [SpaceDroneLaser, SpaceDronePlasma]
+              # AmountMinMax: [12, 20]
+              # ExtraMinMax: [0,0]
+              # Type: FighterDrone
+            # Properties:
+              # # - Key: SelfDestructionWithNoCore
+                # # Value: True
+              # # - Key: Discovery
+                # # Value: Discovery
+              # - Key: MapDistance
+                # Value: 3000
+              # - Key: HudDistance
+                # Value: 3000
+              # # - Key: AIManPatrolGroups #which POI groups can the vessel patrol? Asteroids will be ignored
+                # # Value: "Eden_BA_DummyPOI2"
+              # - Key: AIManPatrolFactions #POI's of which factions can be patrolled?
+                # Value: "Warlord"
+              # # - Key: AIManPatrolFactions #POI's of which factions can be patrolled?
+                # # Value: "Pirates"
+              # - Key: AIManMaxPursuitRange
+                # Value: 7500
+
+          # - Name: [Eden_OPVBanditT1Boss]
+            # Faction: Warlord
+            # CountMinMax: [1, 1]
+            # Probability: 0.5
+            # CanNotBeControlledByMasterAI: False
+            # FixedMaxSpeed: [60, 80]
+            # Mission: SpacePatrol
+            # MissionDescription:
+              # DelayBetweenRespawnMinMax: [3600, 3600]
+              # DelayBeforeSelfDestructionMinMax: [3600, 3600]
+              # IsRespawnAfterDestruction: True
+              # RadiusMinMax: [1500, 2000]
+              # # POINameAsPositionRef: [Eden_GasCloudOrangeL]
+              # POINameAsPositionRef: [Eden_BA_DummyPOI]
+              # Position:
+                # PosXZMinMax: [1500, 2000]
+                # PosYMax: 500
+            # StockDescription:
+              # Name: [SpaceDroneLaser, SpaceDronePlasma]
+              # AmountMinMax: [12, 20]
+              # ExtraMinMax: [0,0]
+              # Type: FighterDrone
+            # Properties:
+              # # - Key: SelfDestructionWithNoCore
+                # # Value: True
+              # # - Key: Discovery
+                # # Value: Discovery
+              # - Key: MapDistance
+                # Value: 3000
+              # - Key: HudDistance
+                # Value: 3000
+              # # - Key: AIManPatrolGroups #which POI groups can the vessel patrol? Asteroids will be ignored
+                # # Value: "Eden_BA_DummyPOI2"
+              # - Key: AIManPatrolFactions #POI's of which factions can be patrolled?
+                # Value: "Warlord"
+              # # - Key: AIManPatrolFactions #POI's of which factions can be patrolled?
+                # # Value: "Pirates"
+              # - Key: AIManMaxPursuitRange
+                # Value: 5000
