@@ -188,9 +188,9 @@ RandomResources:
     - Name: PentaxidResource
       Biome: [ Crystal ]
       IsScalingCount: True
-      CountMinMax: [ 4, 5 ]
+      CountMinMax: [ 5, 7 ]
       SizeMinMax: [ 4, 6 ]
-      DroneProb: 1
+      DroneProb: 2
       MaxDroneCount: 8
       DepthMinMax: [ 49, 65 ]
       #DistTypeCylinder:
@@ -396,7 +396,7 @@ POIs:
 
 # Spires
         - GroupName: Eden_SpireTall 
-          Faction: Eden_Wreck
+          Faction: None
           FactionTerritory: [All]
           Biome: [ Crystal, Plains ]
           CountMinMax: [ 8, 12 ]
@@ -417,7 +417,7 @@ POIs:
 
 # Spikes
         - GroupName: Eden_SpikesPurple 
-          Faction: Eden_Wreck
+          Faction: None
           FactionTerritory: [All]
           Biome: [ Crystal, Plains ]
           CountMinMax: [ 8, 12 ]
@@ -437,8 +437,9 @@ POIs:
               Value: 720
 
 # Glowing Crystals
-        - GroupName: Eden_CrystalsPurpleXL
-          Faction: Eden_Wreck
+        # - GroupName: Eden_CrystalsPurpleXL
+        - GroupName: Eden_CrystalsPurpMixed
+          Faction: None
           FactionTerritory: [All]
           Biome: [ Crystal ]
           CountMinMax: [ 100, 125 ]
@@ -447,6 +448,48 @@ POIs:
           DronesMinMax: [ 1, 1 ]
           ReserveCount: 0
           TroopTransport: False
+          Properties: 
+            - Key: MapDistance
+              Value: 0
+            - Key: HudDistance
+              Value: 0
+            - Key: RegenAfter
+              Value: 720
+
+# Glowing Crystals T2
+        - GroupName: Eden_CrystalsPurpT2
+          Faction: None
+          FactionTerritory: [Warlord]
+          Biome: [ Crystal ]
+          CountMinMax: [ 0, 1 ]
+          # IsScalingCount: True
+          DroneProb: 0
+          DronesMinMax: [ 1, 1 ]
+          ReserveCount: 0
+          TroopTransport: False
+          SpawnResource: ["PentaxidResource:2-3"]
+          SpawnResourceRange: [150,225]
+          Properties: 
+            - Key: MapDistance
+              Value: 0
+            - Key: HudDistance
+              Value: 0
+            - Key: RegenAfter
+              Value: 720
+
+# Glowing Crystals T2
+        - GroupName: Eden_CrystalsPurpT2
+          Faction: None
+          FactionTerritory: [Warlord]
+          Biome: [ Crystal ]
+          CountMinMax: [ 3, 6 ]
+          # IsScalingCount: True
+          DroneProb: 0
+          DronesMinMax: [ 1, 1 ]
+          ReserveCount: 0
+          TroopTransport: False
+          SpawnPOINear: [Eden_CrystalsPurpT2]
+          SpawnPOINearRange: [35, 150] 
           Properties: 
             - Key: MapDistance
               Value: 0

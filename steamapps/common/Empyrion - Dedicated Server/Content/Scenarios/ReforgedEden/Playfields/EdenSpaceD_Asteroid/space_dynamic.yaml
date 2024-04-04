@@ -17,7 +17,8 @@ UseFixed: True
 # Cold Star
 Radiation: [5,10]
 TemperatureDay: [-250,-200]
-Music: [Vanguard, Helios, Anomalous, AlteredPhase, ColdDivide] # POI
+# Space Ambient Music
+Music: [2473, Adrift, Anomalous, ColdSpace, EnergyMatrix, FirstHours, Magnitude, moonstone, MorningLight, Transit, Voyage]
 
 PlayfieldType: Space
 LandClaimZone: Device
@@ -1092,9 +1093,9 @@ POIs:
       SpaceDefenseProbability: 0
       InitPower: True
       Compound:
-        CountMinMax: [3, 5]
+        CountMinMax: [4, 6]
         Probability: 1
-        Name: [CompoundAsteroidIceT1, CompoundAsteroidIceT1, CompoundAsteroidIceT1, CompoundAsteroidIceT2, CompoundAsteroidIceT2]
+        Name: [CompoundCometDummy, CompoundAsteroidIceT1, CompoundAsteroidIceT1, CompoundAsteroidIceT1, CompoundAsteroidIceT2, CompoundAsteroidIceT2]
         DistanceMinMax: [600, 900]
         Rotate: false
       Position:
@@ -1107,6 +1108,25 @@ POIs:
           Value: 0
         - Key: RegenAfter
           Value: 720
+
+# Anomaly for comet for scanning table.
+    - Type: BA_Alien
+      Name: [CompoundCometDummy]
+      GroupName: Eden_DummyComet
+      Faction: None
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      IsCompoundSubDesc: True
+      Properties:
+        - Key: MapDistance
+          Value: 3000
+        - Key: HudDistance
+          Value: 3000
+        - Key: RegenAfter
+          Value: 720
+        - Key: MapMarker
+          Value: Neutral
 
 # Ice Asteroid Compound
     - Type: BA_Alien
@@ -1633,9 +1653,9 @@ POIs:
       IsCompoundSubDesc: True
       Properties:
         - Key: MapDistance
-          Value: 3000
+          Value: 6000
         - Key: HudDistance
-          Value: 3000
+          Value: 6000
         - Key: RegenAfter
           Value: 720
         - Key: MapMarker

@@ -250,14 +250,16 @@
 
 
 
+
 # ======================================================================================================================================================================
 # =================================================================================================================================Project Eden Custom Tokens:
 # ======================================================================================================================================================================
 
 # Admin Control Chip required to access admin settings
 { Token Id: 6000, Name: [c][ffff00]Project Eden Admin Access Card[-][/c]
+  CustomIcon: Eden_GuideAdmin2
   DropOnDeath: false
-  Description: [c][ffff00]Admin item[-][/c] \n\n[c][ffffff]This key card allows access to the scenario admin controls in Project Eden. \n\nThe admin controls are located in the briefing rooms of most Project Eden Research Vessels outside the starting systems. \n\nPlease see the Project Eden Configuration Guide on Steam for details of how to use this.[-][/c]
+  Description: "[c][ffff00]Admin item[-][/c] \n\n[c][ffffff]This key card allows access to the scenario admin controls in Project Eden. \n\nThe admin controls are located in the briefing rooms of most Project Eden Research Vessels outside the starting systems or you can access it in the tutorial tab of the PDA."
 }
 
 
@@ -296,20 +298,24 @@
   Description: "Chapter 1:[c][00ff00]The Infected[-][/c].\nA collection of communications logs from a derelict trade station in the Delta system."
 }
 
+{ Token Id: 6004, Name: [c][ffff00]Project Eden Admin Patrol Vessel Token[-][/c]
+  CustomIcon: Eden_GuideOPV
+  DropOnDeath: false
+  Description: [c][ffff00]Admin item[-][/c] \n\n[c][ffffff]This token allows spawning of patrol vessels using the Project Eden Admin Access card. You will need 1 token for each patrol vessel you want to spawn.[-][/c]
+}
+
 # ================================================================================================================================ Deep Core Mining Keys
 
 # Deep Core Facility Access Key
-{ Token Id: 6005, Name: [c][FF00FF]Deep Core Facility Access Key[/c]
+{ Token Id: 6005, Name: [c][FF00FF]Deep Core Facility Access Key[-][/c]
   DropOnDeath: false
   Description: [c][FF00FF]Mission Item.[-][/c] This key card grants access to the lower levels of the Deep Core Mining Facility on Ice Giant class planets.
 }
 
-# ================================================================================================================================ Empyrion Shrine Tokens
-
-# Empyrion Shrine Key I
-{ Token Id: 6011, Name: [c][ff8000]Empyrion Shrine Key I[/c]
+# Derelict Station/Lost Station logs
+{ Token Id: 6006, Name: "[c][FF0000]salvage or retrieve blocks mode with a multitool[-][/c]"
   DropOnDeath: false
-  Description: This key will open a door in the Empyrion Shrine near the galactic core. NOT YET IN.
+  Description: "Dummy token for in-game description of the locked Salvage found in wrecks."
 }
 
 # ================================================================================================================================ Tutorial Tokens:
@@ -318,26 +324,30 @@
 
 # Alpha System Survey Report
 { Token Id: 6012, Name: [c][ffffff]Alpha System Survey Report[-][/c]
+  CustomIcon: Eden_GuideSurveyAlpha
   DropOnDeath: false
-  Description: A report detailing the planets and sectors of the Alpha system.\n\nCollect survey reports on the Alpha Beta Delta and Epsilon systems to obtain a reward. \n\n[i][c][ffffff]Once all 4 reports are in your personal inventory a special mission will activate.[-][/c][/i]
+  Description: A report detailing the planets and sectors of the Alpha system.\n\nCollect survey reports on the Alpha Beta Delta and Epsilon systems to obtain a reward. \n\n[i][c][ffffff]Speak with the Lead Researcher on board any UCH Research Vessel while all 4 survey reports are in your personal inventory.[-][/c][/i]
 }
 
 # Beta System Survey Report
 { Token Id: 6013, Name: [c][ffffff]Beta System Survey Report[-][/c]
+  CustomIcon: Eden_GuideSurveyBeta
   DropOnDeath: false
-  Description: A report detailing the planets and sectors of the Beta system.\n\nCollect survey reports on the Alpha Beta Delta and Epsilon systems to obtain a reward. \n\n[i][c][ffffff]Once all 4 reports are in your personal inventory a special mission will activate.[-][/c][/i]
+  Description: A report detailing the planets and sectors of the Beta system.\n\nCollect survey reports on the Alpha Beta Delta and Epsilon systems to obtain a reward. \n\n[i][c][ffffff]Speak with the Lead Researcher on board any UCH Research Vessel while all 4 survey reports are in your personal inventory.[-][/c][/i]
 }
 
 # Delta System Survey Report
 { Token Id: 6014, Name: [c][ffffff]Delta System Survey Report[-][/c]
+  CustomIcon: Eden_GuideSurveyDelta
   DropOnDeath: false
-  Description: A report detailing the planets and sectors of the Delta system.\n\nCollect survey reports on the Alpha Beta Delta and Epsilon systems to obtain a reward. \n\n[i][c][ffffff]Once all 4 reports are in your personal inventory a special mission will activate.[-][/c][/i]
+  Description: A report detailing the planets and sectors of the Delta system.\n\nCollect survey reports on the Alpha Beta Delta and Epsilon systems to obtain a reward. \n\n[i][c][ffffff]Speak with the Lead Researcher on board any UCH Research Vessel while all 4 survey reports are in your personal inventory.[-][/c][/i]
 }
 
 # Epsilon System Survey Report
 { Token Id: 6015, Name: [c][ffffff]Epsilon System Survey Report[-][/c]
+  CustomIcon: Eden_GuideSurveyEpsilon
   DropOnDeath: false
-  Description: A report detailing the planets and sectors of the Epsilon system.\n\nCollect survey reports on the Alpha Beta Delta and Epsilon systems to obtain a reward. \n\n[i][c][ffffff]Once all 4 reports are in your personal inventory a special mission will activate.[-][/c][/i]
+  Description: A report detailing the planets and sectors of the Epsilon system.\n\nCollect survey reports on the Alpha Beta Delta and Epsilon systems to obtain a reward. \n\n[i][c][ffffff]Speak with the Lead Researcher on board any UCH Research Vessel while all 4 survey reports are in your personal inventory.[-][/c][/i]
 }
 
 
@@ -345,13 +355,13 @@
 # ================================================================================================================================ Trading seperators
 # old color [CC99FF]
 # Encrypted Data Chip
-{ Token Id: 6101, Name: "[c][FFD700]Sell to trader[-][/c]"
+{ Token Id: 6101, Name: "[c][FFD700]Buys:[-][/c]"
   CustomIcon: GoldCoins
   Description: "Trades in this category are primarily sold to the trader, though some items may also be purchasable."
 }
 
 # Flawed Data Chip
-{ Token Id: 6102, Name: "[c][00FF00]Buy from trader[-][/c]"
+{ Token Id: 6102, Name: "[c][00FF00]Sells:[-][/c]"
   CustomIcon: MoneyCard
   Description: "Trades in this category are primarily bought from the trader, though some items may also be sellable."
 }
@@ -367,8 +377,6 @@
   DropOnDeath: false
   Description: [c][ff8000]Story mission item.[-][/c] \n\nThis matrix grants access to Progenitor computer terminals. \n\nRequired to access the core system controls on Progenitor Cores and other Progenitor computer systems.
 }
-
-
 
 # ================================================================================================================================ Object 82 Keys.
 
@@ -470,7 +478,7 @@
 
 # Underground Insects found in Jungle caves
 { Token Id: 6118, Name: XCorp Computer Virus
-  CustomIcon: KeyCardBlue
+  CustomIcon: Eden_GuideVirusGreen
   Description: "A data card containing a malicious virus meant to disrupt the computer systems of an XCorp Lab or XCorp Mainframe on some crystalline moons.\nGiven to you by a former employee of XCorp currently hiding out on the moon."
 }
 
@@ -480,11 +488,105 @@
   Description: "A sample from a strange alien organism found in an ice cave on ice class planets. Perhaps there could be a use for it somewhere within the cave."
 }
 
+# Underground Insects found in Jungle caves
+{ Token Id: 6120, Name: Syndicate Container Key
+  Description: "A one-use key card for opening secured Syndicate containers. Can also sell to certain traders."
+  MarketPrice: 50000, display: true
+}
+
+# Info on mine for Combat Site Eden_CombatT2_3
+{ Token Id: 6121, Name: Mine Manufacturer Info
+  CustomIcon: Tablet
+  Description: "Make and model: LRIWDM-4000 Long-Range Interdictor Warp Distruption Mine\nSerial number: 2jf95-jg9fj-934uj-jf93m-f0sjd-as893\nManufacturing date: 04F-12b\nLine manager: Korvax.\nRange: 0.2ly.\n\nFind someone on a Polaris Distribution Center who might know about this."
+  MarketPrice: 50000, display: true
+}
+
+# Music sample from Syndicate Casino to Pirates Distribution Center (Freeport).
+{ Token Id: 6122, Name: Music Sample
+  CustomIcon: Eden_GuideMusic
+  Description: "A collection of sample music tracks produced by an aspiring DJ at a Syndicate Casino.\nmarked for delivery to Underground Music Network at a Pirate Freeport in The Badlands."
+  MarketPrice: 25000, display: true
+}
+
+# Narrow Band scan report for exploration missions.
+{ Token Id: 6123, Name: Scanned Coordinates
+  CustomIcon: Eden_GuideTextBlue
+  Description: "Coordinates for an anomaly.\nUsed for a exploration site."
+  MarketPrice: 25, display: true
+}
+
+# For hidden secret on UCH Research Vessels
+{ Token Id: 6124, Name: Maintenance Access Card 12-A
+  CustomIcon: KeyCardBlue
+  Description: "An access card for a maintenance hatch somewhere on board a UCH Research Vessel.\nConsumed on use."
+  MarketPrice: 25, display: true
+  DropOnDeath: false
+  RemoveOnUse: true
+}
+
+{ Token Id: 6125, Name: Maintenance Access Card 12-B
+  CustomIcon: KeyCardBlue
+  Description: "An access card for a maintenance hatch somewhere on board a UCH Research Vessel.\nConsumed on use."
+  MarketPrice: 25, display: true
+  DropOnDeath: false
+  RemoveOnUse: true
+}
+
+{ Token Id: 6126, Name: Maintenance Access Card 12-C
+  CustomIcon: KeyCardBlue
+  Description: "An access card for a maintenance hatch somewhere on board a UCH Research Vessel.\nConsumed on use."
+  MarketPrice: 25, display: true
+  DropOnDeath: false
+  RemoveOnUse: true
+}
+
+{ Token Id: 6127, Name: "Gerald's Partially Corrupted Log"
+  CustomIcon: KeyCardRed
+  Description: "A partially corrupted log. Perhaps by finding more pieces of the log you can reconstruct it."
+  MarketPrice: 25, display: true
+  DropOnDeath: false
+}
+
+{ Token Id: 6128, Name: "Gerald's Keycard"
+  CustomIcon: KeyCardRed
+  Description: "A key, to something, on a UCH Research Vessel.\nRemoved on use."
+  MarketPrice: 25, display: true
+  DropOnDeath: false
+  RemoveOnUse: true
+}
+
+{ Token Id: 6129, Name: "Gerald's Last Log"
+  CustomIcon: KeyCardRed
+  Description: "A tale of betrayal and adventure.[sup]\n\n[c][00ffff]Log #47:[-][/c] Today I arrived on a UCH Research Vessel. I snuck in via the rear hangar and made my way to engineering. As it was the middle of the night ship time, there were few personel on duty and I was able to sneak into a maintenance shaft. This will be home for now while I plot my revenge.\n\n[c][00ffff]Log #53:[-][/c] I had to leave the last research vessel as the terran scum were getting suspicious. I found a new place to hide in another maintenance section. I will have my revenge on my former captain!\n\n[c][00ffff]Log #59:[-][/c] Yet again I had to move, but this time I found a nice spacious room next to the air filtration system. Good news is it's nice and cool here, though the fans are a little noisy. Now I can work in peace on plotting my revenge!"
+  MarketPrice: 25, display: true
+  DropOnDeath: false
+}
+
+# ================================================================================================================================ Tokens for message deliveries
+
+{ Token Id: 6150, Name: Message for Trade Federation Orbital Habitat
+  CustomIcon: Eden_GuideTextBlue
+  Description: "An encrypted message intended for delivery to someone at a Trade Federation Orbital Habitat.\nMust be in your personal inventory."
+  MarketPrice: 50000, display: true
+}
+
+{ Token Id: 6151, Name: Message for Polaris Orbital Habitat
+  CustomIcon: Eden_GuideTextOrange
+  Description: "An encrypted message intended for delivery to someone at a Polaris Orbital Habitat.\nMust be in your personal inventory."
+  MarketPrice: 35000, display: true
+}
+
+{ Token Id: 6152, Name: Message for Colonists Orbital Habitat
+  CustomIcon: Eden_GuideTextBlueLight
+  Description: "An encrypted message intended for delivery to someone at a Free Colonists Habitat.\nMust be in your personal inventory."
+  MarketPrice: 25000, display: true
+}
 
 # ================================================================================================================================ Licenses and Rewards
 
 # Polaris Refinery License
 { Token Id: 6201, Name: [c][00FFFF]Polaris Refinery License[/c]
+  CustomIcon: Eden_PolarisRefinery
   Description: This license allows use of the furnaces on board [c][FFA500]Polaris orbital refineries.[/c][-] \n\n[c][FFFFFF][i]Place ores in the furnace input cargo container in the upper hangar. \nPick up refined ingots from the bottom hangar.[/i]
   # Description: Eden_PolarisRefineryLicenseinfo
   MarketPrice: 500000, display: true
@@ -492,6 +594,7 @@
 
 # Colonists Refinery License
 { Token Id: 6202, Name: Colonists Salvage License
+  CustomIcon: Eden_ScrapyardLicense
   Description: This license grants the user access to remove a single core lock on a Salvaged Wreck in Colonists Scrapyards and allowing you to freely loot and salvage it without penalty. One use only.
   # Description: Eden_PolarisRefineryLicenseinfo
   MarketPrice: 50000, display: true
@@ -509,7 +612,7 @@
 # Summons UCH Research Vessel
 { Token Id: 6204, Name: UCH Research Beacon
   CustomIcon: Eden_UCHBeacon
-  Description: "Signals a UCH Research Vessel to warp in nearby. Use by placing in your personal inventory then activate the Warp in UCH Research Vessel mission under Science and Research.\nCan only be used in habitable, cold, and hot standard orbits and only once per sector.\nWarning: make sure there are no obstacles within 2000 meters before activating."
+  Description: "Signals a UCH Research Vessel to warp in nearby. Use by placing in your personal inventory then activate the Warp in UCH Research Vessel mission in the PDA under Science and Research.\nCan only be used in standard habitable, cold, and hot planetary orbits and only once per sector.\nWarning: make sure there are no obstacles within 2000 meters before activating."
   DropOnDeath: false
 }
 
@@ -526,6 +629,7 @@
 
 # Syndicate Access Card
 { Token Id: 6301, Name: [c][8FFF8F]Syndicate Security Access Card[/c]
+  CustomIcon: Eden_SyndicateCard
   Description: This key card allows access to sensitive areas of Syndicate facilities.
 }
 
@@ -543,17 +647,53 @@
 
 { Token Id: 6304, Name: [c][A9A9A9]Flying for Dummies[-][/c]
   CustomIcon: Tablet
-  Description: \n\n[c][A9A9A9]A collection of flying lessons for novice pilots. \nWritten by Captain Pang.[-][/c]
+  Description: [c][A9A9A9]A collection of flying lessons for novice pilots. \nWritten by Captain Pang.[-][/c]
   MarketPrice: 25, display: true
 }
 
 { Token Id: 6305, Name: [c][A9A9A9]Advanced Dogfighting Techniques[-][/c]
   CustomIcon: Tablet
-  Description: \n\n[c][A9A9A9]A collection of flying lessons for advanced pilots and signed by the author. \nWritten by Captain Pang.[-][/c]
+  Description: [c][A9A9A9]A collection of flying lessons for advanced pilots and signed by the author. \nWritten by Captain Pang.[-][/c]
   MarketPrice: 25, display: true
 }
 
+{ Token Id: 6306, Name: Bathroom Key Card
+  CustomIcon: KeyCardBlue
+  Description: [c][ffff00]Single use.[-][/c]\nA bathroom key card found in a suspicious cargo container at a Polaris Distribution Center.
+  RemoveOnUse: true
+}
+
+{ Token Id: 6307, Name: [c][A9A9A9]Slightly used toilet paper[-][/c]
+  CustomIcon: Tablet
+  Description: [c][A9A9A9]Eww.[-][/c]
+  MarketPrice: 5, display: true
+}
+
+{ Token Id: 6308, Name: Lovingly Handwritten Note
+  CustomIcon: Tablet
+  Description: "A handwritten note from a loving spouse intended for delivery to one of the prisoners on a Trade Federation security headquarters. Though you cannot translate the alien language you know that it was written with the most love and care.\nFind someone you can convince to pass the note to the prisoner, or you can report it to security on board the station."
+}
+
+{ Token Id: 6309, Name: Secure Supply Cache Access Card
+  CustomIcon: KeyCardBlue
+  Description: "A one time use keycard used for opening a secure supply cache without reputation loss."
+  RemoveOnUse: true
+}
+
+{ Token Id: 6310, Name: "The Explorer's Pocket Guide to Star Classes"
+  CustomIcon: KeyCardBlue
+  Description: "A draft version of a pocket guide to the basic star classes in Andromeda."
+}
+
 # ================================================================================================================================ Schematics
+# Encrypted Schematic
+{ Token Id: 6400, Name: "[c][FFFFFF]Encrypted Schematic[-][/c]"
+  CustomIcon: Eden_RecipeRandom2
+  DropOnDeath: false
+  Description: "An encrypted schematic.\nDecode it to obtain a random schematic by using a schematic computer on board a UCH Research Vessel or your science station."
+  MarketPrice: 50000, display: true
+}
+
 # Sentinel Flak Turret
 { Token Id: 6401, Name: "Schematic - [c][FFFFFF]Sentinel Flak Turret[-][/c]"
   CustomIcon: Eden_TurretFlakClose_Recipe
@@ -660,7 +800,7 @@
 
 # Automated Industrial Mining Rig
 { Token Id: 6414, Name: "Schematic - [c][FFFFFF]Ice Mining Drills[-][/c]"
-  CustomIcon: Eden_AutoMiningDeviceT4_Recipe
+  CustomIcon: Eden_DrillIceTurretCV_Recipe
   DropOnDeath: false
   Description: "Schematic category: [c][00FFFF]Civilian Technology[-][/c].\n\nSchematics can be turned in at Schematic Computers on UCH Research Vessels to unlock the listed crafting template or sold to traders."
   MarketPrice: 100000, display: true
@@ -668,22 +808,27 @@
 
 # Automated Industrial Mining Rig
 { Token Id: 6415, Name: "Schematic - [c][FFFFFF]Rich Asteroid Mining Drills[-][/c]"
-  CustomIcon: Eden_AutoMiningDeviceT4_Recipe
+  CustomIcon: Eden_DrillTurretAutoCV_Recipe
   DropOnDeath: false
   Description: "Schematic category: [c][00FFFF]Civilian Technology[-][/c].\n\nSchematics can be turned in at Schematic Computers on UCH Research Vessels to unlock the listed crafting template or sold to traders."
   MarketPrice: 300000, display: true
 }
 
+# Advanced Wind Turbine
+{ Token Id: 6416, Name: "Schematic - [c][FFFFFF]Advanced Wind Turbine[-][/c]"
+  CustomIcon: Eden_WindTurbineActiveT2_Recipe
+  DropOnDeath: false
+  Description: "Schematic category: [c][00FFFF]Civilian Technology[-][/c].\nCost: [c][00FFFF]100 Unlock Points[-][/c]\n\nSchematics can be turned in at Schematic Computers on UCH Research Vessels to unlock the listed crafting template or sold to traders."
+  MarketPrice: 200000, display: true
+}
 
-
-
-
-
-
-
-
-
-
+# Industrial Water Extractor
+{ Token Id: 6417, Name: "Schematic - [c][FFFFFF]Industrial Water Extractor[-][/c]"
+  CustomIcon: Eden_WaterGeneratorT2_Recipe
+  DropOnDeath: false
+  Description: "Schematic category: [c][00FFFF]Civilian Technology[-][/c].\nCost: [c][00FFFF]100 Unlock Points[-][/c]\nLevel required: [c][00FFFF]15 to craft, 20 to activate[-][/c]\n\nSchematics can be turned in at Schematic Computers on UCH Research Vessels to unlock the listed crafting template or sold to traders."
+  MarketPrice: 50000, display: true
+}
 
 # ================================================================================================================================ Mission Tokens
 
@@ -714,25 +859,150 @@
   MarketPrice: 10000, display: true
 }
 
-# Reward from defeating a warlord attack. T2
-{ Token Id: 6505, Name: Raider Insignia
-  CustomIcon: Eden_InsigniaBanditT2
-  Description: An insignia from a member of a raider gang. \nTake to a Colonists Scrapyard or Colonists Bounty Hunter Office for a reward.
+# int Eden_G_DataChipT1R = 1; int Eden_G_DataChipT1C = 10000; int Eden_G_DataChipT1UP = 10; int Eden_G_DataChipT2R = 5; int Eden_G_DataChipT2C = 50000; int Eden_G_DataChipT2UP = 50; int Eden_G_DataChipT3R = 10; int Eden_G_DataChipT3C = 100000; int Eden_G_DataChipT3UP = 100;
+# int Eden_G_BanditRewardT1 = 20000; int Eden_G_BanditRewardT2 = 40000; int Eden_G_BanditRewardT3 = 80000; int Eden_G_BountyRewardT1 = 100000; int Eden_G_BountyRewardT2 = 250000; int Eden_G_BountyRewardT3 = 500000;
+# int Eden_G_BanditRepT1 = 50; int Eden_G_BanditRepT2 = 75; int Eden_G_BanditRepT3 = 100; int Eden_G_BountyRepT1 = 100; int Eden_G_BountyRepT2 = 175; int Eden_G_BountyRepT3 = 250;
+# int Eden_Global_DataPad = 50;
+
+
+
+
+# Reward from bandits. T1
+{ Token Id: 6505, Name: Bandit Insignia
+  CustomIcon: Eden_InsigniaBanditT1
+  Description: An insignia from a member of a bandit gang. \nTake to a bounty office in a trade station sector of a major faction.
   MarketPrice: 20000, display: true
 }
 
-# Reward from taking out bandits. T1
-{ Token Id: 6506, Name: Bandit Insignia
-  CustomIcon: Eden_InsigniaBanditT1
-  Description: An insignia from a member of a bandit gang. \nTake to a Colonists Scrapyard or Colonists Bounty Hunter Office for a reward.
-  MarketPrice: 10000, display: true
+# Reward from raiders. T2
+{ Token Id: 6506, Name: Raider Insignia
+  CustomIcon: Eden_InsigniaBanditT2
+  Description: An insignia from a member of a raider gang. \nTake to a bounty office in a trade station sector of a major faction.
+  MarketPrice: 40000, display: true
 }
 
-# Reward from defeating a death's hand cult member. T3
-{ Token Id: 6507, Name: Death's Hand Insignia
+# Reward from reavers. T3
+{ Token Id: 6507, Name: Reaver Insignia
   CustomIcon: Eden_InsigniaBanditT3
-  Description: An insignia of a member of a Death's Hand gang. \nTake to a Colonists Scrapyard or Colonists Bounty Hunter Office for a reward.
-  MarketPrice: 40000, display: true
+  Description: An insignia from a member of a reaver gang. \nTake to a bounty office in a trade station sector of a major faction.
+  MarketPrice: 80000, display: true
+}
+
+# Bounty reward T1.
+{ Token Id: 6508, Name: Bandit Officer's Insignia
+  CustomIcon: Eden_InsigniaBountyT1
+  Description: An insignia from an officer of a bandit gang. \nTake to a bounty office in a trade station sector of a major faction.
+  MarketPrice: 100000, display: true
+}
+
+# Bounty reward T2.
+{ Token Id: 6509, Name: Raider Officer's Insignia
+  CustomIcon: Eden_InsigniaBountyT2
+  Description: An insignia from an officer of a raider gang. \nTake to a bounty office in a trade station sector of a major faction.
+  MarketPrice: 250000, display: true
+}
+
+# Bounty reward T3.
+{ Token Id: 6510, Name: Reaver Officer's Insignia
+  CustomIcon: Eden_InsigniaBountyT3
+  Description: An insignia from an officer of a reaver gang. \nTake to a bounty office in a trade station sector of a major faction.
+  MarketPrice: 500000, display: true
+}
+
+# ----------------------------------------------------------------------------------------- Mining Site Loot
+
+# Mining Reward Tier 1
+{ Token Id: 6511, Name: Mining Reward Box Tier 1
+  CustomIcon: AlienContainerRare
+  Description: "A crate containing an assortment of ores or other supplies.\nOpen using a science station."
+  MarketPrice: 50000, display: true
+}
+
+# Mining Reward Tier 2
+{ Token Id: 6512, Name: Mining Reward Box Tier 2
+  CustomIcon: AlienContainerRare
+  Description: "A crate containing an assortment of ores or other supplies.\nOpen using a science station."
+  MarketPrice: 50000, display: true
+}
+
+# Mining Reward Tier 3
+{ Token Id: 6513, Name: Mining Reward Box Tier 3
+  CustomIcon: AlienContainerRare
+  Description: "A crate containing an assortment of ores or other supplies.\nOpen using a science station."
+  MarketPrice: 50000, display: true
+}
+
+# Mining Reward Tier 4
+{ Token Id: 6514, Name: Mining Reward Box Tier 4
+  CustomIcon: AlienContainerRare
+  Description: "A crate containing an assortment of ores or other supplies.\nOpen using a science station."
+  MarketPrice: 50000, display: true
+}
+
+# Mining Reward Tier 5
+{ Token Id: 6515, Name: Mining Reward Box Tier 5
+  CustomIcon: AlienContainerRare
+  Description: "A crate containing an assortment of ores or other supplies.\nOpen using a science station."
+  MarketPrice: 50000, display: true
+}
+
+# Mining Reward Tier 6
+{ Token Id: 6516, Name: Mining Reward Box Tier 6
+  CustomIcon: AlienContainerRare
+  Description: "A crate containing an assortment of ores or other supplies.\nOpen using a science station."
+  MarketPrice: 50000, display: true
+}
+
+# Mining Contract Reward
+{ Token Id: 6517, Name: Mining Contract Reward Tier 1
+  CustomIcon: AlienContainerRare
+  Description: "Turn in at a distribution center in the trade station sector of a faction."
+  MarketPrice: 50000, display: true
+}
+
+# ----------------------------------------------------------------------------------------- Combat Site Loot
+
+# Combat Reward Tier 1
+{ Token Id: 6521, Name: Combat Reward Cache Tier 1
+  CustomIcon: Eden_CacheCombatT1
+  # Description: "A sealed crate that may contain stolen supplies, military equipment, or other items.\nOpen using a science station on board your ship or base."
+  Description: Eden_CacheCombatinfo
+  MarketPrice: 50000, display: true
+}
+
+# Combat Reward Tier 2
+{ Token Id: 6522, Name: Combat Reward Cache Tier 2
+  CustomIcon: Eden_CacheCombatT2
+  Description: Eden_CacheCombatinfo
+  MarketPrice: 100000, display: true
+}
+
+# Combat Reward Tier 3
+{ Token Id: 6523, Name: Combat Reward Cache Tier 3
+  CustomIcon: Eden_CacheCombatT3
+  Description: Eden_CacheCombatinfo
+  MarketPrice: 150000, display: true
+}
+
+# Combat Reward Tier 4
+{ Token Id: 6524, Name: Combat Reward Cache Tier 4
+  CustomIcon: Eden_CacheCombatT4
+  Description: Eden_CacheCombatinfo
+  MarketPrice: 200000, display: true
+}
+
+# Combat Reward Tier 5
+{ Token Id: 6525, Name: Combat Reward Cache Tier 5
+  CustomIcon: Eden_CacheCombatT5
+  Description: Eden_CacheCombatinfo
+  MarketPrice: 250000, display: true
+}
+
+# Combat Reward Tier 6
+{ Token Id: 6526, Name: Combat Reward Cache Tier 6
+  CustomIcon: Eden_CacheCombatT6
+  Description: Eden_CacheCombatinfo
+  MarketPrice: 300000, display: true
 }
 
 # ----------------------------------------------------------------------------------------- Exploration reports
@@ -1266,9 +1536,452 @@
   MarketPrice: 100000, display: true
 }
 
+# Trade Beacons for finding trade stations and factories.
+# FactoryPolarisRG1
+{ Token Id: 6712, Name: "Trading Frequency: P3: Planetside Production"
+  CustomIcon: Eden_GuidePlanetsideProduction
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  # Description: "A data pad containing the communication frequency of a specific trading station or factory. Can be used to help locate the factory.\n\n[c][00FFFF]Requirements:[-][/c]\n[sup][c][FFFFFF]-Must be friendly with Trade Federation.\n-Must be in personal inventory.\n-If you have changed playfields or restarted the game move any item into or out of your inventory to update the PDA.\n-Activate the tracking mission under PDA > Trading.\n-Place the required scanning probe in your personal toolbar.\n-As long as the mission is currently active you will get a notification on your HUD if you enter a playfield that contains the factory you are tracking.\n-Does not pinpoint the exact location, only whether or not it exists in your current planet, moon, or sector to save time having to fully explore the area.\n-The trading frequency is reusable and can be activated again in the PDA.[/sup][-][/c]"
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6713, Name: "Trading Frequency: Waste Treatment Plant"
+  CustomIcon: Eden_GuideWasteTreatment
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6714, Name: "Trading Frequency: Solaris-AMP Factory"
+  CustomIcon: Eden_GuideSolarisAmp
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6715, Name: "Trading Frequency: Thermal Interactions Ltd"
+  CustomIcon: Eden_GuideThermalInteractions
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6716, Name: "Trading Frequency: Vitalife Pharmaceuticals"
+  CustomIcon: Eden_GuideVitalife
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+# FactoryPolarisRG2
+{ Token Id: 6717, Name: "Trading Frequency: Arriake Technology"
+  CustomIcon: Eden_GuideArriake
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6718, Name: "Trading Frequency: Gold Standard Warehouse"
+  CustomIcon: Eden_GuideGoldStandard
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6719, Name: "Trading Frequency: Chemmix Industrial"
+  CustomIcon: Eden_GuideChemmix
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6720, Name: "Trading Frequency: InterWeapon Munitions"
+  CustomIcon: Eden_GuideInterWeapon
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6721, Name: "Trading Frequency: Pentaxid Refinery"
+  CustomIcon: Eden_GuidePentaxidRefinery
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+# FactoryPolarisRG3
+{ Token Id: 6722, Name: "Trading Frequency: Chromium-Sierra Sciences"
+  CustomIcon: Eden_ChromiumSierra
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6723, Name: "Trading Frequency: Hostile Apparatus Robotics"
+  CustomIcon: Eden_GuideHostileApparatus
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6724, Name: "Trading Frequency: Commercial Starport"
+  CustomIcon: Eden_GuideStarport
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6725, Name: "Trading Frequency: Non-Linear Productions"
+  CustomIcon: Eden_GuideNonLinear
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6726, Name: "Trading Frequency: Fusion Powerplant"
+  CustomIcon: Eden_GuideFusionPowerplant
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
+
+{ Token Id: 6727, Name: "Trading Frequency: TOP Brewery"
+  CustomIcon: Eden_GuideTOPBrewery
+  # Description: "A data pad containing the communications frequency of a specific trading station or factory.\nPlace in your personal inventory then activate the frequency in the PDA under Trading."
+  Description: Eden_TradingFrequencyinfo
+  MarketPrice: 100000, display: true
+}
 
 
 
+# -------------------------------------------------------------------------- New Factory Traders for bulk trades
+
+# Eden_TokenCargo8k - Eden_TokenCargo320k
+# 6712 320k Advanced Component Shipment
+# 6713 160k Basic Component Shipment
+# 6714 64k Crop Shipment
+# 6715 160k Farming Equipment Shipment
+# 6716 64k Fertilizer Shipment
+# 6717 160k Food Shipment
+# 6718 160k Fuel Shipment
+# 6719 32k Hydrogen Shipment
+# 6720 320k Hydroponics Shipment
+# 6721 320k Industrial Shipment
+# 6722 160k Ingot Shipment
+# 6723 8k Jewelry Shipment
+# 6724 64k Leather Shipment
+# 6725 160k Liquor shipment
+# 6726 160k Livestock Feed Shipment
+# 6727 64k Meat Shipment
+# 6728 320k Mining Equipment Shipment
+# 6729 320k Optronics Shipment
+# 6730 160k Ore Shipment
+# 6731 32k Oxygen Shipment
+# 6732 320k Precious Metal Shipment
+# 6733 320k Robotics Shipment
+# 6734 32k Toxic Waste Shipment
+# 6735 16k Water Shipment
+# 6736 40k Military Shipment
+# 6737 40k Worker Shipment
+# 6738 80k Officer Shipment
+# 6739 160k VIP Shipment
+
+# Eden_TokenCargo320k
+# { Token Id: 6712, Name: [c][FFFFFF]Advanced Component Shipment[-][/c]
+  # CustomIcon: Eden_AdvancedComponentShipment
+  # Description: "A shipment of advanced components from a Traders Guild Advanced Orbital Factory in Tranquility. Sell to Polaris Orbital Robotics Factories and Optronic Orbital Factories in The Forge. [c][A9A9A9]Requires 320,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 1000000, display: true
+# }
+
+# # Eden_TokenCargo160k
+# { Token Id: 6713, Name: [c][FFFFFF]Basic Component Shipment[-][/c]
+  # CustomIcon: Eden_BasicComponentShipment
+  # Description: "A shipment of basic components from a Colonists Basic Orbital Factory in Prosperity. Sell to Traders Guild Advanced Orbital Factories in Tranquility. [c][A9A9A9]Requires 160,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 500000, display: true
+# }
+
+# # Eden_TokenCargo80k
+# { Token Id: 6714, Name: [c][FFFFFF]Crop Shipment[-][/c]
+  # CustomIcon: Eden_CropShipment
+  # Description: "A shipment of various crops from a Colonists Orbital Hydroponics Farm in Prosperity. Sell to Polaris Orbital Breweries in The Forge or Traders Guild Orbital Food Factories in Tranquility. [c][A9A9A9]Requires 80,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 250000, display: true
+# }
+
+# # Eden_TokenCargo160k
+# { Token Id: 6715, Name: [c][FFFFFF]Farming Equipment Shipment[-][/c]
+  # CustomIcon: Eden_FarmingEquipmentShipment
+  # Description: "A shipment of specialized farming equipment from a Colonists Basic Orbital Factory in Prosperity. Sell to Polaris Orbital Livestock Farms in The Forge. [c][A9A9A9]Requires 160,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 500000, display: true
+# }
+
+# # Eden_TokenCargo80k
+# { Token Id: 6716, Name: [c][FFFFFF]Fertilizer Shipment[-][/c]
+  # CustomIcon: Eden_FertilizerShipment
+  # Description: "A shipment of specialized fertilizer from a Traders Guild Orbital Waste Facility in Tranquility. Sell to Colonists Orbital Hydroponics Farms in Prosperity. [c][A9A9A9]Requires 80,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 250000, display: true
+# }
+
+# # Eden_TokenCargo160k:6717
+# { Token Id: 6717, Name: [c][FFFFFF]Food Shipment[-][/c]
+  # CustomIcon: Eden_FoodShipment
+  # Description: "A shipment of food products from a Traders Guild Orbital Food Factory in Tranquility. Sell to Colonists Orbital Habitats in Prosperity or Polaris Orbital Habitats in The Forge. [c][A9A9A9]Requires 160,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 500000, display: true
+# }
+
+# # Eden_TokenCargo160k
+# { Token Id: 6718, Name: [c][FFFFFF]Fuel Shipment[-][/c]
+  # CustomIcon: Eden_FuelShipment
+  # Description: "A shipment of industrial fuel from a Colonists Orbital Fuel Refinery in Prosperity or a Traders Guild Orbital Waste Facility in Tranquility. Sell to various Polaris orbital factories in The Forge. [c][A9A9A9]Requires 160,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 500000, display: true
+# }
+
+# # Eden_TokenCargo40k
+# { Token Id: 6719, Name: [c][FFFFFF]Hydrogen Shipment[-][/c]
+  # CustomIcon: Eden_HydrogenShipment
+  # Description: "A shipment of hydrogen gas from a Traders Guild Orbital Hydrogen Harvester around a gas giant in Tranquility. Sell to Colonists Orbital Fuel Refineries in Tranquility. [c][A9A9A9]Requires 40,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 100000, display: true
+# }
+
+# # Eden_TokenCargo320k
+# { Token Id: 6720, Name: [c][FFFFFF]Hydroponics Shipment[-][/c]
+  # CustomIcon: Eden_HydroponicsShipment
+  # Description: "A shipment of advanced hydroponic farming equipment from a Traders Guild Advanced Orbital Factory in Tranquility. Sell to Colonists Orbital Hydroponic Farms in Prosperity. [c][A9A9A9]Requires 320,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 1000000, display: true
+# }
+
+# # Eden_TokenCargo320k
+# { Token Id: 6721, Name: [c][FFFFFF]Industrial Shipment[-][/c]
+  # CustomIcon: Eden_IndustrialShipment
+  # Description: "A shipment of industrial equipment from a Colonists Basic Orbital Factory in Prosperity. Sell to various Polaris orbital factories in The Forge. [c][A9A9A9]Requires 320,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 1000000, display: true
+# }
+
+# # Eden_TokenCargo160k
+# { Token Id: 6722, Name: [c][FFFFFF]Ingot Shipment[-][/c]
+  # CustomIcon: Eden_IngotShipment
+  # Description: "A shipment of various ingots from a Polaris Orbital Refinery in The Forge or neutral space. Sell to Coloists Basic Orbital Factories in Prosperity. [c][A9A9A9]Requires 160,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 250000, display: true # less due to being in neutral territory
+# }
+
+# # Eden_TokenCargo8k:6723
+# { Token Id: 6723, Name: [c][FFFFFF]Jewelry Shipment[-][/c]
+  # CustomIcon: Eden_JewelryShipment
+  # Description: "A sealed shipment of high value jewelry from a Traders Guild Orbital Jewelry Factory. Sell to Colonists Orbital Habitats in Prosperity. [c][A9A9A9]Requires 8,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 100000, display: true
+# }
+
+# # Eden_TokenCargo80k
+# { Token Id: 6724, Name: [c][FFFFFF]Leather Shipment[-][/c]
+  # CustomIcon: Eden_LeatherShipment
+  # Description: "A shipment of high quality leather from a Polaris Orbital Livestock Farm in The Forge. Sell to Traders Guild Orbital Jewelry Factories in Tranquility. [c][A9A9A9]Requires 80,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 250000, display: true
+# }
+
+# # Eden_TokenCargo160k:6725
+# { Token Id: 6725, Name: [c][FFFFFF]Liquor Shipment[-][/c]
+  # CustomIcon: Eden_LiquorShipment
+  # Description: "A shipment of various liquors from a Polaris Orbital Brewery in The Forge. Sell to Colonists Orbital Habitats in Prosperity or Traders Guild Orbital Habitats and Orbital Hotels in Tranquility. [c][A9A9A9]Requires 160,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 500000, display: true
+# }
+
+# # Eden_TokenCargo160k
+# { Token Id: 6726, Name: [c][FFFFFF]Livestock Feed Shipment[-][/c]
+  # CustomIcon: Eden_LivestockFeedShipment
+  # Description: "A shipment of mundane livestock feed from a Colonists Orbital Hydroponics Farm in Prosperity. Sell to Polaris Orbital Livestock Farms in The Forge. [c][A9A9A9]Requires 160,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 500000, display: true
+# }
+
+# # Eden_TokenCargo80k
+# { Token Id: 6727, Name: [c][FFFFFF]Meat Shipment[-][/c]
+  # CustomIcon: Eden_MeatShipment
+  # Description: "A shipment of frozen meats from a Polaris Orbital Livestock Farm in The Forge. Sell to Traders Guild Orbital Food Factories in Tranquility. [c][A9A9A9]Requires 80,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 250000, display: true
+# }
+
+# # Eden_TokenCargo320k
+# { Token Id: 6728, Name: [c][FFFFFF]Mining Equipment Shipment[-][/c]
+  # CustomIcon: Eden_MiningEquipmentShipment
+  # Description: "A shipment of advanced mining equipment from a Traders Guild Advanced Orbital Factory. Sell to Colonists Mining Foremen in Prosperity. [c][A9A9A9]Requires 320,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 1000000, display: true
+# }
+
+# # Eden_TokenCargo320k
+# { Token Id: 6729, Name: [c][FFFFFF]Optronics Shipment[-][/c]
+  # CustomIcon: Eden_OptronicsShipment
+  # Description: "A shipment of highly advanced optronics from a Polaris Optronics Factory in The Forge. Sell to Colonists Basic Orbital Factories in Prosperity or Traders Guild Advanced Orbital Factories in Tranquility. [c][A9A9A9]Requires 320,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 1000000, display: true
+# }
+
+# # Eden_TokenCargo160k
+# { Token Id: 6730, Name: [c][FFFFFF]Ore Shipment[-][/c]
+  # CustomIcon: Eden_OreShipment
+  # Description: "A shipment of ores from a Colonists Mining Foreman in Prosperity. Sell to Polaris Orbital Refineries in The Forge or neutral space and Orbital Alloy Smelteries in The Forge. [c][A9A9A9]Requires 160,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 100000, display: true # less due to being in neutral territory
+# }
+
+# # Eden_TokenCargo40k
+# { Token Id: 6731, Name: [c][FFFFFF]Oxygen Shipment[-][/c]
+  # CustomIcon: Eden_OxygenShipment
+  # Description: "A shipment of oxygen from a Colonists Orbital Oxygen Harvester around a gas giant in Prosperity. Sell to Polaris Orbital Habitats and Orbital Livestock Farms in The Forge or to Traders Guild Orbital Habitats and Orbital Hotels in Tranquility. [c][A9A9A9]Requires 40,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 100000, display: true
+# }
+
+# # Eden_TokenCargo320k
+# { Token Id: 6732, Name: [c][FFFFFF]Precious Metal Shipment[-][/c]
+  # CustomIcon: Eden_PreciousMetalShipment
+  # Description: "A shipment of rare metals from a Polaris Orbital Alloy Smeltery in The Forge. Sell to Colonists Basic Orbital Factories in Prosperity or Traders Guild Advanced Orbital Factories and Orbital Jewelry Factories in Tranquility. [c][A9A9A9]Requires 320,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 1000000, display: true
+# }
+
+# # Eden_TokenCargo320k
+# { Token Id: 6733, Name: [c][FFFFFF]Robotics Shipment[-][/c]
+  # CustomIcon: Eden_RoboticsShipment
+  # Description: "A shipment of highly advanced robotics from a Polaris Orbital Robotics Factory in The Forge. Sell to Traders Guild Advanced Orbital Factories and Orbital Jewelry Factories in Tranquility. [c][A9A9A9]Requires 320,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 1000000, display: true
+# }
+
+# # Eden_TokenCargo40k
+# { Token Id: 6734, Name: [c][FFFFFF]Toxic Waste Shipment[-][/c]
+  # CustomIcon: Eden_ToxicWasteShipment
+  # Description: "A shipment of toxic waste from various Polaris orbital factories in The Forge. Sell to Colonists Orbital Fuel Refineries in Prosperity or Traders Guild Orbital Waste Facilities in Tranquility. [c][A9A9A9]Requires 40,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 100000, display: true
+# }
+
+# # Eden_TokenCargo20k
+# { Token Id: 6735, Name: [c][FFFFFF]Water Shipment[-][/c]
+  # CustomIcon: Eden_WaterShipment
+  # Description: "A shipment of water from a Polaris Orbital Water Harvester around a gas giant. Sell to Colonists Orbital Hydroponics Farms and Orbital Fuel Refineries in Prosperity or Traders Guild Orbital Food Factories and Orbital Hotels in Tranquility. [c][A9A9A9]Requires 20,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 100000, display: true
+# }
+
+# # Eden_TokenCargo40k
+# { Token Id: 6736, Name: [c][FFFFFF]Military Shipment[-][/c]
+  # CustomIcon: Eden_MilitaryShipment
+  # Description: "A shipment of military equipment. Sell to faction bounty offices in faction territory. [c][A9A9A9]Requires 40,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 100000, display: true
+# }
+
+# # Eden_TokenCargo40k:6737
+# { Token Id: 6737, Name: [c][FFFFFF]Worker Shipment[-][/c]
+  # CustomIcon: Eden_WorkerShipment
+  # Description: "A self contained transport pod with all the basic essentials and supplies to keep a small crew of workers alive in your cargo hold. Sell to various orbital factories. [c][A9A9A9]Requires 40,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 10000, display: true
+# }
+
+# # Eden_TokenCargo80k:6738
+# { Token Id: 6738, Name: [c][FFFFFF]Officer Shipment[-][/c]
+  # CustomIcon: Eden_OfficerShipment
+  # Description: "A spacious transport pod with all the basic essentials and supplies to keep a small crew of officers alive in your cargo hold. Sell to various orbital factories. [c][A9A9A9]Requires 80,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 20000, display: true
+# }
+
+# # Eden_TokenCargo160k:6739
+# { Token Id: 6739, Name: [c][FFFFFF]VIP Shipment[-][/c]
+  # CustomIcon: Eden_VIPShipment
+  # Description: "A self contained transport pod with a full suite of luxury amenities for transporting the most important VIPs. Sell to various orbital factories. [c][A9A9A9]Requires 160,000 cargo space. Use logistics toolbar to trade.[-][/c]"
+  # MarketPrice: 40000, display: true
+# }
+
+
+
+
+# Fulfilled Mining Contract Tier 1
+{ Token Id: 6801, Name: "Fulfilled Mining Contract Tier 1"
+  CustomIcon: KeyCardRed
+  Description: "Used to start a mining mission."
+  MarketPrice: 25000, display: true
+}
+
+# Fulfilled Mining Contract Tier 2
+{ Token Id: 6802, Name: "Fulfilled Mining Contract Tier 2"
+  CustomIcon: KeyCardRed
+  Description: "Used to start a mining mission."
+  MarketPrice: 25000, display: true
+}
+
+# Fulfilled Mining Contract Tier 3
+{ Token Id: 6803, Name: "Fulfilled Mining Contract Tier 3"
+  CustomIcon: KeyCardRed
+  Description: "Used to start a mining mission."
+  MarketPrice: 25000, display: true
+}
+
+# Fulfilled Mining Contract Tier 4
+{ Token Id: 6804, Name: "Fulfilled Mining Contract Tier 4"
+  CustomIcon: KeyCardRed
+  Description: "Used to start a mining mission."
+  MarketPrice: 25000, display: true
+}
+
+# Fulfilled Mining Contract Tier 1
+{ Token Id: 6805, Name: "Fulfilled Mining Contract Tier 5"
+  CustomIcon: KeyCardRed
+  Description: "Used to start a mining mission."
+  MarketPrice: 25000, display: true
+}
+
+# Fulfilled Mining Contract Tier 1
+{ Token Id: 6806, Name: "Fulfilled Mining Contract Tier 6"
+  CustomIcon: KeyCardRed
+  Description: "Used to start a mining mission."
+  MarketPrice: 25000, display: true
+}
+
+# Colonists Mining Contract: Iron
+{ Token Id: 6811, Name: "[c][FFFFFF](Colonists)[-][/c] Mining Contract: Iron"
+  CustomIcon: Eden_GuideOreBlue1
+  DropOnDeath: false
+  Description: "Used to start a mining contract mission.\nPlace in your personal inventory then start the contract in the PDA under Contracts.\nKeep the contract, you will need it to complete the mission."
+  MarketPrice: 500, display: true
+}
+
+# Colonists Mining Contract: Copper, Silicon
+{ Token Id: 6812, Name: "[c][FFFFFF](Colonists)[-][/c] Mining Contract: Copper, Silicon"
+  CustomIcon: Eden_GuideOreBlue2
+  DropOnDeath: false
+  Description: "Used to start a mining contract mission.\nPlace in your personal inventory then start the contract in the PDA under Contracts.\nKeep the contract, you will need it to complete the mission."
+  MarketPrice: 500, display: true
+}
+
+# Colonists Mining Contract: Promethium, Titanium, Magnesium
+{ Token Id: 6813, Name: "[c][FFFFFF](Colonists)[-][/c] Mining Contract: Promethium, Titanium, Magnesium"
+  CustomIcon: Eden_GuideOreBlue3
+  DropOnDeath: false
+  Description: "Used to start a mining contract mission.\nPlace in your personal inventory then start the contract in the PDA under Contracts.\nKeep the contract, you will need it to complete the mission."
+  MarketPrice: 500, display: true
+}
+
+# Polaris Mining Contract: Iron, Cobalt, Neodymium
+{ Token Id: 6821, Name: "[c][E59933](Polaris)[-][/c] Mining Contract: Iron, Cobalt, Neodymium"
+  CustomIcon: Eden_GuideOreOrange1
+  DropOnDeath: false
+  Description: "Used to start a mining contract mission.\nPlace in your personal inventory then start the contract in the PDA under Contracts.\nKeep the contract, you will need it to complete the mission."
+  MarketPrice: 500, display: true
+}
+
+# Polaris Mining Contract: Sathium, Gold, Erestrum
+{ Token Id: 6822, Name: "[c][E59933](Polaris)[-][/c] Mining Contract: Sathium, Gold, Erestrum"
+  CustomIcon: Eden_GuideOreOrange2
+  DropOnDeath: false
+  Description: "Used to start a mining contract mission.\nPlace in your personal inventory then start the contract in the PDA under Contracts.\nKeep the contract, you will need it to complete the mission."
+  MarketPrice: 500, display: true
+}
+
+# Polaris Mining Contract: Pentaxid, Zascosium, Aluminium
+{ Token Id: 6823, Name: "[c][E59933](Polaris)[-][/c] Mining Contract: Pentaxid, Zascosium, Aluminium"
+  CustomIcon: Eden_GuideOreOrange3
+  DropOnDeath: false
+  Description: "Used to start a mining contract mission.\nPlace in your personal inventory then start the contract in the PDA under Contracts.\nKeep the contract, you will need it to complete the mission."
+  MarketPrice: 500, display: true
+}
+
+{ Token Id: 6824, Name: "[c][E59933](Polaris)[-][/c] Mining Contract: Rich Ice"
+  CustomIcon: Eden_GuideOreOrange3
+  DropOnDeath: false
+  Description: "Used to start a mining contract mission.\nPlace in your personal inventory then start the contract in the PDA under Contracts.\nKeep the contract, you will need it to complete the mission.\n\nDetails: Mine rich ice asteroids within the galactic region of Solitude. Specialized ice mining drills will be required."
+  MarketPrice: 500, display: true
+}
 
 # # -------------------------------------------------------------------------- Wanted by Colonists
 # # Savanth Greenzald's Insignia
@@ -1636,14 +2349,26 @@
 
 
 # ================================================================================================================================ Project Eden Scenario Info Tokens
-{ Token Id: 6998, Name: [c][FFA500]Project Eden Support Guide[/c]
-  CustomIcon: Eden_Guide2
+{ Token Id: 6997, Name: [c][00FFFF]Project Eden Creative Guide[/c]
+  CustomIcon: Eden_Guide4
   DropOnDeath: false
-  Description: "[sup][c][FFA500]This is a custom scenario created by a player and the game developers cannot assist with problems encountered while playing it.[-][/c]\n\n[c][FFFF00][b]PLEASE REPRODUCE ANY GAME ISSUE IN A DEFAULT, UNMODIFIED SAVE GAME BEFORE REPORTING ANY ISSUE TO THE GAME DEVELOPERS.[/b][-][/c]\n\nPlease always fully exit Empyrion all the way back to Windows desktop when switching saves or servers.\n\nThere are certain risks in playing a custom scenario and it may be more demanding on your PC hardware. SAVE YOUR BLUEPRINTS OFTEN.\n\nYou can find support and report issues on the Project Eden or Reforged Eden Workshop page.\n\nIf playing on a server speak with your server admin.\nFor any updates on the scenario please see the workshop page.\n\n[i][c][A9A9A9]Reforged Eden v1.10 (build 49)[-][/c][/i]\n[i][c][A9A9A9]This item can be safely trashed.[-][/c][/i][/sup]"
+  # Description: "[c][00ffff]>>> Empyriopedia <<<[-][/c][sup]\n\n[c][FFFF00]Tooltips:[-][/c] Tooltips provide useful information on many items and devices. Mouse over any item in your inventory, constructor, or tech tree to view important details.\n[c][FFFF00]PDA:[-][/c] Your PDA contains information on missions and an Empyriopedia section with important information.\n\nComplete the [c][00FFFF]Make Contact with Terran Forces[-][/c] mission under the Project Eden Story section to unlock additional missions and Empyriopedia entries. The Empyriopedia is filled in as you progress.\n\nAccess the PDA with [c][FFFF00]F1[-][/c].\n\n[c][FFFF00]Planets and Sectors: [-][/c]Planets and sectors in the current solar system are scanned and a basic description of each can be viewed on the local or solar system map.\n\n[c][FFFF00]Galaxy: [-][/c]Project Eden contains a large galaxy viewable on the galaxy map. Star class and faction territory change what you may find in a star system.[/sup]"
+  # Description: "[c][00ffff]   >>> Read the PDA First <<<[-][/c][sup]\nAccess the PDA with [c][ffff00]F1[-][/c].\n\n[c][00ffff]Missions:[-][/c] Missions are managed under the Solo Missions PDA tab. Start completing the Reforged Galaxy or Project Eden story missions to unlock additional missions.\n\n[c][00ffff]Empyriopedia:[-][/c] Contains a comprehensive encyclopedia of the scenario in the PDA and can answer many of your questions. Additional entries are unlocked as you progress through the scenario.\n\n[c][00ffff]Journey Book:[-][/c] Shows a log of previous mission dialog in the PDA.\n\n[c][00ffff]Tooltips:[-][/c] Tooltips provide important information on many items and devices. Mouse over any item in your inventory, constructor, or tech tree to view details.\n\n[c][00ffff]Planets and Sectors:[-][/c] Planets and sectors in the current solar system are scanned and a basic description of each can be viewed on the local or solar system map.\n\n[c][00ffff]Galaxy:[-][/c] Project Eden contains a large galaxy viewable on the galaxy map. Star class and faction territory change what you may find in a star system.\n\n[c][00ffff]Mass and Volume:[-][/c] Enabled by default. Use the logistics system to move items too big to fit in your inventory.\n\n[c][00ffff]CPU:[-][/c] Enabled by default. Add CPU Extenders to increase the max CPU of your ship or base.[/sup]"
+  Description: "[c][00ffff]>>> Save blueprints often <<<[-][/c]\n\n[sup][c][00ffff]Missions:[-][/c] Missions and the PDA is disabled in creative mode.\n[c][00ffff]Mass and Volume:[-][/c] Disabled in creative mode. Use a [c][00ff00]survival game[-][/c] for testing the effects of mass and volume. Ship mass still counts while in creative.\n[c][00ffff]CPU:[-][/c] Disabled in creative mode. Add CPU Extenders to increase the max CPU of your ship or base so it will still function in survival. Check the CPU tab of the control panel to view current CPU specs.\n[c][ff5000]Restricted items:[-][/c] Some items in the Item Menu are intended for internal scenario development only and are not meant for use by players.\n\n[c][00ffff]Keyboard shortcuts:[-][/c] (default)\n[c][00ff00][G][-][/c] God Mode, [c][00ff00][H][-][/c] Item Menu\n\n[c][00ffff]Useful Console Commands:[-][/c]\n[c][00ff00]help[-][/c] Prints a list of all console commands. Use [c][ffffff]help command[-][/c] for help specific to that command.\n[c][00ff00]sector 'Name of Star/Planet'[-][/c] Teleports you to that star system, space sector, or orbit of that planet.\n[c][00ff00]tt 'Name of Planet'[-][/c] Teleports you to the surface of the planet or moon.\n[c][ffffff]sector 'Haven'[-][/c] will teleport you to the orbit of Haven.\n[c][ffffff]tt 'Alpha IV'[-][/c] will teleport you to the surface of Alpha IV.\n[c][00ff00]sd debug[-][/c] Allows you to double click any star in the galaxy map to view that star system. Useful for finding a specific planet type to build on.[/sup]"
+  # Description: Eden_Supportinfo
+}
+
+{ Token Id: 6998, Name: [c][FFA500]Project Eden Support Guide[-][/c]
+  CustomIcon: Eden_Guide18
+  DropOnDeath: false
+  Description: "[c][00ffff]   >>> Read the PDA First <<<[-][/c][sup]\nAccess the PDA with [c][ffff00]F1[-][/c].\n\n[c][FFA500]This is a custom scenario created by players and the game developers cannot assist with problems encountered while playing it.[-][/c]\n\n[c][FFFF00][b]PLEASE REPRODUCE ANY GAME ISSUE IN A DEFAULT, UNMODIFIED SAVE GAME BEFORE REPORTING ANY ISSUE TO THE GAME DEVELOPERS.[/b][-][/c]\n\nPlease always fully exit Empyrion all the way back to Windows desktop when switching saves or servers.\n\nThere are certain risks in playing a custom scenario and it may be more demanding on your PC hardware. SAVE YOUR BLUEPRINTS OFTEN.\n\nYou can find support and report issues on the Reforged Eden Workshop page.\n\nIf playing on a server speak with your server admin.\nFor any updates on the scenario please see the workshop page.[/sup]"
 }
 
 { Token Id: 6999, Name: [c][00FFFF]Project Eden Gameplay Guide[/c]
-  CustomIcon: Eden_Guide
+  CustomIcon: Eden_Guide4
   DropOnDeath: false
-  Description: "[sup][c][FFA500]The Empyriopedia in the PDA contains very useful information. Please consider reading it.[-][/c]\n\n[c][FFFF00]Tooltips:[-][/c] Tooltips provide useful information on many items and devices. Mouse over any item in your inventory, constructor, or tech tree to view important details.\n\n[c][FFFF00]PDA:[-][/c] Your PDA contains information on missions and an Empyriopedia section with important information.\n\nComplete the [c][00FFFF]Make Contact with Terran Forces[-][/c] mission under the Project Eden Story section to unlock additional missions and Empyriopedia entries. The Empyriopedia is filled in as you progress.\n\nAccess the PDA with [c][FFFF00]F1[-][/c].\n\n[c][FFFF00]Planets and Sectors: [-][/c]Planets and sectors in the current solar system are scanned and a basic description of each can be viewed on the local or solar system map.\n\n[c][FFFF00]Galaxy: [-][/c]Project Eden contains a large galaxy viewable on the galaxy map. Star class and faction territory change what you may find in a star system.\n[i][c][A9A9A9]This item can be safely trashed.[-][/c][/i][/sup]"
+  # Description: "[c][00ffff]>>> Empyriopedia <<<[-][/c][sup]\n\n[c][FFFF00]Tooltips:[-][/c] Tooltips provide useful information on many items and devices. Mouse over any item in your inventory, constructor, or tech tree to view important details.\n[c][FFFF00]PDA:[-][/c] Your PDA contains information on missions and an Empyriopedia section with important information.\n\nComplete the [c][00FFFF]Make Contact with Terran Forces[-][/c] mission under the Project Eden Story section to unlock additional missions and Empyriopedia entries. The Empyriopedia is filled in as you progress.\n\nAccess the PDA with [c][FFFF00]F1[-][/c].\n\n[c][FFFF00]Planets and Sectors: [-][/c]Planets and sectors in the current solar system are scanned and a basic description of each can be viewed on the local or solar system map.\n\n[c][FFFF00]Galaxy: [-][/c]Project Eden contains a large galaxy viewable on the galaxy map. Star class and faction territory change what you may find in a star system.[/sup]"
+  # Description: "[c][00ffff]   >>> Read the PDA First <<<[-][/c][sup]\nAccess the PDA with [c][ffff00]F1[-][/c].\n\n[c][00ffff]Missions:[-][/c] Missions are managed under the Solo Missions PDA tab. Start completing the Reforged Galaxy or Project Eden story missions to unlock additional missions.\n\n[c][00ffff]Empyriopedia:[-][/c] Contains a comprehensive encyclopedia of the scenario in the PDA and can answer many of your questions. Additional entries are unlocked as you progress through the scenario.\n\n[c][00ffff]Journey Book:[-][/c] Shows a log of previous mission dialog in the PDA.\n\n[c][00ffff]Tooltips:[-][/c] Tooltips provide important information on many items and devices. Mouse over any item in your inventory, constructor, or tech tree to view details.\n\n[c][00ffff]Planets and Sectors:[-][/c] Planets and sectors in the current solar system are scanned and a basic description of each can be viewed on the local or solar system map.\n\n[c][00ffff]Galaxy:[-][/c] Project Eden contains a large galaxy viewable on the galaxy map. Star class and faction territory change what you may find in a star system.\n\n[c][00ffff]Mass and Volume:[-][/c] Enabled by default. Use the logistics system to move items too big to fit in your inventory.\n\n[c][00ffff]CPU:[-][/c] Enabled by default. Add CPU Extenders to increase the max CPU of your ship or base.[/sup]"
+  Description: "[c][00ffff]   >>> Read the PDA First <<<[-][/c][sup]\nAccess the PDA with [c][ffff00]F1[-][/c].\n\n[c][00ffff]Missions:[-][/c] Missions are managed under the Solo Missions PDA tab. Start completing the Reforged Galaxy or Project Eden story missions to unlock additional missions.\n\n[c][00ffff]Empyriopedia:[-][/c] Contains a comprehensive encyclopedia of the scenario in the PDA and can answer many of your questions. Additional entries are unlocked as you progress through the scenario.\n\n[c][00ffff]Journey Book:[-][/c] Shows a log of previous mission dialog in the PDA.\n\n[c][00ffff]Mass and Volume:[-][/c] Enabled by default. Use the logistics system [c][ffff00](F4)[-][/c] to move items too big to fit in your inventory.\n\n[c][00ffff]CPU:[-][/c] Enabled by default. Add CPU Extenders to increase the max CPU of your ship or base.[/sup]"
+  # Description: Eden_Supportinfo
 }

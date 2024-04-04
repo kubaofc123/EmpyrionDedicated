@@ -45,17 +45,19 @@ POIs:
       BaseField: True
       RandomRotation: True
 
-    - Name: [Eden_NebulaObject1]
-      FieldName: [Eden_NebulaObject1] # used if playfield is not an orbit
-      CountMinMax: [ 2, 4 ]
-      Probability: 0.25
-      # BaseField: True
-      # RandomRotation: True
+    - Name: [Eden_NebulaL_RandomCyan]
+      FieldName: [Eden_NebulaL_RandomCyan] # used if playfield is not an orbit
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.5
       Pos: [0, 0, 0]
       Rot: [0, 0, 0]
-      # Position:
-         # PosXZMinMax: [50, 100]
-         # PosYMax: 50
+
+    - Name: [Eden_AnomalyRadiationGreen, Eden_AnomalyRadiationBlue]
+      FieldName: [Eden_AnomalyRadiationGreen, Eden_AnomalyRadiationBlue] # used if playfield is not an orbit
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.5
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
 
 # TEST
     # - Type: Eden_NebulaObject1
@@ -387,12 +389,6 @@ POIs:
                 # - POIName: Eden_TSO_PolRefinery
                   # Radius: 3000
                   # Duration: 0
-                # - POIName: Eden_TSOPolarisCivilian
-                  # Radius: 3000
-                  # Duration: 0
-                # - POIName: Eden_TSOPolarisIndustrial
-                  # Radius: 3000
-                  # Duration: 0
             # StockDescription:
               # Name: [SpaceDroneLaser, SpaceDronePlasma]
               # AmountMinMax: [2, 4]
@@ -515,47 +511,6 @@ POIs:
               # AmountMinMax: [1, 2]
               # Type: FighterDrone
 
-# # Factories and bulk traders
-          # # - Name: [Eden_TSOPolarisCivilian]
-            # # FixedMaxSpeed: [0, 0]
-            # # Mission: Immobile
-            # # CountMinMax: [1,1]
-            # # Probability: 0.5
-            # # Faction: Polaris
-            # # MissionDescription:
-              # # Position:
-                # # PosXZMinMax: [350, 1000]
-                # # PosYMax: 1000
-            # # StockDescription:
-              # # Name: [SpaceDronePolarisLaser]
-              # # AmountMinMax: [0, 0]
-              # # Type: FighterDrone
-            # # Properties:
-              # # - Key: Discovery
-                # # Value: False
-              # # - Key: RegenAfter
-                # # Value: 720
-
-          # # - Name: [Eden_TSOPolarisIndustrial]
-            # # FixedMaxSpeed: [0, 0]
-            # # Mission: Immobile
-            # # CountMinMax: [1,1]
-            # # Probability: 0
-            # # Faction: Polaris
-            # # MissionDescription:
-              # # Position:
-                # # PosXZMinMax: [350, 1000]
-                # # PosYMax: 1000
-            # # StockDescription:
-              # # Name: [SpaceDronePolarisLaser]
-              # # AmountMinMax: [0, 0]
-              # # Type: FighterDrone
-            # # Properties:
-              # # - Key: Discovery
-                # # Value: False
-              # # - Key: RegenAfter
-                # # Value: 720
-
 # # ------------------------------------------------------------------------------------------------- Faction Trader
 # # Patrol Vessels
           # - Name: [OPVTraderRG]
@@ -603,47 +558,6 @@ POIs:
               # AmountMinMax: [1, 2]
               # Type: FighterDrone
 
-# # Factories and bulk traders
-          # # - Name: [Eden_TSOPolarisCivilian]
-            # # FixedMaxSpeed: [0, 0]
-            # # Mission: Immobile
-            # # CountMinMax: [1,1]
-            # # Probability: 0.65
-            # # Faction: Trader
-            # # MissionDescription:
-              # # Position:
-                # # PosXZMinMax: [350, 1000]
-                # # PosYMax: 1000
-            # # StockDescription:
-              # # Name: [SpaceDronePolarisLaser]
-              # # AmountMinMax: [0, 0]
-              # # Type: FighterDrone
-            # # Properties:
-              # # - Key: Discovery
-                # # Value: False
-              # # - Key: RegenAfter
-                # # Value: 720
-
-          # # - Name: [Eden_TSOPolarisIndustrial]
-            # # FixedMaxSpeed: [0, 0]
-            # # Mission: Immobile
-            # # CountMinMax: [1,1]
-            # # Probability: 0
-            # # Faction: Trader
-            # # MissionDescription:
-              # # Position:
-                # # PosXZMinMax: [350, 1000]
-                # # PosYMax: 1000
-            # # StockDescription:
-              # # Name: [SpaceDronePolarisLaser]
-              # # AmountMinMax: [0, 0]
-              # # Type: FighterDrone
-            # # Properties:
-              # # - Key: Discovery
-                # # Value: False
-              # # - Key: RegenAfter
-                # # Value: 720
-
 # # ------------------------------------------------------------------------------------------------- Faction Pirates
 # # Patrol vessels
           # - Name: [OPVPiratesRG]
@@ -662,10 +576,6 @@ POIs:
               # Position:
                 # PosXZMinMax: [1000, 5000]
                 # PosYMax: 3500
-              # # AvoidArea:
-                # # POIName: [TSO_Variant1, TSO_Variant2, TSO_Variant3, TSO_Variant4, TSO_Variant5, TSO_Variant6, TSO_Variant7, Eden_TSO_PolRefinery, TSO_AkuaOrbit, Eden_TSOPolarisCivilian, Eden_TSOPolarisIndustrial]
-                # # Radius: [2000]
-                # # Duration: [Infinite]
             # StockDescription:
               # Name: [SpaceDroneBattered01, SpaceDroneBattered02] 
               # AmountMinMax: [2, 4]

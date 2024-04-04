@@ -764,17 +764,51 @@
     PlayerBikeKit: 1
   }
 }
-#{ +Template Name: HoverBike
-#  CraftTime: 5 #A1
-#  Target: "SurvC,SmallC,HoverC,BaseC,LargeC,AdvC"
-#  { Child Inputs
-#    PlayerBikeKit: 1
-#    PlasticMaterial: 131
-#    SteelPlate: 96
-#    CopperIngot: 56
-#    SiliconIngot: 60
-#  }
-#}
+{ +Template Name: HoverbikeStatic    #Converts Hoverbike into Deco Object
+  CraftTime: 2
+  BaseItem: true
+  DeconOverride: Stop
+  Target: "BaseC,LargeC,AdvC"
+  { Child Inputs
+    PlayerBike: 1
+  }
+}
+{ +Template Name: HoverbikeHowlerStatic    #Converts Hoverbike into Deco Object
+  CraftTime: 2
+  BaseItem: true
+  DeconOverride: Stop
+  Target: "BaseC,LargeC,AdvC"
+  { Child Inputs
+    HoverbikeHowler: 1
+  }
+}
+{ +Template Name: HoverbikeHunterStatic    #Converts Hoverbike into Deco Object
+  CraftTime: 2
+  BaseItem: true
+  DeconOverride: Stop
+  Target: "BaseC,LargeC,AdvC"
+  { Child Inputs
+    HoverbikeHunter: 1
+  }
+}
+{ +Template Name: HoverbikeSpeedstarStatic    #Converts Hoverbike into Deco Object
+  CraftTime: 2
+  BaseItem: true
+  DeconOverride: Stop
+  Target: "BaseC,LargeC,AdvC"
+  { Child Inputs
+    HoverbikeSpeedstar: 1
+  }
+}
+{ +Template Name: HoverbikeWaspStatic    #Converts Hoverbike into Deco Object
+  CraftTime: 2
+  BaseItem: true
+  DeconOverride: Stop
+  Target: "BaseC,LargeC,AdvC"
+  { Child Inputs
+    HoverbikeWasp: 1
+  }
+}
 
  # ======================= 
  #  Construction Blocks SMALL
@@ -1262,6 +1296,15 @@
     PlasticMaterial: 3
     WoodPlanks: 1
     Fiber: 20
+  }
+}
+{ +Template Name: DecoIndoorTrees
+  CraftTime: 2
+  Target: "LargeC,AdvC"
+  { Child Inputs
+    PlasticMaterial: 4
+    WoodLogs: 1
+    Fiber: 28
   }
 }
 
@@ -2709,7 +2752,20 @@
   }
 }
 
-{ +Template Name: GravityGeneratorMS
+{ +Template Name: GravityGeneratorBlocksSVHV
+  CraftTime: 20
+  Target: "AdvC"
+  { Child Inputs
+    Motor: 2
+	Computer: 2
+    EnergyMatrix: 4
+    CapacitorComponent: 2
+    MechanicalComponents: 18
+    FluxCoil: 2
+    PentaxidElement: 12
+  }
+}
+{ +Template Name: GravityGeneratorBlocksBACV
   CraftTime: 30 #C2 Ba CV 7
   Target: "AdvC"
   { Child Inputs
@@ -7682,6 +7738,8 @@
 #  }
 #}
 
+
+
 # ============================================================================================================================================================================
 # ========================================================================================================================== Project Eden Custom Templates
 # ============================================================================================================================================================================
@@ -7928,6 +7986,19 @@
     5.8mmBullet: 500
   }
 }
+
+# { +Template Name: Eden_Polymer
+  # BaseItem: true
+  # CraftTime: 20
+  # Target: "LargeC,AdvC"
+  # { Child Inputs
+    # PlasticMaterial: 500
+    # OpticalFiber: 8
+    # Electronics: 4
+    # Computer: 1
+    # Motor: 2
+  # }
+# }
 
 
 
@@ -8507,6 +8578,17 @@
   }
 }
 
+{ +Template Name: Eden_TurretAlarm
+  CraftTime: 10
+  Target: "SmallC,HoverC,BaseC,LargeC,AdvC"
+  { Child Inputs
+    Electronics: 1
+    OpticalFiber: 3
+    MechanicalComponents: 2
+    PlasticMaterial: 1
+  }
+}
+
 { +Template Name: Eden_TurretMissileCruisePOI
   DeconOverride: Continue
   CraftTime: 30
@@ -8778,6 +8860,15 @@
   }
 }
 
+{ +Template Name: Eden_DecoHoliday
+  BaseItem: true
+  CraftTime: 5 #A2 Ba HV SV CV 5
+  Target: ""
+  { Child Inputs
+    PlasticMaterial: 20
+  }
+}
+
 { +Template Name: Eden_DecoBlocks
   CraftTime: 5 #A2 Ba HV SV CV 5
   Target: "SmallC,HoverC,BaseC,LargeC,AdvC"
@@ -8788,17 +8879,7 @@
   }
 }
 
-{ +Template Name: Eden_WarningLight
-  CraftTime: 5 #A2 Ba HV SV CV 5
-  Target: "SmallC,HoverC,BaseC,LargeC,AdvC"
-  { Child Inputs
-    SteelPlate: 2
-    GlassPlate: 1
-    OpticalFiber: 2
-  }
-}
-
-{ +Template Name: Eden_WarningLightSilent
+{ +Template Name: Eden_EffectsBlocks
   CraftTime: 5 #A2 Ba HV SV CV 5
   Target: "SmallC,HoverC,BaseC,LargeC,AdvC"
   { Child Inputs
@@ -8941,8 +9022,96 @@
   }
 }
 
+{ +Template Name: Eden_WindTurbineBase
+  BaseItem: true
+  CraftTime: 20 #A1 Ba CV 1
+  Target: "SurvC,SmallC,HoverC,BaseC,LargeC,AdvC"
+  { Child Inputs
+    Electronics: 4
+    Motor: 1
+    Computer: 1
+    PlasticMaterial: 24
+    SteelPlate: 24
+    Nanotubes: 8
+  }
+}
 
+{ +Template Name: Eden_WindTurbineIdle
+  BaseItem: true
+  CraftTime: 20 #A1 Ba CV 1
+  Target: "SurvC,SmallC,HoverC,BaseC,LargeC,AdvC"
+  { Child Inputs
+    Motor: 6
+    PlasticMaterial: 50
+    SteelPlate: 24
+  }
+}
 
+{ +Template Name: Eden_WindTurbineActiveT2
+  BaseItem: true
+  CraftTime: 20 #A1 Ba CV 1
+  # Target: "SurvC,SmallC,HoverC,BaseC,LargeC,AdvC"
+  Target: ""
+  { Child Inputs
+    Motor: 24
+    NeodymiumIngot: 250
+    SteelPlate: 24
+    SteelPlateArmored: 24
+    PlasticMaterial: 250
+    AluminiumCoil: 10
+    Eden_Polymer: 10
+  }
+}
+
+{ +Template Name: Eden_GeothermalGenerator
+  BaseItem: true
+  CraftTime: 20 #A1 Ba CV 1
+  Target: "LargeC,AdvC"
+  { Child Inputs
+    Motor: 12
+    Eden_TungstenIngot: 24
+    TitanPlates: 48
+    NeodymiumIngot: 24
+  }
+}
+
+{ +Template Name: Eden_GeothermalGeneratorActive
+  BaseItem: true
+  CraftTime: 20 #A1 Ba CV 1
+  # Target: "SurvC,SmallC,HoverC,BaseC,LargeC,AdvC"
+  Target: ""
+  { Child Inputs
+    Motor: 12
+    Eden_TungstenIngot: 24
+    TitanPlates: 48
+    NeodymiumIngot: 24
+    Eden_CoreSample: 1
+  }
+}
+
+{ +Template Name: Eden_WaterGeneratorT2
+  BaseItem: true
+  CraftTime: 20 #A1 Ba CV 1
+  Target: "LargeC,AdvC"
+  { Child Inputs
+    SteelPlate: 80
+    MechanicalComponents: 80
+    Motor: 10
+  }
+}
+
+{ +Template Name: Eden_WaterGeneratorT2Active
+  BaseItem: true
+  CraftTime: 20 #A1 Ba CV 1
+  # Target: "SurvC,SmallC,HoverC,BaseC,LargeC,AdvC"
+  Target: ""
+  { Child Inputs
+    SteelPlate: 80
+    MechanicalComponents: 80
+    Motor: 10
+    Eden_WaterSample: 1
+  }
+}
 
 { +Template Name: Eden_HydroponicsEmpty
   BaseItem: true
@@ -9832,7 +10001,7 @@
   CraftTime: 10
   Target: ""
   { Child Inputs
-    WaterJug: 100
+    WaterJug: 50
     ToxicWaste: 1
   }
 }
@@ -9971,6 +10140,97 @@
   }
 }
 
+# Salvage
+{ +Template Name: Eden_SalvageT1
+  CraftTime: 30 #B1 SV 12
+  Target: ""
+  { Child Inputs
+    Motor: 8
+    Electronics: 52
+    SteelPlate: 20
+    Computer: 4
+    Nanotubes: 16
+    CobaltAlloy: 20
+    EnergyMatrix: 2
+    MechanicalComponents: 24
+  }
+}
+
+{ +Template Name: Eden_SalvageT2
+  CraftTime: 30 #B1 SV 12
+  Target: ""
+  { Child Inputs
+    Motor: 8
+    Electronics: 52
+    SteelPlate: 20
+    Computer: 4
+    Nanotubes: 16
+    CobaltAlloy: 20
+    EnergyMatrix: 2
+    MechanicalComponents: 24
+  }
+}
+
+{ +Template Name: Eden_SalvageT3
+  CraftTime: 30 #B1 SV 12
+  Target: ""
+  { Child Inputs
+    Motor: 8
+    Electronics: 52
+    SteelPlate: 20
+    Computer: 4
+    Nanotubes: 16
+    CobaltAlloy: 20
+    EnergyMatrix: 2
+    MechanicalComponents: 24
+  }
+}
+
+{ +Template Name: Eden_SalvageT4
+  CraftTime: 30 #B1 SV 12
+  Target: ""
+  { Child Inputs
+    Motor: 8
+    Electronics: 52
+    SteelPlate: 20
+    Computer: 4
+    Nanotubes: 16
+    CobaltAlloy: 20
+    EnergyMatrix: 2
+    MechanicalComponents: 24
+  }
+}
+
+{ +Template Name: Eden_SalvageT5
+  CraftTime: 30 #B1 SV 12
+  Target: ""
+  { Child Inputs
+    Motor: 8
+    Electronics: 52
+    SteelPlate: 20
+    Computer: 4
+    Nanotubes: 16
+    CobaltAlloy: 20
+    EnergyMatrix: 2
+    MechanicalComponents: 24
+  }
+}
+
+{ +Template Name: Eden_SalvageT6
+  CraftTime: 30 #B1 SV 12
+  Target: ""
+  { Child Inputs
+    Motor: 8
+    Electronics: 52
+    SteelPlate: 20
+    Computer: 4
+    Nanotubes: 16
+    CobaltAlloy: 20
+    EnergyMatrix: 2
+    MechanicalComponents: 24
+  }
+}
+
 
 # Advanced Trade Goods
 
@@ -10060,12 +10320,6 @@
     Eden_TungstenIngot: 500
   }
 }
-
-
-
-
-
-
 
 { +Template Name: Eden_TungstenResource
   DeconOverride: Continue

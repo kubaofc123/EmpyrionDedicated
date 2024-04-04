@@ -26,16 +26,45 @@
   EnableSpaceDefense: True
 }
 
+# { Element Name: FactionSettings
+  # Faction: Zirax
+  # ScenarioGroup: Zirax
+  # Lvl1MinPrice:50
+  # Lvl1MaxPrice:75
+  # Lvl5MinPrice:250
+  # Lvl5MaxPrice:375
+  # Lvl10MinPrice:500
+  # Lvl10MaxPrice:750
+  
+
 { Element Name: FactionSettings
   Faction: Zirax
   ScenarioGroup: Zirax
-  Lvl1MinPrice:50
-  Lvl1MaxPrice:75
-  Lvl5MinPrice:250
-  Lvl5MaxPrice:375
-  Lvl10MinPrice:500
-  Lvl10MaxPrice:750
   
+	{ Child BaseAttack_TargetBaseSuitability
+		MaxOwnerReputation: 	12000
+		MinimalBaseStrength: 	20
+	}
+	
+	{ Child BaseAttack_TimeBetweenAttacks # parameters to calculate the time between attacks, All values are added together
+		#InGame hours
+		HoursAtPlayfieldLvl1: 	30
+		HoursAtPlayfieldLvlMax:	10 #max lvl = 10
+		HoursAtRep0: 						10 #at rep 0
+		HoursAtRepMax: 					50 #at rep 24000
+	}
+
+	{ Child BaseAttack_ScenarioPrice # parameters to calculate price of the attack, values are added together
+		PlayFieldLvl1Min:50
+		PlayFieldLvl1Max:75
+		PlayFieldLvl5Min:125
+		PlayFieldLvl5Max:175
+		PlayFieldLvl10Min:200
+		PlayFieldLvl10Max:250
+	
+		TargetBaseStrengthToPriceMultiplier: 0.1
+	}
+	
   #SD = SpaceDefense
   #if the trigger for defense is triggered, will we have rainforcments?
   #probability in 0% - 100%  on lvl1 = ProbabilityMin | on lvl10 = ProbabilityMax

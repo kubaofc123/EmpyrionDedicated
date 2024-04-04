@@ -447,7 +447,7 @@ POIs:
       Compound:
         CountMinMax: [0, 3]
         Probability: 0.5
-        Name: [CompoundTSOPolaris, CompoundTSOPolaris, CompoundTSOPolaris, CompoundTSOPolaris, CompoundTSOPolaris, CompoundTSOPolaris, Eden_BAO_BeaconPolTrade, Eden_BAO_BeaconPolTrade2]
+        Name: [CompoundTSOPolarisTerritory, CompoundTSOPolarisTerritory, CompoundTSOPolarisTerritory, CompoundTSOPolarisTerritory, CompoundTSOPolarisTerritory, CompoundTSOPolarisTerritory, Eden_BAO_BeaconPolTrade, Eden_BAO_BeaconPolTrade2]
         DistanceMinMax: [100, 150]
       Properties: 
         - Key: Discovery
@@ -462,6 +462,28 @@ POIs:
           Value: "Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20"
         - Key: AIManExcludeFromPatrol
           Value: true
+
+# Polaris Territory
+    - Type: BA_Alien
+      Name: [CompoundTSOPolarisTerritory]
+      GroupName: Eden_SpaceJunkPolT1
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.5
+      IsCompoundSubDesc: True
+      InitPower: True
+      Position:
+         PosXZMinMax: [750, 2500]
+         PosYMax: 1000
+      Properties:
+        - Key: MapDistance
+          Value: 0
+        - Key: HudDistance
+          Value: 250
+        - Key: RegenAfter
+          Value: 720
 
 # Trade Beacons
     - Type: BA_Alien

@@ -17,10 +17,8 @@ UseFixed: True
 # Cold Star
 Radiation: [20,25]
 TemperatureDay: [-270,-250]
-# Music: [moonstone, Migration, Adrift, 2473, Transit, DarkSoundscape, DarkSoundscape2, DarkSoundscape3, alien2] # Alien
-# Music: [moonstone, Adrift, 2473, Transit, Anomalous, Blight, Dusk, Magnitude, alien2, EnergyMatrix] # Orbit
-# Music: [Vanguard, Helios, Anomalous, AlteredPhase, ColdDivide] # POI
-Music: [alien, alien2, Blight, DarkSoundscape, DarkSoundscape2, DarkSoundscape3]
+# Alien Music
+Music: [alien, alien2, barren, Blight, Cypher, Diaspora, WhatWalksBelow]
 
 PlayfieldType: Space
 LandClaimZone: Device
@@ -481,6 +479,79 @@ POIs:
           Value: 2500
         - Key: RegenAfter
           Value: 720
+
+# Dummy POIs for NPC patrols
+    - Type: BA_Alien
+      Name: [Eden_BA_DummyPOI2]
+      DisplayName: Patrol Route
+      Faction: Alien
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [750, 100, 750]
+      Rot: [0, 0, 0]
+      Properties:
+        - Key: MapDistance
+          Value: 0
+        - Key: HudDistance
+          Value: 0
+
+    - Type: BA_Alien
+      Name: [Eden_BA_DummyPOI2]
+      DisplayName: Patrol Route
+      Faction: Alien
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [-750, -100, 750]
+      Rot: [0, 0, 0]
+      Properties:
+        - Key: MapDistance
+          Value: 0
+        - Key: HudDistance
+          Value: 0
+
+    - Type: BA_Alien
+      Name: [Eden_BA_DummyPOI2]
+      DisplayName: Patrol Route
+      Faction: Alien
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [-750, -100, -750]
+      Rot: [0, 0, 0]
+      Properties:
+        - Key: MapDistance
+          Value: 0
+        - Key: HudDistance
+          Value: 0
+
+    - Type: BA_Alien
+      Name: [Eden_BA_DummyPOI2]
+      DisplayName: Patrol Route
+      Faction: Alien
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [750, 100, -750]
+      Rot: [0, 0, 0]
+      Properties:
+        - Key: MapDistance
+          Value: 0
+        - Key: HudDistance
+          Value: 0
 
 # ================================================================================================================================================================================= Colonists
 
@@ -1133,7 +1204,7 @@ DroneBaseSetup:
               DelayBeforeSelfDestructionMinMax: [3600, 3600]
               IsRespawnAfterDestruction: True
               RadiusMinMax: [1000, 5000]
-              # POINameAsPositionRef: [RBAO_XenuShipyard, RBAO_GhystShipyard]
+              POINameAsPositionRef: [Eden_BA_DummyPOI]
               Position:
                 PosXZMinMax: [750, 1500]
                 PosYMax: 1000
@@ -1145,6 +1216,8 @@ DroneBaseSetup:
             Properties:
               # - Key: SelfDestructionWithNoCore
                 # Value: True
+              - Key: AIManPatrolFactions
+                Value: "Alien"
               - Key: AIManMaxPursuitRange
                 Value: 15000
 
@@ -1161,7 +1234,8 @@ DroneBaseSetup:
 # ------------------------------------------------------------------------------------------------- Faction Tesch
 # ------------------------------------------------------------------------------------------------- Faction Warlord
 # Attacking Zirax Fleet
-          - Name: [OPVZiraxRG]
+          # - Name: [OPVZiraxRG]
+          - Name: [ROPV_ZiraxCorvette3C, ROPV_ZiraxDestroyer5FB, ROPV_ZiraxFrigate4M]
             Faction: Zirax
             CountMinMax: [4, 5]
             Probability: 0.1
@@ -1188,7 +1262,7 @@ DroneBaseSetup:
               - Key: HudDistance
                 Value: 10000
               - Key: AIManPatrolFactions
-                Value: "Alien"
+                Value: "Alien, TheLegacy"
               - Key: AIManMaxPursuitRange
                 Value: 5000
 

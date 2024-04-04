@@ -74,6 +74,7 @@ SolarSystems:
           - ['-8558, -4587, 11434', Akua Moon 1, MoonStarterRE]
           - ['0,0,0', Akua Sector, EdenSpaceStarterBeginnerRE, '']
       - Coordinates: [-45, 0, 45]
+      # - Coordinates: [-180, 0, 180]
         Color: '0.04,0.8,0.4 : 0.5,0.5,0.5 : 0.5,0.5,0.5'
         Playfields:
           - ['0, 0, 0', Tallodar, EdenStarterTemperate2,'Human:1', '', '', '']
@@ -238,13 +239,13 @@ SolarSystems:
           - ['-5877, 8126, 11154', Ningues Moon, EdenMoonStarterIce]
           - ['2550, -9341, -11457', Ningues Moon 1, MoonStarterRE]
           - ['0,0,0', Ningues Sector, EdenSpaceStarterEasyRE, '']
-      - Coordinates: [45, 0, 55]
-        Color: '0.6,0.3,0 : 0.5,0.5,0.5 : 0.5,0.5,0.5'
-        Playfields:
-          - ['0, 0, 0', Sharee, EdenStarterDesertDry,'Human:1', '', '', '']
-          - ['-12751, -3204, 7222', Sharee Moon, MoonStarter]
-          - ['163, -9259, -11801', Sharee Moon 1, MoonStarter]
-          - ['0,0,0', Sharee Sector, EdenSpaceStarterEasyRE, '']
+      # - Coordinates: [45, 0, 55]
+        # Color: '0.6,0.3,0 : 0.5,0.5,0.5 : 0.5,0.5,0.5'
+        # Playfields:
+          # - ['0, 0, 0', Sharee, EdenStarterDesertDry,'Human:1', '', '', ''] # Disabled until I get time to work on it.
+          # - ['-12751, -3204, 7222', Sharee Moon, MoonStarter]
+          # - ['163, -9259, -11801', Sharee Moon 1, MoonStarter]
+          # - ['0,0,0', Sharee Sector, EdenSpaceStarterEasyRE, '']
 # ------------------------------------------------------------------------------------------------- Planets
       - Coordinates: [35, 3, 27]
         Color: '0.33,0.20,0.14'
@@ -372,11 +373,12 @@ SolarSystems:
 
 # ------------------------------------------------------------------------------------------------- Starting Planets Delta
       - Coordinates: [20, 3, -80]
-        Color: '0.04,0.3,0 : 0.5,0.5,0.5 : 0.5,0.5,0.5'
+        Color: '0.04,0.3,0 : 0.5,0.5,0.5 : 0.5,0.5,0.5 : 0.04,0.3,0'
         Playfields:
-          - ['0, 0, 0', Pandora, EdenStarterJungle,'Human:1', '', '', '']
+          - ['0, 0, 0', Pandora, EdenStarterJungle_V2,'Human:1', '', '', '']
           - ['-10357, -7302, -8028', Pandora Moon, MoonStarter]
           - ['9608, -11409, 1587', Pandora Moon 1, MoonStarter]
+          - ['-7700, 5600, -13500', Old Pandora, EdenStarterJungle,'Human:1'] #Temporary for testing
           - ['0,0,0', Pandora Sector, EdenSpaceStarterHard, '']
       - Coordinates: [34, -2, -71]
         Color: '0.1,0.1,0.8 : 0.7,0.3,0 : 0.7,0.3,0'
@@ -388,7 +390,7 @@ SolarSystems:
       - Coordinates: [-80, 0, 85]
         Color: '0.8,0.8,0.8 : 0.16,0.18,0.51 : 0.5,0.5,0.5'
         Playfields:
-          - ['0, 0, 0', Sienna, EdenStarterSnowDwarf,'Human:1', '', '', '']
+          - ['0, 0, 0', Sienna, EdenStarterSnowDwarf_V2,'Human:1', '', '', '']
           - ['-5877, 8126, 11154', Sienna Moon, EdenMoonStarterIce]
           - ['2550, -9341, -11457', Sienna Moon 1, MoonStarter]
           - ['0,0,0', Sienna Sector, EdenSpaceStarterSnow, '']
@@ -399,6 +401,14 @@ SolarSystems:
           - ['-306, -7183, -13165', Masperon Moon, MoonStarter]
           - ['-14575, -3521, -440', Masperon Moon 1, MoonStarter]
           - ['0,0,0', Masperon Sector, EdenSpaceStarterHard, '']
+# Temporary for testing
+      - Coordinates: [-100, 0, 60]
+        Color: '0.8,0.8,0.8 : 0.16,0.18,0.51 : 0.5,0.5,0.5'
+        Playfields:
+          - ['0, 0, 0', Old Sienna, EdenStarterSnowDwarf,'Human:1', '', '', '']
+          - ['-5877, 8126, 11154', Old Sienna Moon, EdenMoonStarterIce]
+          - ['2550, -9341, -11457', Old Sienna Moon 1, MoonStarter]
+          - ['0,0,0', Old Sienna Sector, EdenSpaceStarterSnow, '']
 
 # ------------------------------------------------------------------------------------------------- Planets
       - Coordinates: [28, 0, -77]
@@ -441,13 +451,13 @@ SolarSystems:
       - Coordinates: [104, 1, 31]
         Color: '0.85,0.85,0.85 : 0.16,0.18,0.51'
         Playfields:
-          - ['0, 0, 0', Delta V, EdenHubSnow,'', '', '', '']
+          - ['0, 0, 0', Delta V, EdenHubSnow_V2,'', '', '', '']
           - ['-14791, -1211, 2188', Delta V Moon, MoonIce]
           - ['0,0,0', Delta V Sector, EdenSpaceStarter_Orbit, '']
       - Coordinates: [-85, 1, 31]
         Color: '0.85,0.85,0.85 : 0.16,0.18,0.51'
         Playfields:
-          - ['0, 0, 0', Delta VI, EdenHubSnow,'', '', '', '']
+          - ['0, 0, 0', Delta VI, EdenHubSnow_V2,'', '', '', '']
           - ['12141, -8556, 2092', Delta VI Moon, MoonIce]
           - ['0,0,0', Delta VI Sector, EdenSpaceStarter_Orbit, '']
       - Coordinates: [-60, 1, 121]
@@ -600,13 +610,13 @@ SolarSystems:
       - Coordinates: [104, 1, 31]
         Color: '0.85,0.85,0.85 : 0.16,0.18,0.51'
         Playfields:
-          - ['0, 0, 0', Epsilon V, EdenHubSnow,'', '', '', '']
+          - ['0, 0, 0', Epsilon V, EdenHubSnow_V2,'', '', '', '']
           - ['-14791, -1211, 2188', Epsilon V Moon, MoonIce]
           - ['0,0,0', Epsilon V Sector, EdenSpaceStarter_Orbit, '']
       - Coordinates: [-85, 1, 31]
         Color: '0.85,0.85,0.85 : 0.16,0.18,0.51'
         Playfields:
-          - ['0, 0, 0', Epsilon VI, EdenHubSnow,'', '', '', '']
+          - ['0, 0, 0', Epsilon VI, EdenHubSnow_V2,'', '', '', '']
           - ['12141, -8556, 2092', Epsilon VI Moon, MoonIce]
           - ['0,0,0', Epsilon VI Sector, EdenSpaceStarter_Orbit, '']
       # - Coordinates: [-7, -5, -7] # Sun near planet
@@ -708,49 +718,94 @@ SolarSystems:
 
 # ------------------------------------------------------------------------------------------------- POIs
 
-
-# ======================================================================================================================================================== Polaris Admin and Testing system (inaccessible by normal means)
-  # - Name: TestSystem
-    # Coordinates: [250, 25, 250]
-    # # StarClass: A
-    # StarClass: K3
+# ======================================================================================================================================================== Creative system. Not accessible via normal means. For creative mode.
+  # - Name: Creative System
+    # Coordinates: [-400, 25, -250]
+    # StarClass: A
+    # HideFromMap: true # Can't warp to it. Teleport to it in creative mode.
+    # HideFromSearch: true # Can't search for it.
     # Sectors:
       # - Coordinates: [0, 0, 0]
         # SectorMapType: None
         # Playfields:
-          # - ['0,0,0', TestSystem, SunRandom, '']
-      # - Coordinates: [6, 0, 0]
+          # - ['0,0,0', Creative System, SunRandom, '']
+      # - Coordinates: [5, 0, 0]
         # SectorMapType: WarpTarget
         # Playfields:
-          # - ['0,0,0', 'TestSystem [Sun Right]', SpaceWarpTarget, '']
-      # - Coordinates: [-6, 0, 0]
+          # - ['0,0,0', 'Creative System [Sun Right]', SpaceWarpTarget, '']
+      # - Coordinates: [-5, 0, 0]
         # SectorMapType: WarpTarget
         # Playfields:
-          # - ['0,0,0', 'TestSystem [Sun Left]', SpaceWarpTarget, '']
-      # - Coordinates: [0, 6, 0]
+          # - ['0,0,0', 'Creative System [Sun Left]', SpaceWarpTarget, '']
+      # - Coordinates: [0, 5, 0]
         # SectorMapType: WarpTarget
         # Playfields:
-          # - ['0,0,0', 'TestSystem [Sun Top]', SpaceWarpTarget, '']
-      # - Coordinates: [0, -6, 0]
+          # - ['0,0,0', 'Creative System [Sun Top]', SpaceWarpTarget, '']
+      # - Coordinates: [0, -5, 0]
         # SectorMapType: WarpTarget
         # Playfields:
-          # - ['0,0,0', 'TestSystem [Sun Bottom]', SpaceWarpTarget, '']
-      # - Coordinates: [0, 0, 6]
+          # - ['0,0,0', 'Creative System [Sun Bottom]', SpaceWarpTarget, '']
+      # - Coordinates: [0, 0, 5]
         # SectorMapType: WarpTarget
         # Playfields:
-          # - ['0,0,0', 'TestSystem [Sun Front]', SpaceWarpTarget, '']
-      # - Coordinates: [0, 0, -6]
+          # - ['0,0,0', 'Creative System [Sun Front]', SpaceWarpTarget, '']
+      # - Coordinates: [0, 0, -5]
         # SectorMapType: WarpTarget
         # Playfields:
-          # - ['0,0,0', 'TestSystem [Sun Back]', SpaceWarpTarget, '']
-
-# # # -------------------------------------------------------------------------------------------------------------------------------------------------------- Test Planets
+          # - ['0,0,0', 'Creative System [Sun Back]', SpaceWarpTarget, '']
 
 # # # ------------------------------------------------------------------------------------------------- Planets
+      # - Coordinates: [25, 0, 35]
+        # Color: '0,0.8,0.8 : 1,1,1'
+        # Playfields:
+          # - ['0, 0, 0', Creative Temperate Planet, 1_TemperateCreative]
+          # - ['10000, 14929, 246', Creative Moon, 4_MoonCanvas]
+          # - ['0,0,0', Creative Temperate Sector, SpaceWarpTarget, '']
+
+
+# ======================================================================================================================================================== Admin and Testing system (inaccessible by normal means)
+  - Name: TestSystem
+    Coordinates: [250, 25, 250]
+    # StarClass: A
+    StarClass: A
+    HideFromMap: true
+    Sectors:
+      - Coordinates: [0, 0, 0]
+        SectorMapType: None
+        Playfields:
+          - ['0,0,0', TestSystem, SunRandom, '']
+      - Coordinates: [5, 0, 0]
+        SectorMapType: WarpTarget
+        Playfields:
+          - ['0,0,0', 'TestSystem [Sun Right]', SpaceWarpTarget, '']
+      - Coordinates: [-5, 0, 0]
+        SectorMapType: WarpTarget
+        Playfields:
+          - ['0,0,0', 'TestSystem [Sun Left]', SpaceWarpTarget, '']
+      - Coordinates: [0, 5, 0]
+        SectorMapType: WarpTarget
+        Playfields:
+          - ['0,0,0', 'TestSystem [Sun Top]', SpaceWarpTarget, '']
+      - Coordinates: [0, -5, 0]
+        SectorMapType: WarpTarget
+        Playfields:
+          - ['0,0,0', 'TestSystem [Sun Bottom]', SpaceWarpTarget, '']
+      - Coordinates: [0, 0, 5]
+        SectorMapType: WarpTarget
+        Playfields:
+          - ['0,0,0', 'TestSystem [Sun Front]', SpaceWarpTarget, '']
+      - Coordinates: [0, 0, -5]
+        SectorMapType: WarpTarget
+        Playfields:
+          - ['0,0,0', 'TestSystem [Sun Back]', SpaceWarpTarget, '']
+
+# # -------------------------------------------------------------------------------------------------------------------------------------------------------- Test Planets
+
+# # ------------------------------------------------------------------------------------------------- Planets
       # - Coordinates: [-25, -5, -100]
         # Color: '0.2,0,0.2 : 0.3,0,0 : 0.3,0,0 : 0.3,0,0'
         # Playfields:
-          # - ['0, 0, 0', TestPlanet, EdenIce,'', '', '', '']
+          # - ['0, 0, 0', TestPlanet, TestPlanet,'', '', '', '']
           # # - ['1427, 14929, 246', TestPlanet Moon 1, EdenMoonCrystalErestrum]
           # # - ['1427, -14929, 246', TestPlanet Moon 2, EdenMoonCrystalErestrum]
           # # - ['10000, -14929, 246', TestPlanet Moon 3, EdenMoonIceOuter2]
@@ -758,71 +813,181 @@ SolarSystems:
           # # - ['10000, 14929, 246', TestPlanet Moon 5, EdenMoonIceOuter4]
           # - ['0,0,0', TestPlanet Sector, EdenSpaceStarterBeginner, '']
 
-      # - Coordinates: [-25, -5, -90]
+      # - Coordinates: [-25, -5, -100]
         # Color: '0.2,0,0.2 : 0.3,0,0 : 0.3,0,0 : 0.3,0,0'
         # Playfields:
-          # - ['0, 0, 0', TestPlanet2, EdenIce2,'', '', '', '']
-          # - ['0,0,0', TestPlanet2 Sector, EdenSpaceStarterBeginner, '']
+          # - ['0, 0, 0', TestPlanet1, EdenJungle_V2,'', '', '', '']
+          # - ['10000, 14929, 246', TestPlanet1 Moon 1, EdenMoonCrystalProm_V2]
+          # - ['10000, -14929, 246', TestPlanet1 Moon 2, EdenMoonCrystalPent_V2]
+          # - ['-10000, 14929, 246', TestPlanet1 Moon 3, EdenMoonCrystalZasc_V2]
+          # - ['0,0,0', TestPlanet1 Sector, SpaceWarpTarget, '']
 
-      # - Coordinates: [-25, -5, -80]
+      # - Coordinates: [-25, -5, -110]
         # Color: '0.2,0,0.2 : 0.3,0,0 : 0.3,0,0 : 0.3,0,0'
         # Playfields:
-          # - ['0, 0, 0', TestPlanet3, EdenIce3,'', '', '', '']
-          # - ['0,0,0', TestPlanet3 Sector, EdenSpaceStarterBeginner, '']
+          # - ['0, 0, 0', TestPlanet2, EdenHell_V2,'', '', '', '']
+          # - ['0,0,0', TestPlanet2 Sector, SpaceWarpTarget, '']
 
-      # - Coordinates: [-25, -5, -70]
+      # - Coordinates: [-25, -5, -120]
         # Color: '0.2,0,0.2 : 0.3,0,0 : 0.3,0,0 : 0.3,0,0'
         # Playfields:
-          # - ['0, 0, 0', TestPlanet4, EdenAlien2,'', '', '', '']
-          # - ['0,0,0', TestPlanet4 Sector, EdenSpaceStarterBeginner, '']
+          # - ['0, 0, 0', TestPlanet3, EdenDesertBlack_V2,'', '', '', '']
+          # - ['0,0,0', TestPlanet3 Sector, SpaceWarpTarget, '']
 
-      # - Coordinates: [-25, -5, -60]
+      # - Coordinates: [-25, -5, -130]
         # Color: '0.2,0,0.2 : 0.3,0,0 : 0.3,0,0 : 0.3,0,0'
         # Playfields:
-          # - ['0, 0, 0', TestPlanet5, EdenAlien2,'', '', '', '']
-          # - ['0,0,0', TestPlanet5 Sector, EdenSpaceStarterBeginner, '']
+          # - ['0, 0, 0', TestPlanet4, Temperate_V2,'', '', '', '']
+          # - ['0,0,0', TestPlanet4 Sector, SpaceWarpTarget, '']
 
-# # # # ------------------------------------------------------------------------------------------------- Unique POIs
-      # # # # - Coordinates: [-163, 1, 2]
-        # # # # Color: '1,0,1'
-        # # # # SectorMapType: Station
-        # # # # Playfields:
-          # # # # - ['0, 0, 0', Object 82, EdenSpacePOIObject82,'', '', '', '']
+      # - Coordinates: [-25, -5, -140]
+        # Color: '0.2,0,0.2 : 0.3,0,0 : 0.3,0,0 : 0.3,0,0'
+        # Playfields:
+          # - ['0, 0, 0', TestPlanet5, Temperate_V2,'', '', '', '']
+          # - ['0,0,0', TestPlanet5 Sector, SpaceWarpTarget, '']
+
+      # - Coordinates: [-25, -5, -150]
+        # Color: '0.2,0,0.2 : 0.3,0,0 : 0.3,0,0 : 0.3,0,0'
+        # Playfields:
+          # - ['0, 0, 0', TestPlanet6, Temperate_V2,'', '', '', '']
+          # - ['0,0,0', TestPlanet6 Sector, SpaceWarpTarget, '']
+
+      # - Coordinates: [-25, -5, -160]
+        # Color: '0.2,0,0.2 : 0.3,0,0 : 0.3,0,0 : 0.3,0,0'
+        # Playfields:
+          # - ['0, 0, 0', TestPlanet7, Snow_V2,'', '', '', '']
+          # - ['0,0,0', TestPlanet7 Sector, SpaceWarpTarget, '']
+
+      # - Coordinates: [-25, -5, -170]
+        # Color: '0.2,0,0.2 : 0.3,0,0 : 0.3,0,0 : 0.3,0,0'
+        # Playfields:
+          # - ['0, 0, 0', TestPlanet8, Snow_V2,'', '', '', '']
+          # - ['0,0,0', TestPlanet8 Sector, SpaceWarpTarget, '']
+
+      # - Coordinates: [-25, -5, -180]
+        # Color: '0.2,0,0.2 : 0.3,0,0 : 0.3,0,0 : 0.3,0,0'
+        # Playfields:
+          # - ['0, 0, 0', TestPlanet9, Snow_V2,'', '', '', '']
+          # - ['0,0,0', TestPlanet9 Sector, SpaceWarpTarget, '']
+
+      # - Coordinates: [-25, -5, -190]
+        # Color: '0.2,0,0.2 : 0.3,0,0 : 0.3,0,0 : 0.3,0,0'
+        # Playfields:
+          # - ['0, 0, 0', TestPlanet10, MoonIce2,'', '', '', '']
+          # - ['0,0,0', TestPlanet10 Sector, SpaceWarpTarget, '']
+
+# # # ------------------------------------------------------------------------------------------------- Unique POIs
+      # # # - Coordinates: [-163, 1, 2]
+        # # # Color: '1,0,1'
+        # # # SectorMapType: Station
+        # # # Playfields:
+          # # # - ['0, 0, 0', Object 82, EdenSpacePOIObject82,'', '', '', '']
 
 # # Space Test 1
-      # - Coordinates: [79, 0, 79]
-        # Color: '0.62, 0.32, 0.17'
-        # SectorMapType: Station
+      # - Coordinates: [50, 0, 0]
+        # Color: '0, 1, 0.7'
+        # SectorMapType: Triangle
         # Playfields:
-          # - ['0, 0, 0', TestSpace, EdenSpaceD_POI_ExploreHackT1_1,'', '', '', '']
+          # - ['0, 0, 0', TestExplore1, EdenSpace_POI_ExploreT1_2,'', '', '', '']
 
 # # Space Test 2
-      # - Coordinates: [79, 0, 99]
-        # Color: '0.62, 0.32, 0.17'
-        # SectorMapType: TradeStation
+      # - Coordinates: [60, 0, 0]
+        # Color: '0, 1, 0.7'
+        # SectorMapType: Triangle
         # Playfields:
-          # - ['0, 0, 0', TestSpace2, EdenSpaceD_POI_ExploreHackT1_1,'', '', '', '']
+          # - ['0, 0, 0', TestExplore2, EdenSpace_POI_ExploreT1_2,'', '', '', '']
 
 # # Space Test 3
-      # - Coordinates: [79, 0, 119]
-        # Color: '0.62, 0.32, 0.17'
-        # SectorMapType: Square
+      # - Coordinates: [70, 0, 0]
+        # Color: '0, 1, 0.70'
+        # SectorMapType: Triangle
         # Playfields:
-          # - ['0, 0, 0', TestSpace3, EdenSpaceD_POI_ExploreHackT1_1,'', '', '', '']
+          # - ['0, 0, 0', TestExplore3, EdenSpace_POI_ExploreT1_2,'', '', '', '']
 
 # # Space Test 4
-      # - Coordinates: [79, 0, 129]
-        # Color: '0.62, 0.32, 0.17'
-        # SectorMapType: TradingStation
-        # Playfields:
-          # - ['0, 0, 0', TestSpace4, EdenSpaceD_XenuanCarrier,'', '', '', '']
-
-# # Space Test 5
-      # - Coordinates: [79, 0, 139]
+      # - Coordinates: [80, 0, -40]
         # Color: '0.62, 0.32, 0.17'
         # SectorMapType: Triangle
         # Playfields:
-          # - ['0, 0, 0', TestSpace5, EdenSpaceD_XenuanCarrier,'', '', '', '']
+          # - ['0, 0, 0', TestMining1, EdenSpace_POI_MiningT1_1,'', '', '', '']
+
+# # Space Test 5
+      # - Coordinates: [90, 0, -40]
+        # Color: '0.62, 0.32, 0.17'
+        # SectorMapType: Triangle
+        # Playfields:
+          # - ['0, 0, 0', TestMining2, EdenSpace_POI_MiningT1_2,'', '', '', '']
+
+# # Space Test 6
+      # - Coordinates: [100, 0, -40]
+        # Color: '0.62, 0.32, 0.17'
+        # SectorMapType: Triangle
+        # Playfields:
+          # - ['0, 0, 0', TestMining3, EdenSpace_POI_MiningT4_1,'', '', '', '']
+
+# # Space Test 7
+      # - Coordinates: [110, 0, 40]
+        # Color: '1, 0, 0'
+        # SectorMapType: Triangle
+        # Playfields:
+          # - ['0, 0, 0', TestCombat1, EdenSpace_POI_CombatT1_1,'', '', '', '']
+
+# # Space Test 8
+      # - Coordinates: [120, 0, 40]
+        # Color: '1, 0, 0'
+        # SectorMapType: Triangle
+        # Playfields:
+          # - ['0, 0, 0', TestCombat2, EdenSpace_POI_CombatT1_2,'', '', '', '']
+
+# # Space Test 9
+      # - Coordinates: [130, 0, 40]
+        # Color: '1, 0, 0'
+        # SectorMapType: Triangle
+        # Playfields:
+          # - ['0, 0, 0', TestCombat3, EdenSpace_POI_CombatT1_3,'', '', '', '']
+
+# # Space Test 10
+      # - Coordinates: [140, 0, 40]
+        # Color: '1, 0, 0'
+        # SectorMapType: Triangle
+        # Playfields:
+          # - ['0, 0, 0', TestCombat4, EdenSpace_POI_CombatT1_4,'', '', '', '']
+
+# # Space Test 11
+      # - Coordinates: [150, 0, 40]
+        # Color: '1, 0, 0'
+        # SectorMapType: Triangle
+        # Playfields:
+          # - ['0, 0, 0', TestCombat5, EdenSpace_POI_CombatT2_1,'', '', '', '']
+
+# # Space Test 12
+      # - Coordinates: [160, 0, 40]
+        # Color: '1, 0, 0'
+        # SectorMapType: Triangle
+        # Playfields:
+          # - ['0, 0, 0', TestCombat6, EdenSpace_POI_CombatT2_2,'', '', '', '']
+
+# # Space Test 13
+      # - Coordinates: [170, 0, 40]
+        # Color: '1, 0, 0'
+        # SectorMapType: Triangle
+        # Playfields:
+          # - ['0, 0, 0', TestCombat7, EdenSpace_POI_CombatT2_3,'', '', '', '']
+
+# # Space Test 14
+      # - Coordinates: [180, 0, 40]
+        # Color: '1, 0, 0'
+        # SectorMapType: Triangle
+        # Playfields:
+          # - ['0, 0, 0', TestCombat8, EdenSpace_POI_CombatT3_1,'', '', '', '']
+
+# # Space Test 15
+      # - Coordinates: [190, 0, 40]
+        # Color: '1, 0, 0'
+        # SectorMapType: Triangle
+        # Playfields:
+          # - ['0, 0, 0', TestCombat9, EdenSpace_POI_CombatT3_2,'', '', '', '']
+
 
 # ------------------------------------------------------------------------------------------------- POIs
 
@@ -1948,6 +2113,63 @@ SolarSystems:
 # ================================================================================================================================================================================= Misc
 # ======================================================================================================================================================================================================
 
+# Jascha memorial system
+# Copy and paste this into your scenario's Sectors.yaml file to add this system to your scenario.
+# Don't forget to add the star definitions to GalaxyConfig.ecf as well.
+  - Name: Jascha
+    # Coordinates: [-425, 10, -245]
+    Coordinates: [398, 10, -39] # Set where you want it in your galaxy.
+    StarClass: Tranquil # Defined in GalaxyConfig.ecf for your scenario.
+    Sectors:
+      - Coordinates: [0, 0, 0]
+        SectorMapType: None
+        Playfields:
+          - ['0,0,0', Jascha, SunRandom, '']
+      - Coordinates: [20, 0, 0]
+        SectorMapType: WarpTarget
+        Playfields:
+          - ['0,0,0', 'Jascha [Sun Right]', SpaceWarpTarget, '']
+      - Coordinates: [-20, 0, 0]
+        SectorMapType: WarpTarget
+        Playfields:
+          - ['0,0,0', 'Jascha [Sun Left]', SpaceWarpTarget, '']
+      - Coordinates: [0, 20, 0]
+        SectorMapType: WarpTarget
+        Playfields:
+          - ['0,0,0', 'Jascha [Sun Top]', SpaceWarpTarget, '']
+      - Coordinates: [0, -20, 0]
+        SectorMapType: WarpTarget
+        Playfields:
+          - ['0,0,0', 'Jascha [Sun Bottom]', SpaceWarpTarget, '']
+      - Coordinates: [0, 0, 20]
+        SectorMapType: WarpTarget
+        Playfields:
+          - ['0,0,0', 'Jascha [Sun Front]', SpaceWarpTarget, '']
+      - Coordinates: [0, 0, -20]
+        SectorMapType: WarpTarget
+        Playfields:
+          - ['0,0,0', 'Jascha [Sun Back]', SpaceWarpTarget, '']
+
+# # Extra stars. Disabled due to not showing correctly in MP.
+      # - Coordinates: [0, 1, 0]
+        # Color: '1,0.95,0.63'
+        # SectorMapType: Sun
+        # Playfields:
+          # - ['0, 0, 0', Jascha B, SunRandom,'', '', 'Tranquil2', '10'] # Adds yellow aurora. Should be smaller than the main star and spawned as close as possible to hide it.
+
+      # - Coordinates: [0, -1, 0]
+        # Color: '1,0.95,0.63'
+        # SectorMapType: Sun
+        # Playfields:
+          # - ['0, 0, 0', Jascha C, SunRandom,'', '', 'Tranquil3', '10'] # Adds blue aurora. Should be smaller than the main star and spawned as close as possible to hide it.
+
+# Memorial Planet.
+      - Coordinates: [35, 0, 0] # Good distance from the star. Too far away and you won't see the aurora effects.
+        Color: '0,0.7,0.3'
+        Playfields:
+          - ['0, 0, 0', Jascha Memorial, JaschaMemorial,'', '', '', ''] # Placeholder planet type. Feel free to change.
+          - ['0,0,0', Jascha Memorial Sector, SpaceEmpty, '']
+
 
 # ======================================================================================================================================================================================================
 # ================================================================================================================================================================================= Kriel space
@@ -2783,7 +3005,7 @@ SolarSystems:
       - Coordinates: [-4, 0, 4]
         Color: '0,1,0.7'
         Playfields:
-          - ['0, 0, 0', Core 2, EdenProgenitorCore2,'', '', '', '']
+          - ['0, 0, 0', Core 2, EdenProgenitorCore,'', '', '', '']
           - ['0,0,0', Core 2 Sector, EdenSpaceProg_OrbitCore, '']
 
 # Core 3
@@ -2903,7 +3125,7 @@ SolarSystems:
       - Coordinates: [0, -4, 4]
         Color: '0,1,0.7'
         Playfields:
-          - ['0, 0, 0', Core 5, EdenProgenitorCore2,'', '', '', '']
+          - ['0, 0, 0', Core 5, EdenProgenitorCore,'', '', '', '']
           - ['0,0,0', Core 5 Sector, EdenSpaceProg_OrbitCore, '']
 
 # Core 6
@@ -3023,7 +3245,7 @@ SolarSystems:
       - Coordinates: [15, -1, 15]
         Color: '0,1,0.7'
         Playfields:
-          - ['0, 0, 0', Core 8, EdenProgenitorCore2,'', '', '', '']
+          - ['0, 0, 0', Core 8, EdenProgenitorCore,'', '', '', '']
           - ['0,0,0', Core 8 Sector, EdenSpaceProg_OrbitCore, '']
 
 # Core 9

@@ -19,10 +19,8 @@ UseFixed: True
 # Cold Star
 Radiation: [5,10]
 TemperatureDay: [-200,-100]
-# Music: [moonstone, Migration, Adrift, 2473, Transit, DarkSoundscape, DarkSoundscape2, DarkSoundscape3, alien2] # Alien
-# Music: [moonstone, Adrift, 2473, Transit, Anomalous, Blight, Dusk, Magnitude, alien2, EnergyMatrix] # Orbit
-Music: [Vanguard, Helios, Anomalous, AlteredPhase, ColdDivide] # POI
-
+# Rich Mining
+Music: [2473, Adrift, AlteredPhase, Anomalous, ColdDivide, ColdSpace, EnergyMatrix, FirstHours, Helios, Magnitude, moonstone, MorningLight, Transit, Voyage, Vanguard]
 
 PlayfieldType: Space
 LandClaimZone: Device
@@ -147,6 +145,22 @@ POIs:
       Position:
          PosXZMinMax: [50, 100]
          PosYMax: 50
+
+# Asteroid field
+    - Name: [Eden_AsteroidFieldL_Brown, Eden_AsteroidFieldL_BrownThick, Eden_AsteroidFieldL_Gray, Eden_AsteroidFieldL_GrayThick, Eden_AsteroidFieldXL_Brown, Eden_AsteroidFieldXL_BrownThin, Eden_AsteroidFieldXL_BrownThick, Eden_AsteroidFieldXL_Gray, Eden_AsteroidFieldXL_GrayThin, Eden_AsteroidFieldXL_GrayThick, AsteroidFieldBoxExclude, AsteroidFieldFewBoxExclude]
+      FieldName: [Eden_AsteroidFieldL_Brown, Eden_AsteroidFieldL_BrownThick, Eden_AsteroidFieldL_Gray, Eden_AsteroidFieldL_GrayThick, Eden_AsteroidFieldXL_Brown, Eden_AsteroidFieldXL_BrownThin, Eden_AsteroidFieldXL_BrownThick, Eden_AsteroidFieldXL_Gray, Eden_AsteroidFieldXL_GrayThin, Eden_AsteroidFieldXL_GrayThick, AsteroidFieldBoxExclude, AsteroidFieldFewBoxExclude] # used if playfield is not an orbit
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.7
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+
+# Nebula
+    - Name: [Eden_NebulaM_RandomBrown, Eden_NebulaM_RandomBrown2, Eden_NebulaM_RandomCyan, Eden_NebulaM_RandomCyan2, Eden_NebulaM_RandomOrange, Eden_NebulaM_RandomOrange2, Eden_NebulaM_RandomRed, Eden_NebulaM_RandomRed2, Eden_NebulaM_RandomYellow, Eden_NebulaM_RandomYellow2, Eden_NebulaL_RandomBlueDim, Eden_NebulaL_RandomBrownDim, Eden_NebulaL_RandomOrangeDim, Eden_NebulaL_RandomPinkDim, Eden_NebulaL_RandomRedDim, Eden_NebulaL_RandomYellowDim] #EdenReplace_NebulaAsteroid_RichT1A
+      FieldName: [Eden_NebulaM_RandomBrown, Eden_NebulaM_RandomBrown2, Eden_NebulaM_RandomCyan, Eden_NebulaM_RandomCyan2, Eden_NebulaM_RandomOrange, Eden_NebulaM_RandomOrange2, Eden_NebulaM_RandomRed, Eden_NebulaM_RandomRed2, Eden_NebulaM_RandomYellow, Eden_NebulaM_RandomYellow2, Eden_NebulaL_RandomBlueDim, Eden_NebulaL_RandomBrownDim, Eden_NebulaL_RandomOrangeDim, Eden_NebulaL_RandomPinkDim, Eden_NebulaL_RandomRedDim, Eden_NebulaL_RandomYellowDim] #EdenReplace_NebulaAsteroid_RichT1B
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.25
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
 
 # ======================================================================================================================================================================================================
 # ================================================================================================================================================================================= Asteroid Fields
@@ -477,6 +491,8 @@ POIs:
       Mode: Survival
       CountMinMax: [ 1, 1 ]
       Probability: 0.8
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
       InitPower: True
       IsCompoundSubDesc: True
       Position:
@@ -535,6 +551,60 @@ POIs:
         Probability: 1
         Name: [CompoundEdenAsteroidRichT4, CompoundEdenAsteroidRichT4]
         DistanceMinMax: [250, 800]
+        Rotate: true
+      Properties:
+        - Key: MapDistance
+          Value: 0
+        - Key: HudDistance
+          Value: 0
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: Eden_AsteroidFieldXL_Black
+      Name: [Eden_AsteroidFieldXL_Black]
+      DisplayName: Asteroid Field
+      Faction: None
+      FactionTerritory: [Eden_DroneHome]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.15
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      Compound:
+        CountMinMax: [1, 1]
+        Probability: 1
+        Name: [CompoundEdenAsteroidRichT4]
+        DistanceMinMax: [1250, 2250]
+        Rotate: true
+      Properties:
+        - Key: MapDistance
+          Value: 0
+        - Key: HudDistance
+          Value: 0
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: Eden_AsteroidFieldL_Lava
+      Name: [Eden_AsteroidFieldL_Lava]
+      DisplayName: Lava Field
+      Faction: None
+      FactionTerritory: [Eden_DroneHome]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.15
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      Compound:
+        CountMinMax: [1, 1]
+        Probability: 1
+        Name: [CompoundEdenAsteroidRichT4]
+        DistanceMinMax: [1250, 2250]
         Rotate: true
       Properties:
         - Key: MapDistance
@@ -1153,7 +1223,7 @@ DroneBaseSetup:
               DelayBetweenRespawnMinMax: [3600, 3600]
               DelayBeforeSelfDestructionMinMax: [3600, 3600]
               IsRespawnAfterDestruction: False
-              RadiusMinMax: [1000, 1500]
+              RadiusMinMax: [2000, 2500]
               POINameAsPositionRef: [Eden_BA_DummyPOI]
               Position:
                 PosXZMinMax: [1000, 1500]
@@ -1167,7 +1237,8 @@ DroneBaseSetup:
               - Key: AIManPatrolFactions
                 Value: "Eden_Resource"
               - Key: AIManMaxPursuitRange
-                Value: 0
+                # Value: 0
+                Value: 3000
 
 
 # Polaris

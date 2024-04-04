@@ -85,7 +85,7 @@
   Reputation: true            # Do not change. Hardcoded effect on Base Attacks. Change will lead to issues with related features!
   Discovery: true
 }
-	
+
 { Faction Id: 7, Name: "Polaris"                #Main Story Faction
   # Abbrev: Pol
   Abbrev: Polaris
@@ -93,6 +93,7 @@
   ClaimTerritory: true
   Reputation: true
   Discovery: true
+  ForceAttack: "Eden_Resource, Warlord"
 }
 
 { Faction Id: 8, Name: "Alien"             #Use for Dungeons and abandoned POI
@@ -177,7 +178,10 @@
   OmitMapLegend: true
   HideAbbrev: true
   AttackNPC: true
+  # ForceAttack: "UCH,GLaD,TheLegacy,Kriel,Pirates,Warlord"
+  ForceAttack: "Polaris"
   #Discovery: true
+}
 
 { Faction Id: 31, Name: "NTY"       #Use for hostile random POI and Encounters
   Abbrev: NTY
@@ -199,7 +203,6 @@
   #AttackNPC: true
   #Discovery: true
   ForceAttack: "TheLegacy"
-}
 }
 #===========================
 #  CUSTOM DYNAMIC Factions
@@ -411,16 +414,17 @@
 }
 
 { Faction Id: 66, Name: "Eden_TraderTerritory"
-  Abbrev: Trader Territory
-  Color: "0, 0.9, 0.9"
+  Abbrev: Trader Defense
+  Color: "0.6, 1, 1"
   Friendly: true
   HideAbbrev: true
   OmitMapLegend: true
+  ForceAttack: "Trader"
 }
 
 { Faction Id: 67, Name: "Eden_PiratesTerritory"
   Abbrev: Pirates Territory
-  Color: "0, 0.9, 0.9"
+  Color: "0.9, 0.9, 0.9"
   Friendly: true
   HideAbbrev: true
   OmitMapLegend: true
@@ -451,6 +455,7 @@
   Reputation: true
   Discovery: true
   AttackNPC: true # Test
+  # ForceAttack: "Warlord"
 }
 
 { Faction Id: 70, Name: "Eden_ColonistsTerritory"

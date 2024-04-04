@@ -1,8 +1,6 @@
 # Playfield Characteristics
 Description: "Difficulty: [c][ffff00]Medium[-][/c]
 
-Sovereignty: [c][ffffff]Unclaimed[-][/c]
-
 
 An unclaimed ice field. Pirates often lay traps in places such as this for the unwary. Specialized mining equipment is required.
 
@@ -19,14 +17,13 @@ UseFixed: True
 # Cold Star
 Radiation: [5,10]
 TemperatureDay: [-265,-245]
-# Music: [moonstone, Migration, Adrift, 2473, Transit, DarkSoundscape, DarkSoundscape2, DarkSoundscape3, alien2] # Alien
-# Music: [moonstone, Adrift, 2473, Transit, Anomalous, Blight, Dusk, Magnitude, alien2, EnergyMatrix] # Orbit
-Music: [Vanguard, Helios, Anomalous, AlteredPhase, ColdDivide] # POI
+# Space Ambient Music
+Music: [2473, Adrift, Anomalous, ColdSpace, EnergyMatrix, FirstHours, Magnitude, moonstone, MorningLight, Transit, Voyage]
 
 
 PlayfieldType: Space
 LandClaimZone: Device
-PlanetType: Rich Ice Field
+PlanetType: Large Rich Ice Field
 
     # # ---------------------------------------------------------------------
 # ===========================================================================================================================================================================================
@@ -140,9 +137,37 @@ POIs:
       BaseField: True 
       # RandomRotation: True
 
+# Ice field
+    - Name: [Eden_AsteroidFieldIceL_Blue, Eden_AsteroidFieldIceL_Blue2, Eden_AsteroidFieldIceL_Cyan, Eden_AsteroidFieldIceL_Green, Eden_AsteroidFieldIceL_White, Eden_AsteroidFieldIceXL_Blue, Eden_AsteroidFieldIceXL_BlueThick, Eden_AsteroidFieldIceXL_Cyan, Eden_AsteroidFieldIceXL_CyanThick, Eden_AsteroidFieldIceXL_White, Eden_AsteroidFieldIceXL_WhiteThick, Eden_AsteroidFieldIceL2_Blue, Eden_AsteroidFieldIceL2_Cyan, Eden_AsteroidFieldIceL2_Green, Eden_AsteroidFieldIceL2_White]
+      FieldName: [Eden_AsteroidFieldIceL_Blue, Eden_AsteroidFieldIceL_Blue2, Eden_AsteroidFieldIceL_Cyan, Eden_AsteroidFieldIceL_Green, Eden_AsteroidFieldIceL_White, Eden_AsteroidFieldIceXL_Blue, Eden_AsteroidFieldIceXL_BlueThick, Eden_AsteroidFieldIceXL_Cyan, Eden_AsteroidFieldIceXL_CyanThick, Eden_AsteroidFieldIceXL_White, Eden_AsteroidFieldIceXL_WhiteThick, Eden_AsteroidFieldIceL2_Blue, Eden_AsteroidFieldIceL2_Cyan, Eden_AsteroidFieldIceL2_Green, Eden_AsteroidFieldIceL2_White] # used if playfield is not an orbit
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      # Position:
+         # PosXZMinMax: [50, 100]
+         # PosYMax: 50
+
+# Asteroid field
+    - Name: [Eden_AsteroidFieldL_Blue, Eden_AsteroidFieldL_Gray, Eden_AsteroidFieldL_Black, Eden_AsteroidFieldXL_BlueThin, Eden_AsteroidFieldXL_GrayThin, AsteroidFieldBoxExclude, AsteroidFieldFewBoxExclude]
+      FieldName: [Eden_AsteroidFieldL_Blue, Eden_AsteroidFieldL_Gray, Eden_AsteroidFieldL_Black, Eden_AsteroidFieldXL_BlueThin, Eden_AsteroidFieldXL_GrayThin, AsteroidFieldBoxExclude, AsteroidFieldFewBoxExclude] # used if playfield is not an orbit
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.3
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+
+# Nebula
+    - Name: [Eden_NebulaM_RandomBlue, Eden_NebulaM_RandomBlue2, Eden_NebulaM_RandomBlueDim, Eden_NebulaM_RandomCyan, Eden_NebulaM_RandomCyan2, Eden_NebulaM_RandomCyanDim, Eden_NebulaM_RandomGreen, Eden_NebulaM_RandomGreen2, Eden_NebulaM_RandomGreenDim, Eden_NebulaM_RandomPurple, Eden_NebulaM_RandomPurple2, Eden_NebulaM_RandomPurpleDim, Eden_NebulaL_RandomBlue, Eden_NebulaL_RandomBlue2, Eden_NebulaL_RandomBlueDim, Eden_NebulaL_RandomCyan, Eden_NebulaL_RandomCyan2, Eden_NebulaL_RandomCyanDim, Eden_NebulaL_RandomGreen, Eden_NebulaL_RandomGreen2, Eden_NebulaL_RandomGreenDim, Eden_NebulaL_RandomPurple, Eden_NebulaL_RandomPurple2, Eden_NebulaL_RandomPurpleDim]
+      FieldName: [Eden_NebulaM_RandomBlue, Eden_NebulaM_RandomBlue2, Eden_NebulaM_RandomBlueDim, Eden_NebulaM_RandomCyan, Eden_NebulaM_RandomCyan2, Eden_NebulaM_RandomCyanDim, Eden_NebulaM_RandomGreen, Eden_NebulaM_RandomGreen2, Eden_NebulaM_RandomGreenDim, Eden_NebulaM_RandomPurple, Eden_NebulaM_RandomPurple2, Eden_NebulaM_RandomPurpleDim, Eden_NebulaL_RandomBlue, Eden_NebulaL_RandomBlue2, Eden_NebulaL_RandomBlueDim, Eden_NebulaL_RandomCyan, Eden_NebulaL_RandomCyan2, Eden_NebulaL_RandomCyanDim, Eden_NebulaL_RandomGreen, Eden_NebulaL_RandomGreen2, Eden_NebulaL_RandomGreenDim, Eden_NebulaL_RandomPurple, Eden_NebulaL_RandomPurple2, Eden_NebulaL_RandomPurpleDim]
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.3
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+
 # ======================================================================================================================================================================================================
 # ================================================================================================================================================================================= Asteroid Fields
 # ======================================================================================================================================================================================================
+
 #Asteroid Fields----------------------------------------------------------
     - Type: AsteroidFieldFewBoxExclude
       Name: [AsteroidFieldFewBoxExclude]
@@ -176,43 +201,43 @@ POIs:
       InitPower: True
       Pos: [0, 0, 0]
       Rot: [0, 0, 0]
-      Compound:
-        CountMinMax: [10, 15]
-        Probability: 1
-        Name: [AsteroidVoxel01Ice, AsteroidVoxel02Ice, AsteroidVoxel03Ice, Eden_BAO_PirateDefT1_1, Eden_BAO_PirateDefT1_2, AsteroidVoxel01Ice, AsteroidVoxel02Ice, AsteroidVoxel03Ice, AsteroidVoxel01Ice, AsteroidVoxel02Ice, AsteroidVoxel03Ice, Eden_BAO_PirateDefT1_1, Eden_BAO_PirateDefT1_2, AsteroidVoxel01Ice, AsteroidVoxel02Ice, AsteroidVoxel03Ice, AsteroidVoxel01Ice, AsteroidVoxel02Ice, AsteroidVoxel03Ice, Eden_BAO_PirateDefT1_1, Eden_BAO_PirateDefT1_2, AsteroidVoxel01Ice, AsteroidVoxel02Ice, AsteroidVoxel03Ice]
-        DistanceMinMax: [500, 1500]
+      # Compound:
+        # CountMinMax: [10, 15]
+        # Probability: 1
+        # Name: [AsteroidVoxel01Ice, AsteroidVoxel02Ice, AsteroidVoxel03Ice, Eden_BAO_PirateDefT1_1, Eden_BAO_PirateDefT1_2, AsteroidVoxel01Ice, AsteroidVoxel02Ice, AsteroidVoxel03Ice, AsteroidVoxel01Ice, AsteroidVoxel02Ice, AsteroidVoxel03Ice, Eden_BAO_PirateDefT1_1, Eden_BAO_PirateDefT1_2, AsteroidVoxel01Ice, AsteroidVoxel02Ice, AsteroidVoxel03Ice, AsteroidVoxel01Ice, AsteroidVoxel02Ice, AsteroidVoxel03Ice, Eden_BAO_PirateDefT1_1, Eden_BAO_PirateDefT1_2, AsteroidVoxel01Ice, AsteroidVoxel02Ice, AsteroidVoxel03Ice]
+        # DistanceMinMax: [500, 1500]
       Properties:
         - Key: MapMarker
           Value: Neutral
         - Key: Discovery
           Value: False
 
-# Blue Fog with extra ice asteroids
-    - Type: Eden_SectorNebulaNewBlueFog2
-      Name: [Eden_SectorNebulaNewBlueFog2]
-      DisplayName: Ice Field
-      Faction: None
-      # FactionTerritory: [Eden_SolitudeTerritory]
-      Mode: Survival
-      CountMinMax: [ 1, 1 ]
-      Probability: 0.15
-      SpaceDefenseOverrideDefaults: True
-      SpaceDefenseProbability: 0
-      InitPower: True
-      Pos: [0, 0, 0]
-      Rot: [0, 0, 0]
-      Compound:
-        CountMinMax: [1, 2]
-        Probability: 1
-        Name: [AsteroidVoxel01Ice, AsteroidVoxel02Ice, CompoundAsteroidIceT3Solitude, CompoundAsteroidIceT3Solitude]
-        DistanceMinMax: [2500, 5000]
-      Properties:
-        - Key: MapDistance
-          Value: 0
-        - Key: HudDistance
-          Value: 0
-        - Key: RegenAfter
-          Value: 720
+# # Blue Fog with extra ice asteroids
+    # - Type: Eden_SectorNebulaNewBlueFog2
+      # Name: [Eden_SectorNebulaNewBlueFog2]
+      # DisplayName: Ice Field
+      # Faction: None
+      # # FactionTerritory: [Eden_SolitudeTerritory]
+      # Mode: Survival
+      # CountMinMax: [ 1, 1 ]
+      # Probability: 0.15
+      # SpaceDefenseOverrideDefaults: True
+      # SpaceDefenseProbability: 0
+      # InitPower: True
+      # Pos: [0, 0, 0]
+      # Rot: [0, 0, 0]
+      # Compound:
+        # CountMinMax: [1, 2]
+        # Probability: 1
+        # Name: [AsteroidVoxel01Ice, AsteroidVoxel02Ice, CompoundAsteroidIceT3Solitude, CompoundAsteroidIceT3Solitude]
+        # DistanceMinMax: [2500, 5000]
+      # Properties:
+        # - Key: MapDistance
+          # Value: 0
+        # - Key: HudDistance
+          # Value: 0
+        # - Key: RegenAfter
+          # Value: 720
 
 # Ice Mining Field in Solitude
     - Type: Eden_SectorNebulaIceField
@@ -254,13 +279,41 @@ POIs:
       SpaceDefenseOverrideDefaults: True
       SpaceDefenseProbability: 0
       InitPower: True
-      Pos: [0, 0, 2000]
+      Pos: [0, 0, 1000]
       Rot: [0, 0, 0]
       Compound:
         CountMinMax: [2, 3]
         Probability: 1
         Name: [CompoundAsteroidIceT3Solitude, CompoundAsteroidIceT3Solitude, CompoundAsteroidIceT3Solitude]
         DistanceMinMax: [1000, 1500]
+      Properties:
+        - Key: MapDistance
+          Value: 0
+        - Key: HudDistance
+          Value: 0
+        - Key: RegenAfter
+          Value: 720
+
+# Rare XL ice field.
+    - Type: Eden_SectorNebulaIceFieldXL
+      Name: [Eden_SectorNebulaIceFieldXL]
+      DisplayName: Massive Ice Field
+      Faction: None
+      FactionTerritory: [Eden_SolitudeTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.2
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
+      Compound:
+        CountMinMax: [5, 8]
+        Probability: 1
+        Name: [CompoundAsteroidIceT3Solitude, CompoundAsteroidIceT3Solitude, CompoundAsteroidIceT3Solitude, CompoundAsteroidIceT3Solitude, CompoundAsteroidIceT3Solitude, CompoundAsteroidIceT3Solitude, CompoundAsteroidIceT3Solitude, CompoundAsteroidIceT3Solitude]
+        DistanceMinMax: [800, 1500]
+        Rotate: true
       Properties:
         - Key: MapDistance
           Value: 0
@@ -382,8 +435,8 @@ DroneBaseSetup:
 # Warlord
           - Name: [Eden_OPVBanditT1]
             Faction: Warlord
-            CountMinMax: [2, 4]
-            Probability: 0.5
+            CountMinMax: [4, 6]
+            Probability: 0.75
             CanNotBeControlledByMasterAI: False
             FixedMaxSpeed: [90, 110]
             Mission: SpacePatrol
@@ -451,6 +504,41 @@ DroneBaseSetup:
                 # Value: "Pirates"
               - Key: AIManMaxPursuitRange
                 Value: 0
+
+# Cosmozoans
+          - Name: [Eden_OPVHydraBlue]
+            Faction: Admin
+            CountMinMax: [4, 8]
+            Probability: 0.15
+            CanNotBeControlledByMasterAI: False
+            FixedMaxSpeed: [0, 5]
+            Mission: SpacePatrol
+            MissionDescription:
+              DelayBetweenRespawnMinMax: [3600, 3600]
+              DelayBeforeSelfDestructionMinMax: [3600, 3600]
+              IsRespawnAfterDestruction: False
+              RadiusMinMax: [1000, 1500]
+              # POINameAsPositionRef: [Eden_GasCloudOrangeL]
+              POINameAsPositionRef: [Eden_BA_DummyPOI]
+              Position:
+                PosXZMinMax: [1000, 1500]
+                PosYMax: 500
+            StockDescription:
+              Name: [SpaceDroneLaser, SpaceDronePlasma]
+              AmountMinMax: [0, 0]
+              ExtraMinMax: [0,0]
+              Type: FighterDrone
+            Properties:
+              - Key: MapDistance
+                Value: 0
+              - Key: HudDistance
+                Value: 3000
+              - Key: MapMarker
+                Value: Neutral
+              - Key: AIManPatrolFactions #POI's of which factions can be patrolled?
+                Value: "Eden_Resource"
+              - Key: AIManMaxPursuitRange
+                Value: 10000
 
 
 

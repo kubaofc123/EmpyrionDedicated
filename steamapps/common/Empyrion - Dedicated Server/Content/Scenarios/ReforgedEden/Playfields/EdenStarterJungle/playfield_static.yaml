@@ -1,25 +1,41 @@
 ---
 # Playfield Configuration
 # IMPORTANT: YAML files use spaces as indentation. Please don't use TABs - tab indentation is forbidden: http://yaml.org/faq.html
+Description: "[sup]Location: [c][A9A9A9][-][/c][c][[c][FFA500][b]Old Pandora[/b][-][/c][c]][-][/c] [c][C0A060]Old Sienna[-][/c]                                         [c][6F6F6F]16 of 17[-][/c]
 
-Description: "Difficulty: [c][FFA500][b]Hard[/b][-][/c]
+System:  [c][A9A9A9]Alpha[-][/c]  [c][A9A9A9]Beta[-][/c] [c][[c][FFA500][b]Delta[/b][-][/c][c]][-][/c] [c][A9A9A9]Epsilon[-][/c]  [c][A9A9A9]Rogue[-][/c]
 
-[c][FFA500][b]Jungle[/b][-][/c], Ocean, Snow Dwarf, Alien
+Difficulty: [c][FFA500][b]Hard[/b][-][/c]                                            Start: [c][FFFFFF]Escape Pod[-][/c]
 
-[c][FFFFFF]_______________________________________________[-][/c]
+Starting Missions: [c][FFFFFF]None[-][/c]                             Equipment: [c][FFFFFF]Basic[-][/c]
 
-Start: [c][FFFFFF]Escape Pod[-][/c]                 Equipment: [c][FFFFFF]None[-][/c]
+[c][A9A9A9]- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[-][/c]
 
-Missions: [c][FFFFFF]None[-][/c]                     Solar System: [c][FFFFFF]Delta[-][/c]
+An uninhabited world full of thick jungles, rugged mountains, and teeming with life. You will have to use all of your survival knowledge to find respite from the intense heat and protect yourself from the numerous predators that roam these untamed wilds.[/sup]"
 
 
-An uninhabited world full of thick jungle and teeming with life. You will have to use all of your survival knowledge to find respite from the intense heat and protect yourself from wild predators.
 
-[c][ffffff][i]Information on the scenario can be accessed in the Empyriopedia section of the PDA (F1).[-][/i][/c]"
+
+
+
+# Description: "Difficulty: [c][FFA500][b]Hard[/b][-][/c]
+
+# [c][FFA500][b]Jungle[/b][-][/c], Ocean, Snow Dwarf, Alien
+
+# [c][FFFFFF]_______________________________________________[-][/c]
+
+# Start: [c][FFFFFF]Escape Pod[-][/c]                 Equipment: [c][FFFFFF]None[-][/c]
+
+# Missions: [c][FFFFFF]None[-][/c]                     Solar System: [c][FFFFFF]Delta[-][/c]
+
+
+# An uninhabited world full of thick jungle and teeming with life. You will have to use all of your survival knowledge to find respite from the intense heat and protect yourself from wild predators.
+
+# [c][ffffff][i]Information on the scenario can be accessed in the Empyriopedia section of the PDA (F1).[-][/i][/c]"
 
 PlanetType: Jungle Starter
 PlayfieldType: Planet
-Difficulty: 20
+Difficulty: 50
 
 LandClaimZone: Device
 
@@ -378,7 +394,7 @@ RandomResources:
         # #YVariance: 10
 
     - Name: PromethiumResource
-      Biome: [ Jungle, ungleDense, JungleOasis, RainForest, Oasis, Flowers ]
+      Biome: [ Jungle, JungleDense, JungleOasis, RainForest, Oasis, Flowers ]
       IsScalingCount: True
       CountMinMax: [ 1, 3 ]
       SizeMinMax: [ 5, 6 ]
@@ -754,6 +770,11 @@ CreatureSpawning:
           Amount: 40
           DelayMinMax: [20, 24]
           Color: "0.5, 0, 0"
+        - Name: ButterflyiesMixed
+          Period: Day
+          Amount: 4
+          Color: "1.0, 0, 0"
+          DelayMinMax: [8, 12]
     - Biomes: [JungleDense]
       Entities:
         - Name: Triceratopses
@@ -801,6 +822,11 @@ CreatureSpawning:
           Amount: 75
           DelayMinMax: [20, 24]
           Color: "0.5, 0, 0"
+        - Name: ButterflyiesMixed
+          Period: Day
+          Amount: 4
+          Color: "1.0, 0, 0"
+          DelayMinMax: [8, 12]
     - Biomes: [JungleOasis]
       Entities:
         - Name: Spiders01
@@ -838,6 +864,11 @@ CreatureSpawning:
           Amount: 40
           DelayMinMax: [20, 24]
           Color: "0.5, 0, 0"
+        - Name: ButterflyiesMixed
+          Period: Day
+          Amount: 4
+          Color: "1.0, 0, 0"
+          DelayMinMax: [8, 12]
     - Biomes: [Oasis]
       Entities:
         - Name: AlienBugs01
@@ -899,6 +930,11 @@ CreatureSpawning:
           Amount: 2
           Color: "1.0, 0, 0"
           DelayMinMax: [20, 24]
+        - Name: ButterflyiesMixed
+          Period: Day
+          Amount: 2
+          Color: "1.0, 0, 0"
+          DelayMinMax: [8, 12]
     - Biomes: [ShallowWater, WaterSwamp, SwampBeach]
       Entities:
         - Name: Telluropods
@@ -927,6 +963,11 @@ CreatureSpawning:
         - Name: AlienBugs01
           Period: Always
           Amount: 36
+          DelayMinMax: [10, 12]
+          Color: "0, 1.0, 1.0"
+        - Name: AnnoyingMosquitosGreen
+          Period: Night
+          Amount: 4
           DelayMinMax: [10, 12]
           Color: "0, 1.0, 1.0"
     - Biomes: [DustBowl]
@@ -999,4 +1040,20 @@ CreatureSpawning:
           Amount: 15
           DelayMinMax: [20, 24]
           Color: "0.5, 0, 0"
+    - Biomes: [DeepWater,Water]
+      Entities:
+        - Name: ShoalofFishesLarge
+          Period: Always
+          Amount: 20
+          AllowInWater: true
+          DelayMinMax: [0, 1]
+          Color: "1, 1.0, 0.0" 
+    - Biomes: [ShallowWater]
+      Entities: 
+        - Name: ShoalofFishesSmall
+          Period: Always
+          Amount: 10
+          AllowInWater: true
+          DelayMinMax: [0, 1]
+          Color: "1, 1.0, 0.0" 
 

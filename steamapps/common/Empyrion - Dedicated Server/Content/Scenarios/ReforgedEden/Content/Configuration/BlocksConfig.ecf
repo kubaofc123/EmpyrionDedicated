@@ -25,9 +25,13 @@ EnergyOut: 1, type: int, display: true, formatter: Watt  Value is given in kW */
 8 - 9 = Large Explosion Air
 10  = Electric Explosion */
 
+# == REF ===
+# You can REF an entry that is added BEFORE the entry you are adding the REF to. 
+# You cannot REF an entry that is placed on a higher ID than the entry that uses the REF!
 # ==Properties==
 # CustomIcon:  = Use with an existing Icon to show it ingame, f.ex. 'CustomIcon: DetectorSVT1'
 # PickupTarget = defines blocks that will be placed in inventory after pickup
+# TemplateRoot: = Defines the crafting template; Usecase: Set for child-groups to allow using a particular crafting template when using UPGRADE functionality! Not required on parent (parent = always uses template name in templates.ecf!); IMPORTANT: Never REF to an entry that is the TemplateRoot in the actual entry, eg: REF IndoorPlants and TemplateRoot: Indoorplants cannot be in the SAME entry! This will lead to a stack overflow in the BP Libary otherwies
 # Place: NoRotation = device cannot be rotated 
 # RemoveOnSI: when structure collapses this block will be immediately removed 
 # IsActivateable: block can be switched on/off
@@ -89,6 +93,7 @@ DeviceNewColoring = New Coloring method for Device Blocks
 NoSINewColoring = New Coloring method for Terrain Placeables
 */
 
+# IMPORTANT: for use in the BlockShapesWindow.ecf all BUILDING blocks need a FIXED ID below the 2048 limit!
 /*   Building Blocks:
 BA / CV:
 WoodBlocks
@@ -113,6 +118,11 @@ HullCombatSmallBlocks
 ## IsAccessible: shows up in Control Panel
 ## O2Accept: "OxygenBottleLarge,OxygenBottleSmall" > items that can be used to fill a O2 tank. First item in list will be filled when O2 is withdrawn 
 ## FuelAccept: "EnergyCell, EnergyCellLarge, EnergyCellHydrogen, FusionCell, BioFuel" > items that can be used to fill a fuel tank. First item in list will be filled when fuel is withdrawn 
+# 
+# 
+# ================== Important Notes / Change info ==========================
+# CutCornerB had to be updated with a dedicated left/right mirror, but needs to be kept in its group for backwards compatibilty. New left/right variant are in Extended7
+# ===========================================================================
 
 { Block Id: 0, Name: Air
   Material: air
@@ -1658,6 +1668,19 @@ HullCombatSmallBlocks
 
 /* 131 - 255 available free */
 
+{ +Block Id: 137, Name: ChocolateBar
+  Material: resourcemedium
+  Shape: Terrain
+  Mesh: terrain
+  Texture: 220   
+  ShowUser: No
+  Group: resource
+  { Child DropOnDestroy
+    Item: CrushedStone
+    Count: "2,4"
+    Prob: 0.2
+  }
+}
 /* Block Entity start at id=256 */
 { +Block Id: 256, Name: CapacitorMS
   Material: metal
@@ -1731,6 +1754,7 @@ HullCombatSmallBlocks
   # Class: TradingStation
   Class: NPCDialogue
   NPCModelRotation: false
+  Group: cpgEquipment
   Material: device
   Shape: ModelEntity
   Model: @models/Blocks/Mothership/TradingConsolePrefab
@@ -1743,7 +1767,7 @@ HullCombatSmallBlocks
   AllowPlacingAt: "Base,MS", display: true
   SizeInBlocks: "1,1,1", display: true
   SizeInBlocksLocked: "Base,MS"
-  IsAccessible: false, type: bool
+  IsAccessible: true, type: bool
   IsOxygenTight: false, display: true
   TemplateRoot: ConsoleBlocks
   HitPoints: 75, type: int, display: true
@@ -1842,6 +1866,7 @@ HullCombatSmallBlocks
   Material: device
   Class: NPCDialogue
   NPCModelRotation: false
+  Group: cpgEquipment
   Shape: ModelEntity
   ShowBlockName: true
   Model: @models/Blocks/Mothership/ConsoleMS01Prefab
@@ -1851,13 +1876,14 @@ HullCombatSmallBlocks
   Mesh-Damage-4: Mesh/D3
   DropMeshfile: Entities/Misc/BagSmallPrefab
   Place: Free
-  IsAccessible: false, type: bool
+  IsAccessible: true, type: bool
   IsOxygenTight: false, display: true
   Info: bkiGenNoFunction, display: true
   AllowPlacingAt: "Base,MS", display: true
   SizeInBlocks: "1,1,1", display: true
   SizeInBlocksLocked: "Base,MS"
   Volume: 800, type: float, display: true, formatter: Liter
+  Mass: 50, type: float, display: true, formatter: Kilogram
   BlockColor: "110,110,110"
   Category: Deco Blocks
   BlastParticleIndex: 10
@@ -2358,13 +2384,15 @@ HullCombatSmallBlocks
   Material: device
   Shape: ModelEntity
   ShowBlockName: true
+  CustomIcon: GravityGeneratorBlocksBACV
   MarketPrice: 7684, display: true
   # ModelOffset: "0,0.5,0"
-  Model: @models/Blocks/Mothership/gravitygeneratorMSPrefab
-  Mesh-Damage-1: Mesh/D0
-  Mesh-Damage-2: Mesh/D1
-  Mesh-Damage-3: Mesh/D2
-  Mesh-Damage-4: Mesh/D3
+  Model: @models/Blocks/GravityGenerators/GravityGeneratorBACVLargePrefab
+  #Model: @models/Blocks/Mothership/gravitygeneratorMSPrefab
+  #Mesh-Damage-1: Mesh/D0
+  #Mesh-Damage-2: Mesh/D1
+  #Mesh-Damage-3: Mesh/D2
+  #Mesh-Damage-4: Mesh/D3
   DropMeshfile: Entities/Misc/BagSmallPrefab
   Place: Free
   AllowPlacingAt: "Base,MS", display: true
@@ -2373,28 +2401,31 @@ HullCombatSmallBlocks
   Volume: 6500, type: float, display: true, formatter: Liter
   IsActivateable: true
   IsOxygenTight: false, display: true 
-  Info: bkiGravityGenerator, display: true
+  # Info: bkiGravityGenerator, display: true
+  Info: bkiGravityGeneratorBlocksPreviewInfo, display: true
+  TemplateRoot: GravityGeneratorBlocksBACV
   StackSize: 250
   BlockColor: "110,110,110"
   Category: Devices
-  HitPoints: 120, type: int, display: true
+  HitPoints: 240, type: int, display: true
   Mass: 32000, type: float, display: true, formatter: Kilogram
   EnergyIn: 150, type: int, display: true, formatter: Watt
-  CPUIn: 1000, type: int, display: true
+  CPUIn: 800, type: int, display: true
 
+  GravityGeneratorRadius: 75, type: int, display: true
   BlastParticleName: @rg_projectiles/RG_BlastPlasmaBlueL3
   BlastParticleIndex: 0
   # BlastParticleIndex: 10
   BlastRadius: 5
   BlastDamage: 1000
 
-  UnlockCost: 11, display: true
-  UnlockLevel: 7, display: true
-  TechTreeParent: ElevatorMS
-  TechTreeNames: "Base,Capital Vessel"
+  #UnlockCost: 11, display: true
+  #UnlockLevel: 7, display: true
+  #TechTreeParent: ElevatorMS
+  #TechTreeNames: "Base,Capital Vessel"
   
-  Radiation: 5, display: RadiationLevel    # Radiation (= Radiation Protection) already exists for Player Armor
-  Temperature: 32, display: true
+  Radiation: 20, display: RadiationLevel    # Radiation (= Radiation Protection) already exists for Player Armor
+  Temperature: -132, display: true
 }
 { +Block Id: 279, Name: LightSS01
   Class: Light
@@ -2779,6 +2810,7 @@ HullCombatSmallBlocks
   Material: water
   Shape: LiquidTerrain
   Mesh: water
+  XpFactor: 0
   Texture: 107
   ShowUser: No
   WindSpeed: 4
@@ -2802,6 +2834,7 @@ HullCombatSmallBlocks
   Material: lava
   Shape: LiquidTerrain
   Mesh: lava
+  XpFactor: 0
   Texture: 121
   AllowPlacingAt: "Base,MS", display: true
   ShowUser: No
@@ -3490,11 +3523,12 @@ HullCombatSmallBlocks
   Material: device
   Shape: ModelEntity
   ShowBlockName: true
-  Model: @models/Blocks/Mothership/WarpDriveTankPrefab
-  Mesh-Damage-1: Mesh/D0
-  Mesh-Damage-2: Mesh/D1
-  Mesh-Damage-3: Mesh/D2
-  Mesh-Damage-4: Mesh/D3
+  Model: @reforgedcontent/PentaxidTankCVT1RG
+  #Model: @models/Blocks/Mothership/WarpDriveTankPrefab
+  #Mesh-Damage-1: Mesh/D0
+  #Mesh-Damage-2: Mesh/D1
+  #Mesh-Damage-3: Mesh/D2
+  #Mesh-Damage-4: Mesh/D3
   DropMeshfile: Entities/Misc/BagSmallPrefab
   DropInventoryEntity: DropContainer
   Place: Free
@@ -3526,7 +3560,7 @@ HullCombatSmallBlocks
 
   UnlockCost: 13, display: true
   UnlockLevel: 10, display: true
-  TechTreeParent: GravityGeneratorMS
+  TechTreeParent: GravityGeneratorBlocksBACV
   TechTreeNames: "Base,Capital Vessel"
 
   WarpAccept: PentaxidCrystal
@@ -3702,6 +3736,7 @@ HullCombatSmallBlocks
   Class: NPCDialogue    
   Category: Deco Blocks
   NPCModelRotation: false
+  Group: cpgEquipment
   SizeInBlocks: "1,1,1", display: true
   SizeInBlocksLocked: "Base,MS"
   Place: Free
@@ -4126,6 +4161,7 @@ HullCombatSmallBlocks
   Material: water
   Shape: LiquidTerrain
   Mesh: water
+  XpFactor: 0
   Texture: 107
   ShowUser: No
   WindSpeed: 4
@@ -4231,6 +4267,7 @@ HullCombatSmallBlocks
   Material: water
   Shape: LiquidTerrain
   Mesh: water
+  XpFactor: 0
   Texture: 107
   ShowUser: No
   WindSpeed: 4
@@ -4256,6 +4293,7 @@ HullCombatSmallBlocks
   Material: water
   Shape: LiquidTerrain
   Mesh: water
+  XpFactor: 0
   Texture: 107
   ShowUser: No
   WindSpeed: 4
@@ -7830,7 +7868,7 @@ HullCombatSmallBlocks
   Model: @models2/Entities/Decorations/HolographicAIConsole/HolographicAIConsolePrefab
   DropMeshfile: Entities/Misc/BagSmallPrefab  
   Class: NPCDialogue    
-  Group: cpgCrewStationAlien
+  Group: cpgEquipment
   Category: Deco Blocks
   NPCModelRotation: false
   SizeInBlocks: "1,1,1", display: true
@@ -9757,13 +9795,16 @@ HullCombatSmallBlocks
   Mesh-Damage-3: Mesh/D2
   DropMeshfile: Entities/Misc/BagSmallPrefab
   Place: Free
+  Class: NPCDialogue
+  NPCModelRotation: false
+  Group: cpgEquipment
   AllowPlacingAt: "Base,MS", display: true
   SizeInBlocks: "2,2,1", display: true
   SizeInBlocksLocked: "Base,MS"
   Volume: 200, type: float, display: true, formatter: Liter
   Mass: 150, type: float, display: true, formatter: Kilogram
   Info: bkiGenNoFunction, display: true
-  IsAccessible: false, type: bool
+  IsAccessible: true, type: bool
   IsOxygenTight: false, display: true
   BlockColor: "110,110,110"
   Category: Deco Blocks
@@ -9778,11 +9819,13 @@ HullCombatSmallBlocks
   Model: @models/Blocks/Mothership/ConsoleLargeMS02Prefab
   SizeInBlocks: "2,1,1", display: true
   Volume: 100, type: float, display: true, formatter: Liter
+  Mass: 100, type: float, display: true, formatter: Kilogram
 }
 { +Block Id: 638, Name: ConsoleMapMS01, Ref: ConsoleLargeMS01
   Model: @models/Blocks/Mothership/ConsoleMapMS01Prefab
   SizeInBlocks: "1,1,1", display: true
   Volume: 50, type: float, display: true, formatter: Liter
+  Mass: 50, type: float, display: true, formatter: Kilogram
 }
 
 # Sprout
@@ -11321,11 +11364,12 @@ HullCombatSmallBlocks
   MarketPrice: 200, display: true
   Material: device
   Shape: ModelEntity
-  Model: @models/Blocks/Terrain/ConstructorSurvivalPrefab
-  Mesh-Damage-1: Mesh/D0
-  Mesh-Damage-2: Mesh/D1
-  Mesh-Damage-3: Mesh/D2
-  Mesh-Damage-4: Mesh/D3
+  Model: @models/Blocks/Devices/PortableConstructorFWNPrefab
+  #Model: @models/Blocks/Terrain/ConstructorSurvivalPrefab
+  #Mesh-Damage-1: Mesh/D0    #PortableConstructorPrefab does not have damage states
+  #Mesh-Damage-2: Mesh/D1
+  #Mesh-Damage-3: Mesh/D2
+  #Mesh-Damage-4: Mesh/D3
   DropMeshfile: Entities/Misc/BagSmallPrefab
   DropInventoryEntity: DropContainer
   Place: Free
@@ -11882,6 +11926,7 @@ HullCombatSmallBlocks
   IsAccessible: true, type: bool
   SizeInBlocks: "1,1,1", display: true
   Volume: 500, type: float, display: true, formatter: Liter
+  Mass: 50, type: float, display: true, formatter: Kilogram
 }
 # obsolete - but do not remove
 { +Block Id: 728, Name: ContainerAmmoSmall, Ref: ContainerAmmoLarge
@@ -14942,6 +14987,9 @@ HullCombatSmallBlocks
   Category: Deco Blocks
   TemplateRoot: ConsoleBlocks
   EnergyIn: 1, type: int, display: true, formatter: Watt
+  Class: NPCDialogue
+  NPCModelRotation: false
+  Group: cpgEquipment
 }
 { +Block Id: 951, Name: HoloScreen02, Ref: HoloScreen01
   Model: @models2/Entities/Decorations/HolographicScreens/HolographicScreen02Prefab
@@ -15011,11 +15059,12 @@ HullCombatSmallBlocks
   Material: device
   Shape: ModelEntity
   ShowBlockName: true
-  Model: @models/Blocks/Spaceship/ConstructorSVPrefab
-  Mesh-Damage-1: Mesh/D0
-  Mesh-Damage-2: Mesh/D1
-  Mesh-Damage-3: Mesh/D2
-  Mesh-Damage-4: Mesh/D3
+  Model: @models/Blocks/Devices/ConstructorMobileFWNPrefab #1.11 update
+  #Model: @models/Blocks/Spaceship/ConstructorSVPrefab
+  #Mesh-Damage-1: Mesh/D0      #ConstructorMobilePrefab does not have damage states
+  #Mesh-Damage-2: Mesh/D1      #ConstructorMobilePrefab does not have damage states
+  #Mesh-Damage-3: Mesh/D2      #ConstructorMobilePrefab does not have damage states
+  #Mesh-Damage-4: Mesh/D3     #ConstructorMobilePrefab does not have damage states
   DropMeshfile: Entities/Misc/BagSmallPrefab
   DropInventoryEntity: DropContainer
   TemplateRoot: ConstructorSV
@@ -15167,11 +15216,12 @@ HullCombatSmallBlocks
   Material: device
   MarketPrice: 120, display: true
   Shape: ModelEntity
-  Model: @models/Blocks/Terrain/OxygenGeneratorSmallPrefab
-  Mesh-Damage-1: Mesh/D0
-  Mesh-Damage-2: Mesh/D1
-  Mesh-Damage-3: Mesh/D2
-  Mesh-Damage-4: Mesh/D3
+  Model: @models/Blocks/Devices/PortableWaterO2CondenserFWNPrefab #1.11 update
+  #Model: @models/Blocks/Terrain/OxygenGeneratorSmallPrefab
+  #Mesh-Damage-1: Mesh/D0
+  #Mesh-Damage-2: Mesh/D1
+  #Mesh-Damage-3: Mesh/D2
+  #Mesh-Damage-4: Mesh/D3
   DropMeshfile: Entities/Misc/BagSmallPrefab
   DropInventoryEntity: DropContainer
   Place: Free
@@ -16277,7 +16327,8 @@ HullCombatSmallBlocks
   ADBMaxSpawner: 2
   ADBMaxActiveDrone: 2
   ADBMaxReserve: 13
-  ADBActionRadius: 500
+  ADBActionRadius: 1000
+  ADBDockingSpeedFac: 0.2
   ADBDroneAmmoType: DroneLargePlayer01Unit 
 
   #UnlockCost: 12, display: true
@@ -16758,12 +16809,18 @@ HullCombatSmallBlocks
   EnergyIn: 1, type: int, display: true, formatter: Watt
   BlockColor: "110,110,110"
   ShowUser: Yes
+  Class: NPCDialogue
+  NPCModelRotation: false
+  Group: cpgEquipment
 }
 { +Block Id: 1088, Name: ScifiMediaCenter, Ref: DecoTemplate
   TemplateRoot: ConsoleBlocks
   Model: @models2/Entities/Decorations/Sci-Fi_InteriorPack/ScifiMediaCenterPrefab
   EnergyIn: 1, type: int, display: true, formatter: Watt
   ShowUser: Yes
+  Class: NPCDialogue
+  NPCModelRotation: false
+  Group: cpgEquipment
 }
 { +Block Id: 1089, Name: HangarDoor7x5, Ref: HangarDoor10x5
   Model: @models/Blocks/Mothership/HangarDoor/HangarDoor7x5Prefab
@@ -16996,11 +17053,12 @@ HullCombatSmallBlocks
   Material: device
   Shape: ModelEntity
   MarketPrice: 42870, display: true
-  Model: @models/Blocks/Terrain/AutoMiningDeviceT1Prefab
-  Mesh-Damage-1: Mesh/geo/D0
-  Mesh-Damage-2: Mesh/geo/D1
-  Mesh-Damage-3: Mesh/geo/D2
-  Mesh-Damage-4: Mesh/geo/D3
+  Model: @models/Blocks/Devices/AutoMinerT1FWNPrefab
+  #Model: @models/Blocks/Terrain/AutoMiningDeviceT1Prefab
+  #Mesh-Damage-1: Mesh/geo/D0
+  #Mesh-Damage-2: Mesh/geo/D1
+  #Mesh-Damage-3: Mesh/geo/D2
+  #Mesh-Damage-4: Mesh/geo/D3
   DropMeshfile: Entities/Misc/BagSmallPrefab
   DropInventoryEntity: DropContainer
   Place: NoRotation, display: false
@@ -17040,7 +17098,8 @@ HullCombatSmallBlocks
   # Temperature: 30, display: true
 }
 { +Block Id: 1109, Name: AutoMiningDeviceT2, Ref: AutoMiningDeviceT1
-  Model: @models/Blocks/Terrain/AutoMiningDeviceT2Prefab
+  Model: @models/Blocks/Devices/AutoMinerT2FWNPrefab
+  #Model: @models/Blocks/Terrain/AutoMiningDeviceT2Prefab
   HitPoints: 400, type: int, display: true
   MarketPrice: 71244, display: true
   EnergyIn: 160, type: int, display: true, formatter: Watt  
@@ -17060,7 +17119,8 @@ HullCombatSmallBlocks
   # Temperature: 35, display: true
 }
 { +Block Id: 1110, Name: AutoMiningDeviceT3, Ref: AutoMiningDeviceT1
-  Model: @models/Blocks/Terrain/AutoMiningDeviceT3Prefab
+  Model: @models/Blocks/Devices/AutoMinerT3FWNPrefab
+  #Model: @models/Blocks/Terrain/AutoMiningDeviceT3Prefab
   HitPoints: 600, type: int, display: true
   MarketPrice: 106418, display: true
   EnergyIn: 320, type: int, display: true, formatter: Watt  
@@ -18814,7 +18874,6 @@ HullCombatSmallBlocks
   Model: @models/Blocks/WeaponsShip/DrillAttachmentT2RetractPrefab
   # Model: @models/Blocks/WeaponsShip/DrillAttachmentT2Prefab
   WeaponItem: DrillAttachmentT2Weapon
-  Damage: 30, display: true
   MarketPrice: 12164, display: true
   
   Volume: 62.5, type: float, display: true, formatter: Liter
@@ -21096,6 +21155,7 @@ HullCombatSmallBlocks
   Category: BuildingBlocks
   CanPlayersSpawnOn: false
   Info: bkiLavaBlock, display: true
+  XpFactor: 0
   /*Class: LiquidStatic /*/
   Material: lava
   Shape: LiquidBlock
@@ -21128,6 +21188,7 @@ HullCombatSmallBlocks
   Category: BuildingBlocks
   CanPlayersSpawnOn: false
   Info: bkiWaterBlock, display: true
+  XpFactor: 0
   /*Class: LiquidStatic /*/
   Material: water
   Shape: LiquidBlock
@@ -21624,11 +21685,12 @@ HullCombatSmallBlocks
   Material: device
   Shape: ModelEntity
   ShowBlockName: true
-  Model: @models/Blocks/Spaceship/ConstructorSVPrefab
-  Mesh-Damage-1: Mesh/D0
-  Mesh-Damage-2: Mesh/D1
-  Mesh-Damage-3: Mesh/D2
-  Mesh-Damage-4: Mesh/D3
+  Model: @models/Blocks/Devices/ConstructorMobileFWNPrefab
+  # Model: @models/Blocks/Spaceship/ConstructorSVPrefab
+  # Mesh-Damage-1: Mesh/D0
+  # Mesh-Damage-2: Mesh/D1
+  # Mesh-Damage-3: Mesh/D2
+  # Mesh-Damage-4: Mesh/D3
   DropMeshfile: Entities/Misc/BagSmallPrefab
   DropInventoryEntity: DropContainer
   TemplateRoot: ConstructorSV
@@ -22118,7 +22180,8 @@ HullCombatSmallBlocks
   Material: device
   Shape: ModelEntity
   MarketPrice: 80, display: true
-  Model: @models/Blocks/Terrain/MobileAirConPrefab
+  Model: @models/Blocks/Devices/PortableHeaterCoolerFWNPrefab
+  #Model: @models/Blocks/Terrain/MobileAirConPrefab
   # Mesh-Damage-1: Mesh/D0
   # Mesh-Damage-2: Mesh/D1
   # Mesh-Damage-3: Mesh/D2
@@ -24143,13 +24206,13 @@ HullCombatSmallBlocks
   Class: NPCDialogue
   Group: cpgCrewStationAlien
   Info: bkiZiraxCommander, display: true
-  AllowedInBlueprint: false, display: true
+  # AllowedInBlueprint: false, display: true
   IsAccessible: true, type: bool
   ShowBlockName: true
   # CanPickup: true
   TemplateRoot: ZiraxNPCBlocks
   Model: @models2/Entities/Decorations/DecoNPC/ZiraxCommanderDecoPrefab
-  RpFactor: 2
+  RpFactor: 0
   ShowUser: Yes
 }
 { +Block Id: 1645, Name: DancingAlien2, Ref: NPCAlienTemplate
@@ -26995,24 +27058,24 @@ HullCombatSmallBlocks
 }
 # SV / HV - no corridor shapes 
 { +Block Id: 1871, Name: PlasticExtendedSmall5, Ref: PlasticFullSmall
-  ChildShapes: "CubeLShape, CubeRoundTransitionleft, CubeRoundTransitionright, RampEHalf, CutCornerDLow, RampConnectorCleft, RampConnectorCright, NotchedBMedium, NotchedCLow, CutCornerD, CutCornerDMedium"
+  ChildShapes: "CubeLShape, CubeRoundTransitionleft, CubeRoundTransitionright, RampEHalf, CutCornerDLow, RampConnectorCleft, RampConnectorCright, NotchedBMedium, NotchedCLow, CutCornerD, CutCornerDMedium, CorridorWallA, CorridorEdgeA, CorridorPillarA, CorridorWallB, CorridorEdgeB, CorridorEdgeC, CorridorPillarB, CorridorPillarC, CorridorRoof, CorridorRoofCorner, CorridorRoofCornerRound, CorridorBulkyWallA, CorridorBulkyWallAWindowed, CorridorBulkyWallB, CorridorBulkyWallBWindowed, CorridorRampA, CorridorRampB, DoorframeA, DoorframeB, DoorframeC, CorridorRoofCornerInverted"
   UpgradeTo: HullExtendedSmall5, display: true
 }
 { +Block Id: 1872, Name: HullExtendedSmall5, Ref: HullFullSmall
-  ChildShapes: "CubeLShape, CubeRoundTransitionleft, CubeRoundTransitionright, RampEHalf, CutCornerDLow, RampConnectorCleft, RampConnectorCright, NotchedBMedium, NotchedCLow, CutCornerD, CutCornerDMedium"
+  ChildShapes: "CubeLShape, CubeRoundTransitionleft, CubeRoundTransitionright, RampEHalf, CutCornerDLow, RampConnectorCleft, RampConnectorCright, NotchedBMedium, NotchedCLow, CutCornerD, CutCornerDMedium, CorridorWallA, CorridorEdgeA, CorridorPillarA, CorridorWallB, CorridorEdgeB, CorridorEdgeC, CorridorPillarB, CorridorPillarC, CorridorRoof, CorridorRoofCorner, CorridorRoofCornerRound, CorridorBulkyWallA, CorridorBulkyWallAWindowed, CorridorBulkyWallB, CorridorBulkyWallBWindowed, CorridorRampA, CorridorRampB, DoorframeA, DoorframeB, DoorframeC, CorridorRoofCornerInverted"
   UpgradeTo: HullArmoredExtendedSmall5, display: true  
   DowngradeTo: PlasticExtendedSmall5
   HitPoints: 80, type: int, display: true
   Mass: 10, type: float, display: true, formatter: Kilogram
 }
 { +Block Id: 1873, Name: HullArmoredExtendedSmall5, Ref: HullArmoredFullSmall
-  ChildShapes: "CubeLShape, CubeRoundTransitionleft, CubeRoundTransitionright, RampEHalf, CutCornerDLow, RampConnectorCleft, RampConnectorCright, NotchedBMedium, NotchedCLow, CutCornerD, CutCornerDMedium"
+  ChildShapes: "CubeLShape, CubeRoundTransitionleft, CubeRoundTransitionright, RampEHalf, CutCornerDLow, RampConnectorCleft, RampConnectorCright, NotchedBMedium, NotchedCLow, CutCornerD, CutCornerDMedium, CorridorWallA, CorridorEdgeA, CorridorPillarA, CorridorWallB, CorridorEdgeB, CorridorEdgeC, CorridorPillarB, CorridorPillarC, CorridorRoof, CorridorRoofCorner, CorridorRoofCornerRound, CorridorBulkyWallA, CorridorBulkyWallAWindowed, CorridorBulkyWallB, CorridorBulkyWallBWindowed, CorridorRampA, CorridorRampB, DoorframeA, DoorframeB, DoorframeC, CorridorRoofCornerInverted"
   UpgradeTo: HullCombatExtendedSmall5, display: true
   HitPoints: 166, type: int, display: true
   Mass: 21, type: float, display: true, formatter: Kilogram
 }
 { +Block Id: 1874, Name: HullCombatExtendedSmall5, Ref: HullCombatFullSmall
-  ChildShapes: "CubeLShape, CubeRoundTransitionleft, CubeRoundTransitionright, RampEHalf, CutCornerDLow, RampConnectorCleft, RampConnectorCright, NotchedBMedium, NotchedCLow, CutCornerD, CutCornerDMedium"
+  ChildShapes: "CubeLShape, CubeRoundTransitionleft, CubeRoundTransitionright, RampEHalf, CutCornerDLow, RampConnectorCleft, RampConnectorCright, NotchedBMedium, NotchedCLow, CutCornerD, CutCornerDMedium, CorridorWallA, CorridorEdgeA, CorridorPillarA, CorridorWallB, CorridorEdgeB, CorridorEdgeC, CorridorPillarB, CorridorPillarC, CorridorRoof, CorridorRoofCorner, CorridorRoofCornerRound, CorridorBulkyWallA, CorridorBulkyWallAWindowed, CorridorBulkyWallB, CorridorBulkyWallBWindowed, CorridorRampA, CorridorRampB, DoorframeA, DoorframeB, DoorframeC, CorridorRoofCornerInverted"
   HitPoints: 300, type: int, display: true
   Mass: 42, type: float, display: true, formatter: Kilogram
 }
@@ -28425,69 +28488,69 @@ HullCombatSmallBlocks
 ========================= Material Extended 6 ============================
 # BA / CV
 { +Block Id: 2035, Name: WoodExtended6, Ref: WoodFull
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
   UpgradeTo: ConcreteExtended6, display: true
 }  
 { +Block Id: 2036, Name: ConcreteExtended6, Ref: ConcreteFull
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
   UpgradeTo: ConcreteArmoredExtended6, display: true
 }
 { +Block Id: 2037, Name: ConcreteArmoredExtended6, Ref: ConcreteArmoredFull
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
 }
 { +Block Id: 2038, Name: PlasticExtendedLarge6, Ref: PlasticFullLarge
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
   UpgradeTo: HullExtendedLarge6, display: true
 }
 { +Block Id: 2039, Name: HullExtendedLarge6, Ref: HullFullLarge
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
   UpgradeTo: HullArmoredExtendedLarge6, display: true
   DowngradeTo: PlasticExtendedLarge6
   HitPoints: 495, type: int, display: true
   Mass: 666, type: float, display: true, formatter: Kilogram
 }
 { +Block Id: 2040, Name: HullArmoredExtendedLarge6, Ref: HullArmoredFullLarge
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
   UpgradeTo: HullCombatExtendedLarge6, display: true
   HitPoints: 1065, type: int, display: true
   Mass: 1632, type: float, display: true, formatter: Kilogram
 }
 { +Block Id: 2041, Name: HullCombatExtendedLarge6, Ref: HullCombatFullLarge
   UpgradeTo: AlienExtendedLarge6, display: true
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
   HitPoints: 2331, type: int, display: true
   Mass: 2530, type: float, display: true, formatter: Kilogram
 }
 { +Block Id: 2042, Name: AlienExtended6, Ref: AlienFull
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
 }
 { +Block Id: 2043, Name: AlienExtendedLarge6, Ref: AlienFullLarge
   HitPoints: 2500, type: int, display: true
   Mass: 1733, type: float, display: true, formatter: Kilogram
   CPUIn: 0, type: int, display: false
   DowngradeTo: HullCombatExtendedLarge6
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
 }
 # SV / HV - no corridor shapes 
 { +Block Id: 2044, Name: PlasticExtendedSmall6, Ref: PlasticFullSmall
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
   UpgradeTo: HullExtendedSmall6, display: true
 }
 { +Block Id: 2045, Name: HullExtendedSmall6, Ref: HullFullSmall
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
   UpgradeTo: HullArmoredExtendedSmall6, display: true  
   DowngradeTo: PlasticExtendedSmall6
   HitPoints: 90, type: int, display: true
   Mass: 12, type: float, display: true, formatter: Kilogram
 }
 { +Block Id: 2046, Name: HullArmoredExtendedSmall6, Ref: HullArmoredFullSmall
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
   UpgradeTo: HullCombatExtendedSmall6, display: true
   HitPoints: 187, type: int, display: true
   Mass: 24, type: float, display: true, formatter: Kilogram
 }
 { +Block Id: 2047, Name: HullCombatExtendedSmall6, Ref: HullCombatFullSmall
-  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, CutCone, RampRoundMediumTransition, RampRoundConnectorC, NotchedDright, NotchedDleft, RampABDouble, RampRoundDTriple"
+  ChildShapes: "WallMediumDouble, RampBDouble, SmallCornerRoundB2, CubeSteppedEdge, CubeQuarterEdge, CubeHalfRamp, CubeHalfCubeConnector, CornerSmallCMediumLow, WallLowDouble, CubeRoundConnectorAMedium, CubeRoundConnectorALow, CornerSmallBMediumLow, WallSlopedBold, CylinderCubeConnector, CylinderCubeHalfConnector, CylinderWallConnector, CubeHalfEdge, CutCornerFL, CutCornerFR, RoundedRampBLeft, RoundedRampBRight, HalfCylinder90Degree, HalfCylinderConnectorA, Cylinder90Degree, HalfCylinderEdge, HalfCylinderConnectorB, RampRoundMediumTransitionLeft, RampRoundMediumTransitionRight, RampRoundConnectorCLeft, RampRoundConnectorCRight, NotchedDright, NotchedDleft"
   HitPoints: 337, type: int, display: true
   Mass: 48, type: float, display: true, formatter: Kilogram
 }
@@ -28500,55 +28563,55 @@ HullCombatSmallBlocks
 # ==========================================================================
 # BA / CV
 { Block Name: WoodExtended7, Ref: WoodFull
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
   UpgradeTo: ConcreteExtended7, display: true
 }  
 { Block Name: ConcreteExtended7, Ref: ConcreteFull
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
   UpgradeTo: ConcreteArmoredExtended7, display: true
 }
 { Block Name: ConcreteArmoredExtended7, Ref: ConcreteArmoredFull
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
 }
 { Block Name: PlasticExtendedLarge7, Ref: PlasticFullLarge
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
   UpgradeTo: HullExtendedLarge7, display: true
 }
 { Block Name: HullExtendedLarge7, Ref: HullFullLarge
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
   UpgradeTo: HullArmoredExtendedLarge7, display: true
   DowngradeTo: PlasticExtendedLarge7
 }
 { Block Name: HullArmoredExtendedLarge7, Ref: HullArmoredFullLarge
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
   UpgradeTo: HullCombatExtendedLarge7, display: true
 }
 { Block Name: HullCombatExtendedLarge7, Ref: HullCombatFullLarge
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
   UpgradeTo: AlienExtendedLarge7, display: true
 }
 { Block Name: AlienExtended7, Ref: AlienFull
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
 }
 { Block Name: AlienExtendedLarge7, Ref: AlienFullLarge
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
 }
-# SV / HV - no corridor shapes 
+# SV / HV
 { Block Name: PlasticExtendedSmall7, Ref: PlasticFullSmall
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
   UpgradeTo: HullExtendedSmall7, display: true
 }
 { Block Name: HullExtendedSmall7, Ref: HullFullSmall
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
   UpgradeTo: HullArmoredExtendedSmall7, display: true  
   DowngradeTo: PlasticExtendedSmall7
 }
 { Block Name: HullArmoredExtendedSmall7, Ref: HullArmoredFullSmall
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
   UpgradeTo: HullCombatExtendedSmall7, display: true
 }
 { Block Name: HullCombatExtendedSmall7, Ref: HullCombatFullSmall
-  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone"
+  ChildShapes: "RoundedA, RoundedRampA, RoundedEdge, RoundedB, RampABDouble, RampRoundDTriple, CutCone, CutCornerBLeft, CutCornerBRight, RampConnectorF2Left, RampConnectorF2Right, NotchedELeft, NotchedERight, CornerHalfDLeft, CornerHalfDRight"
 }
 #===========================
 
@@ -28974,6 +29037,7 @@ HullCombatSmallBlocks
   IsAccessible: true, type: bool
  # IsLockable: true
   IsOxygenTight: false, display: true
+  AllowedInBlueprint: false, display: true
  # TemplateRoot: ConsoleBlocks
   Mass: 65, type: float, display: true, formatter: Kilogram
   Volume: 12, type: float, display: true, formatter: Liter
@@ -28985,6 +29049,142 @@ HullCombatSmallBlocks
   BlastParticleIndex: 11
   BlastRadius: 1
   BlastDamage: 80
+}
+{ +Block Name: TribalSkeletonAnimalChest, Ref: DecoTemplate
+  Material: woodblock
+  Model: @models2/Entities/Decorations/TribalAssets/TribalSkeletonAnimalChestPrefab
+  SizeInBlocks: "1,1,1", display: true
+  TemplateRoot: TribalSkeletonAnimalChest
+  PickupTarget: TribalSkeletonAnimalChest
+}
+{ +Block Name: DeadAnimalBlocks 
+  Info: bkiDeadAnimalBlocks, display: true
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!  
+  DropInventoryEntity: DropContainer  
+  
+  # Class: NPCDialogue    
+  # NPCModelRotation: false
+  Class: Container  
+  IndexName: Container
+  Category: Deco Blocks
+  
+  BlockColor: "110,110,110"
+  Material: human
+  Shape: ModelEntity 
+  Place: Free
+  # ModelOffset: "0,0.5,0"
+  
+  
+  SizeInBlocks: "1,1,1", display: true
+  AllowPlacingAt: "Base,MS", display: false
+  SizeInBlocksLocked: "Base,MS"      
+  AllowedInBlueprint: false, display: true
+  RepairToTemplate: false, display: true
+  IsAccessible: true, type: bool
+  IsOxygenTight: false, display: true
+  
+  StackSize: 1000
+  HitPoints: 250, type: int, display: true
+  Mass: 80, type: float, display: true, formatter: Kilogram
+  Volume: 40, type: float, display: true, formatter: Liter
+  EnergyIn: 1, type: int, display: false, formatter: Watt  
+  VolumeCapacity: 8000, type: float, display: true, formatter: Liter       
+  XpFactor: 0  
+
+  BlastParticleIndex: 14
+  BlastRadius: 1
+  BlastDamage: 0  
+  
+  ChildBlocks: "DeadRipperDog"
+}
+{ +Block Name: DeadRipperDog, Ref: DeadAnimalBlocks  
+  Model: @models2/Entities/Decorations/DeadAnimals/RipperDogDeadStaticPrefab   
+  LootList: 20   
+  Shape: ModelEntity      
+  IsLockable: true
+  Group: cpgCrewStationAlien
+  TemplateRoot: TribalSkeletonAnimalChest
+  PickupTarget: Meat      
+  HitPoints: 50, type: int, display: false    
+}
+{ +Block Name: HoverbikeStatic 
+  Model: @models2/Entities/Decorations/Hoverbikes/HoverbikeStaticPrefab
+  Info: bkiHoverbikeStatic, display: true
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!  
+  DropInventoryEntity: DropContainer  
+  
+  # Class: NPCDialogue    
+  # NPCModelRotation: false
+  Class: PassengerSeat  
+  # IndexName: Container
+  Category: Deco Blocks
+  
+ # TemplateRoot: PlayerBike
+  PickupTarget: PlayerBike    #Gives the player back a usable playerbike
+  
+  BlockColor: "110,110,110"
+  Material: device
+  Shape: ModelEntity 
+  Place: Free
+  # ModelOffset: "0,0.5,0"
+  CanPickup: true
+  
+  SizeInBlocks: "1,1,1", display: true
+  AllowPlacingAt: "Base,MS", display: false
+  SizeInBlocksLocked: "Base,MS"      
+  AllowedInBlueprint: false, display: true
+  RepairToTemplate: false, display: true
+  #IsAccessible: true, type: bool
+  IsOxygenTight: false, display: true
+  
+  StackSize: 100
+  HitPoints: 100, type: int, display: true
+  Mass: 60, type: float, display: true, formatter: Kilogram
+  Volume: 40, type: float, display: true, formatter: Liter
+  EnergyIn: 1, type: int, display: false, formatter: Watt  
+  # VolumeCapacity: 8000, type: float, display: true, formatter: Liter       
+  MarketPrice: 1200, display: true
+  XpFactor: 0  
+  RPFactor: 0
+
+  BlastParticleIndex: 11
+  BlastRadius: 2
+  BlastDamage: 80  
+  
+  # ChildBlocks: "HoverbikeStatic"
+}
+{ +Block Name: HoverbikeDestroyedStatic, Ref: HoverbikeStatic  
+  Info: bkiHoverbikeDestroyedStatic, display: true
+  PickupTarget: PlayerBikeKit
+  Model: @models2/Entities/Decorations/Hoverbikes/HoverbikeDestroyedStaticPrefab      
+}
+
+{ +Block Name: HoverbikeHowlerStatic, Ref: HoverbikeStatic  
+  Info: bkiHoverbikeHowlerStatic, display: true
+  PickupTarget: HoverbikeHowler    #Gives the player back a usable playerbike
+  MarketPrice: 14000, display: true
+  Model: @models2/Entities/Decorations/Hoverbikes/HoverbikeHowlerStaticPrefab      
+}
+
+{ +Block Name: HoverbikeHunterStatic, Ref: HoverbikeStatic  
+  Info: bkiHoverbikeHunterStatic, display: true
+  PickupTarget: HoverbikeHunter    #Gives the player back a usable playerbike
+  MarketPrice: 12500, display: true
+  Model: @models2/Entities/Decorations/Hoverbikes/HoverbikeHunterStaticPrefab      
+}
+
+{ +Block Name: HoverbikeSpeedstarStatic, Ref: HoverbikeStatic  
+  Info: bkiHoverbikeSpeedstarStatic, display: true
+  MarketPrice: 15000, display: true
+  PickupTarget: HoverbikeSpeedstar    #Gives the player back a usable playerbike
+  Model: @models2/Entities/Decorations/Hoverbikes/HoverbikeSpeedstarStaticPrefab      
+}
+
+{ +Block Name: HoverbikeWaspStatic, Ref: HoverbikeStatic  
+  Info: bkiHoverbikeWaspStatic, display: true
+  MarketPrice: 10000, display: true
+  PickupTarget: HoverbikeWasp    #Gives the player back a usable playerbike
+  Model: @models2/Entities/Decorations/Hoverbikes/HoverbikeWaspStaticPrefab      
 }
 # === Heavy Windows with ornaments ===
 { Block Name: HeavyWindowDetailedBlocks
@@ -31515,7 +31715,7 @@ HullCombatSmallBlocks
   
   UnlockCost: 12
   UnlockLevel: 10
-  TechTreeParent: GravityGeneratorMS
+  TechTreeParent: GravityGeneratorBlocksBACV
   TechTreeNames: "Base,Capital Vessel"
 }
 # ============ BA Shield Generators ===========
@@ -32586,7 +32786,7 @@ HullCombatSmallBlocks
   Mass: 4900, type: float, display: true, formatter: Kilogram
   Info: bkiTurretHVPlasma, display: true 
   IsOxygenTight: varies, display: true
-  UpgradeTo: TurretGVPlasmaBlocks, display: true
+  DowngradeTo: TurretGVPlasmaBlocks, display: true
 
   UnlockCost: 10, display: true
   UnlockLevel: 12, display: true
@@ -33979,7 +34179,7 @@ HullCombatSmallBlocks
   
   UnlockCost: 8, display: true
   UnlockLevel: 10, display: true
-  TechTreeParent: GravityGeneratorMS
+  TechTreeParent: GravityGeneratorBlocksBACV
   TechTreeNames: "Base,Capital Vessel"
 }
 { Block Name: ShieldChargerLarge
@@ -34024,7 +34224,7 @@ HullCombatSmallBlocks
   
   UnlockCost: 8, display: true
   UnlockLevel: 10, display: true
-  TechTreeParent: GravityGeneratorMS
+  TechTreeParent: GravityGeneratorBlocksBACV
   TechTreeNames: "Base,Capital Vessel"
 }
 { Block Name: ShieldCapacitorSmall
@@ -36564,6 +36764,159 @@ HullCombatSmallBlocks
   HitPoints: 360, type: int, display: true
   Mass: 80, type: float, display: true, formatter: Kilogram
 }
+
+# ======= DECO & Furnishings =====
+
+{ +Block Name: DecoIndoorTrees      # Deco Tree
+  Material: metallight
+  Shape: Invisible
+  BlockColor: "110,110,110"
+  #Model: @models2/Entities/Decorations/Trees/Alien_Plant_01_1DecoPrefab  
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!
+  Place: Free
+  AllowPlacingAt: "Base,MS", display: true
+  SizeInBlocks: "1,2,1", display: true
+  SizeInBlocksLocked: "Base,MS"
+  Volume: 10, type: float, display: true, formatter: Liter  
+  Mass: 14, type: float, display: true, formatter: Kilogram
+  HitPoints: 15, type: int, display: true
+  Info: bkiDecoTrees, display: true
+  IsAccessible: false, type: bool
+  StackSize: 2000  
+  # ModelOffset: "0,0.5,0"
+  Category: Deco Blocks 
+  
+  MarketPrice: 70, display: true
+  XpFactor: 0  
+  RPFactor: 0
+  
+  CanPickup: true
+  ChildBlocks: "Alien_Plant_01_1Deco, Alien_ShroomTree_01_3Deco, Alien_Shroom_plant2_1Deco, Alien_Plant_12Deco, AlienDesertPlantDeco, Palmetto_Sabal_Desktop_FallDeco, Alien_ShroomTree_02_1Deco, Alien_Tree_09_1Deco, Alien_Plant_06_2Deco, Palm_Coconut_Desktop_2_SpringDeco, Alien_Plant_14Deco, OmicronPalmGreenDeco, Alien_Plant_16Deco, Alien_Plant_04Deco, Cactus2Deco, UmbrellaTreeDeco, Alien_Plant_8_4Deco, Alien_Plant_11_2Deco, Alien_Plant_02_2Deco, Alien_Plant_03_2Deco"  #max 32 entries
+  
+  UnlockCost: 0
+  UnlockLevel: 1 
+  TechTreeNames: ""
+}
+
+{ +Block Name: Alien_Plant_01_1Deco 
+  Material: metallight
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_Plant_01_1DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!
+  Place: Free
+  AllowPlacingAt: "Base,MS", display: true
+  SizeInBlocks: "1,2,1", display: true
+  SizeInBlocksLocked: "Base,MS"
+  Volume: 10, type: float, display: true, formatter: Liter  
+  Mass: 14, type: float, display: true, formatter: Kilogram
+  HitPoints: 15, type: int, display: true
+  Info: bkiDecoTrees, display: true
+  IsAccessible: false, type: bool 
+  # ModelOffset: "0,0.5,0"
+  Category: Deco Blocks 
+  CPUIn: 0, type: int, display: false
+  
+  MarketPrice: 70, display: true
+  XpFactor: 0  
+  RPFactor: 0
+}
+{ +Block Name: Alien_ShroomTree_01_3Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_ShroomTree_01_3DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Alien_Shroom_plant2_1Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_Shroom_plant2_1DecoPrefab
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Alien_Plant_12Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_Plant_12DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: AlienDesertPlantDeco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/AlienDesertPlantDecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Palmetto_Sabal_Desktop_FallDeco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Palmetto_Sabal_Desktop_FallDecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Alien_ShroomTree_02_1Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_ShroomTree_02_1DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Alien_Tree_09_1Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_Tree_09_1DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Alien_Plant_06_2Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_Plant_06_2DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Palm_Coconut_Desktop_2_SpringDeco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Palm_Coconut_Desktop_2_SpringDecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Alien_Plant_14Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_Plant_14DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: OmicronPalmGreenDeco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/OmicronPalmGreenDecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Alien_Plant_16Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_Plant_16DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Alien_Plant_04Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_Plant_04DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Cactus2Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Cactus2DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: UmbrellaTreeDeco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/UmbrellaTreeDecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Alien_Plant_8_4Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_Plant_8_4DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Alien_Plant_11_2Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_Plant_11_2DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Alien_Plant_02_2Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_Plant_02_2DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+{ +Block Name: Alien_Plant_03_2Deco, Ref: Alien_Plant_01_1Deco  
+  Shape: ModelEntity 
+  Model: @models2/Entities/Decorations/Trees/Alien_Plant_03_2DecoPrefab    
+  TemplateRoot: DecoIndoorTrees
+}
+
 # ============== New Trees and Deco 1.8 ====================
 { Block Name: Alien_Dead_trunk_01
   Material: woodhard
@@ -40675,6 +41028,237 @@ HullCombatSmallBlocks
   }
 }
 
+## ========== Gravity Generators
+{ Block Name: GravityGeneratorBlocksBACV
+  Info: bkiGravityGeneratorBlocks, display: true
+  
+  IndexName: Gravity
+  Group: cpgGravityGenerator  
+  Category: Devices  
+  
+  Material: device
+
+  Mass: 10000, type: float, display: true, formatter: Kilogram
+  Volume: 1600, type: float, display: true, formatter: Liter
+  MarketPrice: 8292, display: true
+  
+  IsOxygenTight: false, display: true    #all of the group!
+  StackSize: 250
+  
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab
+  
+  Shape: Invisible
+  ShowBlockName: true
+  BlockColor: "110,110,110"
+ 
+  Place: Free
+  AllowPlacingAt: "Base,MS", display: true
+
+  UnlockCost: 11, display: true
+  UnlockLevel: 7, display: true
+  TechTreeParent: ElevatorMS
+  TechTreeNames: "Base,Capital Vessel"
+  
+  ChildBlocks: "GravityGeneratorMS, GravityGeneratorBACVMedium, GravityGeneratorBACVSmall, GravityGeneratorBACVVerySmall"
+}
+
+{ Block Name: GravityGeneratorBACVMedium, Ref: GravityGeneratorMS
+  HitPoints: 160, type: int, display: true 
+  EnergyIn: 100, type: int, display: true, formatter: Watt
+  CPUIn: 400, type: int, display: true
+  Mass: 7500, type: float, display: true, formatter: Kilogram
+  
+  GravityGeneratorRadius: 50, type: int, display: true
+  
+  Model: @models/Blocks/GravityGenerators/GravityGeneratorBACVMediumPrefab
+  SizeInBlocks: "2,1,2", display: true   
+
+  BlastParticleName: @rg_projectiles/RG_BlastPlasmaBlueL3
+  BlastParticleIndex: 0
+  BlastRadius: 4
+  BlastDamage: 150 
+  
+  Radiation: 16, display: RadiationLevel 
+  Temperature: -104, display: true
+}
+
+{ Block Name: GravityGeneratorBACVSmall, Ref: GravityGeneratorMS 
+  HitPoints: 120, type: int, display: true 
+  EnergyIn: 75, type: int, display: true, formatter: Watt
+  CPUIn: 200, type: int, display: true
+  Mass: 5000, type: float, display: true, formatter: Kilogram
+  
+  GravityGeneratorRadius: 25, type: int, display: true
+  
+  Model: @models/Blocks/GravityGenerators/GravityGeneratorBACVSmallPrefab
+  SizeInBlocks: "1,1,1", display: true   
+
+  BlastParticleName: @rg_projectiles/RG_BlastPlasmaBlueL3
+  BlastParticleIndex: 0
+  BlastRadius: 3
+  BlastDamage: 100 
+  
+  Radiation: 12, display: RadiationLevel 
+  Temperature: -84, display: true
+}
+
+{ Block Name: GravityGeneratorBACVVerySmall, Ref: GravityGeneratorMS 
+  HitPoints: 80, type: int, display: true 
+  EnergyIn: 50, type: int, display: true, formatter: Watt
+  CPUIn: 100, type: int, display: true
+  Mass: 2500, type: float, display: true, formatter: Kilogram
+  
+  GravityGeneratorRadius: 12, type: int, display: true
+  
+  Model: @models/Blocks/GravityGenerators/GravityGeneratorBACVVerySmallPrefab
+  SizeInBlocks: "1,1,1", display: true   
+
+  BlastParticleIndex: 4
+  BlastRadius: 2
+  BlastDamage: 75 
+  
+  Radiation: 8, display: RadiationLevel 
+  Temperature: -62, display: true
+}
+
+## Gravity Generators SVHV
+
+{ Block Name: GravityGeneratorBlocksSVHV
+  Info: bkiGravityGeneratorBlocks, display: true
+  
+  IndexName: Gravity
+  Group: cpgGravityGenerator  
+  Category: Devices  
+  
+  Material: device
+
+  Mass: 500, type: float, display: true, formatter: Kilogram
+  Volume: 240, type: float, display: true, formatter: Liter
+  MarketPrice: 3824, display: true
+  
+  IsOxygenTight: false, display: true
+  StackSize: 250
+  
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab
+  
+  Shape: Invisible
+  ShowBlockName: true
+  BlockColor: "110,110,110"
+ 
+  Place: Free
+  AllowPlacingAt: "SS,GV", display: true
+
+  UnlockCost: 11, display: true
+  UnlockLevel: 7, display: true
+  # TechTreeParent: GeneratorBA
+  TechTreeNames: "Small Vessel,Hover Vessel"
+ 
+ ChildBlocks: "GravityGeneratorSVHVLarge, GravityGeneratorSVHVMedium, GravityGeneratorSVHVSmall, GravityGeneratorSVHVVerySmall"
+}
+
+
+{ Block Name: GravityGeneratorSVHVLarge  
+  Info: bkiGravityGeneratorBlocksPreviewInfo, display: true
+  CustomIcon: GravityGeneratorBlocksSVHV
+  
+  IndexName: Gravity
+  Group: cpgGravityGenerator  
+  Category: Devices  
+  TemplateRoot: GravityGeneratorBlocksSVHV
+  
+  Material: device
+
+  HitPoints: 100, type: int, display: true 
+  EnergyIn: 125, type: int, display: true, formatter: Watt
+  CPUIn: 250, type: int, display: true
+  Mass: 1000, type: float, display: true, formatter: Kilogram
+  
+  GravityGeneratorRadius: 12, type: int, display: true
+ 
+  IsActivateable: true
+  IsOxygenTight: false, display: true 
+  
+  Model: @models/Blocks/GravityGenerators/GravityGeneratorSVHVLargePrefab
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!
+  
+  Shape: ModelEntity 
+  ShowBlockName: true
+  BlockColor: "110,110,110"
+ 
+  Place: Free
+  AllowPlacingAt: "SS,GV", display: true
+  SizeInBlocks: "2,2,2", display: true 
+
+  BlastParticleName: @rg_projectiles/RG_BlastPlasmaBlueL3
+  BlastParticleIndex: 0
+  BlastRadius: 3
+  BlastDamage: 240 
+  
+  Radiation: 10, display: RadiationLevel     
+  Temperature: -82, display: true
+}
+
+{ Block Name: GravityGeneratorSVHVMedium, Ref: GravityGeneratorSVHVLarge     
+
+  HitPoints: 75, type: int, display: true 
+  EnergyIn: 100, type: int, display: true, formatter: Watt
+  CPUIn: 200, type: int, display: true
+  Mass: 750, type: float, display: true, formatter: Kilogram
+  
+  GravityGeneratorRadius: 8, type: int, display: true
+  
+  Model: @models/Blocks/GravityGenerators/GravityGeneratorSVHVMediumPrefab
+  SizeInBlocks: "2,1,2", display: true   
+
+  BlastParticleName: @rg_projectiles/RG_BlastPlasmaBlueL3
+  BlastParticleIndex: 0
+  BlastRadius: 3
+  BlastDamage: 200 
+  
+  Radiation: 8, display: RadiationLevel 
+  Temperature: -63, display: true
+}
+{ Block Name: GravityGeneratorSVHVSmall, Ref: GravityGeneratorSVHVLarge    
+
+  HitPoints: 50, type: int, display: true 
+  EnergyIn: 75, type: int, display: true, formatter: Watt
+  CPUIn: 150, type: int, display: true
+  Mass: 500, type: float, display: true, formatter: Kilogram
+  
+  GravityGeneratorRadius: 4, type: int, display: true
+  
+  Model: @models/Blocks/GravityGenerators/GravityGeneratorSVHVSmallPrefab
+  SizeInBlocks: "1,1,1", display: true   
+
+  BlastParticleName: @rg_projectiles/RG_BlastPlasmaBlueL3
+  BlastParticleIndex: 0
+  BlastRadius: 2
+  BlastDamage: 160 
+  
+  Radiation: 6, display: RadiationLevel 
+  Temperature: -41, display: true
+}
+{ Block Name: GravityGeneratorSVHVVerySmall, Ref: GravityGeneratorSVHVLarge    
+
+  HitPoints: 25, type: int, display: true 
+  EnergyIn: 50, type: int, display: true, formatter: Watt
+  CPUIn: 100, type: int, display: true
+  Mass: 250, type: float, display: true, formatter: Kilogram
+  
+  GravityGeneratorRadius: 2, type: int, display: true
+  
+  Model: @models/Blocks/GravityGenerators/GravityGeneratorSVHVVerySmallPrefab
+  SizeInBlocks: "1,1,1", display: true   
+
+  BlastParticleName: @rg_projectiles/RG_BlastPlasmaBlueL3
+  BlastParticleIndex: 0
+  BlastRadius: 2
+  BlastDamage: 120 
+  
+  Radiation: 4, display: RadiationLevel 
+  Temperature: -27, display: true
+}
+
 
 # ============================================================================================================================================================================
 # ========================================================================================================================== Project Eden Custom Blocks
@@ -40947,6 +41531,7 @@ HullCombatSmallBlocks
   AllowPlacingAt: "Base,MS", display: true
   SizeInBlocks: "3,1,3", display: true
   SizeInBlocksLocked: "Base"
+  AllowedInBlueprint: false, display: true
   Volume: 800000, type: float, display: true, formatter: Liter
   Mass: 5615, type: float, display: true, formatter: Kilogram
   IsActivateable: true
@@ -41192,7 +41777,7 @@ HullCombatSmallBlocks
   # AmmoType: PulseLaserChargeMSWeapon, display: true
   # ReloadDelay: 1, display: true
   # ROF: 0.6, type: float, display: true, formatter: ROF
-
+  Zoom: 2, type: float
   UnlockCost: -1
   UnlockLevel: 1
   TechTreeParent: ""
@@ -41352,7 +41937,7 @@ HullCombatSmallBlocks
   Group: cpgTurret
   Material: metalhard
   Shape: Turret
-  Place: Face
+  Place: Free
   Model: @models/Blocks/Turrets/TurretMSMinigunPrefab
   DropMeshfile: Entities/Misc/BagSmallPrefab
   SoundOnEnter: UseActions/DOOROpen02
@@ -41488,11 +42073,10 @@ HullCombatSmallBlocks
 
 # CV Ice Mining Drill Turret
 { +Block Name: Eden_DrillIceTurretCV
-  CustomIcon: TurretMSDrill
   AllowedInBlueprint: true, display: true
   Class: TurretManual
   IndexName: Turret
-  Group: EdencpgDrillTurret
+  Group: EdencpgIceTurret
   Material: metalhard
   Shape: Turret
   Place: Face
@@ -41502,7 +42086,7 @@ HullCombatSmallBlocks
   DropMeshfile: Entities/Misc/BagSmallPrefab
   SoundOnEnter: UseActions/DOOROpen02
   SoundRotate: Weapons/Turret/TurretRotateNormal
-  AllowPlacingAt: "Base,MS", display: true
+  AllowPlacingAt: MS, display: true
   SizeInBlocks: "3,1,3", display: true
   # SizeInBlocks: "5,2,5", display: true
   SizeInBlocksLocked: "Base,MS"
@@ -41542,7 +42126,6 @@ HullCombatSmallBlocks
 
 # CV Rich Asteroid Mining Drill Turret
 { +Block Name: Eden_DrillTurretAutoCV
-  CustomIcon: TurretMSDrill
   AllowedInBlueprint: true, display: true
   Class: TurretManual
   IndexName: Turret
@@ -41556,7 +42139,7 @@ HullCombatSmallBlocks
   DropMeshfile: Entities/Misc/BagSmallPrefab
   SoundOnEnter: UseActions/DOOROpen02
   SoundRotate: Weapons/Turret/TurretRotateNormal
-  AllowPlacingAt: "Base,MS", display: true
+  AllowPlacingAt: MS, display: true
   SizeInBlocks: "3,1,3", display: true
   # SizeInBlocks: "5,2,5", display: true
   SizeInBlocksLocked: "Base,MS"
@@ -41596,7 +42179,6 @@ HullCombatSmallBlocks
 
 # CV Rich Asteroid Strip Mining Turret
 { +Block Name: Eden_DrillTurretAutoCVT2
-  CustomIcon: TurretMSDrill
   AllowedInBlueprint: true, display: true
   Class: TurretManual
   IndexName: Turret
@@ -41610,7 +42192,7 @@ HullCombatSmallBlocks
   DropMeshfile: Entities/Misc/BagSmallPrefab
   SoundOnEnter: UseActions/DOOROpen02
   SoundRotate: Weapons/Turret/TurretRotateNormal
-  AllowPlacingAt: "Base,MS", display: true
+  AllowPlacingAt: MS, display: true
   # SizeInBlocks: "3,1,3", display: true
   SizeInBlocks: "5,2,5", display: true
   SizeInBlocksLocked: "Base,MS"
@@ -41692,6 +42274,60 @@ HullCombatSmallBlocks
   # TechTreeParent: ""
   # TechTreeNames: "Hidden"
 # }
+  # WeaponItem: TurretEnemyLaserWeaponRed
+
+# Sentry Alarm
+{ +Block Name: Eden_TurretAlarm
+  Class: TurretManual
+  IndexName: Turret
+  # CustomIcon: TurretEnemyBlack
+  Group: cpgAlarm
+  Material: metal
+  Shape: Turret
+  Place: Free
+  BlockColor: "110,110,110"
+  # Model: @models/Blocks/Turrets/SentryGuns/sentryGun03Prefab
+  # Model: @models/Blocks/Turrets/SentryGuns/SentryGunHumanPrefab
+  # Model: @models/Blocks/Turrets/TurretEnemyRedPrefab
+  Model: @models/Blocks/Turrets/TurretEnemyBlackPrefab
+  # Mesh-Damage-1: Mesh/D0
+  # Mesh-Damage-2: Mesh/D1
+  # Mesh-Damage-3: Mesh/D2
+  # Mesh-Damage-4: Mesh/D3
+  DropMeshfile: Entities/Misc/BagSmallPrefab
+  SoundOnEnter: UseActions/DOOROpen02
+  WeaponItem: Eden_TurretAlarm_Weapon
+  # TemplateRoot: SentryGunBlocks
+  # AllowPlacingAt: "Base,MS", display: true
+  AllowPlacingAt: "MS,SS,GV", display: true
+  SizeInBlocks: "1,1,1", display: true
+  SizeInBlocksLocked: "Base,MS"
+  Volume: 100, type: float, display: true, formatter: Liter
+  Mass: 50, type: float, display: true, formatter: Kilogram
+  IsActivateable: true
+  # IsActivateableInCP: true
+  Info: Eden_TurretAlarminfo, display: true
+  Category: Weapons/Items
+  StackSize: 25
+  MaxCount: 8, type: int, display: true
+  ForceMaxCount: true
+  BlastParticleIndex: 5
+  HitPoints: 100, type: int, display: true
+  EnergyIn: 10, type: int, display: true, formatter: Watt
+  CPUIn: 100, type: int, display: true
+  RotSpeed: 600, type: int, display: false
+  Zoom: 2, type: float
+  AboveTerrainCheck: false
+  TurretTargetIgnore: true
+  IsAntiInfantryWeapon: true
+  MarketPrice: 500
+
+  # UnlockCost: 5, display: true
+  # UnlockLevel: 3, display: true
+  # TechTreeNames: "Base,Capital Vessel"
+}
+
+
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------------------------------- Player Blocks and Devices
@@ -42198,8 +42834,8 @@ HullCombatSmallBlocks
   DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!
   Place: Free
   AllowPlacingAt: "Base,MS,SS,GV", display: true
-  Volume: 50, type: float, display: true, formatter: Liter
-  Mass: 175, type: float, display: true, formatter: Kilogram
+  Volume: 1, type: float, display: true, formatter: Liter
+  Mass: 0.4, type: float, display: true, formatter: Kilogram
   StackSize: 1000
   IsOxygenTight: false, display: true
   Info: bkiBlockGroup, display: true
@@ -42232,9 +42868,10 @@ HullCombatSmallBlocks
   Mesh-Damage-4: D3
   DropMeshfile: Entities/Misc/BagSmallPrefab
   AllowPlacingAt: "Base,MS,SS,GV", display: true
+  SizeInBlocks: "1,1,1", display: true
   ModelScaleLocked: true
-  Volume: 0.1, type: float, display: true, formatter: Liter
-  Mass: 0.1, type: float, display: true, formatter: Kilogram
+  Volume: 1, type: float, display: true, formatter: Liter
+  Mass: 0.4, type: float, display: true, formatter: Kilogram
   StackSize: 4000
   HitPoints: 250, type: int, display: true
   IsActivateable: true
@@ -42274,8 +42911,8 @@ HullCombatSmallBlocks
   SizeInBlocks: "1,1,1", display: true
   SizeInBlocksLocked: "Base,MS"
   Collide: "bullet,rocket"
-  Volume: 5, type: float, display: true, formatter: Liter
-  Mass: 5, type: float, display: true, formatter: Kilogram
+  Volume: 1, type: float, display: true, formatter: Liter
+  Mass: 0.4, type: float, display: true, formatter: Kilogram
   HitPoints: 250, type: int, display: true
   Info: Eden_ButtonPanelinfo, display: true
   IsAccessible: true, type: bool
@@ -42297,6 +42934,188 @@ HullCombatSmallBlocks
   Model: @eden_blockmodels/Eden_ModelKeypad
 }
 
+# Special Effects Blocks
+{ +Block Name: Eden_EffectsBlocks
+  Material: metallight
+  IndexName: EdenEffects
+  Shape: Invisible
+  MarketPrice: 2000, display: true
+  ShowBlockName: true
+  # Model: @models/Blocks/Mothership/ConsoleMS01Prefab
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!
+  Place: Free
+  AllowPlacingAt: "Base,MS,SS,GV", display: true
+  Volume: 1, type: float, display: true, formatter: Liter
+  Mass: 0.4, type: float, display: true, formatter: Kilogram
+  StackSize: 1000
+  MaxCount: 32, type: int, display: true
+  ForceMaxCount: true
+  IsOxygenTight: false, display: true
+  Info: Eden_EffectsBlocksinfo, display: true
+  # ModelOffset: "0,0.5,0"
+  Category: Deco Blocks
+  BlastParticleIndex: 11
+  BlastRadius: 3
+  BlastDamage: 0
+  EnergyIn: 1, type: int, display: false, formatter: Watt
+  ChildBlocks: "Eden_EffectsBlocksFire, Eden_EffectsBlocksFireDiag, Eden_EffectsBlocksFireTrail, Eden_EffectsBlocksFireTrailCorn, Eden_EffectsBlocksFireBlue, Eden_EffectsBlocksFireFlare, Eden_EffectsBlocksFireFlareDiag, Eden_EffectsBlocksFireFlareBlue, Eden_EffectsBlocksSmoke, Eden_EffectsBlocksSmokeDiag, Eden_EffectsBlocksSmokeTrail, Eden_EffectsBlocksSmokeTrailCorn, Eden_EffectsBlocksSmoke2, Eden_EffectsBlocksSmoke2Diag, Eden_EffectsBlocksSmoke2Trail, Eden_EffectsBlocksSteam, Eden_EffectsBlocksSteamDiag, Eden_EffectsBlocksTrailBlue, Eden_EffectsBlocksTrailRed, Eden_EffectsBlocksLightning, Eden_EffectsBlocksFireflies, Eden_EffectsBlocksDockRing, Eden_EffectsBlocksDockGuideBlue, Eden_EffectsBlocksDockGuideOrange, Eden_EffectsBlock_DockGuideCyan2, Eden_EffectsBlock_DockGuideYellow2"
+
+  UnlockCost: 0
+  UnlockLevel: 1 
+  TechTreeNames: ""
+}
+
+{ +Block Name: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksFireinfo, display: true
+  Group: cpgEffects
+  Material: metallight
+  IndexName: EdenEffects
+  Shape: ModelEntity
+  Place: Free
+  Collide: "bullet,rocket"
+  Model: @eden_blockmodels/Eden_EffectsBlock_FireOrange
+  DropMeshfile: Entities/Misc/BagSmallPrefab
+  AllowPlacingAt: "Base,MS,SS,GV", display: true
+  SizeInBlocks: "1,1,1", display: true
+  ModelScaleLocked: true
+  Volume: 1, type: float, display: true, formatter: Liter
+  Mass: 0.4, type: float, display: true, formatter: Kilogram
+  StackSize: 1000
+  MaxCount: 32, type: int, display: true
+  ForceMaxCount: true
+  HitPoints: 50, type: int, display: true
+  IsActivateable: true
+  Category: Deco Blocks
+  EnergyIn: 1, type: int, display: true, formatter: Watt
+  StabilitySupport: false
+  TemplateRoot: Eden_EffectsBlocks
+}
+
+{ +Block Name: Eden_EffectsBlocksFireDiag, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksFireinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_FireOrangeDiag
+}
+
+{ +Block Name: Eden_EffectsBlocksFireTrail, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksFireinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_FireOrangeTrail
+}
+
+{ +Block Name: Eden_EffectsBlocksFireTrailCorn, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksFireinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_FireOrangeTrailCorn
+}
+
+{ +Block Name: Eden_EffectsBlocksFireBlue, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksFireinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_FireBlue
+}
+
+{ +Block Name: Eden_EffectsBlocksFireFlare, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksFireinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_FireFlare
+}
+
+{ +Block Name: Eden_EffectsBlocksFireFlareDiag, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksFireinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_FireFlareDiag
+}
+
+{ +Block Name: Eden_EffectsBlocksFireFlareBlue, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksFireinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_FireFlareBlue
+}
+
+{ +Block Name: Eden_EffectsBlocksSmoke, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksSmokeinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_Smoke
+}
+
+{ +Block Name: Eden_EffectsBlocksSmokeDiag, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksSmokeinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_SmokeDiag
+}
+
+{ +Block Name: Eden_EffectsBlocksSmokeTrail, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksSmokeTrailinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_SmokeTrail
+}
+
+{ +Block Name: Eden_EffectsBlocksSmokeTrailCorn, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksSmokeTrailinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_SmokeTrailCorn
+}
+
+{ +Block Name: Eden_EffectsBlocksSmoke2, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksSmokeinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_Smoke2
+}
+
+{ +Block Name: Eden_EffectsBlocksSmoke2Diag, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksSmokeinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_Smoke2Diag
+}
+
+{ +Block Name: Eden_EffectsBlocksSmoke2Trail, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksSmokeTrailinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_Smoke2Trail
+}
+
+{ +Block Name: Eden_EffectsBlocksSteam, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksSteaminfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_Steam
+}
+
+{ +Block Name: Eden_EffectsBlocksSteamDiag, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksSteaminfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_SteamDiag
+}
+
+{ +Block Name: Eden_EffectsBlocksTrailBlue, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksTrailBlueinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_TrailBlue
+}
+
+{ +Block Name: Eden_EffectsBlocksTrailRed, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksTrailBlueinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_TrailRed
+}
+
+{ +Block Name: Eden_EffectsBlocksLightning, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksLightninginfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_LightningBlue
+}
+
+{ +Block Name: Eden_EffectsBlocksFireflies, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksFirefliesinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_FirefliesOrange
+}
+
+{ +Block Name: Eden_EffectsBlocksDockRing, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksDockRinginfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_DockRing
+}
+
+{ +Block Name: Eden_EffectsBlocksDockGuideBlue, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksDockGuideBlueinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_DockGuideBlue
+}
+
+{ +Block Name: Eden_EffectsBlocksDockGuideOrange, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlocksDockGuideBlueinfo, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_DockGuideOrange
+}
+
+{ +Block Name: Eden_EffectsBlock_DockGuideCyan2, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlock_DockGuideCyan2info, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_DockGuideCyanAn
+}
+
+{ +Block Name: Eden_EffectsBlock_DockGuideYellow2, Ref: Eden_EffectsBlocksFire
+  Info: Eden_EffectsBlock_DockGuideCyan2info, display: true
+  Model: @eden_blockmodels/Eden_EffectsBlock_DockGuideYelAn
+}
+
 { +Block Name: Eden_DecoHoliday
   # Material: metallight
   Material: woodblock
@@ -42315,6 +43134,8 @@ HullCombatSmallBlocks
   Info: Eden_DecoHolidayinfo, display: true
   IsAccessible: false, type: bool
   MarketPrice: 5000, display: true
+  RepairToTemplate: false, display: true
+  # AllowedInBlueprint: false, display: true
   # CanPickup: true
   # ModelOffset: "0,0.5,0"
   Category: Deco Blocks
@@ -42445,6 +43266,479 @@ HullCombatSmallBlocks
   DropOnDeath: false
 }
 
+{ +Block Name: Eden_WindTurbineBase
+  Material: fertile
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!
+  Texture: "6,31,31,31,31,31"
+  # Class: FuelTank
+  # IndexName: FuelTank
+  # Class: SolarGenerator
+  # IndexName: SolarGenerator
+  Group: cpgWindPower
+  # EssentialCategory: cpgGenerator
+  # IsSolarPanel: true
+  # EnergyDynamicGroup: SolarGenerator
+  # EnergyOut: 500, type: int, display: true, formatter: Watt
+  MarketPrice: 500, display: true
+  # Shape: New
+  Shape: ModelEntity
+  Place: NoRotation
+  # Model: Cube
+  Model: @eden_blockmodels/Eden_WindmillBase
+  BlockColor: "170,170,170"
+  # IsOxygenTight: true, display: true
+  AllowPlacingAt: Base, display: true
+  SizeInBlocks: "1,1,1", display: true
+  SizeInBlocksLocked: "Base,MS"
+  OccupySizeInBlocks: true
+  Voxelize: false
+  # IsAccessible: true, type: bool
+  Mass: 2080, type: float, display: true, formatter: Kilogram
+  Volume: 250, type: float, display: true, formatter: Liter
+  HitPoints: 150, type: int, display: true
+  EnergyIn: 0, type: int, display: true, formatter: Watt
+  CPUIn: 250, type: int, display: true
+  StackSize: 500
+  Info: Eden_WindTurbineBaseinfo, display: true
+  Category: Devices
+  # IsColorable: true
+  # IsTextureable: false
+  MaxCount: 16, type: int, display: true
+  ForceMaxCount: true
+  # IsActivateableInCP: true
+  # IsLockable: true
+  ShowBlockName: true
+  # FuelAccept: "EnergyCell, EnergyCellLarge, EnergyCellHydrogen, FusionCell, BioFuel"
+  # FuelAccept: "BioFuel"
+  # FuelCapacity: 100, type: int, display: true
+  
+  UnlockCost: 5, display: true
+  UnlockLevel: 5, display: true
+  TechTreeParent: SolarPanelBlocks
+  TechTreeNames: Base
+}
+
+# Wind Turbine
+# Requires 15c-35c and <1 rad of radiation and breathable atmosphere.
+{ +Block Name: Eden_WindTurbineIdle
+  Class: PlantGrowing
+  MarketPrice: 2500, display: true
+  # AllowedInBlueprint: true, display: true 
+  IndexName: Plant
+  Group: cpgWindPower
+  Material: metallight
+  Shape: ModelEntity
+  # Model: @models2/Entities/Farming/SpeedTrees/CornStage1Prefab
+  Model: @eden_blockmodels/Eden_WindmillIdle
+  BlockColor: "170,170,170"
+  DropMeshfile: Entities/Misc/BagSmallPrefab
+  { Child PlantGrowing
+    # Next: Eden_TestWindmill
+    Next: Eden_WindTurbineActive
+    # GrowthRate: 30
+    GrowthRate: 1
+    FertileLevel: 3
+    OnDeath: Eden_WindTurbineIdle
+  }
+  IsAccessible: true, type: bool
+  # IsActivatedOnPlace: false
+  # Collide: "bullet,rocket,melee,sight"
+  # ModelOffset: "0,0.5,0"
+  Place: Face
+  AllowPlacingAt: Base, display: true
+  # AllowPlacingAt: Terrain, display: true
+  # SizeInBlocks: "5,8,5", display: true
+  SizeInBlocks: "5,11,5", display: true
+  SizeInBlocksLocked: "Base,MS"
+  OccupySizeInBlocks: true
+  Voxelize: false
+  ShowBlockName: false
+  # CropType: Grain, display: true
+  # CropYield: 108, display: true
+  # GrowthTimeInfo: 70, type: int, display: true, formatter: Minutes
+  Mass: 500, type: float, display: true, formatter: Kilogram
+  Volume: 500, type: float, display: true, formatter: Liter
+  HitPoints: 150, type: int, display: true
+  EnergyIn: 0, type: int, display: true, formatter: Watt
+  CPUIn: 500, type: int, display: true
+  StackSize: 4000
+  Info: Eden_WindTurbineIdleinfo, display: true
+  Category: Devices
+  XpFactor: 1
+  # StabilitySupport: false
+  PickupTarget: Eden_WindTurbineIdle  # disassemble 
+  TemplateRoot: Eden_WindTurbineIdle  # deconstruct - to avoid exploit
+  IsColorable: true
+  IsTextureable: false
+  MaxCount: 16, type: int, display: true
+  ForceMaxCount: true
+
+  UnlockCost: 10, display: true
+  UnlockLevel: 7, display: true
+  TechTreeParent: Eden_WindTurbineBase
+  TechTreeNames: Base
+}
+
+{ +Block Name: Eden_WindTurbineActive
+  Info: Eden_WindTurbineActiveinfo, display: true
+  Group: cpgWindPower
+  AllowedInBlueprint: false, display: true
+  # Class: SolarPanel
+  MarketPrice: 2500, display: true
+  IndexName: Plant
+  # IndexName: Generator
+  # Class: Generator
+  # PanelAngle: 0
+  # SolarPanelEfficiency: 0, display: true 
+  Material: metallight
+  Shape: ModelEntity
+  IsAccessible: true, type: bool
+  Place: Face
+  # EssentialCategory: cpgFuelTank
+  # Collide: "bullet,rocket"
+  # Model: @models/Blocks/Spaceship/flareSS01Prefab
+  # Model: @eden_blockmodels/Eden_ModelWarningLight
+  Model: @eden_blockmodels/Eden_Windmill
+  BlockColor: "170,170,170"
+  DropMeshfile: Entities/Misc/BagSmallPrefab
+  AllowPlacingAt: Base, display: true
+  # ModelScaleLocked: true
+  SizeInBlocks: "5,11,5", display: true
+  SizeInBlocksLocked: "Base,MS"
+  OccupySizeInBlocks: true
+  Voxelize: false
+  ShowBlockName: true
+  StackSize: 4000
+  Mass: 500, type: float, display: true, formatter: Kilogram
+  Volume: 500, type: float, display: true, formatter: Liter
+  HitPoints: 150, type: int, display: true
+  IsActivateable: false
+  IsDuplicateable: false
+  Category: Devices
+  EnergyIn: -75, type: int, display: true, formatter: Watt
+  CPUIn: 500, type: int, display: true
+  # CanSetColor: true
+  # StabilitySupport: false
+  PickupTarget: Eden_WindTurbineIdle
+  TemplateRoot: Eden_WindTurbineIdle  # deconstruct - to avoid exploit
+  IsColorable: true
+  IsTextureable: false
+  # EnergyOut: 300, type: int, display: true, formatter: Watt
+
+  MaxCount: 16, type: int, display: true
+  ForceMaxCount: true
+
+  UpgradeTo: Eden_WindTurbineActiveT2, display: true
+  # DowngradeTo: Eden_TurretLaserBeamCVT3, display: false
+  # UnlockCost: 5, display: true
+  # UnlockLevel: 5, display: true
+  # TechTreeNames: Misc
+}
+
+# # Wind Turbine
+# { +Block Name: Eden_WindTurbineIdleT2, Ref: Eden_WindTurbineIdle
+  # MarketPrice: 10000, display: true
+  # Model: @eden_blockmodels/Eden_WindmillIdleT2
+  # { Child PlantGrowing
+    # # Next: Eden_TestWindmill
+    # Next: Eden_WindTurbineActiveT2
+    # # GrowthRate: 30
+    # GrowthRate: 1
+    # FertileLevel: 3
+    # OnDeath: Eden_WindTurbineIdleT2
+  # }
+  # Mass: 1, type: float, display: true, formatter: Kilogram
+  # Volume: 1, type: float, display: true, formatter: Liter
+  # HitPoints: 150, type: int, display: true
+  # EnergyIn: 0, type: int, display: true, formatter: Watt
+  # CPUIn: 500, type: int, display: true
+  # Info: Eden_WindTurbineIdleT2info, display: true
+  # PickupTarget: Eden_WindTurbineIdleT2  # disassemble 
+  # TemplateRoot: Eden_WindTurbineIdleT2  # deconstruct - to avoid exploit
+
+  # UnlockCost: 250, display: true
+  # UnlockLevel: 15, display: true
+  # TechTreeParent: Eden_WindTurbineIdle
+  # TechTreeNames: Base
+# }
+
+{ +Block Name: Eden_WindTurbineActiveT2, Ref: Eden_WindTurbineActive
+  Info: Eden_WindTurbineActiveT2info, display: true
+  Model: @eden_blockmodels/Eden_WindmillT2
+  MarketPrice: 5000, display: true
+  Mass: 1000, type: float, display: true, formatter: Kilogram
+  Volume: 1000, type: float, display: true, formatter: Liter
+  HitPoints: 150, type: int, display: true
+  EnergyIn: -150, type: int, display: true, formatter: Watt
+  CPUIn: 1000, type: int, display: true
+  # EnergyOut: 100, type: int, display: true, formatter: Watt
+  PickupTarget: Eden_WindTurbineIdle
+  TemplateRoot: Eden_WindTurbineActiveT2
+
+  # IndexName: SolarPanel
+  # PanelAngle: 0
+  # SolarPanelEfficiency: 5, display: true 
+  MaxCount: 16, type: int, display: true
+  ForceMaxCount: true
+  UpgradeTo: null
+  DowngradeTo: Eden_WindTurbineActive, display: false
+
+  # UnlockCost: 250, display: true
+  # UnlockLevel: 15, display: true
+  # TechTreeParent: Eden_WindTurbineIdle
+  # TechTreeNames: Base
+  # UnlockCost: -1
+  # UnlockLevel: 1
+  # TechTreeParent: ""
+  # TechTreeNames: "Hidden"
+  UnlockCost: -1
+  UnlockLevel: 15, display: true
+  TechTreeParent: Eden_WindTurbineIdle
+  TechTreeNames: Base
+}
+
+{ +Block Name: Eden_GeothermalGenerator
+  Info: Eden_GeothermalGeneratorinfo, display: true
+  Group: cpgGeoPower
+  # AllowedInBlueprint: false, display: true
+  # AllowedInBlueprint: false, display: true
+  Class: NPCDialogue
+  NPCModelRotation: false
+  DialogueState: Eden_Geothermal_Init
+  OmitCone: true
+  MarketPrice: 5000, display: true
+  IndexName: GeoPower
+  # IndexName: Generator
+  # Class: Generator
+  # PanelAngle: 0
+  # SolarPanelEfficiency: 0, display: true 
+  Material: metallight
+  Shape: ModelEntity
+  # IsAccessible: true, type: bool
+  # IsActivateable: true
+  # IsActivatedOnPlace: false
+  Place: Free
+  # Model: @models/Blocks/Mothership/FurnacePrefab
+  Model: @eden_blockmodels/Eden_GeothermalGeneratorL2Off
+  # Mesh-Damage-1: Mesh/D0
+  # Mesh-Damage-2: Mesh/D1
+  # Mesh-Damage-3: Mesh/D2
+  # Mesh-Damage-4: Mesh/D3
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!
+  DropInventoryEntity: DropContainer
+  AllowPlacingAt: Base, display: true
+  # ModelScaleLocked: true
+  # SizeInBlocks: "3,3,3", display: true
+  SizeInBlocks: "8,3,3", display: true
+  SizeInBlocksLocked: "Base,MS"
+  OccupySizeInBlocks: true
+  Voxelize: false
+  ShowBlockName: true
+  StackSize: 250
+  Mass: 32025, type: float, display: true, formatter: Kilogram
+  Volume: 4320, type: float, display: true, formatter: Liter
+  HitPoints: 1500, type: int, display: true
+  SymType: 4
+  Category: Devices
+  EnergyIn: 1, type: int, display: true, formatter: Watt
+  CPUIn: 10000, type: int, display: true
+  # CanSetColor: true
+  # StabilitySupport: false
+  # PickupTarget: Eden_WindTurbineIdle
+  # TemplateRoot: Eden_WindTurbineIdle  # deconstruct - to avoid exploit
+
+  BlockColor: "110,110,110"
+  # EnergyOut: 300, type: int, display: true, formatter: Watt
+
+  MaxCount: 4, type: int, display: true
+  ForceMaxCount: true
+
+  BlastParticleIndex: 11
+  BlastRadius: 3
+  BlastDamage: 250
+
+  UpgradeTo: Eden_GeothermalGeneratorActive, display: true
+  DowngradeTo: null, display: false
+  UnlockCost: 250, display: true
+  UnlockLevel: 15, display: true
+  TechTreeParent: Eden_WindTurbineIdle
+  TechTreeNames: Base
+}
+
+{ +Block Name: Eden_GeothermalGeneratorActive, Ref: Eden_GeothermalGenerator
+  Info: Eden_GeothermalGeneratorActiveinfo, display: true
+  Model: @eden_blockmodels/Eden_GeothermalGeneratorL2
+  DialogueState: Eden_GeothermalActive_Init
+  AllowedInBlueprint: false, display: true
+  # Class: SolarPanel
+  ShowUser: NoButCSV
+  IsActivatedOnPlace: true
+  EnergyIn: -1500, type: int, display: true, formatter: Watt
+  PickupTarget: Eden_GeothermalGenerator
+  TemplateRoot: Eden_GeothermalGeneratorActive  # deconstruct - to avoid exploit
+  UpgradeTo: null, display: false
+  DowngradeTo: null, display: false
+  
+  BlastParticleIndex: 11
+  BlastRadius: 5
+  BlastDamage: 500
+  
+  UnlockCost: 0, display: true
+  UnlockLevel: 20, display: true
+  TechTreeParent: Eden_GeothermalGenerator
+  TechTreeNames: Base
+  
+  Temperature: 375, display: true
+}
+
+
+
+# # Grown
+# { +Block Name: Eden_WindTurbineActive
+  # CustomIcon: Eden_HydroponicsGrain
+  # Class: CropsGrown
+  # AllowedInBlueprint: false, display: true 
+  # IndexName: Plant
+  # # { Child DropOnHarvest
+    # # Item: Grain
+    # # Count: 108
+  # # }
+  # { Child CropsGrown
+    # OnHarvest: Eden_WindTurbineIdle
+    # OnDeath: Eden_WindTurbineIdle
+  # }
+  # Material: metallight
+  # Shape: ModelEntity
+  # Model: @eden_blockmodels/Eden_Windmill
+  # PickupTarget: Eden_WindTurbineIdle
+  # TemplateRoot: Eden_WindTurbineIdle  # deconstruct - to avoid exploit
+  # IsAccessible: false, type: bool
+  # # Collide: "bullet,rocket,melee,sight"
+  # Category: Devices
+  # # ModelOffset: "0,0.5,0"
+  # # ShowUser: NoButCSV    # reported by HWS 
+  # AllowPlacingAt: Base, display: true
+  # # SizeInBlocks: "5,8,5", display: true
+  # SizeInBlocks: "3,2,3", display: true
+  # SizeInBlocksLocked: "Base,MS"
+  # Mass: 1, type: float, display: true, formatter: Kilogram
+  # Volume: 1, type: float, display: true, formatter: Liter
+  # HitPoints: 150, type: int, display: true
+  # EnergyIn: -250, type: int, display: true, formatter: Watt
+  # CPUIn: 25, type: int, display: true
+  # OccupySizeInBlocks: true
+  # Voxelize: false
+  # ShowBlockName: true
+  # XpFactor: 0.25
+# }
+
+{ +Block Name: Eden_WaterGeneratorT2
+  Info: Eden_WaterGeneratorT2info, display: true
+  Group: cpgGeoPower
+  # AllowedInBlueprint: false, display: true
+  # AllowedInBlueprint: false, display: true
+  Class: NPCDialogue
+  NPCModelRotation: false
+  # DialogueState: Eden_Geothermal_Init
+  DialogueState: Eden_WaterSetup_Init
+  OmitCone: true
+  DialogueSingleUserAccess: true
+  MarketPrice: 5000, display: true
+  IndexName: EdenWaterGenT2
+  # IndexName: Generator
+  # Class: Generator
+  # PanelAngle: 0
+  # SolarPanelEfficiency: 0, display: true 
+  Material: metallight
+  Shape: ModelEntity
+  # IsAccessible: true, type: bool
+  # IsActivateable: true
+  # IsActivatedOnPlace: false
+  Place: Free
+  # Model: @eden_blockmodels/Eden_WaterGeneratorT2V2 #5 high
+  Model: @eden_blockmodels/Eden_WaterGeneratorT2V3 #6 high
+  Mesh-Damage-1: D0
+  Mesh-Damage-2: D1
+  Mesh-Damage-3: D2
+  Mesh-Damage-4: D3
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!
+  DropInventoryEntity: DropContainer
+  AllowPlacingAt: Base, display: true
+  # ModelScaleLocked: true
+  # SizeInBlocks: "7,5,7", display: true #V2 model
+  SizeInBlocks: "7,6,7", display: true #V3 model
+  SizeInBlocksLocked: "Base,MS"
+  # OccupySizeInBlocks: true
+  OccupySizeInBlocks: false
+  # Voxelize: false
+  Voxelize: true
+  ShowBlockName: true
+  StackSize: 250
+  Mass: 32025, type: float, display: true, formatter: Kilogram
+  Volume: 4320, type: float, display: true, formatter: Liter
+  HitPoints: 1500, type: int, display: true
+  SymType: 4
+  Category: Devices
+  EnergyIn: 1, type: int, display: true, formatter: Watt
+  CPUIn: 500, type: int, display: true
+  # CanSetColor: true
+  # StabilitySupport: false
+  # PickupTarget: Eden_WindTurbineIdle
+  # TemplateRoot: Eden_WindTurbineIdle  # deconstruct - to avoid exploit
+
+  # BlockColor: "110,110,110"
+  BlockColor: "170,170,170"
+  # EnergyOut: 300, type: int, display: true, formatter: Watt
+
+  MaxCount: 8, type: int, display: true
+  ForceMaxCount: true
+
+  BlastParticleIndex: 11
+  BlastRadius: 3
+  BlastDamage: 250
+
+  UpgradeTo: Eden_WaterGeneratorT2Active, display: true
+  DowngradeTo: null, display: false
+  UnlockCost: -1
+  UnlockLevel: 15, display: true
+  # TechTreeParent: Eden_WindTurbineIdle
+  TechTreeNames: Base
+}
+
+{ +Block Name: Eden_WaterGeneratorT2Active, Ref: Eden_WaterGeneratorT2
+  Info: Eden_WaterGeneratorT2Activeinfo, display: true
+  Class: NPCDialogue
+  NPCModelRotation: false
+  DialogueState: Eden_WaterGenerator_Init
+  OmitCone: true
+  DialogueSingleUserAccess: true
+  AllowedInBlueprint: false, display: true
+  # Class: SolarPanel
+  ShowUser: NoButCSV
+  IsActivatedOnPlace: true
+  EnergyIn: 1, type: int, display: true, formatter: Watt
+  PickupTarget: Eden_WaterGeneratorT2
+  TemplateRoot: Eden_WaterGeneratorT2Active  # deconstruct - to avoid exploit
+  UpgradeTo: null, display: false
+  DowngradeTo: null, display: false
+
+  MaxCount: 1, type: int, display: true
+  ForceMaxCount: true
+
+  BlastParticleIndex: 11
+  BlastRadius: 5
+  BlastDamage: 500
+  
+  UnlockCost: 0, display: true
+  UnlockLevel: 20, display: true
+  TechTreeParent: Eden_WaterGeneratorT2
+  TechTreeNames: Base
+  
+  # Temperature: 375, display: true
+}
+
+
+
 # ------------------------------------------------------------------------ Hydroponic bays
 # Hydroponics
 { +Block Name: Eden_HydroponicsEmpty
@@ -42455,7 +43749,8 @@ HullCombatSmallBlocks
   Material: metallight
   Shape: ModelEntity
   # Model: @models2/Entities/Farming/SpeedTrees/CornStage1Prefab
-  Model: @eden_blockmodels/Eden_ModelHydroponicsEmpty
+  # Model: @eden_blockmodels/Eden_ModelHydroponicsEmpty
+  Model: @eden_blockmodels/Eden_Hydroponics2Empty
   DropMeshfile: Entities/Misc/BagSmallPrefab
   IsAccessible: false, type: bool
   # Collide: "bullet,rocket,melee,sight"
@@ -42467,7 +43762,7 @@ HullCombatSmallBlocks
   Voxelize: false
   ShowBlockName: true
   Mass: 1, type: float, display: true, formatter: Kilogram
-  Volume: 1, type: float, display: true, formatter: Kilogram
+  Volume: 1, type: float, display: true, formatter: Liter
   HitPoints: 150, type: int, display: true
   EnergyIn: 0, type: int, display: true, formatter: Watt
   CPUIn: 0, type: int, display: true
@@ -42494,7 +43789,8 @@ HullCombatSmallBlocks
   Material: metallight
   Shape: ModelEntity
   # Model: @models2/Entities/Farming/SpeedTrees/CornStage1Prefab
-  Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  # Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  Model: @eden_blockmodels/Eden_Hydroponics2Grass
   DropMeshfile: Entities/Misc/BagSmallPrefab
   { Child PlantGrowing
     Next: Eden_HydroponicsGrainGrown
@@ -42516,7 +43812,7 @@ HullCombatSmallBlocks
   CropYield: 108, display: true
   GrowthTimeInfo: 70, type: int, display: true, formatter: Minutes
   Mass: 1, type: float, display: true, formatter: Kilogram
-  Volume: 1, type: float, display: true, formatter: Kilogram
+  Volume: 1, type: float, display: true, formatter: Liter
   HitPoints: 150, type: int, display: true
   EnergyIn: 20, type: int, display: true, formatter: Watt
   CPUIn: 25, type: int, display: true
@@ -42542,13 +43838,14 @@ HullCombatSmallBlocks
     Item: Grain
     Count: 108
   }
-  { Child CropsGrown   
+  { Child CropsGrown
     OnHarvest: Eden_HydroponicsGrain
-    OnDeath: Eden_HydroponicsEmpty 
+    OnDeath: Eden_HydroponicsEmpty
   }
   Material: metallight
   Shape: ModelEntity
-  Model: @eden_blockmodels/Eden_ModelHydroponicsFull
+  # Model: @eden_blockmodels/Eden_ModelHydroponicsFull
+  Model: @eden_blockmodels/Eden_Hydroponics2GrassGrown
   PickupTarget: Eden_HydroponicsGrain
   IsAccessible: false, type: bool
   # Collide: "bullet,rocket,melee,sight"
@@ -42559,7 +43856,7 @@ HullCombatSmallBlocks
   SizeInBlocks: "3,1,3", display: true
   SizeInBlocksLocked: "Base,MS"
   Mass: 1, type: float, display: true, formatter: Kilogram
-  Volume: 1, type: float, display: true, formatter: Kilogram
+  Volume: 1, type: float, display: true, formatter: Liter
   HitPoints: 150, type: int, display: true
   EnergyIn: 20, type: int, display: true, formatter: Watt
   CPUIn: 25, type: int, display: true
@@ -42570,7 +43867,7 @@ HullCombatSmallBlocks
 
 # Fruit
 { +Block Name: Eden_HydroponicsFruit, Ref: Eden_HydroponicsGrain
-  # Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  Model: @eden_blockmodels/Eden_Hydroponics2Fruit
   { Child PlantGrowing
     Next: Eden_HydroponicsFruitGrown
     # GrowthRate: 30
@@ -42592,7 +43889,8 @@ HullCombatSmallBlocks
 
 # Grown
 { +Block Name: Eden_HydroponicsFruitGrown, Ref: Eden_HydroponicsGrainGrown
-  Model: @eden_blockmodels/Eden_ModelHydroponicsFullFruit
+  # Model: @eden_blockmodels/Eden_ModelHydroponicsFullFruit
+  Model: @eden_blockmodels/Eden_Hydroponics2FruitGrown
   CustomIcon: Eden_HydroponicsFruit
   { Child DropOnHarvest
     Item: Fruit
@@ -42608,7 +43906,7 @@ HullCombatSmallBlocks
 
 # Vegetables
 { +Block Name: Eden_HydroponicsVegetables, Ref: Eden_HydroponicsGrain
-  # Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  Model: @eden_blockmodels/Eden_Hydroponics2Vegetables
   { Child PlantGrowing
     Next: Eden_HydroponicsVegetablesGrown
     # GrowthRate: 30
@@ -42630,7 +43928,8 @@ HullCombatSmallBlocks
 
 # Grown
 { +Block Name: Eden_HydroponicsVegetablesGrown, Ref: Eden_HydroponicsGrainGrown
-  Model: @eden_blockmodels/Eden_ModelHydroponicsFullVegetables
+  # Model: @eden_blockmodels/Eden_ModelHydroponicsFullVegetables
+  Model: @eden_blockmodels/Eden_Hydroponics2VegetablesGrown
   CustomIcon: Eden_HydroponicsVegetables
   { Child DropOnHarvest
     Item: Vegetables
@@ -42646,7 +43945,7 @@ HullCombatSmallBlocks
 
 # NaturalStimulant
 { +Block Name: Eden_HydroponicsNaturalStimulant, Ref: Eden_HydroponicsGrain
-  # Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  Model: @eden_blockmodels/Eden_Hydroponics2Stimulant
   { Child PlantGrowing
     Next: Eden_HydroponicsNaturalStimulantGrown
     # GrowthRate: 30
@@ -42669,6 +43968,7 @@ HullCombatSmallBlocks
 
 # Grown
 { +Block Name: Eden_HydroponicsNaturalStimulantGrown, Ref: Eden_HydroponicsGrainGrown
+  Model: @eden_blockmodels/Eden_Hydroponics2StimulantGrown
   CustomIcon: Eden_HydroponicsNaturalStimulant
   { Child DropOnHarvest
     Item: NaturalStimulant
@@ -42684,7 +43984,7 @@ HullCombatSmallBlocks
 
 # HerbalLeaves
 { +Block Name: Eden_HydroponicsHerbalLeaves, Ref: Eden_HydroponicsGrain
-  # Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  Model: @eden_blockmodels/Eden_Hydroponics2Herbal
   { Child PlantGrowing
     Next: Eden_HydroponicsHerbalLeavesGrown
     # GrowthRate: 30
@@ -42707,6 +44007,7 @@ HullCombatSmallBlocks
 
 # Grown
 { +Block Name: Eden_HydroponicsHerbalLeavesGrown, Ref: Eden_HydroponicsGrainGrown
+  Model: @eden_blockmodels/Eden_Hydroponics2HerbalGrown
   CustomIcon: Eden_HydroponicsHerbalLeaves
   { Child DropOnHarvest
     Item: HerbalLeaves
@@ -42722,7 +44023,7 @@ HullCombatSmallBlocks
 
 # PlantProtein
 { +Block Name: Eden_HydroponicsPlantProtein, Ref: Eden_HydroponicsGrain
-  # Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  Model: @eden_blockmodels/Eden_Hydroponics2Protein
   { Child PlantGrowing
     Next: Eden_HydroponicsPlantProteinGrown
     # GrowthRate: 30
@@ -42745,6 +44046,7 @@ HullCombatSmallBlocks
 
 # Grown
 { +Block Name: Eden_HydroponicsPlantProteinGrown, Ref: Eden_HydroponicsGrainGrown
+  Model: @eden_blockmodels/Eden_Hydroponics2ProteinGrown
   CustomIcon: Eden_HydroponicsPlantProtein
   { Child DropOnHarvest
     Item: PlantProtein
@@ -42760,7 +44062,7 @@ HullCombatSmallBlocks
 
 # NaturalSweetener
 { +Block Name: Eden_HydroponicsNaturalSweetener, Ref: Eden_HydroponicsGrain
-  # Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  Model: @eden_blockmodels/Eden_Hydroponics2Sweetener
   { Child PlantGrowing
     Next: Eden_HydroponicsNaturalSweetenerGrown
     # GrowthRate: 30
@@ -42783,6 +44085,7 @@ HullCombatSmallBlocks
 
 # Grown
 { +Block Name: Eden_HydroponicsNaturalSweetenerGrown, Ref: Eden_HydroponicsGrainGrown
+  Model: @eden_blockmodels/Eden_Hydroponics2SweetenerGrown
   CustomIcon: Eden_HydroponicsNaturalSweetener
   { Child DropOnHarvest
     Item: NaturalSweetener
@@ -42798,7 +44101,7 @@ HullCombatSmallBlocks
 
 # Fiber
 { +Block Name: Eden_HydroponicsFiber, Ref: Eden_HydroponicsGrain
-  # Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  Model: @eden_blockmodels/Eden_Hydroponics2Grass
   { Child PlantGrowing
     Next: Eden_HydroponicsFiberGrown
     # GrowthRate: 30
@@ -42821,6 +44124,7 @@ HullCombatSmallBlocks
 
 # Grown
 { +Block Name: Eden_HydroponicsFiberGrown, Ref: Eden_HydroponicsGrainGrown
+  Model: @eden_blockmodels/Eden_Hydroponics2GrassGrown
   CustomIcon: Eden_HydroponicsFiber
   { Child DropOnHarvest
     Item: Fiber
@@ -42836,7 +44140,7 @@ HullCombatSmallBlocks
 
 # MushroomBrown
 { +Block Name: Eden_HydroponicsMushroomBrown, Ref: Eden_HydroponicsGrain
-  # Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  Model: @eden_blockmodels/Eden_Hydroponics2Mushrooms
   { Child PlantGrowing
     Next: Eden_HydroponicsMushroomBrownGrown
     # GrowthRate: 30
@@ -42859,6 +44163,7 @@ HullCombatSmallBlocks
 
 # Grown
 { +Block Name: Eden_HydroponicsMushroomBrownGrown, Ref: Eden_HydroponicsGrainGrown
+  Model: @eden_blockmodels/Eden_Hydroponics2MushroomsGrown
   CustomIcon: Eden_HydroponicsMushroomBrown
   { Child DropOnHarvest
     Item: MushroomBrown
@@ -42874,7 +44179,7 @@ HullCombatSmallBlocks
 
 # Spice
 { +Block Name: Eden_HydroponicsSpice, Ref: Eden_HydroponicsGrain
-  # Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  Model: @eden_blockmodels/Eden_Hydroponics2Spice
   { Child PlantGrowing
     Next: Eden_HydroponicsSpiceGrown
     # GrowthRate: 30
@@ -42897,7 +44202,8 @@ HullCombatSmallBlocks
 
 # Grown
 { +Block Name: Eden_HydroponicsSpiceGrown, Ref: Eden_HydroponicsGrainGrown
-  Model: @eden_blockmodels/Eden_ModelHydroponicsFullSpice
+  Model: @eden_blockmodels/Eden_Hydroponics2SpiceGrown
+  # Model: @eden_blockmodels/Eden_ModelHydroponicsFullSpice
   CustomIcon: Eden_HydroponicsSpice
   { Child DropOnHarvest
     Item: Spice
@@ -42913,7 +44219,7 @@ HullCombatSmallBlocks
 
 # Buds
 { +Block Name: Eden_HydroponicsBuds, Ref: Eden_HydroponicsGrain
-  # Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  Model: @eden_blockmodels/Eden_Hydroponics2Buds
   { Child PlantGrowing
     Next: Eden_HydroponicsBudsGrown
     # GrowthRate: 30
@@ -42936,6 +44242,7 @@ HullCombatSmallBlocks
 
 # Grown
 { +Block Name: Eden_HydroponicsBudsGrown, Ref: Eden_HydroponicsGrainGrown
+  Model: @eden_blockmodels/Eden_Hydroponics2BudsGrown
   CustomIcon: Eden_HydroponicsBuds
   { Child DropOnHarvest
     Item: Buds
@@ -42951,7 +44258,7 @@ HullCombatSmallBlocks
 
 # Berries
 { +Block Name: Eden_HydroponicsBerries, Ref: Eden_HydroponicsGrain
-  # Model: @eden_blockmodels/Eden_ModelHydroponicsGrowing
+  Model: @eden_blockmodels/Eden_Hydroponics2Berries
   { Child PlantGrowing
     Next: Eden_HydroponicsBerriesGrown
     # GrowthRate: 30
@@ -42974,7 +44281,8 @@ HullCombatSmallBlocks
 
 # Grown
 { +Block Name: Eden_HydroponicsBerriesGrown, Ref: Eden_HydroponicsGrainGrown
-  Model: @eden_blockmodels/Eden_ModelHydroponicsFullBerries
+  # Model: @eden_blockmodels/Eden_ModelHydroponicsFullBerries
+  Model: @eden_blockmodels/Eden_Hydroponics2BerriesGrown
   CustomIcon: Eden_HydroponicsBerries
   { Child DropOnHarvest
     Item: Berries
@@ -42990,7 +44298,8 @@ HullCombatSmallBlocks
 
 # Pentaxid - Reforged Only
 { +Block Name: Eden_HydroponicsPentaxid, Ref: Eden_HydroponicsGrain
-  Model: @eden_blockmodels/Eden_ModelHydroponicsFullPentGrow
+  # Model: @eden_blockmodels/Eden_ModelHydroponicsFullPentGrow
+  Model: @eden_blockmodels/Eden_Hydroponics2Pentaxid
 
   { Child PlantGrowing
     Next: Eden_HydroponicsPentaxidGrown
@@ -43014,7 +44323,8 @@ HullCombatSmallBlocks
 
 # Grown
 { +Block Name: Eden_HydroponicsPentaxidGrown, Ref: Eden_HydroponicsGrainGrown
-  Model: @eden_blockmodels/Eden_ModelHydroponicsFullPent
+  # Model: @eden_blockmodels/Eden_ModelHydroponicsFullPent
+  Model: @eden_blockmodels/Eden_Hydroponics2PentaxidGrown
 
   CustomIcon: Eden_HydroponicsPentaxid
   { Child DropOnHarvest
@@ -43225,6 +44535,7 @@ HullCombatSmallBlocks
 { +Block Name: Eden_TurretBeamHeavyT1
   CustomIcon: TurretMSPulseLaser
   Info: Eden_TurretBeamHeavyT1info, display: true
+  MarketPrice: 250000, display: true
   Class: TurretAuto
   Group: cpgAlien
   IndexName: Turret
@@ -43241,9 +44552,11 @@ HullCombatSmallBlocks
   AllowPlacingAt: "Base,MS", display: true
   SizeInBlocks: "3,1,3", display: true
   SizeInBlocksLocked: "Base,MS"
+  RepairToTemplate: false, display: true
   Volume: 2880, type: float, display: true, formatter: Liter
   Mass: 17000, type: float, display: true, formatter: Kilogram
   StackSize: 250
+  MaxCount: 6, type: int, display: true
   Category: Weapons/Items
   BlastParticleIndex: 11
   BlastRadius: 3
@@ -43251,7 +44564,7 @@ HullCombatSmallBlocks
 
   HitPoints: 13800, type: int, display: true
   RotSpeed: 35, type: int, display: true
-  EnergyIn: 5000, type: int, display: true, formatter: Watt
+  EnergyIn: 7500, type: int, display: true, formatter: Watt
   CPUIn: 90600, type: int, display: true
   XpFactor: 2
   AboveTerrainCheck: false
@@ -43439,10 +44752,15 @@ HullCombatSmallBlocks
 # Exploration Scanner
 { +Block Name: Eden_ExplorationScannerCV
   # CustomIcon: ScifiComputerTable
-  Class: Container
-  IndexName: Container
+  # Class: Container
+  # AllowedInBlueprint: false, display: true
+  Class: NPCDialogue
+  NPCModelRotation: false
+  DialogueState: Eden_ScanTable_Init
+  OmitCone: true
+  # IndexName: Container
   Group: cpgEquipment
-  LootList: 800
+  # LootList: 800
   Material: metal
   Shape: ModelEntity
   ShowBlockName: true
@@ -43452,7 +44770,8 @@ HullCombatSmallBlocks
   DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!  
   DropInventoryEntity: DropContainer
   Place: Free
-  AllowPlacingAt: "Base,MS", display: true
+  # AllowPlacingAt: "Base,MS", display: true
+  AllowPlacingAt: "Base,MS,SS,GV", display: true
   SizeInBlocks: "1,1,1", display: true
   SizeInBlocksLocked: "Base,MS"      # scaled small on SV, GV
   Mass: 50, type: float, display: true, formatter: Kilogram
@@ -43462,11 +44781,12 @@ HullCombatSmallBlocks
   Info: Eden_ExplorationScannerCVinfo, display: true
   # ModelOffset: "0,0.5,0"
   StackSize: 1000
+  IsActivateable: true
   #  IsAccessible: false, type: bool
   # IsActivateableInCP: true
   IsLockable: true
   # IsOxygenTight: true, display: true
-  IsAccessible: false, type: bool
+  IsAccessible: true, type: bool
   Category: Devices
   EnergyIn: 1, type: int, display: true, formatter: Watt
   CPUIn: 10000, type: int, display: true
@@ -43474,13 +44794,18 @@ HullCombatSmallBlocks
   BlastParticleIndex: 4
 }
 
-# Exploration Scanner
+# Science table
 { +Block Name: Eden_ScienceStation
   # CustomIcon: ConsoleMapMS01
-  Class: Container
-  IndexName: Container
+  # Class: Container
+  # AllowedInBlueprint: false, display: true
+  IndexName: EdenScienceStation
+  Class: NPCDialogue
+  NPCModelRotation: false
+  DialogueState: Eden_ScienceStation_Init
+  DialogueSingleUserAccess: true
+  OmitCone: true
   Group: cpgEquipment
-  LootList: 800
   Material: metal
   Shape: ModelEntity
   ShowBlockName: true
@@ -43493,16 +44818,13 @@ HullCombatSmallBlocks
   Mesh-Damage-4: D3
   # Model: @eden_blockmodels/Eden_ModelScienceStation
   DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!  
-  DropInventoryEntity: DropContainer
   Place: Free
   AllowPlacingAt: "Base,MS", display: true
   SizeInBlocks: "1,1,1", display: true
   SizeInBlocksLocked: "Base,MS"      # scaled small on SV, GV
   IsActivateable: true
-  IsActivateableInCP: true
   Mass: 50, type: float, display: true, formatter: Kilogram
   Volume: 20, type: float, display: true, formatter: Liter
-  VolumeCapacity: 0, type: float, display: true, formatter: Liter       # low value since placed on Base,MS,SS,GV
   BlockColor: "110,110,110"
   IsColorable: true
   IsTextureable: false
@@ -43513,10 +44835,14 @@ HullCombatSmallBlocks
   # IsActivateableInCP: true
   IsLockable: true
   # IsOxygenTight: true, display: true
-  IsAccessible: false, type: bool
+  IsAccessible: true, type: bool
   Category: Devices
   EnergyIn: 1, type: int, display: true, formatter: Watt
   CPUIn: 10000, type: int, display: true
+
+  MaxCount: 1, type: int, display: true
+  ForceMaxCount: true
+
   HitPoints: 500, type: int, display: true
   BlastParticleIndex: 4
 }
@@ -43601,16 +44927,17 @@ HullCombatSmallBlocks
   Volume: 800000, type: float, display: true, formatter: Liter
   Category: Devices
   # ChildBlocks: "CoreNPC, CoreNPCAdmin, TurretIONCannon, TurretIONCannon2, TurretEnemyLaser, TurretEnemyRocket, TurretEnemyArtillery, TurretEnemyEMP, SentryGun01, SentryGun01Retract, SentryGun02, SentryGun02Retract, AlienContainer, AlienContainerRare, AlienContainerVeryRare, AlienContainerUltraRare, EntitySpawner1, EntitySpawnerPlateThin, DroneSpawner, DroneSpawner2, Trader, "
-  ChildBlocks: "Eden_CoreNPCSpecial, Eden_CoreNPCFake, Eden_CoreNPCInvisible, Eden_GeneratorInvisible, Eden_FuelTankInvisible, Eden_SpawnerOrganic, Eden_SpawnerOrganicSmall, Eden_TurretOrganicAlien, Eden_TurretOrganicAlienBeam, Eden_SpawnerGateRed, Eden_DroneSpawnerInvisible, Eden_TurretPlasmaSmall, Eden_TurretBolterBA, Eden_TurretAlienPDCT1, Eden_TurretAlienPDCT1_2, Eden_TurretAlienDummy, Eden_TurretAlienBlaster, Eden_TurretAlienBlasterT2, Eden_TurretRocketRapid, Eden_TurretAlienMissileSwarm, Eden_TurretTorpedo, Eden_PlasmaTurretAugmented, Eden_TurretAlienDisruptor, Eden_TurretAlienLaserT4, Eden_TurretBeamHeavyPOIT1, Eden_TurretAlienShieldBooster, Eden_CargoContainerReinforcedS, Eden_CargoContainerReinforcedL, Eden_CargoContainerReinforcedL2, Eden_StatueDialog, Eden_ConsoleDialog, Eden_ConsoleDialog2, Eden_PadDialog, Eden_CargoDialog, Eden_TreasureDialog, Eden_InvisibleDialog, Eden_ShieldGeneratorPOILightT0, Eden_ShieldGeneratorPOILightT1, Eden_ShieldGeneratorPOILightT2, Eden_ShieldGeneratorPOILightT3, Eden_ShieldGeneratorRegenerate, Eden_ShieldGeneratorRegenerateT2, Eden_ShieldGeneratorRegenerateT3, Eden_ShieldGeneratorRegenerateT4, Eden_ShieldGeneratorBastionT0, Eden_ShieldGeneratorBastion, Eden_ShieldGeneratorBastionT2, Eden_ShieldGeneratorBastionT3, Eden_ShieldGeneratorBastionT4, Eden_DecoyAlienTurretSmall, Eden_DecoyAlienTurretLarge, Eden_DecoyAlienGenSmall, Eden_DecoyAlienGenLarge, Eden_ECMAlienTurretLarge, Eden_ECMAlienGenLarge, Eden_RadioPirates, Eden_RadioColonists, Eden_RadioDroneSwarm, Eden_DecoMiningLaserYellow, Eden_DecoMiningLaserYellow2, Eden_DecoMiningLaserBlue, Eden_DecoMiningLaserBlue2, Eden_CrystalBlue, Eden_CrystalCyan, Eden_CrystalGreen, Eden_CrystalOrange, Eden_CrystalRed, Eden_CrystalPurple"
+  ChildBlocks: "Eden_CoreNPCSpecial, Eden_CoreNPCFake, Eden_GeneratorStealth, Eden_CoreNPCInvisible, Eden_GeneratorInvisible, Eden_FuelTankInvisible, Eden_DecalInvisible, Eden_SpawnerOrganic, Eden_SpawnerOrganicSmall, Eden_TurretOrganicAlien, Eden_TurretOrganicAlienBeam, Eden_SpawnerGateRed, Eden_DroneSpawnerInvisible, Eden_TurretPlasmaSmall, Eden_TurretBolterBA, Eden_TurretAlienPDCT1, Eden_TurretAlienPDCT1_2, Eden_TurretAlienDummy, Eden_TurretAlienBlaster, Eden_TurretAlienBlasterT2, Eden_TurretRocketRapid, Eden_TurretAlienMissileSwarm, Eden_TurretTorpedo, Eden_PlasmaTurretAugmented, Eden_TurretAlienDisruptor, Eden_TurretAlienLaserT4, Eden_TurretBeamHeavyPOIT1, Eden_TurretAlienShieldBooster, Eden_CargoContainerReinforcedS, Eden_CargoContainerReinforcedL, Eden_CargoContainerReinforcedL2, Eden_StatueDialog, Eden_ConsoleDialog, Eden_ConsoleDialog2, Eden_PadDialog, Eden_CargoDialog, Eden_TreasureDialog, Eden_InvisibleDialog, Eden_ShieldGeneratorPOILightT0, Eden_ShieldGeneratorPOILightT1, Eden_ShieldGeneratorPOILightT2, Eden_ShieldGeneratorPOILightT3, Eden_ShieldGeneratorRegenerate, Eden_ShieldGeneratorRegenerateT2, Eden_ShieldGeneratorRegenerateT3, Eden_ShieldGeneratorRegenerateT4, Eden_ShieldGeneratorBastionT0, Eden_ShieldGeneratorBastion, Eden_ShieldGeneratorBastionT2, Eden_ShieldGeneratorBastionT3, Eden_ShieldGeneratorBastionT4, Eden_DecoyAlienTurretSmall, Eden_DecoyAlienTurretLarge, Eden_DecoyAlienGenSmall, Eden_DecoyAlienGenLarge, Eden_ECMAlienTurretLarge, Eden_ECMAlienGenLarge, Eden_RadioPirates, Eden_RadioColonists, Eden_RadioDroneSwarm, Eden_DecoMiningLaserYellow, Eden_DecoMiningLaserYellow2, Eden_DecoMiningLaserBlue, Eden_DecoMiningLaserBlue2, Eden_CrystalBlue, Eden_CrystalCyan, Eden_CrystalGreen, Eden_CrystalOrange, Eden_CrystalRed, Eden_CrystalPurple"
 }
 
 { +Block Name: Eden_CoreNPCSpecial, Ref: CoreNPC
   CustomIcon: CoreNPCAdmin
   Material: edenadmin
+  AllowedInBlueprint: false, display: true
   Model: @models/Blocks/Misc/CoreBlockNPCAdminPrefab
   BlockColor: "171,32,161"
   Volume: 800000, type: float, display: true, formatter: Liter
-  HitPoints: 20000, type: int, display: true
+  HitPoints: 50000, type: int, display: true
 }
 
 { +Block Name: Eden_CoreNPCFake
@@ -43646,6 +44973,53 @@ HullCombatSmallBlocks
   BlastDamage: 400
 }
 
+{ +Block Name: Eden_GeneratorStealth
+  IndexName: Generator
+  Class: Generator
+  Group: cpgGenerator
+  MarketPrice: 3600, display: true
+  EssentialCategory: cpgGenerator
+  Material: metalhard
+  Shape: ModelEntity
+  ShowBlockName: true
+  CustomIcon: GeneratorBA
+  Model: @models/Blocks/Mothership/generatorSmallMSPrefab
+  Mesh-Damage-1: Mesh/D0
+  Mesh-Damage-2: Mesh/D1
+  Mesh-Damage-3: Mesh/D2
+  Mesh-Damage-4: Mesh/D3
+  Collide: "bullet,rocket,melee,sight"
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!
+  StackSize: 1000
+  EnergyOut: 2500, type: int, display: true, formatter: Watt
+  CPUIn: 8500, type: int, display: true
+  Place: Free
+  AllowPlacingAt: "Base,MS", display: true
+  SizeInBlocks: "2,1,1", display: true
+  SizeInBlocksLocked: "Base,MS"
+  Volume: 800000, type: float, display: true, formatter: Liter
+  Mass: 5920, type: float, display: true, formatter: Kilogram
+  TemplateRoot: GeneratorBA
+  PickupTarget: GeneratorBA
+  AllowedInBlueprint: false, display: true
+  RepairToTemplate: false, display: true
+  
+  BlockColor: "110,110,110"
+  # ModelOffset: "0,0.5,0"
+  SymType: 4
+  IsOxygenTight: false, display: true 
+  IsIgnoreLC: true
+  Info: Eden_GeneratorStealthinfo, display: true
+  Category: Devices
+  HitPoints: 250, type: int, display: true
+  IsActivateable: true
+  RepFac: 4.0
+  TurretTargetIgnore: true
+  
+  Radiation: 6, display: RadiationLevel    # Radiation (= Radiation Protection) already exists for Player Armor
+  Temperature: 90, display: true
+}
+
 #  Alien Core  
 { +Block Name: Eden_CoreNPCInvisible
   AllowedInBlueprint: false, display: true
@@ -43655,7 +45029,8 @@ HullCombatSmallBlocks
   IsKeepContainers: true
   IndexName: Core
   Info: Eden_CoreNPCInvisibleinfo, display: true
-  Material: metal
+  # Material: metal
+  Material: edenadmin
   Shape: ModelEntity
   Model: @models/Blocks/Misc/EntitySpawnerPlateThinPrefab
   Collide: "bullet,rocket,melee,sight"     #  for AI pathfinding: do not consider this block as collide with movements  
@@ -43679,7 +45054,7 @@ HullCombatSmallBlocks
   # ModelOffset: "0,0.5,0"
   EnergyIn: 1, type: int, display: true, formatter: Watt
   #CPUOut: 7500, type: int, display: true
-  HitPoints: 5000, type: int, display: true
+  HitPoints: 50000, type: int, display: true
   Mass: 313, type: float, display: true, formatter: Kilogram
   Volume: 800000, type: float, display: true, formatter: Liter
   StackSize: 1000
@@ -43703,7 +45078,7 @@ HullCombatSmallBlocks
   DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!
   StackSize: 1000
   EnergyOut: 2500, type: int, display: true, formatter: Watt
-  CPUIn: 312, type: int, display: true
+  CPUIn: 4250, type: int, display: true
   Place: Free
   AllowPlacingAt: "Base,MS", display: true
   SizeInBlocks: "1,1,1", display: true
@@ -43767,6 +45142,48 @@ HullCombatSmallBlocks
   TurretTargetIgnore: true
 }
 
+{ +Block Name: Eden_DecalInvisible
+  Info: Eden_DecalInvisibleinfo, display: true
+  IndexName: DecalControl
+  Class: DecalControl
+  Group: cpgLCD
+  Category: Devices
+  CustomIcon: LCDScreenBlocks
+  # Material: device, display: true
+  Material: metallight, display: true
+  # Shape: New
+  Shape: ModelEntity
+  # Model: Cube
+  Model: @models/Blocks/Misc/EntitySpawnerPlateThinPrefab
+  # Model: @models/Blocks/Misc/LCDProjectorPrefab
+  # Model: @eden_blockmodels/Eden_ModelDialog
+  Collide: "bullet,rocket,melee,sight"
+  # Texture: 50
+  BlockColor: "110,110,110"
+  DropMeshfile: Entities/Misc/BagSmallPrefab
+  Place: Free
+  TemplateRoot: HullLargeBlocks
+  PickupTarget: SteelPlate
+  #TemplateRoot: LCDScreenBlocks
+  AllowPlacingAt: "Base,MS,SS,GV", display: true
+  IsAccessible: true, type: bool
+  IsActivateableInCP: true
+  IsLockable: true
+  IsActivateable: true
+  IsOxygenTight: false, display: true
+  # HitPoints: 5000, type: int, display: false
+  HitPoints: 1, type: int, display: false
+  Mass: 1386, type: float, display: true, formatter: Kilogram    # should be dynamic
+  Volume: 800000, type: float, display: true, formatter: Liter
+  StackSize: 1000
+  # CanPickup: true
+  # EnergyIn: 1, type: int, display: true, formatter: Watt
+  # ModelOffset: "0,0.5,0"
+  SizeInBlocks: "1,1,1", display: true
+  SizeInBlocksLocked: "Base,MS"
+  AllowedInBlueprint: false, display: true
+}
+
 # ========================================================================================================================== PDC sentry
 { +Block Name: Eden_TurretAlienPDCT1, Ref: SentryGun03
   CustomIcon: SentryGunBlocks
@@ -43819,6 +45236,7 @@ HullCombatSmallBlocks
   UnlockLevel: 1
   TechTreeNames: Hidden
 }
+
 
 # ========================================================================================================================== Vulcan Turret
 { +Block Name: Eden_TurretAlienVulcan
@@ -43964,7 +45382,7 @@ HullCombatSmallBlocks
 # ========================================================================================================================== Close Range Flak Turret
 { +Block Name: Eden_TurretFlakClose
   # CustomIcon: TurretZiraxMSRocket
-  CustomIcon: TurretMSFlak
+  # CustomIcon: TurretMSFlak
   Class: TurretManual
   IndexName: Turret
   Group: cpgTurret
@@ -44335,8 +45753,8 @@ HullCombatSmallBlocks
   IndexName: Turret
   Material: metalhard
   Shape: Turret
-  TemplateRoot: Eden_AuxillaryCPUSV
-  PickupTarget: Eden_AuxillaryCPUSV
+  TemplateRoot: TurretMSRocketBlocksT2
+  PickupTarget: TurretMSRocketBlocksT2
   Place: Face
   SoundOnEnter: UseActions/DOOROpen02
   SoundRotate: Weapons/Turret/TurretRotateVeryFast
@@ -44444,6 +45862,7 @@ HullCombatSmallBlocks
   CustomIcon: TurretZiraxMSPlasma
   AllowedInBlueprint: false, display: true
   Model: @models/Blocks/Turrets/TurretZiraxSpherical_PlasmaPrefab
+  AllowPlacingAt: "Base,MS", display: true
   SizeInBlocks: "3,1,3", display: true
   Info: A short to medium range blaster turret that deals light to moderate damage to shields and armor alike for POIs. \n[c][A9A9A9][i]Requires Project Eden.[/i][-][/c], display: true
   PickupTarget: TurretMSProjectileBlocks
@@ -44460,6 +45879,7 @@ HullCombatSmallBlocks
 { +Block Name: Eden_TurretAlienBlasterT2, Ref: TurretEnemyLaser
   CustomIcon: TurretEnemyLaser
   AllowedInBlueprint: false, display: true
+  AllowPlacingAt: "Base,MS", display: true
   # Model: @models/Blocks/Turrets/TurretZiraxSpherical_PlasmaPrefab
   # SizeInBlocks: "3,2,3", display: true
   Info: A medium range blaster turret that deals light to moderate damage to shields and armor alike for POIs. \n[c][A9A9A9][i]Requires Project Eden.[/i][-][/c], display: true
@@ -44496,7 +45916,8 @@ HullCombatSmallBlocks
   SoundRotate: Weapons/Turret/TurretRotateNormal
   WeaponItem: Eden_TurretRaiderLaser_Weapon
   # AllowPlacingAt: "Base,MS", display: true
-  AllowPlacingAt: Base, display: true
+  # AllowPlacingAt: Base, display: true
+  GlobalRef: Eden_AllowPlacingAtPOI
   SizeInBlocks: "3,1,3", display: true
   SizeInBlocksLocked: "Base,MS"
   IsActivateable: true
@@ -44637,13 +46058,12 @@ HullCombatSmallBlocks
   Place: Face
   Model: @models/Blocks/Turrets/TurretMSRocketPrefab
   DropMeshfile: Entities/Misc/BagSmallPrefab
-  # PickupTarget: Eden_TurretMissileCruiseCV
-  # TemplateRoot: Eden_TurretMissileCruiseCV
   SoundOnEnter: UseActions/DOOROpen02
   SoundRotate: Weapons/Turret/TurretRotateVeryFast
   AllowedInBlueprint: false, display: true
   # AllowPlacingAt: "Base,MS", display: true
-  AllowPlacingAt: Base, display: true
+  # AllowPlacingAt: Base, display: true
+  GlobalRef: Eden_AllowPlacingAtPOI
   SizeInBlocks: "3,1,3", display: true
   SizeInBlocksLocked: "Base,MS"
   WeaponItem: Eden_TurretMissileCruisePOI_Weapon
@@ -44672,8 +46092,6 @@ HullCombatSmallBlocks
 
 # EMP
 { +Block Name: Eden_TurretMissileCruisePOIT2, Ref: Eden_TurretMissileCruisePOI
-  # PickupTarget: Eden_TurretMissileCruiseEMPCV
-  # TemplateRoot: Eden_TurretMissileCruiseEMPCV
   WeaponItem: Eden_TurretMissileCruisePOIT2_Weapon
 
   BlastParticleIndex: 11
@@ -44691,10 +46109,10 @@ HullCombatSmallBlocks
 
 # CV Ice Mining Drill Turret
 { +Block Name: Eden_DrillIceTurretCVAlien
-  CustomIcon: TurretMSDrill
+  CustomIcon: Eden_DrillIceTurretCV
   Class: TurretManual
   IndexName: Turret
-  Group: EdencpgDrillTurret
+  Group: EdencpgIceTurret
   Material: metalhard
   Shape: Turret
   Place: Face
@@ -44704,7 +46122,7 @@ HullCombatSmallBlocks
   DropMeshfile: Entities/Misc/BagSmallPrefab
   SoundOnEnter: UseActions/DOOROpen02
   SoundRotate: Weapons/Turret/TurretRotateNormal
-  AllowPlacingAt: "Base,MS", display: true
+  AllowPlacingAt: MS, display: true
   SizeInBlocks: "3,1,3", display: true
   # SizeInBlocks: "5,2,5", display: true
   SizeInBlocksLocked: "Base,MS"
@@ -44744,7 +46162,7 @@ HullCombatSmallBlocks
 
 # CV Rich Asteroid Mining Drill Turret
 { +Block Name: Eden_DrillTurretAutoCVAlien
-  CustomIcon: TurretMSDrill
+  CustomIcon: Eden_DrillTurretAutoCV
   Class: TurretManual
   IndexName: Turret
   Group: EdencpgDrillTurret
@@ -44757,7 +46175,7 @@ HullCombatSmallBlocks
   DropMeshfile: Entities/Misc/BagSmallPrefab
   SoundOnEnter: UseActions/DOOROpen02
   SoundRotate: Weapons/Turret/TurretRotateNormal
-  AllowPlacingAt: "Base,MS", display: true
+  AllowPlacingAt: MS, display: true
   SizeInBlocks: "3,1,3", display: true
   # SizeInBlocks: "5,2,5", display: true
   SizeInBlocksLocked: "Base,MS"
@@ -44858,8 +46276,8 @@ HullCombatSmallBlocks
   IndexName: Turret
   Material: metalhard
   Shape: Turret
-  TemplateRoot: Eden_AuxillaryCPUSV
-  PickupTarget: Eden_AuxillaryCPUSV
+  TemplateRoot: ShieldChargerLarge
+  PickupTarget: ShieldChargerLarge
   Place: Face
   Model: @models/Blocks/Turrets/TurretsEnemy/turretIONcannon2Prefab
   DropMeshfile: Entities/Misc/BagSmallPrefab
@@ -45059,6 +46477,7 @@ HullCombatSmallBlocks
   ShieldCapacity: 5000, type: int, display: true
   ShieldRecharge: 50, type: int, display: true # per second
   ShieldCooldown: 30, type: int, display: true   # in seconds
+  ShieldHitCooldown: 20, type: int, display: true
 
   PickupTarget: ShieldGeneratorBA   # Avoid getting back POI shield generator 
   TemplateRoot: ShieldGeneratorBA
@@ -45101,7 +46520,7 @@ HullCombatSmallBlocks
   ShieldCapacity: 5000, type: int, display: true
   ShieldRecharge: 50, type: int, display: true # per second
   ShieldCooldown: 30, type: int, display: true   # in seconds
-  ParticleName: @rg_projectiles/RG_ShieldImpactBlue
+  ParticleName: @rg_projectiles/RG_ShieldImpactBlueM2
 }
 
 # { +Block Name: Eden_CoreDummy
@@ -45190,6 +46609,7 @@ HullCombatSmallBlocks
   Model: @eden_blockmodels/Eden_ModelSoundPirate
 }
 
+# Remove in RE2
 { +Block Name: Eden_DecoMiningLaserYellow, Ref: Eden_RadioPirates
   Model: @eden_blockmodels/Eden_ModelMiningLaserYellow
   Info: Eden_DecoMiningLaserYellowinfo, display: true
@@ -45327,7 +46747,6 @@ HullCombatSmallBlocks
   ShowBlockName: true
   Model: @models/Blocks/Spaceship/DetectorCVPrefab
   DropMeshfile: Entities/Misc/BagSmallPrefab
-  WeaponItem: DetectorCVWeapon
   Place: Free
   IsAccessible: false, type: bool
   Info: Eden_DecoyAlienTurretSmallinfo, display: true
@@ -45360,7 +46779,6 @@ HullCombatSmallBlocks
   ShowBlockName: true
   Model: @models/Blocks/Mothership/Antenna05Prefab
   DropMeshfile: Entities/Misc/BagSmallPrefab
-  WeaponItem: DetectorCVWeapon
   Place: Free
   IsAccessible: false, type: bool
   Info: Eden_DecoyAlienTurretSmallinfo, display: true
@@ -45395,7 +46813,6 @@ HullCombatSmallBlocks
   Model: @eden_blockmodels/Eden_ModelECMAntennaGreen
   Collide: "bullet,rocket,melee,sight"
   DropMeshfile: Entities/Misc/BagSmallPrefab
-  WeaponItem: DetectorCVWeapon
   Place: Free
   IsAccessible: false, type: bool
   Info: Eden_DecoyAlienTurretSmallinfo, display: true
@@ -45421,7 +46838,6 @@ HullCombatSmallBlocks
 # ========================================================================================================================== Reinforced containers for POIs and ships. Meant to survive a battle. Possible integration with reforged?
 # Reinforced container
 { +Block Name: Eden_CargoContainerReinforcedS
-  CustomIcon: CargoContainerSmall
   AllowedInBlueprint: false, display: true
   Class: Container
   IndexName: Container
@@ -45441,7 +46857,7 @@ HullCombatSmallBlocks
   SizeInBlocksLocked: "Base,MS"      
   Mass: 1000, type: float, display: true, formatter: Kilogram
   Volume: 800000, type: float, display: true, formatter: Liter
-  VolumeCapacity: 16000, type: float, display: true, formatter: Liter      
+  VolumeCapacity: 320000, type: float, display: true, formatter: Liter      
   BlockColor: "110,110,110"
   Info: Eden_CargoContainerReinforcedSinfo, display: true
   StackSize: 1000
@@ -45450,7 +46866,7 @@ HullCombatSmallBlocks
   IsOxygenTight: false, display: true
   Category: Devices
   EnergyIn: 1, type: int, display: true, formatter: Watt
-  HitPoints: 10000, type: int, display: true # Higher chance of surviving a battle
+  HitPoints: 25000, type: int, display: true # Higher chance of surviving a battle
   Hardness: 150, type: float, display: false, formatter: Hardness
   ExplosionHardness: 1500
   BlastParticleIndex: 4
@@ -45458,55 +46874,149 @@ HullCombatSmallBlocks
 }
 
 { +Block Name: Eden_CargoContainerReinforcedL, Ref: Eden_CargoContainerReinforcedS
-  CustomIcon: CargoContainerMedium
   Model: @models/Blocks/Mothership/CargoContainerMediumPrefab
   SizeInBlocks: "2,1,1", display: true
-  VolumeCapacity: 16000, type: float, display: true, formatter: Liter
-  HitPoints: 20000, type: int, display: true # High chance of surviving a battle
+  VolumeCapacity: 320000, type: float, display: true, formatter: Liter
+  HitPoints: 25000, type: int, display: true # High chance of surviving a battle
 }
 
 { +Block Name: Eden_CargoContainerReinforcedL2, Ref: Eden_CargoContainerReinforcedS
-  CustomIcon: ScifiContainer2Small
   Model: @models/Blocks/Spaceship/ScifiContainer2SmallPrefab # Pod.
   SizeInBlocks: "2,1,1", display: true
-  VolumeCapacity: 16000, type: float, display: true, formatter: Liter
-  HitPoints: 20000, type: int, display: true
+  VolumeCapacity: 320000, type: float, display: true, formatter: Liter
+  HitPoints: 25000, type: int, display: true
 }
 
-{ +Block Name: Eden_SalvageT1, Ref: Eden_CargoContainerReinforcedS
-  CustomIcon: CargoContainerMedium
-  Material: edensalvaget1 # For multitool
+# Salvage
+{ +Block Name: Eden_SalvageT1
+  # CustomIcon: ThrusterJetRound3x13x3
   AllowedInBlueprint: false, display: true
-  Model: @models/Blocks/Mothership/CargoContainerMediumPrefab
-  SizeInBlocks: "2,1,1", display: true
-  LootList: 76        # 128 slots
-  Mass: 1000, type: float, display: true, formatter: Kilogram
-  BlockColor: "220,160,40"
-
-  Volume: 800000, type: float, display: true, formatter: Liter
-  VolumeCapacity: 16000, type: float, display: true, formatter: Liter  
-  HitPoints: 500, type: int, display: true # High chance of surviving a battle
-  IsOxygenTight: false, display: true    
-  CPUIn: 1920, type: int, display: true
+  RepairToTemplate: false, display: false
+  Class: Container
+  IndexName: Container
+  Group: cpgCargoBox
+  LootList: 678
+  Material: device
+  Shape: ModelEntity
+  ShowBlockName: true
+  Model: @models/Blocks/Thrusters/ThrusterJetRound2x5x2Prefab
+  DropMeshfile: Entities/Misc/BagSmallPrefab
+  DropInventoryEntity: DropContainer
+  Place: Free
+  # AllowPlacingAt: Base, display: true
+  # AllowPlacingAt: "", display: true
+  GlobalRef: Eden_AllowPlacingAtPOI
+  SizeInBlocks: "2,5,2", display: false
+  SizeInBlocksLocked: "Base,MS"
+  Volume: 1600, type: float, display: true, formatter: Liter
+  VolumeCapacity: 16000, type: float, display: false, formatter: Liter
+  Mass: 4110, type: float, display: true, formatter: Kilogram
+  BlockColor: "110,110,110"
+  Info: Eden_SalvageT1info, display: true
+  StackSize: 1000
+  IsActivateable: true
+  IsActivatedOnPlace: false
+  IsActivateableInCP: true
+  IsLockable: true
+  IsOxygenTight: false, display: false
+  Category: Devices
+  MarketPrice: 25000, display: true
+  EnergyIn: 1, type: int, display: false, formatter: Watt
+  HitPoints: 5000, type: int, display: false # Higher chance of surviving a battle
+  Hardness: 20, type: float, display: false, formatter: Hardness
+  # ExplosionHardness: 1500
+  BlastParticleIndex: 4
+  # CPUIn: 200, type: int, display: true
 }
 
 { +Block Name: Eden_SalvageT2, Ref: Eden_SalvageT1
-  CustomIcon: CargoContainerMedium
-  Material: edensalvaget2
-  LootList: 76
-  HitPoints: 750, type: int, display: true
-  IsOxygenTight: false, display: true
-  CPUIn: 1920, type: int, display: true
+  # CustomIcon: ThrusterJetRound3x13x3
+  LootList: 678
+  Model: @models/Blocks/Thrusters/ThrusterJetRound3x7x3Prefab
+  SizeInBlocks: "3,7,3", display: false
+  MarketPrice: 35000, display: true
+  Volume: 3200, type: float, display: true, formatter: Liter 
+  Mass: 8220, type: float, display: true, formatter: Kilogram
+  HitPoints: 7500, type: int, display: false
+  Hardness: 20, type: float, display: false, formatter: Hardness
 }
 
 { +Block Name: Eden_SalvageT3, Ref: Eden_SalvageT1
-  CustomIcon: CargoContainerMedium
-  Material: edensalvaget3
-  LootList: 76
-  HitPoints: 1000, type: int, display: true
-  IsOxygenTight: false, display: true
-  CPUIn: 1920, type: int, display: true
+  # CustomIcon: ThrusterJetRound3x13x3
+  LootList: 679
+  Model: @models/Blocks/Thrusters/ThrusterJetRound3x10x3V2Prefab
+  SizeInBlocks: "3,10,3", display: false
+  MarketPrice: 45000, display: true
+  Volume: 6400, type: float, display: true, formatter: Liter 
+  Mass: 16440, type: float, display: true, formatter: Kilogram
+  HitPoints: 12500, type: int, display: false
+  Hardness: 30, type: float, display: false, formatter: Hardness
 }
+
+{ +Block Name: Eden_SalvageT4, Ref: Eden_SalvageT1
+  # CustomIcon: ThrusterJetRound3x13x3
+  LootList: 679
+  Model: @models/Blocks/Thrusters/ThrusterJetRound3x10x3Prefab
+  SizeInBlocks: "3,10,3", display: false
+  MarketPrice: 55000, display: true
+  Volume: 6400, type: float, display: true, formatter: Liter 
+  Mass: 16440, type: float, display: true, formatter: Kilogram
+  HitPoints: 15000, type: int, display: false
+  Hardness: 30, type: float, display: false, formatter: Hardness
+}
+
+{ +Block Name: Eden_SalvageT5, Ref: Eden_SalvageT1
+  # CustomIcon: ThrusterJetRound3x13x3
+  LootList: 680
+  Model: @models/Blocks/Thrusters/ThrusterJetRound3x13x3V2Prefab
+  SizeInBlocks: "3,13,3", display: false
+  MarketPrice: 65000, display: true
+  Volume: 6400, type: float, display: true, formatter: Liter 
+  Mass: 16440, type: float, display: true, formatter: Kilogram
+  HitPoints: 30000, type: int, display: false
+  Hardness: 40, type: float, display: false, formatter: Hardness
+}
+
+{ +Block Name: Eden_SalvageT6, Ref: Eden_SalvageT1
+  # CustomIcon: ThrusterJetRound3x13x3
+  LootList: 680
+  Model: @models/Blocks/Thrusters/ThrusterJetRound3x13x3Prefab
+  SizeInBlocks: "3,13,3", display: false
+  MarketPrice: 75000, display: true
+  Volume: 6400, type: float, display: true, formatter: Liter 
+  Mass: 16440, type: float, display: true, formatter: Kilogram
+  HitPoints: 30000, type: int, display: false
+  Hardness: 40, type: float, display: false, formatter: Hardness
+}
+
+
+# { +Block Name: Eden_SalvageT1, Ref: Eden_CargoContainerReinforcedS
+  # CustomIcon: CargoContainerMedium
+  # Material: edensalvaget1 # For multitool
+  # AllowedInBlueprint: false, display: true
+  # Model: @models/Blocks/Mothership/CargoContainerMediumPrefab
+  # SizeInBlocks: "2,1,1", display: true
+  # LootList: 76        # 128 slots
+  # Mass: 1000, type: float, display: true, formatter: Kilogram
+  # BlockColor: "220,160,40"
+
+  # Volume: 800000, type: float, display: true, formatter: Liter
+  # VolumeCapacity: 16000, type: float, display: true, formatter: Liter  
+  # HitPoints: 500, type: int, display: true # High chance of surviving a battle
+  # IsOxygenTight: false, display: true    
+  # CPUIn: 1920, type: int, display: true
+# }
+
+
+
+
+
+
+
+
+
+
+
 
 # { +Block Name: Eden_DeuteriumFuelTank
   # Class: FuelTank
@@ -45616,8 +47126,8 @@ HullCombatSmallBlocks
   Model: Entities/Decorations/AncientTemple/TigerStatueSmallPrefab
   Class: NPCDialogue
   DialogueSingleUserAccess: true
-  Group: EdencpgMission
   NPCModelRotation: false
+  Group: cpgEquipment
   SizeInBlocks: "1,1,1", display: true
   IsAccessible: true, type: bool
   ShowUser: Yes
@@ -45625,24 +47135,24 @@ HullCombatSmallBlocks
   TemplateRoot: DecoStoneBlocks
   PickupTarget: DecoStoneBlocks
   Volume: 800000, type: float, display: true, formatter: Liter
-  HitPoints: 5000, type: int, display: true
+  HitPoints: 50000, type: int, display: true
   Info: Eden_StatueDialoginfo, display: true
 }
 
 { +Block Name: Eden_ConsoleDialog
   Material: edenadmin
-  CustomIcon: ConsoleLargeMS01a
   Shape: ModelEntity
   Model: @models/Blocks/Mothership/ConsoleLargeMS01aPrefab
   Class: NPCDialogue
   DialogueSingleUserAccess: true
-  Group: EdencpgMission
+  Group: cpgEquipment
   NPCModelRotation: false
   DropMeshfile: Entities/Misc/DropContainerNewPrefab
   Place: Free
   AllowPlacingAt: "Base,MS", display: true
   SizeInBlocks: "1,1,1", display: true
   SizeInBlocksLocked: "Base,MS"
+  AllowedInBlueprint: false, display: true
   Volume: 800000, type: float, display: true, formatter: Liter
   Mass: 300, type: float, display: true, formatter: Kilogram
   Info: Eden_StatueDialoginfo, display: true
@@ -45652,11 +47162,10 @@ HullCombatSmallBlocks
   EnergyIn: 1, type: int, display: true, formatter: Watt
   TemplateRoot: ConsoleBlocks
   PickupTarget: ConsoleBlocks
-  HitPoints: 5000, type: int, display: true
+  HitPoints: 50000, type: int, display: true
 }
 
 { +Block Name: Eden_ConsoleDialog2, Ref: Eden_ConsoleDialog
-  CustomIcon: Eden_KeyPad
   Model: @models/Blocks/Mothership/GeneralPurposeConsolePrefab
 }
 
@@ -45687,6 +47196,7 @@ HullCombatSmallBlocks
   Collide: ""
   TemplateRoot: DecoTribalBlocks
   PickupTarget: DecoTribalBlocks
+  OmitCone: true
 }
 
 
@@ -45695,7 +47205,7 @@ HullCombatSmallBlocks
   CustomIcon: WaterBlock
   # CanPlayersSpawnOn: false
   # Class: LiquidStatic
-  Material: metallight
+  # Material: metallight
   # Shape: LiquidBlock
   # Model: Cube
   # Mesh: water
@@ -45703,14 +47213,14 @@ HullCombatSmallBlocks
   # AllowPlacingAt: "Base,MS", display: true
   Info: A decorative block for POIs. Can cause rendering issues in certain placements. Recommended to use half block slabs instead of the full block shape. Can be removed via multi-tool. \n[c][A9A9A9][i]Requires Project Eden.[/i][-][/c], display: true
   ShowUser: Yes
-  AllowedInBlueprint: false, display: true
-  TemplateRoot: Eden_WaterBlock
-  PickupTarget: Eden_WaterBlock
-  HitPoints: 100, type: int, display: true
+  # AllowedInBlueprint: false, display: true
+  # TemplateRoot: Eden_WaterBlock
+  # PickupTarget: Eden_WaterBlock
+  # HitPoints: 100, type: int, display: true
   Volume: 800000, type: float, display: true, formatter: Liter
   # BlockColor: "27,44,65,255"
   ChildShapes: "Cube, CornerC, CornerHalfA3, RampCMedium, RampA, RampC, CornerRoundB, CornerRoundADouble, RoundCornerA, CubeRoundConnectorA, EdgeRound, Cylinder, RampRoundFTriple, RampRoundF, SmallCornerRoundB, SmallCornerRoundA, SphereHalf, Cone, ConeB, CutCornerC, Cylinder6Way, CornerRoundATriple, CornerA, CornerHalfA1, CornerDoubleA3, CornerSmallB, PyramidA, Wall, CylinderThin, CubeHalf"
-  Collide: "bullet,rocket,melee,sight"
+  # Collide: "bullet,rocket,melee,sight"
   # { Child Map
     # Color: "27,44,65,255"
     # Specular: 0.3
@@ -45744,7 +47254,7 @@ HullCombatSmallBlocks
   # }
   ChildShapes: "Cube, CornerC, CornerHalfA3, RampCMedium, RampA, RampC, CornerRoundB, CornerRoundADouble, RoundCornerA, CubeRoundConnectorA, EdgeRound, Cylinder, RampRoundFTriple, RampRoundF, SmallCornerRoundB, SmallCornerRoundA, SphereHalf, Cone, ConeB, CutCornerC, Cylinder6Way, CornerRoundATriple, CornerA, CornerHalfA1, CornerDoubleA3, CornerSmallB, PyramidA, Wall, CylinderThin, CubeHalf"
   # Collide: "bullet,rocket,melee,sight"
-  Collide: "movement,bullet,rocket,melee"
+  # Collide: "movement,bullet,rocket,melee"
 }
 
 { +Block Name: Eden_SpawnerOrganic, Ref: EntitySpawner1
@@ -45974,6 +47484,8 @@ HullCombatSmallBlocks
   # BlastParticleIndex: 1
   # BlastRadius: 3
   # BlastDamage: 100
+  
+  
 }
 
 { +Block Name: Eden_VoidiumCrystalT2
@@ -46239,8 +47751,6 @@ HullCombatSmallBlocks
   Place: Free
   IsAccessible: false, type: bool
   # AllowPlacingAt: "Base,MS", display: true
-  # TemplateRoot: ConcreteBlocks
-  # PickupTarget: ConcreteBlocks
   # Model: @models2/Environment/Rocks/Resources/RockResourceTitanPrefab
   # SizeInBlocks: "2,1,2"
   # SizeInBlocks: "3,3,3", display: true
@@ -46291,8 +47801,6 @@ HullCombatSmallBlocks
   Place: Free
   IsAccessible: false, type: bool
   # AllowPlacingAt: "Base,MS", display: true
-  # TemplateRoot: ConcreteBlocks
-  # PickupTarget: ConcreteBlocks
   # Model: @models2/Environment/Rocks/Resources/RockResourceTitanPrefab
   # SizeInBlocks: "2,1,2"
   SizeInBlocks: "1,1,1", display: true
@@ -46403,6 +47911,7 @@ HullCombatSmallBlocks
   Collide: "bullet,rocket,melee,sight"
   # Model: @models/Blocks/Spaceship/flareSS01Prefab
   Model: @eden_blockmodels/Eden_ModelCrystalBlueBright
+  # Model: @eden_blockmodels/Eden_ModelCrystalBlueTest
   DropMeshfile: Entities/Misc/BagSmallPrefab
   AllowPlacingAt: "Base", display: true
   AllowedInBlueprint: false, display: true
@@ -46495,15 +48004,14 @@ HullCombatSmallBlocks
   Place: Free
   IsAccessible: false, type: bool
   AllowPlacingAt: "Base,MS", display: true
-  # TemplateRoot: ConcreteBlocks
-  # PickupTarget: ConcreteBlocks
   # Model: @models2/Environment/Rocks/Resources/RockResourceTitanPrefab
   # SizeInBlocks: "2,1,2"
   # SizeInBlocks: "3,3,3", display: true
-  SizeInBlocks: "3,3,3", display: true
+  SizeInBlocks: "1,1,1", display: true
   SizeInBlocksLocked: "Base,MS"
   OccupySizeInBlocks: true
-  Voxelize: false
+  # Voxelize: false
+  Voxelize: true
   BlockColor: "180,180,180"
   ShowUser: Yes
   AllowedInBlueprint: false, display: true
@@ -46511,15 +48019,20 @@ HullCombatSmallBlocks
   Mass: 10000, type: float, display: true, formatter: Kilogram
   HitPoints: 500, type: int, display: true
   { Child DropOnDestroy_1
-    Item: PentaxidOre
-    Count: "7,13"
+    Item: PromethiumOre
+    Count: "25,65"
     Prob: 1
   }
-  # { Child DropOnDestroy_2
-    # Item: PromethiumOre
-    # Count: "25,50"
-    # Prob: 0.5
-  # }
+  { Child DropOnDestroy_2
+    Item: PromethiumOre
+    Count: "100,250"
+    Prob: 0.05
+  }
+  { Child DropOnDestroy_3
+    Item: XenoSubstrate
+    Count: "25,50"
+    Prob: 0.35
+  }
 }
 
 # Cyan Large
@@ -46535,6 +48048,11 @@ HullCombatSmallBlocks
     Count: "5,10"
     Prob: 0.35
   }
+  { Child DropOnDestroy_3
+    Item: XenoSubstrate
+    Count: "25,50"
+    Prob: 0.35
+  }
 }
 
 # Green Large
@@ -46546,6 +48064,11 @@ HullCombatSmallBlocks
     Prob: 1
   }
   { Child DropOnDestroy_2
+    Item: RawDiamond
+    Count: "1,2"
+    Prob: 0.1
+  }
+  { Child DropOnDestroy_3
     Item: XenoSubstrate
     Count: "25,50"
     Prob: 0.35
@@ -46565,6 +48088,11 @@ HullCombatSmallBlocks
     Count: "1,2"
     Prob: 0.1
   }
+  { Child DropOnDestroy_3
+    Item: XenoSubstrate
+    Count: "25,50"
+    Prob: 0.35
+  }
 }
 
 # Purple Large
@@ -46580,6 +48108,11 @@ HullCombatSmallBlocks
     Count: "25,50"
     Prob: 0
   }
+  { Child DropOnDestroy_3
+    Item: XenoSubstrate
+    Count: "25,50"
+    Prob: 0.35
+  }
 }
 
 # Red Large
@@ -46591,12 +48124,120 @@ HullCombatSmallBlocks
     Prob: 1
   }
   { Child DropOnDestroy_2
-    Item: PentaxidOre
+    Item: GoldOre
     Count: "5,20"
+    Prob: 0.35
+  }
+  { Child DropOnDestroy_3
+    Item: XenoSubstrate
+    Count: "25,50"
     Prob: 0.35
   }
 }
 
+# Metallic Crystals
+{ +Block Name: Eden_CrystalSilver, Ref: Eden_CrystalBlueL
+  Model: @eden_blockmodels/Eden_ModelCrystalMetalSilverL
+  HitPoints: 2500, type: int, display: true
+  { Child DropOnDestroy_1
+    Item: IronOre
+    Count: "50,100"
+    Prob: 1
+  }
+  { Child DropOnDestroy_2
+    Item: SiliconOre
+    Count: "20,40"
+    Prob: 1
+  }
+  { Child DropOnDestroy_3
+    Item: Eden_SilverOre
+    Count: "5,10"
+    Prob: 0.05
+  }
+}
+
+{ +Block Name: Eden_CrystalCopper, Ref: Eden_CrystalBlueL
+  Model: @eden_blockmodels/Eden_ModelCrystalMetalCopperL
+  HitPoints: 1000, type: int, display: true
+  { Child DropOnDestroy_1
+    Item: CopperOre
+    Count: "35,75"
+    Prob: 1
+  }
+  { Child DropOnDestroy_2
+    Item: NeodymiumOre
+    Count: "20,35"
+    Prob: 0.25
+  }
+  { Child DropOnDestroy_3
+    Item: GoldOre
+    Count: "5,10"
+    Prob: 0.03
+  }
+}
+
+# Energized Xenocrystal
+{ +Block Name: Eden_CrystalXenoL, Ref: Eden_CrystalBlueL
+  Model: @eden_blockmodels/Eden_ModelCrystalMetalXenoL
+  HitPoints: 5000, type: int, display: true
+  { Child DropOnDestroy_1
+    Item: ErestrumOre
+    Count: "100,250"
+    Prob: 1
+  }
+  { Child DropOnDestroy_2
+    Item: XenoSubstrate
+    Count: "50,100"
+    Prob: 1
+  }
+  { Child DropOnDestroy_3
+    Item: MutatedSubstance
+    Count: "1,2"
+    Prob: 0.1
+  }
+}
+
+# Energized Pentaxid
+{ +Block Name: Eden_CrystalPentaxidL, Ref: Eden_CrystalBlueL
+  Model: @eden_blockmodels/Eden_ModelCrystalMetalEnergizedL
+  HitPoints: 2500, type: int, display: true
+  { Child DropOnDestroy_1
+    Item: PentaxidOre
+    Count: "50,100"
+    Prob: 1
+  }
+  { Child DropOnDestroy_2
+    Item: XenoSubstrate
+    Count: "10,25"
+    Prob: 1
+  }
+  { Child DropOnDestroy_3
+    Item: PromethiumOre
+    Count: "25,50"
+    Prob: 0.25
+  }
+}
+
+# Energized Zascosium
+{ +Block Name: Eden_CrystalZascosiumL, Ref: Eden_CrystalBlueL
+  Model: @eden_blockmodels/Eden_ModelCrystalMetalEnergizedL2
+  HitPoints: 5000, type: int, display: true
+  { Child DropOnDestroy_1
+    Item: ZascosiumOre
+    Count: "100,250"
+    Prob: 1
+  }
+  { Child DropOnDestroy_2
+    Item: GoldOre
+    Count: "50,100"
+    Prob: 0.05
+  }
+  { Child DropOnDestroy_3
+    Item: RawDiamond
+    Count: "1,5"
+    Prob: 0.05
+  }
+}
 
 { +Block Name: Eden_HematiteResource
   CustomIcon: LavaBlock
@@ -46705,7 +48346,7 @@ HullCombatSmallBlocks
   { Child DropOnDestroy_2
     Item: IronOre
     Count: "2,4"
-    Prob: 0.5
+    Prob: 0.35
   }
   { Child DropOnDestroy_3
     Item: IronOre
@@ -47789,134 +49430,639 @@ HullCombatSmallBlocks
   # ShowUser: No
 # }
 
+# ============================================================================================================================================================================
+# ========================================================================================================================== Terrain decoration for planets
+# WIP - experimental. Must use the new decoration system. Some use particle effects and should be used sparingly.
+# Note: these no longer work on dedicated servers. Causes ships to freeze and POIs to not generate. Retest in the future in case it gets fixed.
+# ============================================================================================================================================================================
 
-# { Block Name: Eden_GeothermalGeneratorTest
-  # Material: metalhard
-  # # IndexName: Eden_GeoGenerator
-  # # Class: Weapon
-  # # IndexName: WeaponShip
-  # # EnergyDynamicGroup: Geothermal
-  # Group: cpgGenerator
-  # Shape: ModelEntity
-  # AllowedInBlueprint: false, display: true
-  # ShowBlockName: true
-  # Model: @models/Blocks/Mothership/FurnacePrefab
+# Good for placing on mountains rarely. Causes meteors to show up for players nearby.
+{ Block Name: Eden_TerrainShootingStars
+  Material: rock
+  Shape: Deco
+  IsTerrainDecoration: true
+  IsDeco: true
+  XpFactor: 1.0
+  Model: @eden_blockmodels/Eden_PlanetShootingStars
+  ShowUser: No
+}
+
+# Doesn't look the best when used with terrain deco.
+# { Block Name: Eden_TerrainAuroraMulti
+  # Material: rock
+  # Shape: Deco
+  # IsTerrainDecoration: true
+  # IsDeco: true
+  # XpFactor: 1.0
+  # Model: @eden_blockmodels/Eden_PlanetAuroraMulti
+  # ShowUser: No
+# }
+
+# Aurora. Good to place rarely in Pole or Mountain type biomes.
+{ Block Name: Eden_TerrainAuroraBlue
+  Material: rock
+  Shape: Deco
+  IsTerrainDecoration: true
+  IsDeco: true
+  XpFactor: 1.0
+  Model: @eden_blockmodels/Eden_PlanetAuroraBlue
+  ShowUser: No
+}
+
+{ Block Name: Eden_TerrainAuroraGreen
+  Material: rock
+  Shape: Deco
+  IsTerrainDecoration: true
+  IsDeco: true
+  XpFactor: 1.0
+  Model: @eden_blockmodels/Eden_PlanetAuroraGreen
+  ShowUser: No
+}
+
+{ Block Name: Eden_TerrainAuroraPurple
+  Material: rock
+  Shape: Deco
+  IsTerrainDecoration: true
+  IsDeco: true
+  XpFactor: 1.0
+  Model: @eden_blockmodels/Eden_PlanetAuroraPurple
+  ShowUser: No
+}
+
+{ Block Name: Eden_TerrainAuroraRed
+  Material: rock
+  Shape: Deco
+  IsTerrainDecoration: true
+  IsDeco: true
+  XpFactor: 1.0
+  Model: @eden_blockmodels/Eden_PlanetAuroraRed
+  ShowUser: No
+}
+
+{ Block Name: Eden_TerrainLavaSpout
+  Material: rock
+  Shape: Deco
+  IsTerrainDecoration: true
+  IsDeco: true
+  XpFactor: 1.0
+  Model: @eden_blockmodels/Eden_PlanetLavaSpout
+  ShowUser: No
+}
+
+{ Block Name: Eden_TerrainFogWhite
+  Material: woodhard
+  Shape: Deco
+  IsTerrainDecoration: true
+  IsDeco: true
+  Model: @eden_blockmodels/Eden_PlanetFogWhite
+  ShowUser: No
+}
+
+# { Block Name: Eden_TerrainFirefliesBlue
+  # Material: woodhard
+  # Shape: Deco
+  # IsTerrainDecoration: true
+  # IsDeco: true
+  # # IsPlant: true
+  # # BigDecorationRadius: 10
+  # Model: @eden_blockmodels/Eden_PlanetFirefliesBlue
+  # # DecoParticle: chinesebanyan
+  # ShowUser: No
+# }
+
+# { Block Name: Eden_TerrainPlantGlowBlue
+  # Material: woodhard
+  # Shape: Deco
+  # IsTerrainDecoration: true
+  # IsDeco: true
+  # IsPlant: true
+  # # BigDecorationRadius: 10
+  # Model: @eden_blockmodels/Eden_PlanetPlantGlowBlue
+  # # DecoParticle: chinesebanyan
+  # ShowUser: No
+# }
+
+# { Block Name: Eden_TerrainPlantGlowBlue2
+  # Material: woodhard
+  # Shape: Deco
+  # IsTerrainDecoration: true
+  # IsDeco: true
+  # IsPlant: true
+  # Model: @eden_blockmodels/Eden_PlanetPlantGlowBlue2
+  # ShowUser: No
+# }
+
+# { Block Name: Eden_TerrainPlantGlowBlue3
+  # Material: woodhard
+  # Shape: Deco
+  # IsTerrainDecoration: true
+  # IsDeco: true
+  # IsPlant: true
+  # Model: @eden_blockmodels/Eden_PlanetPlantGlowBlue3
+  # ShowUser: No
+# }
+
+{ Block Name: Eden_TestDroneBay
+  Class: AIDroneBay
+  IndexName: AIDroneBay
+  Category: Devices
+  Group: cpgEquipment
+  LootList: 106    #8 Slots
+  MarketPrice: 150000, display: true     #recalculate
+  # EssentialCategory: cpgGenerator
+  Material: device
+  Shape: ModelEntity
+  ShowBlockName: true
+  # Model: @models/Blocks/AIDrone/AIDroneBay2Prefab
+  Model: @models/Blocks/Mothership/CargoBoxPrefab
   # Mesh-Damage-1: Mesh/D0
   # Mesh-Damage-2: Mesh/D1
   # Mesh-Damage-3: Mesh/D2
   # Mesh-Damage-4: Mesh/D3
-  # DropMeshfile: Entities/Misc/BagSmallPrefab
-  # Place: Free
-  # IsActivateable: true
-  # # IsActivateable: false
-  # IsActivateableInCP: false
-  # IsActivatedOnPlace: false
-  # IsAccessible: true, type: bool
-  # # IsAccessible: false, type: bool
-  # AllowPlacingAt: Base, display: true
-  # Info: Eden_GeothermalGeneratorTestinfo, display: true
-  # SizeInBlocks: "3,3,3", display: true
-  # SymType: 4
-  # StackSize: 250
-  # BlockColor: "75,75,50"
-  # Category: Devices
-  # HitPoints: 500, type: int, display: true
-  # Mass: 24700, type: float, display: true, formatter: Kilogram
-  # Volume: 1600, type: float, display: true, formatter: Liter
-  # EnergyIn: -500, type: int, display: true, formatter: Watt
-  # CPUIn: 25000, type: int, display: true  
-  # EnergyInIdle: 20, type: int, display: true, formatter: Watt
-  # MarketPrice: 59497, display: true
-  # MaxCount: 20, type: int, display: true
-  # ForceMaxCount: True
-  # ShowUser: Yes
-  # # ShowUser: No
-  # # TemplateRoot: ShieldCapacitorLarge
-  # # PickupTarget: ShieldCapacitorLarge
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!
+  Place: Free
+  StackSize: 50
+  AllowPlacingAt: "Base,MS", display: true
+  MaxCount: 4, type: int, display: true
+  ForceMaxCount: true
+  # SizeInBlocks: "5,5,15", display: true
+  SizeInBlocks: "1,1,1", display: true
+  SizeInBlocksLocked: "Base,MS"
+  SymType: 4
+  IsOxygenTight: true, display: false 
+  Info: bkiAIDroneBay, display: true
+  IsActivateable: true
+  AllowedInBlueprint: false, display: true
   
-  # BlastParticleName: @rg_projectiles/RG_BlastShieldGen
-  # BlastParticleIndex: 0
-  # BlastRadius: 5
-  # BlastDamage: 6000
+  BlockColor: "110,110,110"
   
-  # # UnlockCost: 8, display: true
-  # # UnlockLevel: 10, display: true
-  # # TechTreeParent: GravityGeneratorMS
-  # # TechTreeNames: "Base,Capital Vessel"
-# }
-
-
-
-# { +Block Name: Eden_TESTElevator
-  # Material: metalhard
-  # Shape: ModelEntity
-  # ShowBlockName: true
-  # # Class: Door
-  # # IndexName: Door
-
-  # # Model: @eden_blockmodels/Eden_ElevatorCVx2New
-  # Model: @eden_blockmodels/Eden_Elevator1x1x2
-
-  # Group: cpgDoor
-  # CustomIcon: Ramp3x4x2Airtight
-  # ShowUser: Yes
-  # DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!
-  # IsAccessible: true, type: bool
-  # IsActivateable: true
-  # IsOxygenTight: false, display: true
-  # StackSize: 25
-  # AllowedInBlueprint: false, display: true
-  # # MaxCount: 1, type: int, display: true
-  # # ForceMaxCount: true
-  # # RepairToTemplate: false, display: true
-  # Info: This is a TEST for elevators. Control via signal. WARNING THIS BLOCK MAY BE REMOVED IN THE FUTURE USE ONLY FOR TESTING., display: true
-  # Place: Free
-  # AllowPlacingAt: "Base,MS", display: true
-  # # SizeInBlocks: "3,1,2", display: true
-  # SizeInBlocks: "1,2,1", display: true
-  # # SizeInBlocksLocked: "Base,MS"
-  # # SizeInBlocksLocked: "SS,GV"
-  # OccupySizeInBlocks: true
-  # Voxelize: false
-  # SoundOpen: UseActions/HangarDoor
-  # SoundClose: UseActions/HangarDoor
-  # # PlayerTriggersOpen: true
-  # # SymType: 4
-  # # IsDuplicateable: false
-  # Volume: 100, type: float, display: true, formatter: Liter
-  # Mass: 500, type: float, display: true, formatter: Kilogram
-  # EnergyIn: 1, type: int, display: true, formatter: Watt
-  # CPUIn: 5, type: int, display: true
-  # HitPoints: 500, type: int, display: true
-  # Category: Deco Blocks
+  HitPoints: 1075, type: int, display: true 
+  Mass: 46875, type: float, display: true, formatter: Kilogram  #recalculate
+  Volume: 7284, type: float, display: true, formatter: Liter
+  VolumeCapacity: 6701, type: float, display: true, formatter: Liter
+  CPUIn: 2500, type: int, display: true
   
-  # BlockColor: "110,110,110"
-  # IsColorable: true
-  # IsTextureable: false
-  # IsGPUInstance: true
-  # # UpgradeTo: Eden_RailgunCVSpinal, display: true
+  EnergyIn: 250, type: int, display: true, formatter: Watt  
+ # EnergyDynamicGroup: AIDroneBay
 
-  # # UnlockCost: -1
-  # # UnlockLevel: 1
-  # # TechTreeParent: ""
-  # # TechTreeNames: "Hidden"
-# }
+  BlastParticleIndex: 4
+  BlastRadius: 1
+  BlastDamage: 500
+  
+  IsAccessible: true, type: bool
+  IsActivateableInCP: true
+  IsLockable: true
+  
+  ADBDroneType: DroneLargePlayer01
+  # ADBDroneType: Eden_DroneMiningTest
+  ADBMaxSpawner: 2
+  ADBMaxActiveDrone: 2
+  ADBMaxReserve: 10
+  ADBActionRadius: 1000
+  ADBDockingSpeedFac: 0.5
+  ADBDroneAmmoType: DroneLargePlayer01Unit 
 
-# { +Block Name: Eden_TESTElevator2, Ref: Eden_TESTElevator
-  # Model: @eden_blockmodels/Eden_Elevator2x3x3
+  #UnlockCost: 12, display: true
+  #UnlockLevel: 10, display: true
+  #TechTreeParent: ContainerLargeBlocks        #ContainerExtentions??
+  #TechTreeNames: "Base,Capital Vessel"
+}
 
-  # SizeInBlocks: "3,1,2", display: true
-  # Mass: 500, type: float, display: true, formatter: Kilogram
-  # HitPoints: 500, type: int, display: true
-  # Category: Deco Blocks
-# }
 
-# { +Block Name: Eden_TESTElevator3, Ref: Eden_TESTElevator
-  # Model: @eden_blockmodels/Eden_Elevator1x1x3
+# Test dialogue. Don't use this in-game!
+{ +Block Name: Eden_TestDialogue
+  # CustomIcon: ConsoleMapMS01
+  # Class: Container
+  # IndexName: Container
+  Class: NPCDialogue
+  NPCModelRotation: false
+  DialogueState: Eden_TestStructure_Init
+  OmitCone: true
+  AllowedInBlueprint: false, display: true
+  Group: cpgEquipment
+  Material: metal
+  Shape: ModelEntity
+  ShowBlockName: true
+  # Model: @models2/Entities/Decorations/HolographicAIConsole/HolographicAIConsolePrefab
+  # Model: @models/Blocks/Mothership/ConsoleMapMS01Prefab
+  Model: @eden_blockmodels/Eden_ModelScienceStation
+  Mesh-Damage-1: D0
+  Mesh-Damage-2: D1
+  Mesh-Damage-3: D2
+  Mesh-Damage-4: D3
+  # Model: @eden_blockmodels/Eden_ModelScienceStation
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab             #Large container box; Available variants: see start of this document!  
+  Place: Free
+  AllowPlacingAt: "Base,MS", display: true
+  SizeInBlocks: "1,1,1", display: true
+  SizeInBlocksLocked: "Base,MS"      # scaled small on SV, GV
+  IsActivateable: true
+  Mass: 50, type: float, display: true, formatter: Kilogram
+  Volume: 20, type: float, display: true, formatter: Liter
+  BlockColor: "110,110,110"
+  IsColorable: true
+  IsTextureable: false
+  # Info: Eden_ScienceStationinfo, display: true
+  # ModelOffset: "0,0.5,0"
+  StackSize: 1000
+  #  IsAccessible: false, type: bool     
+  # IsActivateableInCP: true
+  IsLockable: true
+  ShowUser: No
+  # IsOxygenTight: true, display: true
+  IsAccessible: false, type: bool
+  Category: Devices
+  EnergyIn: 1, type: int, display: true, formatter: Watt
+  CPUIn: 0, type: int, display: true
+  HitPoints: 500, type: int, display: true
+  BlastParticleIndex: 4
+}
 
-  # IsOxygenTight: false, display: true
-  # SizeInBlocks: "1,3,1", display: true
-  # Mass: 500, type: float, display: true, formatter: Kilogram
-  # HitPoints: 500, type: int, display: true
-  # Category: Deco Blocks
-# }
+
+# ============================================================================================================================================================================
+# ========================================================================================================================== Reforged Eden 2 blocks for compatibility.
+# These blocks will be used to convert Project Eden POIs for Reforged Eden 2 compatibility over time.
+# ============================================================================================================================================================================
+
+{ Block Name: FoundationBlocks
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab
+  Material: foundation
+  Texture: 92
+  BlockColor: "170,170,170"
+  Shape: New
+  Model: Cube
+  AllowedInBlueprint: false, display: true
+  TemplateRoot: ConcreteBlocks
+  CustomIcon: ArtMassMedium
+  IsOxygenTight: true, display: true
+  AllowPlacingAt: "Base,MS", display: true
+  HitPoints: 10000, type: int, display: false
+  Info: Indestructible, display: true
+  Mass: 1000, type: float, display: true, formatter: Kilogram
+  Volume: 999999, type: float, display: true, formatter: Liter
+  CPUIn: 0, type: int, display: false
+  Category: BuildingBlocks
+  ChildShapes: "Cube, CutCornerE, CutCornerB, SlicedCornerA1, CornerHalfB, CornerSmallC, CornerC, CornerHalfA3, RampCMedium, RampA, RampC, CornerRoundB, CornerRoundADouble, RoundCornerA, CubeRoundConnectorA, EdgeRound, Cylinder, RampRoundFTriple, RampRoundF, SmallCornerRoundB, SmallCornerRoundA, SphereHalf, Cone, ConeB, CutCornerC, Cylinder6Way, CornerRoundATriple, CornerA, CornerHalfA1, CornerDoubleA3, CornerSmallB, PyramidA"
+  StackSize: 1000
+  ShowUser: Yes
+}
+
+# Project Eden Alien Blocks devices and turrets
+{ +Block Name: Eden_AlienBlocksPOI2
+  AllowedInBlueprint: false, display: true
+  Material: metal
+  Shape: Invisible
+  # Model: @models/Blocks/Misc/CoreBlockV2EnemyPrefab
+  DropMeshfile: Entities/Misc/BagSmallPrefab
+  # ModelOffset: "0,0.5,0"
+  Place: Free
+  AllowPlacingAt: "Base,MS", display: false
+  # Info: A block group for placing default and Project Eden POI devices in creative mode. RMB to change type. Not allowed in blueprints. \n[c][A9A9A9][i]Requires Project Eden.[/i][-][/c], display: true
+  Info: Eden_AlienBlocksPOI2info, display: true
+  Mass: 1, type: float, display: true, formatter: Kilogram
+  EnergyIn: 1, type: int, display: false, formatter: Watt
+  Volume: 800000, type: float, display: true, formatter: Liter
+  Category: Devices
+  # ChildBlocks: "CoreNPC, CoreNPCAdmin, TurretIONCannon, TurretIONCannon2, TurretEnemyLaser, TurretEnemyRocket, TurretEnemyArtillery, TurretEnemyEMP, SentryGun01, SentryGun01Retract, SentryGun02, SentryGun02Retract, AlienContainer, AlienContainerRare, AlienContainerVeryRare, AlienContainerUltraRare, EntitySpawner1, EntitySpawnerPlateThin, DroneSpawner, DroneSpawner2, Trader, "
+  ChildBlocks: "TurretPOIGatlingT1, TurretPOIGatlingT2, TurretPOIFlakT1, TurretPOIFlakT2, TurretPOIArtilleryT2, TurretPOIEMPT2, TurretOPVCollision, TurretPlanetGatlingT1, TurretPlanetGatlingT2, TurretPlanetFlakT1, TurretPlanetFlakT2, TurretPlanetArtilleryT1, TurretPlanetArtilleryT2, TurretPlanetLaserT1, TurretPlanetLaserT2, TurretPlanetPlasmaT1, TurretPlanetPlasmaT2, TurretPlanetRocketT1, TurretPlanetRocketT2, ShieldGeneratorPlanetZirax, ShieldGeneratorPlanetPolaris, ShieldGeneratorPlanetLegacy"
+}
+
+
+
+
+
+# ==================================================================
+# Planet-Only POI Turrets
+# ==================================================================
+
+
+
+
+# Computer Storage Block that holds a couple of Quantum Processors for specific Zirax POIs.
+# QuantumComputer
+
+# Shields
+# ShieldGeneratorPlanetZirax
+# ShieldGeneratorPlanetPolaris
+# ShieldGeneratorPlanetLegacy
+# ShieldGeneratorPOISmall
+# ShieldCapacitorPOI
+
+{ +Block Name: ShieldGeneratorPlanetZirax, Ref: Eden_ShieldGeneratorBastion
+  CustomIcon: ShieldGeneratorPOI
+  SizeInBlocks: "3,2,3", display: true
+  SizeInBlocksLocked: "Base,MS"
+  ShieldCapacity: 25000, type: int, display: true
+  ShieldRecharge: 100, type: int, display: true # per second
+  ShieldCooldown: 30, type: int, display: true   # in seconds
+  ParticleName: @rg_projectiles/RG_ShieldImpactOrangeM
+}
+
+{ +Block Name: ShieldGeneratorPlanetPolaris, Ref: ShieldGeneratorPlanetZirax
+  ParticleName: @rg_projectiles/RG_ShieldImpactBlueM2
+}
+
+{ +Block Name: ShieldGeneratorPlanetLegacy, Ref: ShieldGeneratorPlanetZirax
+  ParticleName: @rg_projectiles/RG_ShieldImpactHexGreenM
+}
+
+# ==================================================================
+# New-type POI Turrets (Planet and Space)
+# ==================================================================
+
+# TurretPOIGatlingT1
+# TurretPOIGatlingT2
+# TurretPOIFlakT1
+# TurretPOIFlakT2
+# TurretPOIArtilleryT2
+# TurretPOIEMPT2
+# TurretOPVCollision
+
+
+# ==================================================================
+# Planet-Only POI Turrets
+# ==================================================================
+
+# TurretPlanetGatlingT1
+# TurretPlanetGatlingT2
+# TurretPlanetFlakT1
+# TurretPlanetFlakT2
+# TurretPlanetArtilleryT1
+# TurretPlanetArtilleryT2
+# TurretPlanetLaserT1
+# TurretPlanetLaserT2
+# TurretPlanetPlasmaT1
+# TurretPlanetPlasmaT2
+# TurretPlanetRocketT1
+# TurretPlanetRocketT2
+
+
+# =================================================================
+# ======================== Broken Turrets =========================
+# =================================================================
+# Returned from retrieving NPC Turrets. Deco turrets with salvageable materials.
+
+# BrokenTurretDome
+# BrokenTurretAlien
+# BrokenTurretLegacy
+
+
+{ Block Name: TurretPOIGatlingT1
+  AllowedInBlueprint: false, display: true
+  Info: Eden_RE2Turret, display: true
+  Class: TurretManual
+  Group: cpgTurret
+  IndexName: Turret
+  Material: weapon
+  Shape: Turret
+  TemplateRoot: TurretBaseMinigun
+  PickupTarget: TurretBaseMinigun
+  Place: Face
+  Model: @models/Blocks/Turrets/TurretsEnemy/TurretEnemyLaserPrefab
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab
+  SoundOnEnter: UseActions/DOOROpen02
+  WeaponItem: TurretBaseMinigunWeapon
+  SoundOpen: UseActions/TurretOpen
+  SoundClose: UseActions/TurretClose
+  IsActivateable: true
+  IsActivateableInCP: true
+  IsRetractable: false
+  BlockColor: "110,110,110"
+  CustomIcon: TurretEnemyLaser
+  AllowPlacingAt: "Base,MS", display: true
+  SizeInBlocks: "3,2,3", display: true
+  SizeInBlocksLocked: "Base,MS"
+  Volume: 800000, type: float, display: true, formatter: Liter
+  Mass: 17000, type: float, display: true, formatter: Kilogram
+  StackSize: 250
+  Category: Weapons/Items
+  BlastParticleName: @rg_projectiles/RG_BlastFlakMulti
+  BlastParticleIndex: 0
+  BlastRadius: 4
+  BlastDamage: 650
+  
+  HitPoints: 3450, type: int, display: true
+  RotSpeed: 90, type: int, display: true
+  EnergyIn: 250, type: int, display: true, formatter: Watt
+  CPUIn: 12500, type: int, display: true
+  XpFactor: 2
+  AboveTerrainCheck: false
+}
+{ Block Name: TurretPOIGatlingT2, Ref: TurretPOIGatlingT1
+  Model: @models/Blocks/Turrets/TurretZiraxSpherical_LaserPrefab
+  Mesh-Damage-1: Mesh/D0
+  Mesh-Damage-2: Mesh/D1
+  Mesh-Damage-3: Mesh/D2
+  Mesh-Damage-4: Mesh/D3
+  SizeInBlocks: "3,1,3", display: true
+  BlockColor: "110,110,110"
+  CustomIcon: TurretZiraxMSLaser
+  RotSpeed: 135, type: int, display: true
+}
+{ Block Name: TurretPOIFlakT1, Ref: TurretPOIGatlingT1
+  BlockColor: "110,110,110"
+  WeaponItem: TurretBaseFlakWeapon
+  RotSpeed: 90, type: int, display: true
+}
+{ Block Name: TurretPOIFlakT2, Ref: TurretPOIGatlingT1
+  BlockColor: "110,110,110"
+  WeaponItem: TurretBaseFlakWeapon
+  RotSpeed: 90, type: int, display: true
+}
+{ Block Name: TurretPOIArtilleryT2, Ref: TurretPOIGatlingT1
+  Model: @models/Blocks/Turrets/TurretZiraxSpherical_PlasmaPrefab
+  Mesh-Damage-1: Mesh/D0
+  Mesh-Damage-2: Mesh/D1
+  Mesh-Damage-3: Mesh/D2
+  Mesh-Damage-4: Mesh/D3
+  SizeInBlocks: "3,1,3", display: true
+  WeaponItem: TurretEnemyArtilleryWeapon
+  CustomIcon: TurretZiraxMSPlasma
+  RotSpeed: 90, type: int, display: true
+}
+{ Block Name: TurretPOIEMPT2, Ref: TurretPOIGatlingT1
+  Model: @models/Blocks/Turrets/TurretZiraxSpherical_PlasmaPrefab
+  Mesh-Damage-1: Mesh/D0
+  Mesh-Damage-2: Mesh/D1
+  Mesh-Damage-3: Mesh/D2
+  Mesh-Damage-4: Mesh/D3
+  SizeInBlocks: "3,1,3", display: true
+  WeaponItem: TurretEnemyEMPWeapon
+  CustomIcon: TurretZiraxMSPlasma
+  RotSpeed: 180, type: int, display: true
+}
+# # Anti-collision turret for OPVs. Cuts a hole through the player's ship.
+{ Block Name: TurretOPVCollision
+  Model: @models/Blocks/Turrets/TurretEnemyBlackPrefab
+  AllowedInBlueprint: false, display: true
+  Info: bkiAntiCollider, display: true
+  RepairToTemplate: false, display: true
+  Class: TurretAuto
+  Group: cpgAlien
+  IndexName: Turret
+  Material: foundation
+  CustomIcon: TurretEnemyBlack
+  Shape: Turret
+  PickupTarget: TurretBaseMinigun
+  TemplateRoot: TurretBaseMinigun
+  Place: Face
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab
+  SoundOnEnter: UseActions/DOOROpen02
+  WeaponItem: TurretEnemyLaserWeaponRed
+  IsActivateable: true
+  BlockColor: "110,110,110"
+  AllowPlacingAt: "Base,MS", display: true
+  SizeInBlocks: "1,1,1", display: true
+  SizeInBlocksLocked: "Base,MS"
+  Volume: 800000, type: float, display: true, formatter: Liter
+  Mass: 8500, type: float, display: true, formatter: Kilogram
+  StackSize: 250
+  Category: Weapons/Items
+  BlastParticleName: @rg_projectiles/RG_BlastPlasmaGreenL1
+  BlastParticleIndex: 0
+  BlastRadius: 4
+  BlastDamage: 250
+  
+  HitPoints: 3450, type: int, display: true
+  RotSpeed: 360, type: int, display: true
+  EnergyIn: 5000, type: int, display: true, formatter: Watt
+  CPUIn: 25000, type: int, display: true
+  XpFactor: 2
+  AboveTerrainCheck: false
+  TurretTargetIgnore: true
+  MarketPrice: 1000, display: false
+  ShowUser: No
+}
+# # ==================================================================
+# # Planet-Only POI Turrets
+# # ==================================================================
+{ Block Name: TurretPlanetGatlingT1
+  AllowedInBlueprint: false, display: true
+  Info: bkiPlanetPOITurretT1, display: true
+  Class: TurretManual
+  Group: cpgTurret
+  IndexName: Turret
+  Material: weapon
+  Shape: Turret
+  TemplateRoot: TurretBaseMinigun
+  PickupTarget: TurretBaseMinigun
+  Place: Face
+  Model: @models/Blocks/Turrets/TurretsEnemy/TurretEnemyLaserPrefab
+  DropMeshfile: Entities/Misc/DropContainerNewPrefab
+  SoundOnEnter: UseActions/DOOROpen02
+  WeaponItem: TurretBaseMinigunWeapon
+  SoundOpen: UseActions/TurretOpen
+  SoundClose: UseActions/TurretClose
+  IsActivateable: true
+  IsActivateableInCP: true
+  IsRetractable: false
+  BlockColor: "110,110,110"
+  CustomIcon: TurretEnemyLaser
+  AllowPlacingAt: "Base,MS", display: true
+  SizeInBlocks: "3,2,3", display: true
+  SizeInBlocksLocked: "Base,MS"
+  Volume: 800000, type: float, display: true, formatter: Liter
+  Mass: 17000, type: float, display: true, formatter: Kilogram
+  StackSize: 250
+  Category: Weapons/Items
+  BlastParticleName: @rg_projectiles/RG_BlastFlakMulti
+  BlastParticleIndex: 0
+  BlastRadius: 4
+  BlastDamage: 650
+  
+  HitPoints: 2450, type: int, display: true
+  RotSpeed: 90, type: int, display: true
+  EnergyIn: 250, type: int, display: true, formatter: Watt
+  CPUIn: 12500, type: int, display: true
+  XpFactor: 2
+  AboveTerrainCheck: false
+}
+{ Block Name: TurretPlanetGatlingT2, Ref: TurretPlanetGatlingT1
+  Model: @models/Blocks/Turrets/TurretZiraxSpherical_LaserPrefab
+  Mesh-Damage-1: Mesh/D0
+  Mesh-Damage-2: Mesh/D1
+  Mesh-Damage-3: Mesh/D2
+  Mesh-Damage-4: Mesh/D3
+  SizeInBlocks: "3,1,3", display: true
+  CustomIcon: TurretZiraxMSLaser
+  RotSpeed: 135, type: int, display: true
+}
+{ Block Name: TurretPlanetFlakT1, Ref: TurretPlanetGatlingT1
+  WeaponItem: TurretBaseFlakWeapon
+  RotSpeed: 90, type: int, display: true
+}
+{ Block Name: TurretPlanetFlakT2, Ref: TurretPlanetGatlingT1
+  Model: @models/Blocks/Turrets/TurretZiraxSpherical_LaserPrefab
+  Mesh-Damage-1: Mesh/D0
+  Mesh-Damage-2: Mesh/D1
+  Mesh-Damage-3: Mesh/D2
+  Mesh-Damage-4: Mesh/D3
+  SizeInBlocks: "3,1,3", display: true
+  WeaponItem: TurretBaseFlakWeapon
+  CustomIcon: TurretZiraxMSLaser
+  RotSpeed: 135, type: int, display: true
+}
+{ Block Name: TurretPlanetArtilleryT1, Ref: TurretPlanetGatlingT1
+  WeaponItem: TurretEnemyArtilleryWeapon
+  RotSpeed: 60, type: int, display: true
+  HitPoints: 7400, type: int, display: true
+}
+{ Block Name: TurretPlanetArtilleryT2, Ref: TurretPlanetGatlingT1
+  Model: @models/Blocks/Turrets/TurretZiraxSpherical_PlasmaPrefab
+  Mesh-Damage-1: Mesh/D0
+  Mesh-Damage-2: Mesh/D1
+  Mesh-Damage-3: Mesh/D2
+  Mesh-Damage-4: Mesh/D3
+  SizeInBlocks: "3,1,3", display: true
+  WeaponItem: TurretEnemyArtilleryWeapon
+  CustomIcon: TurretZiraxMSPlasma
+  RotSpeed: 90, type: int, display: true
+}
+{ Block Name: TurretPlanetLaserT1, Ref: TurretPlanetGatlingT1
+  CustomIcon: TurretEnemyLaser
+  WeaponItem: TurretEnemyLaserWeapon
+  RotSpeed: 90, type: int, display: true
+  HitPoints: 4000, type: int, display: true
+}
+{ Block Name: TurretPlanetLaserT2, Ref: TurretPlanetGatlingT1
+  Model: @models/Blocks/Turrets/TurretZiraxSpherical_LaserPrefab
+  Mesh-Damage-1: Mesh/D0
+  Mesh-Damage-2: Mesh/D1
+  Mesh-Damage-3: Mesh/D2
+  Mesh-Damage-4: Mesh/D3
+  SizeInBlocks: "3,1,3", display: true
+  WeaponItem: TurretEnemyLaserWeapon
+  CustomIcon: TurretZiraxMSLaser
+  RotSpeed: 135, type: int, display: true
+}
+{ Block Name: TurretPlanetPlasmaT1, Ref: TurretPlanetGatlingT1
+  WeaponItem: TurretIONCannonWeapon
+  RotSpeed: 90, type: int, display: true
+}
+{ Block Name: TurretPlanetPlasmaT2, Ref: TurretPlanetGatlingT1
+  Model: @models/Blocks/Turrets/TurretZiraxSpherical_PlasmaPrefab
+  Mesh-Damage-1: Mesh/D0
+  Mesh-Damage-2: Mesh/D1
+  Mesh-Damage-3: Mesh/D2
+  SizeInBlocks: "3,1,3", display: true
+  WeaponItem: TurretIONCannonWeapon
+  CustomIcon: TurretZiraxMSPlasma
+  RotSpeed: 135, type: int, display: true
+}
+{ Block Name: TurretPlanetRocketT1, Ref: TurretPlanetGatlingT1
+  CustomIcon: TurretEnemyRocket
+  WeaponItem: TurretBaseRocketWeapon
+  RotSpeed: 90, type: int, display: true
+  HitPoints: 4000, type: int, display: true
+}
+{ Block Name: TurretPlanetRocketT2, Ref: TurretPlanetGatlingT1
+  Model: @models/Blocks/Turrets/TurretZiraxSpherical_RocketPrefab
+  Mesh-Damage-1: Mesh/D0
+  Mesh-Damage-2: Mesh/D1
+  Mesh-Damage-3: Mesh/D2
+  Mesh-Damage-4: Mesh/D3
+  SizeInBlocks: "3,1,3", display: true
+  WeaponItem: TurretBaseRocketWeapon
+  CustomIcon: TurretZiraxMSRocket
+  RotSpeed: 90, type: int, display: true
+}

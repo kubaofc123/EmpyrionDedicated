@@ -23,12 +23,85 @@
 # For previwng changes made in the galaxy without having to start a new game > load a savegame and edit its Galaxyconfig.ecf in the savegame/content folder. 
 # Then you can reload the edits with the ingame console > cmd: 'galaxy' 
 #===================================================
-
+#== Count Limits ==
+# Regions: Range from Child StarRegion_1 up to Child StarRegion_99
+# Territories: Range from Child Territory_1 up to Child Territory_20
+# Territories: You can set 1-10 Other_ factions to exist for this territory  (Other_1 > Other_10)
+# Main-types (suntypes: unlimited)
+# ===
+# Special configuration: Dual-star systems
+# CompanionStarClass: <value>  ; adding this parameter to a StarClass definition adds a 2nd star of the named value as compantion; 2nd star is decoration only;; <value> needs to be chosen from an already existing StarClass in this config!
+# ===
+# CONFIGS:
+# SolarSystemConfigSuffix: K   ; SolarSystemConfigSuffix can be used to override the use of the sun type in thesolar system config file. Use it f.e. like that: SolarSystemConfigSuffix: K  = use that suntype in the SolarSystemConfigK.yaml 
+# ===
+# For the star models, we support these:
+# Available Models: SunBlueGiant, SunWhiteDwarf, SunYellowWhite, SunYellow, SunRedGiant, SunRedDwarf, SunNeutron, BlackHole, SunGeneric
+# Customizing: You can add new IDs at the end of the list or modify the given ones. You can customize ALL parameters and use our own values, for example for StarClass (You can then use in your Sectors.yaml or SolarSystemConfg!). Only the models are limited to those mentioned above.
+# Starter System: When your scenario does NOT use a fixed sectors.yaml with starterplanets, you can define one starter system in the General settings below. If you use a sectors.yaml with starter planets set AND have a starter system added below, the starter system entry in this galaxy config will not be used.
+# Starter System Settings: The StarterSystemName can be freely chosen. The StarterSystemClass needs to be one defined in the IDs 1 and onwards.
+# Territories > Factions available are: Zirax, Talon, Polaris, Kriel, Pirates, Trader, UCH, Civilian, Alien
+# Territories > You can set up several individual territories for the same faction with different or overlapping coordinates and spheres!
+# Territories > In a given territory, only the POI of the Territory-Faction will be placed. To allow other factions POI use the 'Other_' setting with an ongoing number. You can define the probability from center to edge of the territory!
+# Internal calculation values: 
+# 1 LJ = 10.000 AU = 100.000 Sectors (In reality one LY is about 65.000 AU, but the value was chosen for readability and better measurement)
+# 1 AU = 10 Sectors
+# Note: The coordinates of a territory or a sun (in the sectors.yaml f.ex), the GalaxySpawnRadius and the Radius of the Galaxy are given in LIGHTYEARS. The coordinates (min/max) of a zone of a Star (f.ex HabitableCold ), the coordinates of a planet in the sectors.yaml and the definitions given for planet, moon or station positions in the solarsystemconfigs are measured in SECTORS (not AU). Example: HabitableHot: "109, 120" > a planet in this zone is 109 to 120 SECTORS away from his star.
+# ===
+# You can add labels to the galaxy view in all StarRegion blocks with these properties:
+# LabelName: <name> ; adds a label with content <name> at the position 
+# LabelColor:     ; Set a color for the label like "0, 1, 0.67"; you can also use a color with ALPHA channel for transparence like: "1.0,0.0,0.0,0.2"
+# LabelSize:       ; Set size of the label
+# LabelLYDistance: <distance in LY>  ; optionally allows to set a distance to the player where the label shows up, if the player is farther away it will hide
+#===================================================
+# Define nebulas within star regions:
+# NebulaSpawnCount: 30  ; if this is specified within a star region, no random nebulas will be spawned any more but only nebulas within star regions that use this property
+# NebulaColorIndex: 2  ; if this is specified within a star region, the nebulas will take its color from this NebulaColor gradient
+# Also up to 30 NebulaColor gradients are possible now
+#===================================================
+# For viewing changes made in the galaxy without having to start a new game > load a savegame and edit its Galaxyconfig.ecf in the savegame/content folder. 
+# Then you can reload the edits with the ingame console > cmd: 'galaxy' 
+#===================================================
+# HIDING a solar system
+# HideFromMap: true/false → the given Solar System will be hidden from the galaxy map
+# HideFromSearch: true/false → the given Solar System will show on the map but can't be searched for
+#===================================================
+# SUN SETTINGS
+# GalaxyConfig, Name: G Type Star  # Name of the star; Can be a custom name. For generic use "<StarClass> Type Star"
+# StarClass: G3                    # Class of the star. Letters and Numbers. 3 to 4 characters only
+# Model: SunGeneric                # Default: SunGeneric; OLD models: SunBlueGiant, SunWhiteDwarf, SunYellowWhite, SunYellow, SunRedGiant, SunRedDwarf, SunNeutron, BlackHole  
+#  Probability: 1                  # FLOAT: 0-1; Overall probability for this StarClass to exist in the galaxy; Do not use 0
+# SizeClass: 10                    # INT: 1-12; Size of the actual sun and icon ingame. Relevant for the warp sectors when sectors.yaml is used: For lager starts you need to set a bigger distance of its warp sectors  
+#  Color: "1.00,0.95,0.75"         # Color of the sun in-game and on the galaxy map; value = RBG Color code / 255
+# LightColor: "1,0.96,0.87"        # If set, will override the color for in-game appearance
+# ModelColor: "1, 0.8, 0.7"        # Inner color; can be used if you want a different color apart from Color or LightColor); Only works for 'Model: SunGeneric'
+# ModelColor2: "1,0.96,0.87"       # 2nd Color for Corona & protuberances; Only works for 'Model: SunGeneric'
+# ModelBrightness: 0.9             # FLOAT: 0.1 to 1.5; Overall Corona brightness; 1 is okay bright for sun  0.5 is dying, nearly old 0.2 is some strange object  1.5 is large star corona; Only works for 'Model: SunGeneric'
+# ModelNoiseTiling: 90             # INT: 40 to 500; The higher the more fine-graned / smoother sphere visuals ; Only works for 'Model: SunGeneric'
+# ModelCoronaSpikesSize: 0.7       # FLOAT: 0.01 to 1.00; Default is 0.75; values < 0.6 will hide the spikes completely. Very sensitive! 0.9 is for special objects 0.76 for small stars; Only works for 'Model: SunGeneric'
+# ModelPlasmaArcsSize: 0.5         # FLOAT: 0.1 to 1; Default is 0.5 for Plasma Arcs
+# ModelFlareBrightness: 0.4 # 0.8  # FLOAT: 0.1 to 1; Default is 0.5; values < 1 will make the flare smaller; Only works for 'Model: SunGeneric' 
+# SurfaceTemperature: "5500, 6000" # trivia, no gameplay effect
+# Mass: 1                          # trivia, no gameplay effect, multiples of the earth sun
+# Radius: 1                        # trivia, no gameplay effect, multiples of the earth sun
+# Luminosity: 1                    # trivia, no gameplay effect, multiples of the earth sun
+# ColorName: Yellow                # trivia: customizable color name for the star on the map info
+# Age: 10                          # trivia, no gameplay effect; age of star in billion years
+# InnerSystem: "8, 34"             # INT; Defines the range for INNER system playfields, measured in AU = Astronomical Units; 5 is extremely close to the sun symbol, nearly touching it.
+# HabitableHot: "35, 63"           # INT; Defines the range for HABITABLE HOT system playfields, measured in AU = Astronomical Units; Habitable Hot/Temperate/Cold are usually closer togeher as they define the inner and outer edges of the general 'habitable zone' of a star.
+# HabitableTemperate: "64, 69"     # INT; Defines the range for HABITABLE TEMPERATE system playfields, measured in AU = Astronomical Units;
+# HabitableCold: "70, 75"          # INT; Defines the range for HABITABLE COLD system playfields, measured in AU = Astronomical Units;
+# OuterSystem: "76, 132"           # INT; Everything that is further away than the habitable  zone, measured in AU = Astronomical Units; Usually the largest area/distances; 
+#GalaxySpawnRadius: "300, 400"  # INT; min and max in LY from the center where this star should spawn, if not set star will spawn everywhere
+# GalaxySpawnAmount: 10             # INT; How many stars of this type are placed in the galaxy; ONLY set to 0 if you want to manage it from the REGIONS. Default > 1
+# ClusterProb: 1                    # FLOAT; Decides if StarClass is placed in clusters in general. 1 = always/only , 0 = never; can use float between 0 and 1
+# ClusterRange: "0, 0.5"           # FLOAT; Decides the position of the StarClass in a cluster; 0 = close to edge; 1 = close to center; Example: '0, 0.5' = position is more towards the edge of the cluster
+# Description: " "                 # STRING; Description for the galaxy/map info; briefly describe the star in 'colorful' or 'scientific' words in 1-3 sentences.
+  
   #===========================
   # General Galaxy Settings
   #===========================
-
-
+  
 
 
 # ======================================================================================================================================================
@@ -241,6 +314,7 @@
     UseDefaultStarDef: false
     StarClass_1: N1a, param1: "SpawnAmount=25, ClusterProb=0"
     StarClass_2: S-S, param1: "Prob=0.05"
+    StarClass_3: L3, param1: "Prob=0.1"
     # NebulaSpawnCount: 5
     # NebulaColorIndex: 13
   }
@@ -257,6 +331,7 @@
     StarClass_2: K, param1: "Prob=0.4"
     StarClass_3: M, param1: "Prob=0.4"
     StarClass_4: S-S, param1: "Prob=0.05"
+    StarClass_5: L3, param1: "Prob=0.1"
     NebulaSpawnCount: 5
     NebulaColorIndex: 3
   }
@@ -277,6 +352,7 @@
     StarClass_6: Q23, param1: "SpawnAmount=5, Prob=0.5"
     StarClass_7: Q94, param1: "SpawnAmount=5, Prob=0.5"
     StarClass_8: Q95, param1: "SpawnAmount=5, Prob=0.5"
+    StarClass_9: L3, param1: "SpawnAmount=5, Prob=0.5"
     NebulaSpawnCount: 90
     NebulaColorIndex: 13
   }
@@ -402,7 +478,7 @@
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------ Trader Cluster
   { Child StarRegion_22
     Name: "Star Cluster Trader"
-    LabelName: "<align=center><voffset=12em><line-height=1em>Tranquility<br><size=75%>[Trader Guild]"
+    LabelName: "<align=center><voffset=12em><line-height=1em>Tranquility<br><size=75%>[Trade Federation]"
     LabelColor: "1, 1, 1, 0.8"
     LabelSize: 200
     Shape: Elliptical
@@ -1564,7 +1640,7 @@
   HabitableTemperate: "64, 89"
   HabitableCold: "90, 104"
   OuterSystem: "105, 132"
-  Description: "This is one of the starting systems. [c][A9A9A9][i]Save game started with Reforged Eden 1.9 build 49[/i][-][/c]"
+  Description: "This is one of the starting systems."
   GalaxySpawnAmount: 0
 }
 
@@ -1782,7 +1858,7 @@
   SolarSystemConfigSuffix: _MainHotT2
   # Model: SunBlueGiant
   Model: SunGeneric
-  Probability: 0.015
+  Probability: 0.012
   SizeClass: 12
   Color: "0.1, 0.1, 0.8"
   LightColor: "0.6, 0.6, 1"
@@ -1834,6 +1910,43 @@
   ColorName: Blue 
   Age: 0.25
   InnerSystem: "8, 92"
+  HabitableHot: "93, 102"
+  HabitableTemperate: "103, 122"
+  HabitableCold: "123, 142"
+  OuterSystem: "143, 254"
+  Description: "[c][ff0000]Hot system.[-][/c] A B-type main-sequence star (B V) is a main-sequence (hydrogen-burning) star of spectral type B and luminosity class V. These stars have from 2 to 16 times the mass of the Sun and surface temperatures between 10,000 and 30,000 K. B-type stars are extremely luminous and blue."
+}
+
+# Type B
+{ GalaxyConfig, Name: B Type Star
+  StarClass: B3
+  SolarSystemConfigSuffix: _MainHotT2
+  # Model: SunBlueGiant
+  Model: SunGeneric
+  Probability: 0.005
+  SizeClass: 13
+  Color: "0.1, 0.1, 0.65"
+  LightColor: "0.5, 0.5, 0.9"
+  # ModelColor: "0.0, 0.1, 0.4" # Backup
+  # ModelColor: "0.2, 0.4, 0.6" # Variation 1
+  ModelColor: "0.05, 0.2, 0.7" # Variation 3
+  # ModelColor2: "1, 1, 1.4" # Variation 3
+  # ModelColor: "0.2, 0.3, 0.5" # Variation 2
+  # ModelColor2: "0.8, 0.9, 1" # Variation 2
+  # ModelBrightness: 0.85 # (overall brightness)
+  ModelBrightness: 1 # (overall brightness)
+  ModelNoiseTiling: 25 # (default is 40, set to higher values for bigger stars)
+  # ModelCoronaSpikesSize: 0.65 # (default is 0.75, values < 0.6 will hide the spikes completely)
+  ModelCoronaSpikesSize: 0.7 # (default is 0.75, values < 0.6 will hide the spikes completely)
+  ModelPlasmaArcsSize: 0.40 # (default is 0.5)
+  ModelFlareBrightness: 3 # (values < 1 will make the flare smaller)
+  SurfaceTemperature: "10000, 30000" 
+  Mass: 18
+  Radius: 8 
+  Luminosity: 800 
+  ColorName: Blue 
+  Age: 0.25
+  InnerSystem: "24, 92"
   HabitableHot: "93, 102"
   HabitableTemperate: "103, 122"
   HabitableCold: "123, 142"
@@ -2159,11 +2272,11 @@
 # Type G
 { GalaxyConfig, Name: G Type Star
   StarClass: G5
-  SolarSystemConfigSuffix: _MainHabitableT2
+  SolarSystemConfigSuffix: _MainHabitableT1
   # Model: SunWhiteDwarf
   Model: SunGeneric
   # Probability: 0.04
-  Probability: 0.02
+  Probability: 0.015
   SizeClass: 11
   Color: "0.97,0.9,0.85"
   LightColor: "0.97,0.90,0.85"
@@ -2183,6 +2296,41 @@
   ColorName: Pink
   Age: 4
   InnerSystem: "5, 78"
+  HabitableHot: "79, 97"
+  HabitableTemperate: "98, 139"
+  HabitableCold: "140, 179"
+  OuterSystem: "180, 250"
+  Description: "[c][00ff00]Habitable system.[-][/c] G-type stars, including the Sun, have prominent spectral lines H and K of Ca II, which are most pronounced at G2. They have even weaker hydrogen lines than F, but along with the ionized metals, they have neutral metals. There is a prominent spike in the G band of CH molecules."
+}
+
+# Type G
+{ GalaxyConfig, Name: G Type Star
+  StarClass: G6
+  SolarSystemConfigSuffix: _MainHabitableT1
+  # Model: SunWhiteDwarf
+  Model: SunGeneric
+  # Probability: 0.04
+  Probability: 0.015
+  SizeClass: 12
+  Color: "0.97,0.85,0.75"
+  LightColor: "0.97,0.85,0.7"
+  # ModelColor: "1, 0.6, 0.55"
+  # ModelColor: "1, 0.55, 0.5"
+  # ModelColor: "0.75, 0.5, 0.45"
+  ModelColor: "0.75, 0.65, 0.45"
+  # ModelColor2: "0.8, 0.6, 0.3"
+  ModelBrightness: 0.75
+  ModelNoiseTiling: 55
+  ModelCoronaSpikesSize: 0.8 # (default is 0.75, values < 0.6 will hide the spikes completely)
+  ModelPlasmaArcsSize: 0.5 # (default is 0.5)
+  ModelFlareBrightness: 1.5 # (values < 1 will make the flare smaller)
+  SurfaceTemperature: "7500, 10000" 
+  Mass: 1.1
+  Radius: 1.1
+  Luminosity: 1.2
+  ColorName: Pink
+  Age: 4
+  InnerSystem: "25, 78"
   HabitableHot: "79, 97"
   HabitableTemperate: "98, 139"
   HabitableCold: "140, 179"
@@ -2905,132 +3053,132 @@
 # }
 
 
-# ------------------------------------------------------------------------------------------------- Default Story Solar Systems
-{ GalaxyConfig, Name: Sigma System    #Mission Story Part II - chapter 1: Sigma Fulcrum
-  StarClass: SigmaZero
-  Model: SunRedGiant  # better: yellow orange?
-  Probability: 0.4 
-  SizeClass: 10
-  Color: "1,0.85,0.44"
-  SurfaceTemperature: "4000, 5500" 
-  Mass: 0.7
-  Radius: 0.8 
-  Luminosity: 0.3 
-  ColorName: Yellow-Orange
-  Age: 30
-  InnerSystem: "5, 48" 
-  HabitableHot: "49, 53" 
-  HabitableTemperate: "54, 59" 
-  HabitableCold: "60, 64" 
-  OuterSystem: "65, 112"
-  GalaxySpawnAmount: 0
-  Description: "Sigma Zero is the nickname of a system, situated nearly exactly between the Zirax, Polaris and Trader Guild territories. Once a profitable claim of the Polaris Megacorp, the company suddenly and hastily retreated from this place. The infamous 'Sigma Fulcrum', one of the stations that were left behind fully operational, has become a central launchpad for basically any non-legal activity in this sector between the three territories."
-}
+# # ------------------------------------------------------------------------------------------------- Default Story Solar Systems
+# { GalaxyConfig, Name: Sigma System    #Mission Story Part II - chapter 1: Sigma Fulcrum
+  # StarClass: SigmaZero
+  # Model: SunRedGiant  # better: yellow orange?
+  # Probability: 0.4 
+  # SizeClass: 10
+  # Color: "1,0.85,0.44"
+  # SurfaceTemperature: "4000, 5500" 
+  # Mass: 0.7
+  # Radius: 0.8 
+  # Luminosity: 0.3 
+  # ColorName: Yellow-Orange
+  # Age: 30
+  # InnerSystem: "5, 48" 
+  # HabitableHot: "49, 53" 
+  # HabitableTemperate: "54, 59" 
+  # HabitableCold: "60, 64" 
+  # OuterSystem: "65, 112"
+  # GalaxySpawnAmount: 0
+  # Description: "Sigma Zero is the nickname of a system, situated nearly exactly between the Zirax, Polaris and Trader Guild territories. Once a profitable claim of the Polaris Megacorp, the company suddenly and hastily retreated from this place. The infamous 'Sigma Fulcrum', one of the stations that were left behind fully operational, has become a central launchpad for basically any non-legal activity in this sector between the three territories."
+# }
 
-{ GalaxyConfig, Name: Containment Area 13b-7   #Mission Story Part II - chapter 2: Hypernoise
-  StarClass: ContAr13b7
-  Model: BlackHole
-  Probability: 1
-  SizeClass: 10
-  Color: "0.60,0.02,1"
-  # SurfaceTemperature: "10000000, 100000000" 
-  Mass: 1000000
-  # Schwarzschildradius
-  Radius: 0.21 
-  ColorName: Black
-  #Luminosity: 0.002
-  Age: 900
-  InnerSystem: "4, 5" 
-  HabitableHot: "6, 120" 
-  HabitableTemperate: "121, 132" 
-  HabitableCold: "133, 144" 
-  OuterSystem: "145, 252"  
-  GalaxySpawnAmount: 0
-  Description: "Containment Area 13b-7 (Galactic Catalogue identifier U1B-01a3X) is a nearly empty star system with a massive black hole in its center. The energetic wavefronts frequently emitting from this system has lead to all galactic nations to agree on making this a no-travel zone. Enter at own risk!"
-}
+# { GalaxyConfig, Name: Containment Area 13b-7   #Mission Story Part II - chapter 2: Hypernoise
+  # StarClass: ContAr13b7
+  # Model: BlackHole
+  # Probability: 1
+  # SizeClass: 10
+  # Color: "0.60,0.02,1"
+  # # SurfaceTemperature: "10000000, 100000000" 
+  # Mass: 1000000
+  # # Schwarzschildradius
+  # Radius: 0.21 
+  # ColorName: Black
+  # #Luminosity: 0.002
+  # Age: 900
+  # InnerSystem: "4, 5" 
+  # HabitableHot: "6, 120" 
+  # HabitableTemperate: "121, 132" 
+  # HabitableCold: "133, 144" 
+  # OuterSystem: "145, 252"  
+  # GalaxySpawnAmount: 0
+  # Description: "Containment Area 13b-7 (Galactic Catalogue identifier U1B-01a3X) is a nearly empty star system with a massive black hole in its center. The energetic wavefronts frequently emitting from this system has lead to all galactic nations to agree on making this a no-travel zone. Enter at own risk!"
+# }
 
-{ GalaxyConfig, Name: Containment Area 1a-95 #Mission Story Part II: Deep Mine Progenitor
-  StarClass: ContAr1a95
-  Model: SunNeutron
-  Probability: 0.00625
-  SizeClass: 7
-  Color: "0.35,0.35,0.75"
-  SurfaceTemperature: "4000, 4000" 
-  ColorName: White
-  Mass: 2
-  Radius: 0.00004 
-  Description: "Containment Area 1a-95 (Galactic Catalogue identifier Jm32-Nb32x1) was defined as a non-travel zone, because of the activity of its irregular Neutron star is said to having lead to a total loss of several Zirax expedition fleets which were heading for the galactic center, using the star as a reststop. No incident reports about this area are available in the Galactic Catalogue. Enter at own risk!"
-  #Luminosity: 0.002
-  Age: 400
-  InnerSystem: "1, 2" 
-  HabitableHot: "3, 120" 
-  HabitableTemperate: "121, 132" 
-  HabitableCold: "133, 144" 
-  OuterSystem: "145, 252"  
-  GalaxySpawnAmount: 0
-}
+# { GalaxyConfig, Name: Containment Area 1a-95 #Mission Story Part II: Deep Mine Progenitor
+  # StarClass: ContAr1a95
+  # Model: SunNeutron
+  # Probability: 0.00625
+  # SizeClass: 7
+  # Color: "0.35,0.35,0.75"
+  # SurfaceTemperature: "4000, 4000" 
+  # ColorName: White
+  # Mass: 2
+  # Radius: 0.00004 
+  # Description: "Containment Area 1a-95 (Galactic Catalogue identifier Jm32-Nb32x1) was defined as a non-travel zone, because of the activity of its irregular Neutron star is said to having lead to a total loss of several Zirax expedition fleets which were heading for the galactic center, using the star as a reststop. No incident reports about this area are available in the Galactic Catalogue. Enter at own risk!"
+  # #Luminosity: 0.002
+  # Age: 400
+  # InnerSystem: "1, 2" 
+  # HabitableHot: "3, 120" 
+  # HabitableTemperate: "121, 132" 
+  # HabitableCold: "133, 144" 
+  # OuterSystem: "145, 252"  
+  # GalaxySpawnAmount: 0
+# }
 
-{ GalaxyConfig, Name: HighSecurity    #Mission Story Part II chapter 3: Welcome Back
-  StarClass: HighSecurity
-  Model: SunWhiteDwarf
-  Probability: 0.05 
-  SizeClass: 11
-  Color: "0.97,0.97,1"
-  SurfaceTemperature: "7500, 10000" 
-  Mass: 2.2
-  Radius: 2.4 
-  Luminosity: 25 
-  ColorName: White
-  Age: 0.5
-  InnerSystem: "5, 78" 
-  HabitableHot: "79, 87" 
-  HabitableTemperate: "88, 95" 
-  HabitableCold: "96, 104" 
-  OuterSystem: "105, 182"
-  Description: "One of many High Security areas in the Zirax Empire. Only enter with permission!"
-  GalaxySpawnAmount: 0
-}
+# { GalaxyConfig, Name: HighSecurity    #Mission Story Part II chapter 3: Welcome Back
+  # StarClass: HighSecurity
+  # Model: SunWhiteDwarf
+  # Probability: 0.05 
+  # SizeClass: 11
+  # Color: "0.97,0.97,1"
+  # SurfaceTemperature: "7500, 10000" 
+  # Mass: 2.2
+  # Radius: 2.4 
+  # Luminosity: 25 
+  # ColorName: White
+  # Age: 0.5
+  # InnerSystem: "5, 78" 
+  # HabitableHot: "79, 87" 
+  # HabitableTemperate: "88, 95" 
+  # HabitableCold: "96, 104" 
+  # OuterSystem: "105, 182"
+  # Description: "One of many High Security areas in the Zirax Empire. Only enter with permission!"
+  # GalaxySpawnAmount: 0
+# }
 
-{ GalaxyConfig, Name: UCH Hideout #Mission Story Part II  
-  StarClass: UCHHideout
-  Model: SunNeutron
-  Probability: 0.00625
-  SizeClass: 7
-  Color: "0.35,0.35,0.75"
-  SurfaceTemperature: "4000, 4000" 
-  ColorName: White
-  Mass: 2
-  Radius: 0.00004 
-  Description: "Safe harbour for remains of the UCH fleet"
-  #Luminosity: 0.002
-  Age: 400
-  InnerSystem: "1, 2" 
-  HabitableHot: "3, 120" 
-  HabitableTemperate: "121, 132" 
-  HabitableCold: "133, 144" 
-  OuterSystem: "145, 252"  
-  GalaxySpawnAmount: 0
-}
-{ GalaxyConfig, Name: Mining Operation  #Mission Story Part II
-  StarClass: MiningOperation
-  Model: SunYellowWhite
-  Probability: 0.1
-  SizeClass: 11
-  Color: "0.99,0.96,0.85"
-  SurfaceTemperature: "6000, 7500" 
-  Mass: 1.5
-  Radius: 1.8 
-  Luminosity: 4.4
-  ColorName: Yellow-White
-  Age: 1
-  InnerSystem: "5, 66" 
-  HabitableHot: "67, 74" 
-  HabitableTemperate: "75, 81" 
-  HabitableCold: "82, 88" 
-  OuterSystem: "89, 155"
-  Description: "Ten years ago, this solar system has been the setting of an overwhelmingly strong pirate attack. The pirates of the Salurian clan were defeated by local Zirax forces, but it remains unknown what has been the real target for this concerted attack."
-  GalaxySpawnAmount: 0
-}
+# { GalaxyConfig, Name: UCH Hideout #Mission Story Part II  
+  # StarClass: UCHHideout
+  # Model: SunNeutron
+  # Probability: 0.00625
+  # SizeClass: 7
+  # Color: "0.35,0.35,0.75"
+  # SurfaceTemperature: "4000, 4000" 
+  # ColorName: White
+  # Mass: 2
+  # Radius: 0.00004 
+  # Description: "Safe harbour for remains of the UCH fleet"
+  # #Luminosity: 0.002
+  # Age: 400
+  # InnerSystem: "1, 2" 
+  # HabitableHot: "3, 120" 
+  # HabitableTemperate: "121, 132" 
+  # HabitableCold: "133, 144" 
+  # OuterSystem: "145, 252"  
+  # GalaxySpawnAmount: 0
+# }
+# { GalaxyConfig, Name: Mining Operation  #Mission Story Part II
+  # StarClass: MiningOperation
+  # Model: SunYellowWhite
+  # Probability: 0.1
+  # SizeClass: 11
+  # Color: "0.99,0.96,0.85"
+  # SurfaceTemperature: "6000, 7500" 
+  # Mass: 1.5
+  # Radius: 1.8 
+  # Luminosity: 4.4
+  # ColorName: Yellow-White
+  # Age: 1
+  # InnerSystem: "5, 66" 
+  # HabitableHot: "67, 74" 
+  # HabitableTemperate: "75, 81" 
+  # HabitableCold: "82, 88" 
+  # OuterSystem: "89, 155"
+  # Description: "Ten years ago, this solar system has been the setting of an overwhelmingly strong pirate attack. The pirates of the Salurian clan were defeated by local Zirax forces, but it remains unknown what has been the real target for this concerted attack."
+  # GalaxySpawnAmount: 0
+# }
 
 # ===================================================================================================================================================
 # =========================================================================================================== Project Eden Star Systems
@@ -3457,7 +3605,7 @@
   StarClass: L
   SolarSystemConfigSuffix: _MainExoticT2
   Model: SunGeneric
-  Probability: 0.05
+  Probability: 0.035
   SizeClass: 8
   Color: "1,0.75,1"
   LightColor: "0.15,0.1,0.15"
@@ -3480,6 +3628,36 @@
   OuterSystem: "100, 150"
   Description: "[c][ff00ff]Exotic system.[-][/c] Brown Dwarfs are failed stars that never grew massive enough to initiate fusion."
   GalaxySpawnAmount: 0
+}
+
+# Bright pink brown dwarf
+{ GalaxyConfig, Name: L Brown Dwarf
+  StarClass: L2
+  SolarSystemConfigSuffix: _MainExoticT2
+  Model: SunGeneric
+  Probability: 0.002
+  SizeClass: 8
+  Color: "1,0.55,1"
+  LightColor: "0.15,0.1,0.15"
+  ModelColor: "1.5,0.7,0.9"
+  ModelBrightness: 0.25
+  ModelNoiseTiling: 5
+  ModelCoronaSpikesSize: 0
+  ModelPlasmaArcsSize: 0
+  ModelFlareBrightness: 0
+  SurfaceTemperature: "400, 800" 
+  Mass: 0.1
+  Radius: 0.3
+  Luminosity: 0.05
+  ColorName: Pink
+  Age: 30
+  InnerSystem: "15, 19"
+  HabitableHot: "20, 39"
+  HabitableTemperate: "40, 69"
+  HabitableCold: "70, 99"
+  OuterSystem: "100, 150"
+  Description: "[c][ff00ff]Exotic system.[-][/c] Brown Dwarfs are failed stars that never grew massive enough to initiate fusion."
+  GalaxySpawnAmount: 10
 }
 
 # Q23 type Anomaly Bright Blue
@@ -3610,6 +3788,37 @@
   GalaxySpawnAmount: 3
 }
 
+# Type Unknown
+{ GalaxyConfig, Name: Unknown Signal
+  StarClass: Unknown
+  SolarSystemConfigSuffix: _MainUnknownT1
+  # Model: SunRedDwarf
+  Model: SunGeneric
+  Probability: 0.002
+  SizeClass: 1
+  # Color: "0.9,0.05,0.9"
+  Color: "0.3,0.7,0.5"
+  LightColor: "0.00,0.00,0.00"
+  ModelColor: "0, 0, 0"
+  ModelBrightness: 0
+  ModelCoronaSpikesSize: 0
+  ModelPlasmaArcsSize: 0
+  ModelFlareBrightness: 0
+  SurfaceTemperature: "10, 20" 
+  Mass: 0.1
+  Radius: 0.1
+  # Luminosity: 0.002
+  Luminosity: 0.01
+  ColorName: Black
+  Age: 5
+  InnerSystem: "749, 799"
+  HabitableHot: "800, 849"
+  HabitableTemperate: "850, 899"
+  HabitableCold: "900, 949"
+  OuterSystem: "950, 1000"
+  Description: "[c][00ffff]Unknown system.[-][/c] An unknown signal. Special warp drive upgrades may be required to explore systems such as these."
+  # GalaxySpawnAmount: 0
+}
 
 # Type K3
 { GalaxyConfig, Name: K3
@@ -3674,6 +3883,110 @@
 # ===================================================================================================================================================
 # ===================================================== FACTION STARS ===============================================================================
 # ===================================================================================================================================================
+
+
+
+# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------  Jascha memorial.
+# Copy and paste this into your scenario's GalaxyConfig.ecf file under star definitions.
+# Don't forget to add the sector too.
+# These three stars make up the Jascha memorial system.
+# All three are required for the color combinations.
+# Don't use in random generation. Set it up in a sectors file with Tranquil2 and Tranquil3 "hiding" inside of Tranquil (don't use same coords, set them apart by 1).
+# Type Tranquil. Main star that will show in the game. The other two will be hidden from view if the sectors file is setup correctly.
+{ GalaxyConfig, Name: Tranquil type star
+  StarClass: Tranquil
+  Model: SunGeneric
+  Probability: 0 # No random spawn. Add to sectors file.
+  SizeClass: 11 # Primary star, will hide the models of the other two.
+  Color: "0.9,0.9,0.7"
+  LightColor: "0.9,0.9,0.7"
+  ModelColor: "0.9, 0.9, 0.7" # Yellow-white.
+
+# Alternative colors, kept here for backup. Feel free to delete.
+  # ModelColor: "0.03, 0.4, 0.7" # Nice looking light blue
+  # ModelColor: "0.03, 0.75, 0.9" # Kind of a nice cyan. Possible contendor.
+  # ModelColor: "0.3, 0.3, 0.2" # Yellow-white.
+  # ModelColor2: "0.03, 0.85, 0.8"
+  # ModelColor: "0.03, 0.75, 0.9" Another cyan color.
+#
+
+  ModelBrightness: 0.75 # (overall brightness)
+  ModelNoiseTiling: 180 # (default is 40, set to higher values for bigger stars)
+  ModelCoronaSpikesSize: 0.75 # (default is 0.75, values < 0.6 will hide the spikes completely)
+  ModelPlasmaArcsSize: 0.3 # (default is 0.5)
+  ModelFlareBrightness: 0.75 # (values < 1 will make the flare smaller)
+  SurfaceTemperature: "8000, 9500" 
+  Mass: 1.75
+  Radius: 1.55
+  Luminosity: 4.9
+  ColorName: Yellow-White
+  Age: 0.7
+  InnerSystem: "5, 29"
+  HabitableHot: "30, 44"
+  HabitableTemperate: "45, 69"
+  HabitableCold: "70, 99"
+  OuterSystem: "100, 149"
+  Description: "In memory of a shining member of the Empyrion community."
+  GalaxySpawnAmount: 0 # No random spawn. Add to sectors file.
+}
+
+# Type Tranquil2. For yellow "aurora".
+{ GalaxyConfig, Name: Tranquil2 type star
+  StarClass: Tranquil2
+  Model: SunGeneric
+  Probability: 0 # No random spawn
+  SizeClass: 10 # Make sure to set as size class 10 in sectors file too.
+  Color: "0.70,0.70,1"
+  LightColor: "0.5,0.65,0.75"
+  ModelColor: "0.3, 0.3, 0.2" # Yellow-white for aurora.
+  ModelBrightness: 0.45 # (overall brightness)
+  ModelNoiseTiling: 180 # (default is 40, set to higher values for bigger stars)
+  ModelCoronaSpikesSize: 15 # (default is 0.75, values < 0.6 will hide the spikes completely)
+  ModelPlasmaArcsSize: 0.3 # (default is 0.5)
+  ModelFlareBrightness: 0.75 # (values < 1 will make the flare smaller)
+  SurfaceTemperature: "8000, 9500" 
+  Mass: 1.75
+  Radius: 1.55
+  Luminosity: 4.9
+  ColorName: Yellow
+  Age: 0.7
+  InnerSystem: "5, 29" 
+  HabitableHot: "30, 44" 
+  HabitableTemperate: "45, 69" 
+  HabitableCold: "70, 99" 
+  OuterSystem: "100, 149"
+  Description: "In memory of a shining member of the Empyrion community."
+  GalaxySpawnAmount: 0 # No random spawn
+}
+
+# Type Tranquil. For blue "aurora".
+{ GalaxyConfig, Name: Tranquil3 type star
+  StarClass: Tranquil3
+  Model: SunGeneric
+  Probability: 0 # No random spawn
+  SizeClass: 10 # Make sure to set as size class 10 in sectors file too.
+  Color: "0.70,0.70,1"
+  LightColor: "0.5,0.65,0.75"
+  ModelColor: "0.1, 0.3, 0.45" # Yellow-white for aurora.
+  ModelBrightness: 0.45 # (overall brightness)
+  ModelNoiseTiling: 180 # (default is 40, set to higher values for bigger stars)
+  ModelCoronaSpikesSize: 15 # (default is 0.75, values < 0.6 will hide the spikes completely)
+  ModelPlasmaArcsSize: 0.3 # (default is 0.5)
+  ModelFlareBrightness: 0.75 # (values < 1 will make the flare smaller)
+  SurfaceTemperature: "8000, 9500" 
+  Mass: 1.75
+  Radius: 1.55
+  Luminosity: 4.9
+  ColorName: Blue
+  Age: 0.7
+  InnerSystem: "5, 29" 
+  HabitableHot: "30, 44" 
+  HabitableTemperate: "45, 69" 
+  HabitableCold: "70, 99" 
+  OuterSystem: "100, 149"
+  Description: "In memory of a shining member of the Empyrion community."
+  GalaxySpawnAmount: 0 # No random spawn
+}
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------  Drone stars
 # Type M2
@@ -3971,6 +4284,37 @@
   OuterSystem: "50, 74"
   Description: "[c][ff00ff]Exotic system.[-][/c] Strange stars had until now had only been theorized. Thought to be made out of unstable exotic matter, these stars may behave in strange, unpredictable ways."
 }
+
+# Type L3
+{ GalaxyConfig, Name: L Brown Dwarf
+  StarClass: L3
+  SolarSystemConfigSuffix: _MainExoticT2
+  Model: SunGeneric
+  Probability: 0.002
+  SizeClass: 9
+  Color: "0.7,0.6,0.4"
+  LightColor: "0.4,0.3,0.2"
+  ModelColor: "1,0.9,0.4"
+  ModelBrightness: 0.25
+  ModelNoiseTiling: 5
+  ModelCoronaSpikesSize: 0
+  ModelPlasmaArcsSize: 0
+  ModelFlareBrightness: 0.5
+  SurfaceTemperature: "400, 800" 
+  Mass: 0.1
+  Radius: 0.3
+  Luminosity: 0.1
+  ColorName: Yellow
+  Age: 30
+  InnerSystem: "15, 19"
+  HabitableHot: "20, 39"
+  HabitableTemperate: "40, 69"
+  HabitableCold: "70, 99"
+  OuterSystem: "100, 150"
+  Description: "[c][ff00ff]Exotic system.[-][/c] Brown Dwarfs are failed stars that never grew massive enough to initiate fusion."
+  GalaxySpawnAmount: 10
+}
+
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ARC Stars
 # Type M
@@ -4454,7 +4798,7 @@
 # Type F
 { GalaxyConfig, Name: F3
   StarClass: F3
-  SolarSystemConfigSuffix: _MainHabitableT1
+  SolarSystemConfigSuffix: _MainHabitableT2
   Model: SunGeneric
   Probability: 0
   SizeClass: 9

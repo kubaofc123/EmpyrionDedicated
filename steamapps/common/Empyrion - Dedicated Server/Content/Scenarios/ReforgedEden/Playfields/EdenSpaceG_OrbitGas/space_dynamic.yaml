@@ -21,8 +21,8 @@ UseFixed: True
 # Habitable Star
 Radiation: [10,20]
 TemperatureDay: [-200,-100]
-Music: [moonstone, space, DistantWorlds, Migration, Artefact, ColdDivide]
-# Music: [Sanctuary, Vanguard, Helios, ColdDivide, AlteredPhase] # POI
+# Habitable Orbit Music
+Music: [Artefact, ColdDivide, DistantWorlds, FirstHours, Migration, moonstone, Orbiting, space, Transit]
 
 PlayfieldType: Space
 LandClaimZone: Device
@@ -241,8 +241,8 @@ POIs:
       BaseField: True
       RandomRotation: True
 
-    - Name: [Eden_SectorNebulaNewDustFog, Eden_SectorNebulaNewDustFog2, Eden_SectorNebulaNewDustFog3, Eden_SectorNebulaNewYellowFog, Eden_SectorNebulaNewYellowFog2, Eden_SectorNebulaNewYellowFog3, Eden_SectorNebulaNewOrangeStormBright, Eden_SectorNebulaNewYellowStorm]
-      FieldName: [Eden_SectorNebulaNewDustFog, Eden_SectorNebulaNewDustFog2, Eden_SectorNebulaNewDustFog3, Eden_SectorNebulaNewYellowFog, Eden_SectorNebulaNewYellowFog2, Eden_SectorNebulaNewYellowFog3, Eden_SectorNebulaNewOrangeStormBright, Eden_SectorNebulaNewYellowStorm] # used if playfield is not an orbit
+    - Name: [Eden_SectorNebulaXLDustDim, Eden_SectorNebulaXLDustDim, Eden_NebulaL_RandomBrown, Eden_NebulaL_RandomBrown2, Eden_NebulaL_RandomBrownDim, Eden_NebulaL_RandomOrange, Eden_NebulaL_RandomOrange2, Eden_NebulaL_RandomOrangeDim, Eden_NebulaL_RandomPink, Eden_NebulaL_RandomPink2, Eden_NebulaL_RandomPinkDim, Eden_NebulaL_RandomYellow, Eden_NebulaL_RandomYellow2, Eden_NebulaL_RandomYellowDim, Eden_SectorNebulaNewDustFog, Eden_SectorNebulaNewDustFog2, Eden_SectorNebulaNewDustFog3, Eden_SectorNebulaNewYellowFog, Eden_SectorNebulaNewYellowFog2, Eden_SectorNebulaNewYellowFog3, Eden_SectorNebulaNewOrangeStormBright, Eden_SectorNebulaNewYellowStorm] #EdenReplace_NebulaOrbit_GasA
+      FieldName: [Eden_SectorNebulaXLDustDim, Eden_SectorNebulaXLDustDim, Eden_NebulaL_RandomBrown, Eden_NebulaL_RandomBrown2, Eden_NebulaL_RandomBrownDim, Eden_NebulaL_RandomOrange, Eden_NebulaL_RandomOrange2, Eden_NebulaL_RandomOrangeDim, Eden_NebulaL_RandomPink, Eden_NebulaL_RandomPink2, Eden_NebulaL_RandomPinkDim, Eden_NebulaL_RandomYellow, Eden_NebulaL_RandomYellow2, Eden_NebulaL_RandomYellowDim, Eden_SectorNebulaNewDustFog, Eden_SectorNebulaNewDustFog2, Eden_SectorNebulaNewDustFog3, Eden_SectorNebulaNewYellowFog, Eden_SectorNebulaNewYellowFog2, Eden_SectorNebulaNewYellowFog3, Eden_SectorNebulaNewOrangeStormBright, Eden_SectorNebulaNewYellowStorm] #EdenReplace_NebulaOrbit_GasB
       CountMinMax: [ 1, 1 ]
       Probability: 0.15
       Position:
@@ -715,65 +715,6 @@ POIs:
           Value: 720
 
 # ================================================================================================================================================================================= Polaris
-
-# # TEST
-    # - Type: BA_Alien
-      # # Name: [TSO_Variant1, TSO_Variant2, TSO_Variant3, TSO_Variant4, TSO_Variant5, TSO_Variant6, TSO_Variant7]
-      # # GroupName: TSOPolarisRG
-      # Name: [TSOPolarisRG]
-      # # DisplayName: Trading Station
-      # FactionTerritory: [All]
-      # Faction: Polaris
-      # Mode: Survival
-      # CountMinMax: [ 10, 10 ]
-      # Probability: 1
-      # SpaceDefenseOverrideDefaults: True
-      # SpaceDefenseProbability: 0
-      # InitPower: True
-      # Position:
-         # RadialInfo: [0, 0, 0,   500,   1, 3.5]
-         # # PosXZMinMax: [100, 2500]
-         # # PosYMax: 2500
-      # Compound:
-        # CountMinMax: [2, 6]
-        # Probability: 1
-        # Name: [CompoundTest, CompoundTest, CompoundTest, CompoundTest, CompoundTest, CompoundTest]
-        # DistanceMinMax: [100, 150]
-      # Properties: 
-        # - Key: Discovery
-          # Value: False
-        # - Key: PvEArea
-          # Value: 500
-        # - Key: Music
-          # Value: NebularClouds
-        # - Key: RegenAfter
-          # Value: 720
-        # - Key: StationInterface
-          # Value: "Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20"
-
-    # - Type: BA_Alien
-      # Name: [CompoundTest]
-      # GroupName: RadosAuxT1RG
-      # # DisplayName: Cargo
-      # FactionTerritory: [Tesch]
-      # Faction: Polaris
-      # # FactionTerritory: [Eden_PolarisTerritory]
-      # Mode: Survival
-      # CountMinMax: [ 1, 1 ]
-      # Probability: 1
-      # IsCompoundSubDesc: True
-      # InitPower: True
-      # # Position:
-         # # PosXZMinMax: [500, 2500]
-         # # PosYMax: 1000
-      # Properties:
-        # - Key: MapDistance
-          # Value: 0
-        # - Key: HudDistance
-          # Value: 250
-        # - Key: RegenAfter
-          # Value: 720
-
 # Trade Station 
     - Type: BA_Alien
       # Name: [TSO_Variant1, TSO_Variant2, TSO_Variant3, TSO_Variant4, TSO_Variant5, TSO_Variant6, TSO_Variant7]
@@ -806,8 +747,164 @@ POIs:
           Value: 720
         - Key: StationInterface
           Value: "Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20"
-        - Key: AIManExcludeFromPatrol
-          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_BAOPolarisCivT2
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisTerritory] # Faction Territory
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.25
+      InitPower: True
+      Position:
+         RadialInfo: [0, 0, 0,   500,   1, 3.5]
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      GroupName: Eden_BAOPolarisIndT2
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisTerritory] # Faction Territory
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.25
+      InitPower: True
+      Position:
+         RadialInfo: [0, 0, 0,   500,   1, 3.5]
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      GroupName: Eden_BAOPolarisSupT2
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisTerritory] # Faction Territory
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 2 ]
+      Probability: 0.3
+      InitPower: True
+      Position:
+         RadialInfo: [0, 0, 0,   500,   1, 3.5]
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+# Compounds Faction Territory
+    - Type: BA_Alien
+      Name: [CompoundPolarisCivHome]
+      GroupName: Eden_BAOPolarisCivT2
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      IsCompoundSubDesc: True
+      Position:
+         PosXZMinMax: [750, 7000]
+         PosYMax: 5000
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      Name: [CompoundPolarisIndHome]
+      GroupName: Eden_BAOPolarisIndT2
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      IsCompoundSubDesc: True
+      Position:
+         PosXZMinMax: [750, 7000]
+         PosYMax: 5000
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      Name: [CompoundPolarisSupHome]
+      GroupName: Eden_BAOPolarisSupT2
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      IsCompoundSubDesc: True
+      Position:
+         PosXZMinMax: [750, 7000]
+         PosYMax: 5000
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+
+# Polaris Gas Harvesters - Water
+    - Type: BA_Alien
+      GroupName: Eden_BAOPolarisGasT1
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 3 ]
+      Probability: 0.75
+      InitPower: True
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+# Faction Territory
+    - Type: BA_Alien
+      GroupName: Eden_BAOPolarisGasT1
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisDefense]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 2 ]
+      Probability: 0.5
+      InitPower: True
+      Compound:
+        CountMinMax: [1, 2]
+        Probability: 0.5
+        Name: [CompoundPolarisGas, CompoundPolarisGas]
+        DistanceMinMax: [200, 400]
+        Rotate: false
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+# Compound
+    - Type: BA_Alien
+      Name: [CompoundPolarisGas]
+      GroupName: Eden_BAOPolarisGasT1
+      Faction: Polaris
+      FactionTerritory: [Eden_PolarisDefense]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      IsCompoundSubDesc: True
+      Position:
+         PosXZMinMax: [750, 7000]
+         PosYMax: 5000
+      Properties:
+        - Key: RegenAfter
+          Value: 720
 
 # Gas Refineries
     - Type: BA_Alien
@@ -879,60 +976,6 @@ POIs:
           Value: NebularClouds
         - Key: RegenAfter
           Value: 720
-
-# Polaris Civilian Factory
-    - Type: BA_Alien
-      GroupName: Eden_TSOPolarisIndustrial
-      Faction: Polaris
-      Mode: Survival
-      CountMinMax: [ 1, 1 ]
-      Probability: 0.25
-      InitPower: True
-      Position:
-         PosXZMinMax: [750, 2500]
-         PosYMax: 2500
-      Properties: 
-        - Key: Discovery
-          Value: False
-        - Key: RegenAfter
-          Value: 720
-
-# Polaris Industrial Factory only in Polaris territory
-    - Type: BA_Alien
-      GroupName: Eden_TSOPolarisIndustrial
-      Faction: Polaris
-      FactionTerritory: [Eden_PolarisTerritory]
-      Mode: Survival
-      CountMinMax: [ 1, 1 ]
-      Probability: 0.5
-      InitPower: True
-      Position:
-         PosXZMinMax: [750, 2500]
-         PosYMax: 2500
-      Properties: 
-        - Key: Discovery
-          Value: False
-        - Key: RegenAfter
-          Value: 720
-
-# Industrial Factory
-    # - Type: BA_Alien
-      # GroupName: Eden_TSOPolarisIndustrial
-      # Faction: Polaris
-      # Mode: Survival
-      # CountMinMax: [ 1, 1 ]
-      # Probability: 0.6
-      # SpaceDefenseOverrideDefaults: True
-      # SpaceDefenseProbability: 0
-      # InitPower: True
-      # Position:
-         # PosXZMinMax: [100, 2500]
-         # PosYMax: 2500
-      # Properties: 
-        # - Key: Discovery
-          # Value: False
-        # - Key: RegenAfter
-          # Value: 720
 
     - Type: BA_Alien
       Name: [RBAO_PolSupplyStation]
@@ -1369,6 +1412,12 @@ POIs:
       InitPower: True
       Position:
          RadialInfo: [0, 0, 0,   500,   1, 3.5]
+      Compound:
+        CountMinMax: [0, 2]
+        Probability: 0.5
+        Name: [CompoundTraderCivHome, CompoundTraderSupHome]
+        DistanceMinMax: [350, 600]
+        Rotate: false
       Properties: 
         - Key: Discovery
           Value: False
@@ -1380,8 +1429,105 @@ POIs:
           Value: 720
         - Key: StationInterface
           Value: "Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20"
-        - Key: AIManExcludeFromPatrol
-          Value: true
+
+    - Type: BA_Alien
+      GroupName: Eden_BAOTraderCivT2
+      Faction: Trader
+      FactionTerritory: [Eden_TraderTerritory] # Faction Territory
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.25
+      InitPower: True
+      Position:
+         RadialInfo: [0, 0, 0,   500,   1, 3.5]
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      GroupName: Eden_BAOTraderIndT2
+      Faction: Trader
+      FactionTerritory: [Eden_TraderTerritory] # Faction Territory
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.25
+      InitPower: True
+      Position:
+         RadialInfo: [0, 0, 0,   500,   1, 3.5]
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      GroupName: Eden_BAOTraderSupT2
+      Faction: Trader
+      FactionTerritory: [Eden_TraderTerritory] # Faction Territory
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 2 ]
+      Probability: 0.3
+      InitPower: True
+      Position:
+         RadialInfo: [0, 0, 0,   500,   1, 3.5]
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+# Trader Gas Harvesters - Hydrogen
+    - Type: BA_Alien
+      GroupName: Eden_BAOTraderGasT1
+      Faction: Trader
+      FactionTerritory: [Eden_TraderTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 3 ]
+      Probability: 0.75
+      InitPower: True
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+# Faction Territory
+    - Type: BA_Alien
+      GroupName: Eden_BAOTraderGasT1
+      Faction: Trader
+      FactionTerritory: [Eden_TraderTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 2 ]
+      Probability: 0.5
+      InitPower: True
+      Compound:
+        CountMinMax: [1, 2]
+        Probability: 0.5
+        Name: [CompoundTraderGas, CompoundTraderGas]
+        DistanceMinMax: [200, 400]
+        Rotate: false
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+# Compound
+    - Type: BA_Alien
+      Name: [CompoundTraderGas]
+      GroupName: Eden_BAOTraderGasT1
+      Faction: Trader
+      FactionTerritory: [Eden_TraderTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      IsCompoundSubDesc: True
+      Position:
+         PosXZMinMax: [750, 7000]
+         PosYMax: 5000
+      Properties:
+        - Key: RegenAfter
+          Value: 720
 
 # Gas Refineries
     - Type: BA_Alien
@@ -1392,6 +1538,64 @@ POIs:
       Probability: 0.6
       InitPower: True
       Properties: 
+        - Key: RegenAfter
+          Value: 720
+
+# Compounds Faction Territory
+    - Type: BA_Alien
+      Name: [CompoundTraderCivHome]
+      GroupName: Eden_BAOTraderCivT2
+      Faction: Trader
+      FactionTerritory: [Eden_TraderTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      IsCompoundSubDesc: True
+      Position:
+         PosXZMinMax: [750, 7000]
+         PosYMax: 5000
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      Name: [CompoundTraderIndHome]
+      GroupName: Eden_BAOTraderIndT2
+      Faction: Trader
+      FactionTerritory: [Eden_TraderTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      IsCompoundSubDesc: True
+      Position:
+         PosXZMinMax: [750, 7000]
+         PosYMax: 5000
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      Name: [CompoundTraderSupHome]
+      GroupName: Eden_BAOTraderSupT2
+      Faction: Trader
+      FactionTerritory: [Eden_TraderTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      IsCompoundSubDesc: True
+      Position:
+         PosXZMinMax: [750, 7000]
+         PosYMax: 5000
+      Properties:
         - Key: RegenAfter
           Value: 720
 
@@ -1924,6 +2128,12 @@ POIs:
          RadialInfo: [0, 0, 0,   500,   1, 3.5]
          # PosXZMinMax: [100, 2500]
          # PosYMax: 2500
+      Compound:
+        CountMinMax: [1, 6]
+        Probability: 0.5
+        Name: [CompoundColonistsCivHome, CompoundColonistsCivHome, CompoundColonistsIndHome, CompoundColonistsDefenseT1Home, CompoundColonistsDefenseT1Home, CompoundColonistsDefenseT1Home]
+        DistanceMinMax: [350, 600]
+        Rotate: false
       Properties: 
         - Key: Discovery
           Value: False
@@ -1935,9 +2145,6 @@ POIs:
           Value: 720
         - Key: StationInterface
           Value: "Fuel:3,O2:2.4,Warp:2,IfNeutral:0.2,IfHonored:-0.20"
-        - Key: AIManExcludeFromPatrol
-          Value: true
-
 
 # Colonists Main POI
     - Type: BA_Alien
@@ -1948,6 +2155,12 @@ POIs:
       CountMinMax: [ 1, 1 ]
       Probability: 0.1
       InitPower: True
+      Compound:
+        CountMinMax: [1, 6]
+        Probability: 0.5
+        Name: [CompoundColonistsCivHome, CompoundColonistsCivHome, CompoundColonistsIndHome, CompoundColonistsDefenseT1Home, CompoundColonistsDefenseT1Home, CompoundColonistsDefenseT1Home]
+        DistanceMinMax: [350, 600]
+        Rotate: false
       Properties:
         - Key: Discovery
           Value: False
@@ -1974,6 +2187,240 @@ POIs:
           Value: 720
         - Key: StationInterface
           Value: "Fuel:2,O2:1.5,Warp:1.5,Ammo:3,Repair:2,Shield:2,IfNeutral:1,IfFriendly:-0.08,IfHonored:-0.16"
+
+# Colonists Factories
+    - Type: BA_Alien
+      GroupName: Eden_BAOColonistsCivT1
+      Faction: Colonists
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 2 ]
+      Probability: 0.25
+      InitPower: True
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      GroupName: Eden_BAOColonistsCivT1
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory] # Faction Territory
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.25
+      InitPower: True
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      GroupName: Eden_BAOColonistsCivT2
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory] # Faction Territory
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.25
+      InitPower: True
+      Position:
+         RadialInfo: [0, 0, 0,   500,   1, 3.5]
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      GroupName: Eden_BAOColonistsIndT1
+      Faction: Colonists
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.2
+      InitPower: True
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      GroupName: Eden_BAOColonistsIndT1
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory] # Faction Territory
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.25
+      InitPower: True
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      GroupName: Eden_BAOColonistsIndT2
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory] # Faction Territory
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.25
+      InitPower: True
+      Position:
+         RadialInfo: [0, 0, 0,   500,   1, 3.5]
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      GroupName: Eden_BAOColonistsSupT2
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory] # Faction Territory
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 2 ]
+      Probability: 0.3
+      InitPower: True
+      Position:
+         RadialInfo: [0, 0, 0,   500,   1, 3.5]
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+# Colonists Gas Harvesters - Oxygen
+    - Type: BA_Alien
+      GroupName: Eden_BAOColonistsGasT1
+      Faction: Colonists
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 3 ]
+      Probability: 0.75
+      InitPower: True
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+        - Key: StationInterface
+          Value: "O2:1.25,IfNeutral:1,IfFriendly:-0.08,IfHonored:-0.16"
+
+# Faction Territory
+    - Type: BA_Alien
+      GroupName: Eden_BAOColonistsGasT1
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory]
+      NoShieldReload: True
+      Mode: Survival
+      CountMinMax: [ 1, 2 ]
+      Probability: 0.5
+      InitPower: True
+      Compound:
+        CountMinMax: [1, 2]
+        Probability: 0.5
+        Name: [CompoundColonistsGasHome, CompoundColonistsGasHome]
+        DistanceMinMax: [200, 400]
+        Rotate: false
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+        - Key: StationInterface
+          Value: "O2:1.25,IfNeutral:1,IfFriendly:-0.08,IfHonored:-0.16"
+
+# Compounds Faction Territory
+    - Type: BA_Alien
+      Name: [CompoundColonistsCivHome]
+      GroupName: Eden_BAOColonistsCivT1
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      IsCompoundSubDesc: True
+      Position:
+         PosXZMinMax: [750, 7000]
+         PosYMax: 5000
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      Name: [CompoundColonistsIndHome]
+      GroupName: Eden_BAOColonistsIndT1
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      IsCompoundSubDesc: True
+      Position:
+         PosXZMinMax: [750, 7000]
+         PosYMax: 5000
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      Name: [CompoundColonistsSupHome]
+      GroupName: Eden_BAOColonistsSupT1
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      IsCompoundSubDesc: True
+      Position:
+         PosXZMinMax: [750, 7000]
+         PosYMax: 5000
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+    - Type: BA_Alien
+      Name: [CompoundColonistsGasHome]
+      GroupName: Eden_BAOColonistsGasT1
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 1
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      IsCompoundSubDesc: True
+      Position:
+         PosXZMinMax: [750, 7000]
+         PosYMax: 5000
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+        - Key: StationInterface
+          Value: "O2:1.25,IfNeutral:1,IfFriendly:-0.08,IfHonored:-0.16"
+
+    - Type: BA_Alien
+      Name: [CompoundColonistsDefenseT1Home]
+      GroupName: Eden_ColDefenseSpaceT1
+      Faction: Colonists
+      FactionTerritory: [Eden_ColonistsTerritory]
+      Mode: Survival
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.8
+      IsCompoundSubDesc: True
+      SpaceDefenseOverrideDefaults: True
+      SpaceDefenseProbability: 0
+      InitPower: True
+      Properties:
+        - Key: HudDistance
+          Value: 2500
+        - Key: MapDistance
+          Value: 2500
+        - Key: RegenAfter
+          Value: 720
+
+
 
 # # Damaged Freighters
     # - Type: BA_Alien
@@ -2367,7 +2814,7 @@ POIs:
 
     - Type: BA_Alien
       Name: [CompoundGasCloudHack2]
-      GroupName: Eden_GasCloudBlueRandom
+      GroupName: Eden_GasCloudBlue
       Faction: Eden_Wreck
       FactionTerritory: [Warlord, Eden_Progenitor]
       Mode: Survival
@@ -2946,7 +3393,7 @@ POIs:
 
     - Type: BA_Alien
       Name: [CompoundGasCloudBlueRandom]
-      GroupName: Eden_GasCloudBlueRandom
+      GroupName: Eden_GasCloudBlue
       Faction: Eden_Wreck
       FactionTerritory: [All]
       Mode: Survival
@@ -2969,7 +3416,7 @@ POIs:
 
     - Type: BA_Alien
       Name: [CompoundGasCloudRedRandom]
-      GroupName: Eden_GasCloudRedRandom
+      GroupName: Eden_GasCloudRed
       Faction: Eden_Wreck
       FactionTerritory: [All]
       Mode: Survival
@@ -3039,7 +3486,7 @@ POIs:
 
     - Type: BA_Alien
       Name: [CompoundGasCloudBlueRandomWarlord]
-      GroupName: Eden_GasCloudBlueRandom
+      GroupName: Eden_GasCloudBlue
       Faction: Eden_Wreck
       FactionTerritory: [Warlord]
       Mode: Survival
@@ -3062,7 +3509,7 @@ POIs:
 
     - Type: BA_Alien
       Name: [CompoundGasCloudRedRandomWarlord]
-      GroupName: Eden_GasCloudRedRandom
+      GroupName: Eden_GasCloudRed
       Faction: Eden_Wreck
       FactionTerritory: [Warlord]
       Mode: Survival
@@ -3403,9 +3850,9 @@ POIs:
       Probability: 1
       Properties:
         - Key: MapDistance
-          Value: 4500
+          Value: 6500
         - Key: HudDistance
-          Value: 4500
+          Value: 6500
         - Key: RegenAfter
           Value: 720
 
@@ -3425,9 +3872,9 @@ POIs:
         Rotate: true
       Properties:
         - Key: MapDistance
-          Value: 4500
+          Value: 6500
         - Key: HudDistance
-          Value: 4500
+          Value: 6500
         - Key: RegenAfter
           Value: 720
 
@@ -3923,12 +4370,6 @@ DroneBaseSetup:
                 - POIName: Eden_TSO_PolRefinery
                   Radius: 3000
                   Duration: 0
-                - POIName: Eden_TSOPolarisCivilian
-                  Radius: 3000
-                  Duration: 0
-                - POIName: Eden_TSOPolarisIndustrial
-                  Radius: 3000
-                  Duration: 0
             StockDescription:
               Name: [SpaceDroneLaser, SpaceDronePlasma]
               AmountMinMax: [2, 4]
@@ -4124,10 +4565,6 @@ DroneBaseSetup:
               Position:
                 PosXZMinMax: [1000, 5000]
                 PosYMax: 3500
-              # AvoidArea:
-                # POIName: [TSO_Variant1, TSO_Variant2, TSO_Variant3, TSO_Variant4, TSO_Variant5, TSO_Variant6, TSO_Variant7, Eden_TSO_PolRefinery, TSO_AkuaOrbit, Eden_TSOPolarisCivilian, Eden_TSOPolarisIndustrial]
-                # Radius: [2000]
-                # Duration: [Infinite]
             StockDescription:
               Name: [SpaceDroneBattered01, SpaceDroneBattered02] 
               AmountMinMax: [2, 4]
@@ -4451,6 +4888,46 @@ DroneBaseSetup:
               Type: FighterDrone
 
 # ------------------------------------------------------------------------------------------------- Faction Civilian
+# Civilian Cargo Shuttles
+          - Name: [Eden_OPVTraderTSO]
+          # - Name: [Eden_OPV_TraderTSO1]
+            Faction: Civilian
+            CountMinMax: [4, 12]
+            Probability: 1
+            CanNotBeControlledByMasterAI: False
+            FixedMaxSpeed: [20, 40]
+            Mission: SpacePatrol
+            MissionDescription:
+              DelayBetweenRespawnMinMax: [3600, 3600]
+              DelayBeforeSelfDestructionMinMax: [3600, 3600]
+              IsRespawnAfterDestruction: False
+              RadiusMinMax: [750, 7500]
+              # POINameAsPositionRef: [Eden_GasCloudOrangeL]
+              # POINameAsPositionRef: [Eden_BA_DummyPOI]
+              Position:
+                PosXZMinMax: [500, 3000]
+                PosYMax: 1000
+            StockDescription:
+              Name: [SpaceDronePolarisLaser]
+              AmountMinMax: [1, 2]
+              ExtraMinMax: [0,0]
+              Type: FighterDrone
+            Properties:
+              - Key: MapDistance
+                Value: 0
+              - Key: HudDistance
+                Value: 3000
+              # - Key: Discovery
+                # Value: Discovery
+              # - Key: AIManPatrolGroups #which POI groups can the vessel patrol? Asteroids will be ignored
+                # Value: "Eden_BA_DummyPOI2"
+              - Key: AIManPatrolFactions #POI's of which factions can be patrolled?
+                Value: "Trader, Polaris, Colonists, Farr, Civilian"
+              # - Key: AIManPatrolFactions #POI's of which factions can be patrolled?
+                # Value: "Pirates"
+              - Key: AIManMaxPursuitRange
+                Value: 10000
+
 
 # ------------------------------------------------------------------------------------------------- Faction The Legacy
 # Patrol Vessels

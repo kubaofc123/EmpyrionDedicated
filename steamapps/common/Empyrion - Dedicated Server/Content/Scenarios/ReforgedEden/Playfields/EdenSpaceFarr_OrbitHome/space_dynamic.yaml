@@ -15,8 +15,8 @@ UseFixed: True
 # Habitable Star
 Radiation: [5,10]
 TemperatureDay: [-200,-100]
-Music: [moonstone, space, DistantWorlds, Migration, Artefact, ColdDivide]
-# Music: [Sanctuary, Vanguard, Helios, ColdDivide, AlteredPhase] # POI
+# Habitable Orbit Music
+Music: [Artefact, ColdDivide, DistantWorlds, FirstHours, Migration, moonstone, Orbiting, space, Transit]
 
 PlayfieldType: Space
 LandClaimZone: Device
@@ -988,28 +988,6 @@ POIs:
         - Key: StationInterface
           Value: "Fuel:1.5,O2:1.2,Warp:1,Ammo:0.7,Repair:3,Shield:1,IfNeutral:0.2,IfHonored:-0.20"
 
-# Trade Station 
-    - Type: BA_Alien
-      # Name: [Eden_TSO_PolHabitat]
-      GroupName: Eden_TSOPolarisCivilian
-      # DisplayName: Habitat
-      Faction: Polaris
-      Mode: Survival
-      CountMinMax: [ 1, 1 ]
-      Probability: 1
-      SpaceDefenseOverrideDefaults: True
-      SpaceDefenseProbability: 0
-      InitPower: True
-      Pos: [12415,710,3640]
-      Rot: [0, 0, 0]
-      Properties: 
-        - Key: Discovery
-          Value: False
-        - Key: Music
-          Value: NebularClouds
-        - Key: RegenAfter
-          Value: 720
-
     # - Type: BA_Alien
       # Name: [CompoundTSOPolaris]
       # GroupName: Eden_SpaceJunkPolT1
@@ -1029,25 +1007,6 @@ POIs:
           # Value: 250
         # - Key: RegenAfter
           # Value: 720
-
-# Polaris Civilian Factory
-    - Type: BA_Alien
-      GroupName: Eden_TSOPolarisCivilian
-      Faction: Polaris
-      Mode: Survival
-      CountMinMax: [ 1, 1 ]
-      Probability: 0.65
-      SpaceDefenseOverrideDefaults: True
-      SpaceDefenseProbability: 0
-      InitPower: True
-      Position:
-         PosXZMinMax: [100, 2500]
-         PosYMax: 2500
-      Properties: 
-        - Key: Discovery
-          Value: False
-        - Key: RegenAfter
-          Value: 720
 
     - Type: BA_Alien
       Name: [RBAO_PolSupplyStation]
@@ -1781,9 +1740,9 @@ POIs:
       Probability: 1
       Properties:
         - Key: MapDistance
-          Value: 4500
+          Value: 6000
         - Key: HudDistance
-          Value: 4500
+          Value: 6000
         - Key: RegenAfter
           Value: 720
 
@@ -2500,10 +2459,6 @@ DroneBaseSetup:
               Position:
                 PosXZMinMax: [5000, 10000]
                 PosYMax: 3500
-              # AvoidArea:
-                # POIName: [TSO_Variant1, TSO_Variant2, TSO_Variant3, TSO_Variant4, TSO_Variant5, TSO_Variant6, TSO_Variant7, Eden_TSO_PolRefinery, TSO_AkuaOrbit, Eden_TSOPolarisCivilian, Eden_TSOPolarisIndustrial]
-                # Radius: [2000]
-                # Duration: [Infinite]
             StockDescription:
               Name: [SpaceDroneBattered01, SpaceDroneBattered02] 
               AmountMinMax: [2, 4]

@@ -22,7 +22,8 @@ UseFixed: True
 Radiation: [5,10]
 TemperatureDay: [-200,-100]
 # Music: [moonstone, space, DistantWorlds, Migration, Artefact, ColdDivide]
-Music: [DarkSoundscape, DarkSoundscape2, DarkSoundscape3] # Dead orbit
+# Dark Ambient Music
+Music: [alien2, AnAridPlace, barren, Blight, Cypher, DarkSoundscape, DarkSoundscape2, DarkSoundscape3, lava2]
 # Music: [Sanctuary, Vanguard, Helios, ColdDivide, AlteredPhase] # POI
 
 PlayfieldType: Space
@@ -357,25 +358,6 @@ POIs:
           Value: 0
         - Key: HudDistance
           Value: 0
-
-# Industrial Factory
-    - Type: BA_Alien
-      GroupName: Eden_TSOPolarisIndustrial
-      Faction: Polaris
-      Mode: Survival
-      CountMinMax: [ 1, 1 ]
-      Probability: 0.1
-      SpaceDefenseOverrideDefaults: True
-      SpaceDefenseProbability: 0
-      InitPower: True
-      Position:
-         PosXZMinMax: [750, 2500]
-         PosYMax: 2500
-      Properties: 
-        - Key: Discovery
-          Value: False
-        - Key: RegenAfter
-          Value: 720
 
     - Type: BA_Alien
       Name: [RBAO_PolSupplyStation]
@@ -800,25 +782,6 @@ POIs:
           Value: 720
 
 # ================================================================================================================================================================================= Trader
-
-# Civilian Factory
-    - Type: BA_Alien
-      GroupName: Eden_TSOPolarisCivilian
-      Faction: Trader
-      Mode: Survival
-      CountMinMax: [ 1, 1 ]
-      Probability: 0.25
-      SpaceDefenseOverrideDefaults: True
-      SpaceDefenseProbability: 0
-      InitPower: True
-      Position:
-         PosXZMinMax: [750, 2500]
-         PosYMax: 2500
-      Properties: 
-        - Key: Discovery
-          Value: False
-        - Key: RegenAfter
-          Value: 720
 
 # ================================================================================================================================================================================= Pirates
 
@@ -1690,7 +1653,7 @@ POIs:
 
     - Type: BA_Alien
       Name: [CompoundGasCloudHack2]
-      GroupName: Eden_GasCloudBlueRandom
+      GroupName: Eden_GasCloudBlue
       Faction: Eden_Wreck
       FactionTerritory: [Warlord, Eden_Progenitor]
       Mode: Survival
@@ -2503,7 +2466,7 @@ POIs:
 
     - Type: BA_Alien
       Name: [CompoundGasCloudBlueRandom]
-      GroupName: Eden_GasCloudBlueRandom
+      GroupName: Eden_GasCloudBlue
       Faction: Eden_Wreck
       FactionTerritory: [All]
       Mode: Survival
@@ -2526,7 +2489,7 @@ POIs:
 
     - Type: BA_Alien
       Name: [CompoundGasCloudRedRandom]
-      GroupName: Eden_GasCloudRedRandom
+      GroupName: Eden_GasCloudRed
       Faction: Eden_Wreck
       FactionTerritory: [All]
       Mode: Survival
@@ -2596,7 +2559,7 @@ POIs:
 
     - Type: BA_Alien
       Name: [CompoundGasCloudBlueRandomWarlord]
-      GroupName: Eden_GasCloudBlueRandom
+      GroupName: Eden_GasCloudBlue
       Faction: Eden_Wreck
       FactionTerritory: [Warlord]
       Mode: Survival
@@ -2619,7 +2582,7 @@ POIs:
 
     - Type: BA_Alien
       Name: [CompoundGasCloudRedRandomWarlord]
-      GroupName: Eden_GasCloudRedRandom
+      GroupName: Eden_GasCloudRed
       Faction: Eden_Wreck
       FactionTerritory: [Warlord]
       Mode: Survival
@@ -2763,9 +2726,9 @@ POIs:
       IsCompoundSubDesc: True
       Properties:
         - Key: MapDistance
-          Value: 3000
+          Value: 6000
         - Key: HudDistance
-          Value: 3000
+          Value: 6000
         - Key: RegenAfter
           Value: 720
 
@@ -2960,9 +2923,9 @@ POIs:
       Probability: 1
       Properties:
         - Key: MapDistance
-          Value: 4500
+          Value: 6500
         - Key: HudDistance
-          Value: 4500
+          Value: 6500
         - Key: RegenAfter
           Value: 720
 
@@ -2982,9 +2945,9 @@ POIs:
         Rotate: true
       Properties:
         - Key: MapDistance
-          Value: 4500
+          Value: 6500
         - Key: HudDistance
-          Value: 4500
+          Value: 6500
         - Key: RegenAfter
           Value: 720
 
@@ -3141,12 +3104,6 @@ DroneBaseSetup:
                   Radius: 3000
                   Duration: 0
                 - POIName: Eden_TSO_PolRefinery
-                  Radius: 3000
-                  Duration: 0
-                - POIName: Eden_TSOPolarisCivilian
-                  Radius: 3000
-                  Duration: 0
-                - POIName: Eden_TSOPolarisIndustrial
                   Radius: 3000
                   Duration: 0
             StockDescription:
@@ -3325,10 +3282,6 @@ DroneBaseSetup:
               Position:
                 PosXZMinMax: [1000, 5000]
                 PosYMax: 3500
-              # AvoidArea:
-                # POIName: [TSO_Variant1, TSO_Variant2, TSO_Variant3, TSO_Variant4, TSO_Variant5, TSO_Variant6, TSO_Variant7, Eden_TSO_PolRefinery, TSO_AkuaOrbit, Eden_TSOPolarisCivilian, Eden_TSOPolarisIndustrial]
-                # Radius: [2000]
-                # Duration: [Infinite]
             StockDescription:
               Name: [SpaceDroneBattered01, SpaceDroneBattered02] 
               AmountMinMax: [2, 4]

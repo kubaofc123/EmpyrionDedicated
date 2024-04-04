@@ -19,6 +19,7 @@
   MeshFP: Player/SciFiMale/SciFiMaleFPVPrefab
   Parent: Players
   RightHandJointName: RightHand
+  LeftHandJointName: LeftHand
   PlayerBikeHandPos: 2
 
   /* This decides on the particle effect played on hit */
@@ -71,6 +72,7 @@
   
   Parent: Players
   RightHandJointName: RightHand
+  LeftHandJointName: LeftHand
   PlayerBikeHandPos: 2
 
   /* This decides on the particle effect played on hit */
@@ -265,6 +267,7 @@
 { Entity Name: PlayerBike
   EntityType: PlayerBike
   Mesh: Misc/Hoverbike/Prefab/HoverbikePrefab
+  # Mesh: Misc/PlayerBikePrefab
   # Mesh: Misc/HoverBikePrefab
   ModelType: Custom
   Prefab: PlayerBike
@@ -290,6 +293,115 @@
   DropInventoryItem: PlayerBike   # after 5 minutes the bike will turn into this item
 }
 
+{ Entity Name: HoverbikeWasp
+  EntityType: PlayerBike
+  Mesh: Misc/Hoverbike/Prefab/HoverbikeWaspPrefab
+  ModelType: Custom
+  Prefab: PlayerBike
+  Class: PlayerBike
+  Parent: PlayerBike
+
+  SurfaceCategory: metal
+  MaxHealth: 50
+  TimeStayAfterDeath: 0
+
+  MapIcon: map_PlayerBike
+  HudInfo: false
+
+  XpFactor: 0
+
+  
+  BlastParticleIndex: 9
+  BlastRadius: 2
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
+
+  ItemOnPickup: HoverbikeWasp  #Requires ITEM to be added in itemsconfig.ecf!
+  DropInventoryItem: HoverbikeWasp   # after 5 minutes the bike will turn into this item; Requires ITEM to be added in itemsconfig.ecf!
+}
+{ Entity Name: HoverbikeHunter
+  EntityType: PlayerBike
+  Mesh: Misc/Hoverbike/Prefab/HoverbikeHunterPrefab
+  ModelType: Custom
+  Prefab: PlayerBike
+  Class: PlayerBike
+  Parent: PlayerBike
+
+  SurfaceCategory: metal
+  MaxHealth: 50
+  TimeStayAfterDeath: 0
+
+  MapIcon: map_PlayerBike
+  HudInfo: false
+
+  XpFactor: 0
+
+  
+  BlastParticleIndex: 9
+  BlastRadius: 2
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
+
+  ItemOnPickup: HoverbikeHunter  #Requires ITEM to be added in itemsconfig.ecf!
+  DropInventoryItem: HoverbikeHunter   # after 5 minutes the bike will turn into this item; Requires ITEM to be added in itemsconfig.ecf!
+}
+
+{ Entity Name: HoverbikeSpeedstar
+  EntityType: PlayerBike
+  Mesh: Misc/Hoverbike/Prefab/HoverbikeSpeedstarPrefab
+  ModelType: Custom
+  Prefab: PlayerBike
+  Class: PlayerBike
+  Parent: PlayerBike
+
+  SurfaceCategory: metal
+  MaxHealth: 50
+  TimeStayAfterDeath: 0
+
+  MapIcon: map_PlayerBike
+  HudInfo: false
+
+  XpFactor: 0
+
+  
+  BlastParticleIndex: 9
+  BlastRadius: 2
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
+
+  ItemOnPickup: HoverbikeSpeedstar  #Requires ITEM to be added in itemsconfig.ecf!
+  DropInventoryItem: HoverbikeSpeedstar   # after 5 minutes the bike will turn into this item; Requires ITEM to be added in itemsconfig.ecf!
+}
+{ Entity Name: HoverbikeHowler
+  EntityType: PlayerBike
+  Mesh: Misc/Hoverbike/Prefab/HoverbikeHowlerPrefab
+  ModelType: Custom
+  Prefab: PlayerBike
+  Class: PlayerBike
+  Parent: PlayerBike
+
+  SurfaceCategory: metal
+  MaxHealth: 50
+  TimeStayAfterDeath: 0
+
+  MapIcon: map_PlayerBike
+  HudInfo: false
+
+  XpFactor: 0
+
+  
+  BlastParticleIndex: 9
+  BlastRadius: 2
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
+
+  ItemOnPickup: HoverbikeHowler  #Requires ITEM to be added in itemsconfig.ecf!
+  DropInventoryItem: HoverbikeHowler   # after 5 minutes the bike will turn into this item; Requires ITEM to be added in itemsconfig.ecf!
+}
 # Not used any more. Only used shortly in A6.1. Remove as soon as we do a savegame break!
 { Entity Name: PlayerBikeFolded
   EntityType: PlayerBikeFolded
@@ -2766,8 +2878,8 @@
 ## ================================================== 
 
 { +Entity Name: Hexapod, Ref: PredatorTemplate
-  Mesh: Enemies/HexapodPrefab
-  MeshDead: Enemies/HexapodDeadPrefab
+  Mesh: Enemies/Hexapod/HexapodPrefab
+  MeshDead: Enemies/Hexapod/HexapodDeadPrefab
   HeadTransform: Head
   
   Prefab: AlienHumanoid
@@ -2793,11 +2905,11 @@
   
   /* Sound settings */
   SfxRandomTime: 240.0
-  SfxRandom: Enemies/Hexapod/Hexapod_SfxRandom
+  SfxRandom: Enemies/Hexapod_SfxRandom
   SfxAlertTime: 120.0
-  SfxAlert: Enemies/Hexapod/Hexapod_SfxRandom
-  SfxHurt:  Enemies/Hexapod/Hexapod_SfxHurt
-  SfxDeath: Enemies/Hexapod/Hexapod_SfxDeath
+  SfxAlert: Enemies/Hexapod_SfxRandom
+  SfxHurt:  Enemies/Hexapod_SfxHurt
+  SfxDeath: Enemies/Hexapod_SfxDeath
   
   LootListOnDeath: 29
 
@@ -8915,8 +9027,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   MaxHealth: 450
   XpFactor: 6.4
   LootListOnDeath: 100
-  Mesh: Enemies/SecurityGuards/SecurityGuardAlienMovingPrefab
-  MeshDead: Enemies/SecurityGuards/SecurityGuardAlienMovingDeadPrefab
+  Mesh: Enemies/Prenn/SecurityGuardAlienMovingPrefab
+  MeshDead: Enemies/Prenn/SecurityGuardAlienMovingDeadPrefab
   ItemsOnEnterGame: PulseRifle
   HeadTransform: AlienHead
   RightHandJointName: RightHand
@@ -8932,8 +9044,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   MaxHealth: 450
   XpFactor: 6.4
   LootListOnDeath: 102
-  Mesh: Enemies/SecurityGuards/SecurityGuardAlienMovingPrefab
-  MeshDead: Enemies/SecurityGuards/SecurityGuardAlienMovingDeadPrefab
+  Mesh: Enemies/Prenn/SecurityGuardAlienMovingPrefab
+  MeshDead: Enemies/Prenn/SecurityGuardAlienMovingDeadPrefab
   ItemsOnEnterGame: Shotgun2
   HeadTransform: AlienHead
   RightHandJointName: RightHand
@@ -9705,10 +9817,10 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
 # ================================
 
 { +Entity Name: HexapodInfected, Ref: Hexapod
-  Mesh: Enemies/HexapodInfectedPrefab  
+  Mesh: Enemies/Hexapod/HexapodInfectedPrefab  
   Faction: TheLegacy
   EntityType: NPCFighter
-  MeshDead: Enemies/HexapodInfectedDeadPrefab
+  MeshDead: Enemies/Hexapod/HexapodInfectedDeadPrefab
   HeadTransform: Head
   SfxRandom: Misc/MuteSound
   SfxHurt: Enemies/TotalHorror/TotalHorror_SfxHurt
@@ -9727,8 +9839,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   MaxHealth: 600
   XpFactor: 11.4
   LootListOnDeath: 101
-  Mesh: Enemies/SecurityGuards/SecurityGuardAlienMovingInfectedPrefab
-  MeshDead: Enemies/SecurityGuards/SecurityGuardAlienMovingInfectedDeadPrefab
+  Mesh: Enemies/Prenn/SecurityGuardAlienMovingInfectedPrefab
+  MeshDead: Enemies/Prenn/SecurityGuardAlienMovingInfectedDeadPrefab
   ItemsOnEnterGame: AssaultRifle
   HeadTransform: AlienHead
   RightHandJointName: RightHand
@@ -9825,7 +9937,7 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   MeshDead: Enemies/Zirax/ZiraxGreenInfectedDeadPrefab
   HeadTransform: Bip01_Head
   ItemsOnEnterGame: FlamethrowerZirax
-  LootListOnDeath: 105
+  LootListOnDeath: 109
   Faction: TheLegacy
   SfxRandom: Misc/MuteSound
   SfxHurt: Enemies/TotalHorror/TotalHorror_SfxHurt
@@ -10877,8 +10989,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   MaxHealth: 350
   XpFactor: 3.5
   LootListOnDeath: 100
-  Mesh: Enemies/SecurityGuards/SecurityGuardAlienMovingPrefab
-  MeshDead: Enemies/SecurityGuards/SecurityGuardAlienMovingDeadPrefab
+  Mesh: Enemies/Prenn/SecurityGuardAlienMovingPrefab
+  MeshDead: Enemies/Prenn/SecurityGuardAlienMovingDeadPrefab
   ItemsOnEnterGame: ZiraxMinigunWeapon
   HeadTransform: AlienHead
   RightHandJointName: RightHand
@@ -10894,8 +11006,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   MaxHealth: 400
   XpFactor: 3.4
   LootListOnDeath: 102
-  Mesh: Enemies/SecurityGuards/SecurityGuardAlienMovingPrefab
-  MeshDead: Enemies/SecurityGuards/SecurityGuardAlienMovingDeadPrefab
+  Mesh: Enemies/Prenn/SecurityGuardAlienMovingPrefab
+  MeshDead: Enemies/Prenn/SecurityGuardAlienMovingDeadPrefab
   ItemsOnEnterGame: ZiraxShotgunWeapon
   HeadTransform: AlienHead
   RightHandJointName: RightHand
@@ -11281,8 +11393,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   PoolCount: 10 
   FadingEnabled: true
   UpdateClusterInfo: true 
-  AllowUserInstantiate: true
-  AllowInSpawners: true  
+  AllowUserInstantiate: false
+  AllowInSpawners: false  
   # ParticleOnDeath: blood_death   #red splash; mixes with surfacecategory
   
  # SfxRandomTime: 150.0     
@@ -11376,6 +11488,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   SfxDeath: PlyFemale/FemaleDeath
   
   SurfaceCategory: human
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
 }
 #{ +Entity Name: UCHSoldierMale2AssaultRifle, Ref: TemplateUCH   #ELITE; Male = full armour elites
 #  MaxHealth: 700
@@ -11418,6 +11532,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   SfxDeath: Player_Male/MaleDeath
   
   SurfaceCategory: human
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
 }
 { +Entity Name: UCHSoldierMaleAssaultRifle, Ref: TemplateUCH    
   MaxHealth: 350
@@ -11439,6 +11555,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   SfxDeath: Player_Male/MaleDeath
   
   SurfaceCategory: human
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
 }
 #{ +Entity Name: UCHSoldierMaleShotgun, Ref: TemplateUCH    
 #  MaxHealth: 350
@@ -11482,6 +11600,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   SfxDeath: PlyFemale/FemaleDeath
   
   SurfaceCategory: human
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
 }
 #{ +Entity Name: UCHSoldierFemaleAssaultRifle, Ref: TemplateUCH    # StandIN Needs model added
 #  MaxHealth: 350
@@ -11518,6 +11638,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   SfxHurt:  Player_Male/MaleHurt
   SfxDeath: Player_Male/MaleDeath
   
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
 }
 { +Entity Name: UCHPilotFemaleBlue, Ref: HumanCivilianMale1   
   Mesh: Enemies/HumanMilkyway/HumanMWPilotFemaleBluePrefab       #Model
@@ -11531,6 +11653,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   SfxHurt: PlyFemale/FemaleHurt
   SfxDeath: PlyFemale/FemaleDeath
   
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
 }
 
 { +Entity Name: UCHPilotMaleRed, Ref: HumanCivilianMale1   
@@ -11545,6 +11669,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   SfxHurt:  Player_Male/MaleHurt
   SfxDeath: Player_Male/MaleDeath
   
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
 }
 { +Entity Name: UCHPilotFemaleRed, Ref: HumanCivilianMale1   
   Mesh: Enemies/HumanMilkyway/HumanMWPilotFemaleRedPrefab       #Model
@@ -11558,6 +11684,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   SfxHurt: PlyFemale/FemaleHurt
   SfxDeath: PlyFemale/FemaleDeath
   
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
 }
 { +Entity Name: UCHOfficerFemale, Ref: HumanCivilianMale1 #Female    
   Mesh: Enemies/HumanMilkyway/HumanMWOfficerFemalePrefab
@@ -11570,6 +11698,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: PlyFemale/FemaleThinking03
   SfxHurt: PlyFemale/FemaleHurt
   SfxDeath: PlyFemale/FemaleDeath
+  
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
 }
 { +Entity Name: UCHOfficerMale, Ref: HumanCivilianMale1 #Male   
   Mesh: Enemies/HumanMilkyway/HumanMWOfficerMalePrefab
@@ -11594,6 +11725,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: PlyFemale/FemaleThinking03
   SfxHurt: PlyFemale/FemaleHurt
   SfxDeath: PlyFemale/FemaleDeath
+  
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
 }
 { +Entity Name: UCHTechnicianMale, Ref: HumanCivilianMale1   
   Mesh: Enemies/HumanMilkyway/HumanMWTechnicianMalePrefab
@@ -11606,6 +11740,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: Player_Male/MaleThinking02
   SfxHurt:  Player_Male/MaleHurt
   SfxDeath: Player_Male/MaleDeath
+  
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
 }
 
 #=== CIVILIANS WALKING
@@ -11634,6 +11771,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: PlyFemale/FemaleThinking03
   SfxHurt: PlyFemale/FemaleHurt
   SfxDeath: PlyFemale/FemaleDeath
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 { +Entity Name: UCHCivilianFemale3, Ref: HumanCivilianMale1  #Female    
   Mesh: Enemies/HumanMilkyway/HumanMWCivilianFemale3Prefab       #Model
@@ -11646,6 +11786,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: PlyFemale/FemaleThinking03
   SfxHurt: PlyFemale/FemaleHurt
   SfxDeath: PlyFemale/FemaleDeath
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 
 { +Entity Name: UCHCivilianMale1, Ref: HumanCivilianMale1   
@@ -11659,6 +11802,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: Player_Male/MaleThinking02
   SfxHurt:  Player_Male/MaleHurt
   SfxDeath: Player_Male/MaleDeath
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 { +Entity Name: UCHCivilianMale2, Ref: HumanCivilianMale1   
   Mesh: Enemies/HumanMilkyway/HumanMWCivilianMale2Prefab
@@ -11671,6 +11817,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: Player_Male/MaleThinking02
   SfxHurt:  Player_Male/MaleHurt
   SfxDeath: Player_Male/MaleDeath
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 { +Entity Name: UCHCivilianMale3, Ref: HumanCivilianMale1   
   Mesh: Enemies/HumanMilkyway/HumanMWCivilianMale3Prefab
@@ -11683,6 +11832,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: Player_Male/MaleThinking02
   SfxHurt:  Player_Male/MaleHurt
   SfxDeath: Player_Male/MaleDeath
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 ##=== CIVILIANS STATIC ====
 { +Entity Name: UCHCivilianFemale1Static, Ref: HumanCivilianMale1Static  #Female  
@@ -11696,6 +11848,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: PlyFemale/FemaleThinking03
   SfxHurt: PlyFemale/FemaleHurt
   SfxDeath: PlyFemale/FemaleDeath
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 { +Entity Name: UCHCivilianFemale2Static, Ref: HumanCivilianMale1Static #Female   
   Mesh: Enemies/HumanMilkyway/HumanMWCivilianFemale2Prefab
@@ -11709,6 +11864,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: PlyFemale/FemaleThinking03
   SfxHurt: PlyFemale/FemaleHurt
   SfxDeath: PlyFemale/FemaleDeath
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 { +Entity Name: UCHPilotMaleStatic, Ref: HumanCivilianMale1Static   
   Mesh: Enemies/HumanMilkyway/HumanMWPilotMaleBluePrefab
@@ -11716,6 +11874,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   RightHandJointName: R Weapon
   
   Faction: UCH
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 { +Entity Name: UCHOfficerFemaleStatic, Ref: HumanCivilianMale1Static #Female  
   Mesh: Enemies/HumanMilkyway/HumanMWOfficerFemalePrefab
@@ -11728,6 +11889,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: PlyFemale/FemaleThinking03
   SfxHurt: PlyFemale/FemaleHurt
   SfxDeath: PlyFemale/FemaleDeath
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 { +Entity Name: UCHOfficerMaleStatic, Ref: HumanCivilianMale1Static #Male   
   Mesh: Enemies/HumanMilkyway/HumanMWOfficerMalePrefab
@@ -11740,6 +11904,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: Player_Male/MaleThinking02
   SfxHurt:  Player_Male/MaleHurt
   SfxDeath: Player_Male/MaleDeath
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 { +Entity Name: UCHTechnicianFemaleStatic, Ref: HumanCivilianMale1Static   #Female   
   Mesh: Enemies/HumanMilkyway/HumanMWTechnicianFemalePrefab
@@ -11751,6 +11918,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: 
   SfxHurt: PlyFemale/FemaleHurt
   SfxDeath: PlyFemale/FemaleDeath
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 { +Entity Name: UCHTechnicianMaleStatic, Ref: HumanCivilianMale1Static   
   Mesh: Enemies/HumanMilkyway/HumanMWTechnicianMalePrefab
@@ -11763,6 +11933,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   #SfxRandom: Player_Male/MaleThinking02
   SfxHurt:  Player_Male/MaleHurt
   SfxDeath: Player_Male/MaleDeath
+
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 
 #==================================================
@@ -11774,7 +11947,7 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
 #== Farr Template  
 { +Entity Name: TemplateFarr 
   Mesh: Enemies/Farr/FarrMalePrimePrefab  
-  # MeshDead: Enemies/Traders/AlienTrader1DeadPrefab
+  MeshDead: Enemies/Farr/FarrMalePrimeDeadPrefab  
   
   ModelType: NoRagdoll
   Prefab: AlienHumanoid
@@ -11791,7 +11964,7 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   Faction: Farr
  
   ItemsOnEnterGame: "MeleePlayer,FarrBlaster"
-  # HandItem: FarrBlaster
+  HandItem: FarrBlaster
   
   ViewAngle: 180
   MaxHealth: 700
@@ -11803,6 +11976,9 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   RotateSpeed: 60
   RotateSpeedMovement: 180
   MotionAnimationSpeedMultiplier: 1.0
+  
+  JumpHeight: 0
+  StepHeight: 0.25
   
   TimeStayAfterDeath: 600
   
@@ -11819,10 +11995,10 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   
   Weight: 100  
   PoolCount: 10 
-  FadingEnabled: true
+  FadingEnabled: false
   UpdateClusterInfo: true 
-  AllowUserInstantiate: true
-  AllowInSpawners: true  
+  AllowUserInstantiate: false
+  AllowInSpawners: false  
   # ParticleOnDeath: blood_death   #red splash; mixes with surfacecategory
   
   SfxRandomTime: 150.0     
@@ -11897,15 +12073,21 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
 }
 
 #=== SOLDIERS ====
-#=== Miliatry Personell WALKING  ====
+#=== Military Personnel WALKING  ====
 #=== CIVILIANS WALKING ====
 
 { +Entity Name: FARRPrime, Ref: TemplateFarr
   Mesh: Enemies/Farr/FarrMalePrimePrefab  
+  MeshDead: Enemies/Farr/FarrMalePrimeDeadPrefab
+  
+  ItemsOnEnterGame: FarrBlaster
   MaxHealth: 1400
   XpFactor: 7 
  # HeadTransform: Head
  # RightHandJointName: R Weapon
+ 
+  AllowUserInstantiate: true
+  AllowInSpawners: true
   
  # Faction: Farr
   
@@ -11919,32 +12101,49 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
  
 { +Entity Name: FARRMale1, Ref: TemplateFarr
   Mesh: Enemies/Farr/FarrMale1Prefab  
+  MeshDead: Enemies/Farr/FarrMale1DeadPrefab
   MaxHealth: 700
   XpFactor: 7 
+ 
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 
 { +Entity Name: FARRMale2, Ref: TemplateFarr
   Mesh: Enemies/Farr/FarrMale2Prefab  
+  MeshDead: Enemies/Farr/FarrMale2DeadPrefab
   MaxHealth: 700
   XpFactor: 7 
+ 
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 
 { +Entity Name: FARRMale3, Ref: TemplateFarr
   Mesh: Enemies/Farr/FarrMale3Prefab  
+  MeshDead: Enemies/Farr/FarrMale3DeadPrefab
   MaxHealth: 700
   XpFactor: 7 
+ 
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 
 { +Entity Name: FARRMale4, Ref: TemplateFarr
   Mesh: Enemies/Farr/FarrMale4Prefab  
+  MeshDead: Enemies/Farr/FarrMale4DeadPrefab
   MaxHealth: 700
   XpFactor: 7 
+ 
+  AllowUserInstantiate: true
+  AllowInSpawners: true
 }
 
 # ===== SENTINEL =====
 
 { +Entity Name: FARRMale2Guard
-  Mesh: Enemies/Farr/FarrMale2GuardPrefab  
+  Mesh: Enemies/Farr/FarrMale2GuardPrefab
+  MeshDead: Enemies/Farr/FarrMaleGuardDeadPrefab
   
   ModelType: NoRagdoll
   Prefab: AlienHumanoid
@@ -11989,7 +12188,7 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
 
   Weight: 100  
   PoolCount: 10 
-  FadingEnabled: true
+  FadingEnabled: false
   UpdateClusterInfo: true 
   AllowUserInstantiate: true
   AllowInSpawners: true   
@@ -12004,6 +12203,7 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
 #===== Trader
 { +Entity Name: TraderFarr
   Mesh: Enemies/Traders/FarrTraderPrefab    #Enemies/Farr/FarrTraderPrefab  
+  MeshDead: Enemies/Traders/FarrMale1DeadPrefab
 
   ModelType: NoRagdoll
   Prefab: AlienTrader
@@ -12060,6 +12260,198 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   SfxHurt: Enemies/Trader/Trader_SfxHurt
   SfxDeath: Enemies/Trader/Trader_SfxDeath  
 }
+
+#=======================================
+#============== TRESARI ==================
+#=======================================
+#== Tresari Template  
+{ +Entity Name: TemplateTRESARI 
+  Mesh: Enemies/Tresari/Protofactor_Formiops_Default_Prefab     #main model for all variants
+ # MeshDead: Enemies/Tresari/Protofactor_Formiops_DeadPrefab
+  
+  ModelType: NoRagdoll
+  Prefab: AlienHumanoid
+  Class: BehaviorAI     #Enemy: old AI
+  Parent: Enemies
+  IsEnemy: true
+  AvatarController: BAIAnimalBase   #Enemy: Old AI Controller
+  EntityType: NPCFighter
+  
+  SurfaceCategory: human
+  HeadTransform: Humanoid_ Head     #Protofactor 
+  RightHandJointName: Humanoid_ R Hand   #Protofactor male
+  
+  Faction: Tresari
+ 
+ # ItemsOnEnterGame: ArkenianShotgun
+ # HandItem: ArkenianShotgun
+  
+  ViewAngle: 180
+  MaxHealth: 700
+  XpFactor: 3.5
+
+  LootListOnDeath: 107
+
+  RotateToGround: false
+  RotateSpeed: 150
+  RotateSpeedMovement: 180
+  MotionAnimationSpeedMultiplier: 1.0
+  
+  TimeStayAfterDeath: 600
+  
+  #AITask-1: Wander, param1: true    
+ # AITask-2: ApproachAttack, param1: EntityPlayer
+  #AITarget-1: OnHurt, param1: Player 
+  
+  
+  WanderSpeed: 0.18         #OldAI
+  ApproachSpeed: 0.18        #OldAI
+  NightWanderSpeed: 0.18    #OldAI
+  NightApproachSpeed: 0.18  #OldAI
+  PanicSpeed: 0.18           #OldAI
+  JumpHeight: 0
+  StepHeight: 0.25
+  
+  Weight: 100  
+  PoolCount: 10 
+  FadingEnabled: false
+  UpdateClusterInfo: true 
+  AllowUserInstantiate: false
+  AllowInSpawners: false  
+  # ParticleOnDeath: blood_death   #red splash; mixes with surfacecategory
+  
+  SfxRandomTime: 50.0
+  SfxRandom: Enemies/CaveWorm/CritterSFX-Long_2
+  SfxAlertTime: 25.0
+  SfxAlert: Enemies/CaveWorm/CritterSFX-Short
+  SfxHurt: Enemies/CaveWorm/hurt
+  SfxDeath: Enemies/CaveWorm/CritterSFX-Long
+  
+# New AI
+  { Child MainBehavior
+    BehaviorName: Behaviors/HiLevelTrees/ZiraxTroopCommands
+    Slot1: "SlotLifeCycle,       Behaviors/Activities/RandomWalk"       
+    Slot2: "SlotLowAlert,        Behaviors/Activities/RandomWalk"       
+    Slot3: "SlotAlertedNoTarget, Behaviors/Activities/RandomWalk"       
+    Slot4: "SlotSearchTarget,    Behaviors/Activities/SearchTarget"     
+    Slot5: "SlotAttackTarget,    Behaviors/Activities/AnimalAttack"
+  }
+  
+#  {	Child GroupDirectionSensor
+#	TickIfLead: true
+#	TimeBetweeenTicks: 0.2
+#	ScanElevation:false
+#	ScanWater:false
+#  } 
+
+  { Child VariableOverride
+    SpeedCalm: 0.3
+    SpeedAlerted: 0.8
+	SpeedAttack: 1.5
+  }
+  
+  { Child Hints
+	AttackApproachTarget: 0
+	AttackOptimalDistance: 40
+	SearchAdvanceTime: 2.0
+	SearchWaitTime: 3
+	SearchRandomDistanceMult: 1
+  	FireWeaponDurationMultiplier: 1.0
+	FireWeaponBlendInTime: 0.5
+	#UseMeleeAttack: 0
+	#WeaponAtAlert: 100
+  }
+	
+  {	Child VisionSensor
+	VisibleDistance: 80
+	ViewAngle: 110
+	VisibleTypes: "Player,PlayerBike,HV,SV,CV,Animal,Civilian,Cyborg,NPCFighter,Trader,EnemyDrone"
+  }    
+  
+  {	Child TargetSensor
+    AttackableTypes: "Player,PlayerBike,HV,SV,CV,Animal,Civilian,Cyborg,NPCFighter,Trader,EnemyDrone"
+  }
+  
+  { Child StuckSensor
+	Use: 0
+  }
+  
+  {	Child AlertSensor
+	AlertLevel1: 10, param1: 0
+	AlertLevel2: 40, param1: 2
+	AlertLevel3: 60, param1: 50
+	AlertLevelDrop:10 
+	AlertAddFromVisionMinNoMovement:10 
+	AlertAddFromVisionMovement:200
+	AlertVisionMaxSpeed:2
+	AlertAddFromAutoAlert:30
+	MinDistanceToAutoAlert:20
+	NoiseMaxDistance:50
+	NoiseAlertMultiplier:0.3
+  }  
+}
+
+# SOLDIERS
+
+{ +Entity Name: TresariGreen, Ref: TemplateTRESARI 
+  Mesh: Enemies/Tresari/Protofactor_Formiops_Green_Prefab
+  MeshDead: Enemies/Tresari/Protofactor_Formiops_Green_DeadPrefab   
+  ItemsOnEnterGame: ArkenianShotgun    #Replace with own gun
+  
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
+
+  MaxHealth: 600
+  XpFactor: 5.1
+}
+{ +Entity Name: TresariBrown, Ref: TemplateTRESARI 
+  Mesh: Enemies/Tresari/Protofactor_Formiops_Brown_Prefab
+  MeshDead: Enemies/Tresari/Protofactor_Formiops_Brown_DeadPrefab   
+  ItemsOnEnterGame: ArkenianShotgun    #Replace with own gun
+  
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
+
+  MaxHealth: 600
+  XpFactor: 5.1
+}
+{ +Entity Name: TresariBlue, Ref: TemplateTRESARI 
+  Mesh: Enemies/Tresari/Protofactor_Formiops_Blue_Prefab
+  MeshDead: Enemies/Tresari/Protofactor_Formiops_Blue_DeadPrefab   
+  ItemsOnEnterGame: ArkenianShotgun    #Replace with own gun
+  
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
+
+  MaxHealth: 600
+  XpFactor: 5.1
+}
+{ +Entity Name: TresariPurple, Ref: TemplateTRESARI 
+  Mesh: Enemies/Tresari/Protofactor_Formiops_Purple_Prefab
+  MeshDead: Enemies/Tresari/Protofactor_Formiops_Purple_DeadPrefab   
+  ItemsOnEnterGame: ArkenianShotgun    #Replace with own gun
+  
+  AllowUserInstantiate: true
+  AllowInSpawners: true  
+
+  MaxHealth: 600
+  XpFactor: 5.1
+}
+
+
+#Fallback. Delete with 1.11
+{ +Entity Name: Tresari, Ref: TemplateTRESARI 
+  Mesh: Enemies/CaveCrawler/CaveCrawlerGreenPrefab
+  MeshDead: Enemies/CaveCrawler/CaveCrawlerGreenDeadPrefab 
+  ItemsOnEnterGame: ArkenianShotgun    #Replace with own gun
+
+  #AllowUserInstantiate: true
+  #AllowInSpawners: true  
+
+  MaxHealth: 600
+  XpFactor: 5.1
+}
+
 #================================================================
 #============== DESTROYED Enitites (Drones etc.) ================
 #================================================================
@@ -12261,7 +12653,7 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
 #=== UCH ===
 #=== Kriel ===
 { +Entity Name: DeadKrielSoldier, Ref: TemplateDeadNPC   #+1
-  Mesh: Enemies/HexapodDeadPrefab
+  Mesh: Enemies/Hexapod/HexapodDeadPrefab
   LootListOnDeath: 29
   AllowInSpawners: true  
   Prefab: AlienHumanoid
@@ -12288,8 +12680,6 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   Prefab: AlienHumanoid
   Faction: Kriel
 }
-
-
 
 # ============================================================================================================================================================================
 # ========================================================================================================================== Project Eden Custom NPCs
@@ -13581,7 +13971,7 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   ViewAngle: 180
   Weight: 100
 
-  TimeStayAfterDeath: 900            /* sec */
+  TimeStayAfterDeath: 3600            /* sec */
   FadingEnabled: true
 
   AllowUserInstantiate: false
@@ -13970,6 +14360,84 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
 
 # ========================================================================================================================== Space Drones
 
+# Space whales are our friends!
+{ +Entity Name: Eden_SpaceWhale
+  EntityType: EnemyDrone
+  Faction: Civilian
+  # Mesh: Enemies/Drones/SpaceDroneLODPrefab
+  # MeshDead: Enemies/Drones/SpaceDroneDmgPrefab
+  # Mesh: Enemies/Drones/EnemyDroneBomberPrefab
+  # MeshDead: Enemies/Drones/EnemyDroneBomberDmgPrefab
+  Mesh: Enemies/Drones/GlidingOverseerPrefab
+  MeshDead: Enemies/Drones/GlidingOverseerDeadPrefab
+  PoolCount: 10
+
+  /* General properties */
+  IsEnemy: true
+
+  # SurfaceCategory: metal
+  SurfaceCategory: human
+
+  DroneType: SpaceDrone
+  MaxHealth: 10000
+  # XpFactor: 2
+  XpFactor: 12.5
+  Material: CreatureHard
+
+  ModelType: Custom
+  Prefab: Drone
+  # AvatarController: Custom
+  AvatarController: BAIAnimalBase
+
+  Class: DroneSpace
+  Parent: EntityPhysics
+  #UseProxy: true
+  
+  # HandItem: plasmaSpaceDrone
+  # ItemsOnEnterGame: plasmaSpaceDrone
+  ViewAngle: 360
+   # ViewRange: 1000    Note : ViewRange is not defined here rather in DroneProperties
+
+  /* AI properties */
+  /*AITask-1: DroneFindTargetIfHurt*/
+  /*AITask-2: DroneAttackTarget*/
+  /*    AITask-2: DroneHuntAfterLostDetection, param1: 10  */
+  /*AITask-3: DroneHuntAfterLostDetection, param1: 50*/
+  /*AITask-4: DroneRangePatrol, param1: 50*/
+  /*AITask-5: DronePathPatrol*/
+  /*AITask-6: DroneSentryPatrol*/
+
+  /*AITarget-1: DroneDetection, param1: "Player,Turret,SV,CV", param2: EntityShip*/
+
+  /* Sound Setting */
+  # SfxRandomTime: 50.0   
+  # SfxRandom: Enemies/Drone/SwellsRushesAssortment_start
+
+  # SfxAlertTime: 25.0   
+  # SfxAlert: Enemies/Drone/MAGICSPELLPassingTunnelSci-FiFastRapidEcho
+  # # SfxSense: Enemies/Drone/MAGICSPELLPassingTunnelSci-FiFastRapidEcho
+
+  # SfxHurt: Enemies/Drone/ROBOTICShortBurst40StutterOut
+  # SfxDeath: Enemies/Drone/ROBOTICTransformationSweep01Down
+  
+  SfxRandomTime: 50.0   /* It will play the roam every [X/2, X] seconds */
+  SfxRandom: Enemies/Drone/LizardCreature01_cry
+  # SfxRandom: Enemies/Drone/ROBOTICMechMovement01
+
+  SfxAlertTime: 25.0   /* It will play the roam every [X/2, X] seconds*/
+  SfxAlert: Enemies/TotalHorror/LizardCreature01_cry
+  SfxHurt:  Enemies/TotalHorror/LizardCreature01_start
+  SfxDeath: Enemies/TotalHorror/LizardCreature04
+
+  ParticleOnDeath: 
+  TimeStayAfterDeath: 300
+  LootListOnDeath: 105
+
+  # MapIcon: map_EnemyEntityDot
+  MapIcon: map_EnemyEntityDot
+  HudInfo: false
+}
+
 # Polaris civilian cargo shuttles.
 { +Entity Name: Eden_SpaceDroneCargoShuttle, Ref: SpaceDronePlasma
   Mesh: Enemies/Drones/EnemyDroneBomberPrefab
@@ -14129,6 +14597,49 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
 }
 
 # ========================================================================================================================== Warlord Space Drones
+
+{ +Entity Name: Eden_SpaceDroneBanditT1, Ref: SpaceDronePlasma
+  Faction: Warlord
+  # Mesh: Enemies/Drones/SpaceDrone02LODPrefab
+  Mesh: Enemies/Drones/EnemyDroneBomberPrefab
+  MeshDead: Enemies/Drones/EnemyDroneBomberDmgPrefab
+
+  MaxHealth: 4000
+  # XpFactor: 2
+  XpFactor: 4
+
+  DroneType: SpaceDroneHard
+  # HandItem: laserSpaceDrone
+  HandItem: Eden_SpaceDroneBanditT1_Weapon
+  # ItemsOnEnterGame: laserSpaceDrone
+  ItemsOnEnterGame: Eden_SpaceDroneBanditT1_Weapon
+
+  AllowUserInstantiate: true
+}
+
+{ +Entity Name: Eden_SpaceDroneBanditT1B, Ref: SpaceDronePlasma
+  Faction: Warlord
+  # Mesh: Enemies/Drones/SpaceDrone02LODPrefab
+  Mesh: Enemies/Drones/EnemyDroneBomberPrefab
+  MeshDead: Enemies/Drones/EnemyDroneBomberDmgPrefab
+
+  MaxHealth: 4000
+  # XpFactor: 2
+  XpFactor: 4
+
+  DroneType: SpaceDroneHard
+  # HandItem: laserSpaceDrone
+  HandItem: Eden_SpaceDroneBanditT1_Weapon
+  # ItemsOnEnterGame: laserSpaceDrone
+  ItemsOnEnterGame: Eden_SpaceDroneBanditT1_Weapon
+
+  AllowUserInstantiate: true
+  TimeStayAfterDeath: 300
+  LootListOnDeath: 751
+}
+
+
+
 { +Entity Name: Eden_SpaceDroneBandit, Ref: SpaceDroneLaser
   Faction: Warlord
   MaxHealth: 8000
@@ -14219,16 +14730,6 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   # ItemsOnEnterGame: ZiraxAssaultRiflePlayer
 }
 
-
-
-# For testing loot. You will not find these in any POIs.
-{ +Entity Name: Eden_NPCLootTestVeryRare, Ref: Mechanoid
-  LootListOnDeath: 40
-}
-
-{ +Entity Name: Eden_NPCLootTestUltraRare, Ref: Mechanoid
-  LootListOnDeath: 41
-}
 
 
 
@@ -14766,9 +15267,17 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   Lod0Distance: 50000
 }
 
+{ +Entity Name: Eden_SectorAudio_ColonistsTSO, Ref: Eden_SectorAudio_Colonists
+  Prefab: @eden_blockmodels/Eden_SectorAudio_ColonistsTSO
+}
+
 # Zirax
 { +Entity Name: Eden_SectorAudio_Zirax, Ref: Eden_SectorAudio_Colonists
   Prefab: @eden_blockmodels/Eden_SectorAudio_Zirax
+}
+
+{ +Entity Name: Eden_SectorAudio_ZiraxTSO, Ref: Eden_SectorAudio_Colonists
+  Prefab: @eden_blockmodels/Eden_SectorAudio_ZiraxTSO
 }
 
 # Polaris
@@ -14776,9 +15285,18 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   Prefab: @eden_blockmodels/Eden_SectorAudio_Polaris
 }
 
+{ +Entity Name: Eden_SectorAudio_PolarisTSO, Ref: Eden_SectorAudio_Colonists
+  Prefab: @eden_blockmodels/Eden_SectorAudio_PolarisTSO
+}
+
 # Trader
 { +Entity Name: Eden_SectorAudio_Trader, Ref: Eden_SectorAudio_Colonists
   Prefab: @eden_blockmodels/Eden_SectorAudio_Trader
+}
+
+# Trader
+{ +Entity Name: Eden_SectorAudio_TraderTSO, Ref: Eden_SectorAudio_Colonists
+  Prefab: @eden_blockmodels/Eden_SectorAudio_TraderTSO
 }
 
 # Pirates
@@ -14814,8 +15332,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   AllowUserInstantiate: true
   Parent: Others
   MaxHealth: 100
-  ShowInDistance: true
-  Lod0Distance: 0
+  # ShowInDistance: true
+  Lod0Distance: 50000
 }
 
 # Nebula Test
@@ -14825,8 +15343,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   AllowUserInstantiate: true
   Parent: Others
   MaxHealth: 100
-  ShowInDistance: true
-  Lod0Distance: 10000
+  # ShowInDistance: true
+  Lod0Distance: 50000
 }
 
 # Zirax orbit lights.
@@ -14873,6 +15391,67 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   Lod0Distance: 50000
 }
 
+# Trading Station Polaris lights.
+{ +Entity Name: Eden_SectorTSOPolaris
+  Prefab: @eden_blockmodels/Eden_SectorTSOPolaris
+  Class: Generic
+  AllowUserInstantiate: true
+  Parent: Others
+  MaxHealth: 100
+  # ShowInDistance: true
+  Lod0Distance: 50000
+}
+
+# Trading Station Trader Guild lights.
+{ +Entity Name: Eden_SectorTSOTrader
+  Prefab: @eden_blockmodels/Eden_SectorTSOTrader
+  Class: Generic
+  AllowUserInstantiate: true
+  Parent: Others
+  MaxHealth: 100
+  # ShowInDistance: true
+  Lod0Distance: 50000
+}
+
+{ +Entity Name: Eden_SectorTSOColonists
+  Prefab: @eden_blockmodels/Eden_SectorTSOColonists
+  Class: Generic
+  AllowUserInstantiate: true
+  Parent: Others
+  MaxHealth: 100
+  # ShowInDistance: true
+  Lod0Distance: 50000
+}
+
+{ +Entity Name: Eden_SectorTSOPirates
+  Prefab: @eden_blockmodels/Eden_SectorTSOPirates
+  Class: Generic
+  AllowUserInstantiate: true
+  Parent: Others
+  MaxHealth: 100
+  # ShowInDistance: true
+  Lod0Distance: 50000
+}
+
+{ +Entity Name: Eden_SectorTSOPirates2
+  Prefab: @eden_blockmodels/Eden_SectorTSOPirates2
+  Class: Generic
+  AllowUserInstantiate: true
+  Parent: Others
+  MaxHealth: 100
+  # ShowInDistance: true
+  Lod0Distance: 50000
+}
+
+{ +Entity Name: Eden_SectorTSOZirax
+  Prefab: @eden_blockmodels/Eden_SectorTSOZirax
+  Class: Generic
+  AllowUserInstantiate: true
+  Parent: Others
+  MaxHealth: 100
+  # ShowInDistance: true
+  Lod0Distance: 50000
+}
 
 # Sector Nebula Templates
 # Main Template
@@ -14893,8 +15472,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   AllowUserInstantiate: true
   Parent: Others
   MaxHealth: 100
-  ShowInDistance: true
-  Lod0Distance: 15000
+  # ShowInDistance: true
+  Lod0Distance: 50000
 }
 
 # Template for show in distance
@@ -14904,8 +15483,8 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   AllowUserInstantiate: true
   Parent: Others
   MaxHealth: 100
-  ShowInDistance: true
-  Lod0Distance: 0
+  # ShowInDistance: true
+  Lod0Distance: 50000
 }
 
 # Aurora
@@ -14940,9 +15519,47 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   Prefab: @eden_blockmodels/Eden_CometSectorDust
 }
 
+# Geodes
+
+{ +Entity Name: Eden_AnomalyGeodeBrown, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AnomalyGeodeBrown
+}
+
+{ +Entity Name: Eden_AnomalyGeodeGray, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AnomalyGeodeGray
+}
+
+{ +Entity Name: Eden_AnomalyGeodeXLBrown, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AnomalyGeodeXLBrown
+}
+
+{ +Entity Name: Eden_AnomalyGeodeXLGray, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AnomalyGeodeXLGray
+}
+
+{ +Entity Name: Eden_AnomalyLavaGeode, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AnomalyLavaGeode
+}
+
 # Anomalies
 { +Entity Name: Eden_AnomalyWhite1, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_AnomalyWhite1
+}
+
+{ +Entity Name: Eden_AnomalyRadiationBlue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AnomalyRadiationBlue
+}
+
+{ +Entity Name: Eden_AnomalyRadiationGreen, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AnomalyRadiationGreen
+}
+
+{ +Entity Name: Eden_AnomalyRadiationOrange, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AnomalyRadiationOrange
+}
+
+{ +Entity Name: Eden_AnomalyRadiationPurple, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AnomalyRadiationPurple
 }
 
 { +Entity Name: Eden_AnomalyRed1, Ref: Eden_NebulaTemplate
@@ -14957,6 +15574,18 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   Prefab: @eden_blockmodels/Eden_AnomalyRed3
 }
 
+{ +Entity Name: Eden_AnomalyUnstablePurple, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AnomalyUnstablePurple
+}
+
+{ +Entity Name: Eden_AnomalyCyan1, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AnomalyCyan1
+}
+
+{ +Entity Name: Eden_AnomalyGreen1, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AnomalyGreen1
+}
+
 { +Entity Name: Eden_AnomalyPink1, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_AnomalyPink1
 }
@@ -14969,7 +15598,7 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   Prefab: @eden_blockmodels/Eden_SpacialFractureBlue4
 }
 
-{ +Entity Name: Eden_AnomalyXLGreen1, Ref: Eden_NebulaTemplateDistant
+{ +Entity Name: Eden_AnomalyXLGreen1, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_AnomalyXLGreen1
 }
 
@@ -14989,6 +15618,33 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   Prefab: @eden_blockmodels/Eden_SpacialFractureRed4
 }
 
+{ +Entity Name: Eden_AuroraSpaceBlue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AuroraSpaceBlue
+}
+{ +Entity Name: Eden_AuroraSpaceBlue2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AuroraSpaceBlue2
+}
+{ +Entity Name: Eden_AuroraSpaceBlue3, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AuroraSpaceBlue3
+}
+{ +Entity Name: Eden_AuroraSpaceBlue3B, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AuroraSpaceBlue3B
+}
+{ +Entity Name: Eden_AuroraSpaceCyan, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AuroraSpaceCyan
+}
+{ +Entity Name: Eden_AuroraSpacePurple, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AuroraSpacePurple
+}
+{ +Entity Name: Eden_AuroraSpaceRed, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AuroraSpaceRed
+}
+
+# Test
+{ +Entity Name: Eden_SectorNebulaTESTRotate, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_SectorNebulaTESTRotate
+}
+
 # Spheres
 { +Entity Name: Eden_SectorNebulaSDustSphere, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_SectorNebulaSDustSphere
@@ -15004,12 +15660,20 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   Prefab: @eden_blockmodels/Eden_SectorNebulaIceField
 }
 
+{ +Entity Name: Eden_SectorNebulaIceFieldXL, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_SectorNebulaIceFieldXL
+}
+
 { +Entity Name: Eden_SectorNebulaRockField, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_SectorNebulaRockField
 }
 
 { +Entity Name: Eden_SectorNebulaRockFieldL, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_SectorNebulaRockFieldL
+}
+
+{ +Entity Name: Eden_SectorNebulaRockFieldLava, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_SectorNebulaRockFieldLava
 }
 
 { +Entity Name: Eden_SectorNebulaXLDustCircle, Ref: Eden_NebulaTemplate
@@ -15095,6 +15759,10 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
 
 { +Entity Name: Eden_SectorNebulaRingRust, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_SectorNebulaRingRust
+}
+
+{ +Entity Name: Eden_SectorNebulaRingLava, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_SectorNebulaRingLava
 }
 
 # New Sector Wide Nebula
@@ -15290,10 +15958,323 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
 }
 
 
-{ +Entity Name: Eden_SectorNebulaXXXLBlue, Ref: Eden_NebulaTemplateDistant
+{ +Entity Name: Eden_SectorNebulaXXXLBlue, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_SectorNebulaXXXLBlue
 }
 
+
+# New large nebula using new shader. Replace old ones with these.
+
+# Eden_NebulaL_RandomBlue, Eden_NebulaL_RandomBlue2, Eden_NebulaL_RandomBlueDim, Eden_NebulaL_RandomBrown, Eden_NebulaL_RandomBrown2, Eden_NebulaL_RandomBrownDim, Eden_NebulaL_RandomCyan, Eden_NebulaL_RandomCyan2, Eden_NebulaL_RandomCyanDim, Eden_NebulaL_RandomGreen, Eden_NebulaL_RandomGreen2, Eden_NebulaL_RandomGreenDim, Eden_NebulaL_RandomOrange, Eden_NebulaL_RandomOrange2, Eden_NebulaL_RandomOrangeDim, Eden_NebulaL_RandomPink, Eden_NebulaL_RandomPink2, Eden_NebulaL_RandomPinkDim, Eden_NebulaL_RandomPurple, Eden_NebulaL_RandomPurple2, Eden_NebulaL_RandomPurpleDim, Eden_NebulaL_RandomRed, Eden_NebulaL_RandomRed2, Eden_NebulaL_RandomRedDim, Eden_NebulaL_RandomYellow, Eden_NebulaL_RandomYellow2, Eden_NebulaL_RandomYellowDim
+
+# Large
+{ +Entity Name: Eden_NebulaL_RandomBlue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomBlue
+}
+{ +Entity Name: Eden_NebulaL_RandomBlue2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomBlue2
+}
+{ +Entity Name: Eden_NebulaL_RandomBlueDark, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomBlueDark
+}
+{ +Entity Name: Eden_NebulaL_RandomBlueDim, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomBlueDim
+}
+{ +Entity Name: Eden_NebulaL_RandomBlueDim2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomBlueDim2
+}
+{ +Entity Name: Eden_NebulaL_RandomBlueStorm, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomBlueStorm
+}
+{ +Entity Name: Eden_NebulaL_RandomBrown, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomBrown
+}
+{ +Entity Name: Eden_NebulaL_RandomBrown2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomBrown2
+}
+{ +Entity Name: Eden_NebulaL_RandomBrown3, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomBrown3
+}
+{ +Entity Name: Eden_NebulaL_RandomBrown4, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomBrown4
+}
+{ +Entity Name: Eden_NebulaL_RandomBrownDim, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomBrownDim
+}
+{ +Entity Name: Eden_NebulaL_RandomBrownDim2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomBrownDim2
+}
+{ +Entity Name: Eden_NebulaL_RandomCyan, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomCyan
+}
+{ +Entity Name: Eden_NebulaL_RandomCyan2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomCyan2
+}
+{ +Entity Name: Eden_NebulaL_RandomCyan3, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomCyan3
+}
+{ +Entity Name: Eden_NebulaL_RandomCyanDim, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomCyanDim
+}
+{ +Entity Name: Eden_NebulaL_RandomCyanDim2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomCyanDim2
+}
+{ +Entity Name: Eden_NebulaL_RandomGray, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomGray
+}
+{ +Entity Name: Eden_NebulaL_RandomGray2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomGray2
+}
+{ +Entity Name: Eden_NebulaL_RandomGrayDim, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomGrayDim
+}
+{ +Entity Name: Eden_NebulaL_RandomGrayDim2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomGrayDim2
+}
+{ +Entity Name: Eden_NebulaL_RandomGreen, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomGreen
+}
+{ +Entity Name: Eden_NebulaL_RandomGreen2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomGreen2
+}
+{ +Entity Name: Eden_NebulaL_RandomGreen3, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomGreen3
+}
+{ +Entity Name: Eden_NebulaL_RandomGreenDark, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomGreenDark
+}
+{ +Entity Name: Eden_NebulaL_RandomGreenDim, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomGreenDim
+}
+{ +Entity Name: Eden_NebulaL_RandomGreenDim2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomGreenDim2
+}
+{ +Entity Name: Eden_NebulaL_RandomGreenStorm, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomGreenStorm
+}
+{ +Entity Name: Eden_NebulaL_RandomOrange, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomOrange
+}
+{ +Entity Name: Eden_NebulaL_RandomOrange2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomOrange2
+}
+{ +Entity Name: Eden_NebulaL_RandomOrangeDark, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomOrangeDark
+}
+{ +Entity Name: Eden_NebulaL_RandomOrangeDim, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomOrangeDim
+}
+{ +Entity Name: Eden_NebulaL_RandomOrangeDim2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomOrangeDim2
+}
+{ +Entity Name: Eden_NebulaL_RandomOrangeStorm, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomOrangeStorm
+}
+{ +Entity Name: Eden_NebulaL_RandomPink, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomPink
+}
+{ +Entity Name: Eden_NebulaL_RandomPink2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomPink2
+}
+{ +Entity Name: Eden_NebulaL_RandomPinkDim, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomPinkDim
+}
+{ +Entity Name: Eden_NebulaL_RandomPinkDim2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomPinkDim2
+}
+{ +Entity Name: Eden_NebulaL_RandomPurple, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomPurple
+}
+{ +Entity Name: Eden_NebulaL_RandomPurple2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomPurple2
+}
+{ +Entity Name: Eden_NebulaL_RandomPurpleDark, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomPurpleDark
+}
+{ +Entity Name: Eden_NebulaL_RandomPurpleDim, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomPurpleDim
+}
+{ +Entity Name: Eden_NebulaL_RandomPurpleDim2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomPurpleDim2
+}
+{ +Entity Name: Eden_NebulaL_RandomPurpleStorm, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomPurpleStorm
+}
+{ +Entity Name: Eden_NebulaL_RandomRed, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomRed
+}
+{ +Entity Name: Eden_NebulaL_RandomRed2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomRed2
+}
+{ +Entity Name: Eden_NebulaL_RandomRedDark, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomRedDark
+}
+{ +Entity Name: Eden_NebulaL_RandomRedDim, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomRedDim
+}
+{ +Entity Name: Eden_NebulaL_RandomRedDim2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomRedDim2
+}
+{ +Entity Name: Eden_NebulaL_RandomRedStorm, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomRedStorm
+}
+{ +Entity Name: Eden_NebulaL_RandomYellow, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomYellow
+}
+{ +Entity Name: Eden_NebulaL_RandomYellow2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomYellow2
+}
+{ +Entity Name: Eden_NebulaL_RandomYellowDark, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomYellowDark
+}
+{ +Entity Name: Eden_NebulaL_RandomYellowDim, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomYellowDim
+}
+{ +Entity Name: Eden_NebulaL_RandomYellowDim2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomYellowDim2
+}
+{ +Entity Name: Eden_NebulaL_RandomYellowStorm, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomYellowStorm
+}
+{ +Entity Name: Eden_NebulaL_RandomYellowWhite, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomYellowWhite
+}
+{ +Entity Name: Eden_NebulaL_RandomYellowWhite2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaL_RandomYellowWhite2
+}
+
+
+# Cold sites:
+
+    # - Name: [Eden_NebulaM_RandomBlue, Eden_NebulaM_RandomBlue2, Eden_NebulaM_RandomCyan, Eden_NebulaM_RandomCyan2, Eden_NebulaM_RandomGreen, Eden_NebulaM_RandomGreen2, Eden_NebulaM_RandomPurple, Eden_NebulaM_RandomPurple2]
+      # FieldName: [Eden_NebulaM_RandomBlue, Eden_NebulaM_RandomBlue2, Eden_NebulaM_RandomCyan, Eden_NebulaM_RandomCyan2, Eden_NebulaM_RandomGreen, Eden_NebulaM_RandomGreen2, Eden_NebulaM_RandomPurple, Eden_NebulaM_RandomPurple2]
+
+# Medium
+{ +Entity Name: Eden_NebulaM_RandomBlue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomBlue
+}
+{ +Entity Name: Eden_NebulaM_RandomBlue2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomBlue2
+}
+{ +Entity Name: Eden_NebulaM_RandomBrown, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomBrown
+}
+{ +Entity Name: Eden_NebulaM_RandomBrown2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomBrown2
+}
+{ +Entity Name: Eden_NebulaM_RandomBrown3, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomBrown3
+}
+{ +Entity Name: Eden_NebulaM_RandomBrown4, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomBrown4
+}
+{ +Entity Name: Eden_NebulaM_RandomBrownDim, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomBrownDim
+}
+{ +Entity Name: Eden_NebulaM_RandomCyan, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomCyan
+}
+{ +Entity Name: Eden_NebulaM_RandomCyan2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomCyan2
+}
+{ +Entity Name: Eden_NebulaM_RandomGray, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomGray
+}
+{ +Entity Name: Eden_NebulaM_RandomGray2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomGray2
+}
+{ +Entity Name: Eden_NebulaM_RandomGreen, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomGreen
+}
+{ +Entity Name: Eden_NebulaM_RandomGreen2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomGreen2
+}
+{ +Entity Name: Eden_NebulaM_RandomOrange, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomOrange
+}
+{ +Entity Name: Eden_NebulaM_RandomOrange2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomOrange2
+}
+{ +Entity Name: Eden_NebulaM_RandomPink, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomPurple
+}
+{ +Entity Name: Eden_NebulaM_RandomPink2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomPurple2
+}
+{ +Entity Name: Eden_NebulaM_RandomPurple, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomPurple
+}
+{ +Entity Name: Eden_NebulaM_RandomPurple2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomPurple2
+}
+{ +Entity Name: Eden_NebulaM_RandomRed, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomRed
+}
+{ +Entity Name: Eden_NebulaM_RandomRed2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomRed2
+}
+{ +Entity Name: Eden_NebulaM_RandomYellow, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomYellow
+}
+{ +Entity Name: Eden_NebulaM_RandomYellow2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaM_RandomYellow2
+}
+
+# Extra Large
+{ +Entity Name: Eden_NebulaXL_RandomBlue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomBlue
+}
+{ +Entity Name: Eden_NebulaXL_RandomBlue2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomBlue2
+}
+{ +Entity Name: Eden_NebulaXL_RandomBrown, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomBrown
+}
+{ +Entity Name: Eden_NebulaXL_RandomBrown2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomBrown2
+}
+{ +Entity Name: Eden_NebulaXL_RandomCyan, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomCyan
+}
+{ +Entity Name: Eden_NebulaXL_RandomCyan2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomCyan2
+}
+{ +Entity Name: Eden_NebulaXL_RandomGreen, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomGreen
+}
+{ +Entity Name: Eden_NebulaXL_RandomGreen2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomGreen2
+}
+{ +Entity Name: Eden_NebulaXL_RandomOrange, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomOrange
+}
+{ +Entity Name: Eden_NebulaXL_RandomOrange2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomOrange2
+}
+{ +Entity Name: Eden_NebulaXL_RandomPink, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomPurple
+}
+{ +Entity Name: Eden_NebulaXL_RandomPink2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomPurple2
+}
+{ +Entity Name: Eden_NebulaXL_RandomPurple, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomPurple
+}
+{ +Entity Name: Eden_NebulaXL_RandomPurple2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomPurple2
+}
+{ +Entity Name: Eden_NebulaXL_RandomRed, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomRed
+}
+{ +Entity Name: Eden_NebulaXL_RandomRed2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomRed2
+}
+{ +Entity Name: Eden_NebulaXL_RandomYellow, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomYellow
+}
+{ +Entity Name: Eden_NebulaXL_RandomYellow2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_NebulaXL_RandomYellow2
+}
 
 
 
@@ -15302,7 +16283,350 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   # Prefab: @eden_blockmodels/Eden_AsteroidRocks1
 # }
 
+# New asteroid fields. Better optimized.
+# -------------------------------------------------------------------------------------------------
 
+
+# Eden_AsteroidFieldIcePL_Blue, Eden_AsteroidFieldIcePL_Cyan, Eden_AsteroidFieldIcePL_White, Eden_AsteroidFieldIceRing_Blue, Eden_AsteroidFieldIceRing_BlueThick, Eden_AsteroidFieldIceRing_Cyan, Eden_AsteroidFieldIceRing_CyanThick, Eden_AsteroidFieldIceRing_Green, Eden_AsteroidFieldIceRing_White, Eden_AsteroidFieldIceRing_WhiteThick
+#Planetary Ice Fields (spawn at 10000 Y)
+# { +Entity Name: Eden_AsteroidFieldIceRing_Sienna, Ref: Eden_NebulaTemplate
+  # Prefab: @eden_blockmodels/Eden_AsteroidFieldIceRing_Sienna
+# }
+
+{ +Entity Name: Eden_AsteroidFieldIcePL_Blue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIcePL_Blue
+}
+{ +Entity Name: Eden_AsteroidFieldIcePL_Cyan, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIcePL_Cyan
+}
+{ +Entity Name: Eden_AsteroidFieldIcePL_White, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIcePL_White
+}
+
+# Rings
+{ +Entity Name: Eden_AsteroidFieldIceRing_Blue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceRing_Blue
+}
+{ +Entity Name: Eden_AsteroidFieldIceRing_BlueThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceRing_BlueThick
+}
+{ +Entity Name: Eden_AsteroidFieldIceRing_BlueThickOrbit, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceRing_BlueThickOrbit
+}
+{ +Entity Name: Eden_AsteroidFieldIceRing_Cyan, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceRing_Cyan
+}
+{ +Entity Name: Eden_AsteroidFieldIceRing_CyanThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceRing_CyanThick
+}
+{ +Entity Name: Eden_AsteroidFieldIceRing_Green, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceRing_Green
+}
+{ +Entity Name: Eden_AsteroidFieldIceRing_White, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceRing_White
+}
+{ +Entity Name: Eden_AsteroidFieldIceRing_WhiteThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceRing_WhiteThick
+}
+{ +Entity Name: Eden_AsteroidFieldIceRing_WhiteThickOrbit, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceRing_WhiteThickOrbit
+}
+
+# Extra Large Ice Fields
+{ +Entity Name: Eden_AsteroidFieldIceXL_Blue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceXL_Blue
+}
+{ +Entity Name: Eden_AsteroidFieldIceXL_BlueThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceXL_BlueThick
+}
+{ +Entity Name: Eden_AsteroidFieldIceXL_Cyan, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceXL_Cyan
+}
+{ +Entity Name: Eden_AsteroidFieldIceXL_CyanThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceXL_CyanThick
+}
+{ +Entity Name: Eden_AsteroidFieldIceXL_White, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceXL_White
+}
+{ +Entity Name: Eden_AsteroidFieldIceXL_WhiteThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceXL_WhiteThick
+}
+
+# Large Ice Fields
+{ +Entity Name: Eden_AsteroidFieldIceL2_Blue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceL2_Blue
+}
+{ +Entity Name: Eden_AsteroidFieldIceL2_Cyan, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceL2_Cyan
+}
+{ +Entity Name: Eden_AsteroidFieldIceL2_Green, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceL2_Green
+}
+{ +Entity Name: Eden_AsteroidFieldIceL2_Orange, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceL2_Orange
+}
+{ +Entity Name: Eden_AsteroidFieldIceL2_White, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceL2_White
+}
+{ +Entity Name: Eden_AsteroidFieldIceL_Black, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceL_Black
+}
+{ +Entity Name: Eden_AsteroidFieldIceL_Blue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceL_Blue
+}
+{ +Entity Name: Eden_AsteroidFieldIceL_Blue2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceL_Blue
+}
+{ +Entity Name: Eden_AsteroidFieldIceL_Cyan, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceL_Cyan
+}
+{ +Entity Name: Eden_AsteroidFieldIceL_Green, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceL_Green
+}
+{ +Entity Name: Eden_AsteroidFieldIceL_Orange, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceL_Orange
+}
+{ +Entity Name: Eden_AsteroidFieldIceL_White, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceL_White
+}
+
+# Small Ice Fields
+{ +Entity Name: Eden_AsteroidFieldIceS_Blue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceS_Blue
+}
+{ +Entity Name: Eden_AsteroidFieldIceS_Cyan, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceS_Cyan
+}
+{ +Entity Name: Eden_AsteroidFieldIceS_White, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldIceS_White
+}
+
+# Asteroid Fields New
+
+# Clear asteroid fields
+
+
+# Large
+{ +Entity Name: Eden_AsteroidFieldL_Black, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_Black
+}
+{ +Entity Name: Eden_AsteroidFieldL_BlackThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_BlackThick
+}
+{ +Entity Name: Eden_AsteroidFieldL_Blue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_Blue
+}
+{ +Entity Name: Eden_AsteroidFieldL_BlueThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_BlueThick
+}
+{ +Entity Name: Eden_AsteroidFieldL_BlueThickOrbit, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_BlueThickOrbit
+}
+{ +Entity Name: Eden_AsteroidFieldL_Brown, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_Brown
+}
+{ +Entity Name: Eden_AsteroidFieldL_BrownThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_BrownThick
+}
+{ +Entity Name: Eden_AsteroidFieldL_Gray, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_Gray
+}
+{ +Entity Name: Eden_AsteroidFieldL_GrayThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_GrayThick
+}
+{ +Entity Name: Eden_AsteroidFieldL_Orange, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_Orange
+}
+
+# Planetary asteroid fields (spawn at 0,10000,0)
+{ +Entity Name: Eden_AsteroidFieldPL_Blue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldPL_Blue
+}
+{ +Entity Name: Eden_AsteroidFieldPL_Brown, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldPL_Brown
+}
+{ +Entity Name: Eden_AsteroidFieldPL_Gray, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldPL_Gray
+}
+
+
+# Small
+{ +Entity Name: Eden_AsteroidFieldS_Black, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldS_Black
+}
+{ +Entity Name: Eden_AsteroidFieldS_Blue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldS_Blue
+}
+{ +Entity Name: Eden_AsteroidFieldS_Brown, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldS_Brown
+}
+{ +Entity Name: Eden_AsteroidFieldS_Gray, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldS_Gray
+}
+
+# Extra Large
+{ +Entity Name: Eden_AsteroidFieldXL_Black, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_Black
+}
+{ +Entity Name: Eden_AsteroidFieldXL_BlackThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_BlackThick
+}
+{ +Entity Name: Eden_AsteroidFieldXL_BlackThin, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_BlackThin
+}
+{ +Entity Name: Eden_AsteroidFieldXL_Blue, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_Blue
+}
+{ +Entity Name: Eden_AsteroidFieldXL_BlueThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_BlueThick
+}
+{ +Entity Name: Eden_AsteroidFieldXL_BlueThin, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_BlueThin
+}
+{ +Entity Name: Eden_AsteroidFieldXL_Brown, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_Brown
+}
+{ +Entity Name: Eden_AsteroidFieldXL_BrownThin, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_BrownThin
+}
+{ +Entity Name: Eden_AsteroidFieldXL_BrownThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_BrownThick
+}
+{ +Entity Name: Eden_AsteroidFieldXL_Gray, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_Gray
+}
+{ +Entity Name: Eden_AsteroidFieldXL_GrayThin, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_GrayThin
+}
+{ +Entity Name: Eden_AsteroidFieldXL_GrayThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_GrayThick
+}
+{ +Entity Name: Eden_AsteroidFieldXL_Orange, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_Orange
+}
+{ +Entity Name: Eden_AsteroidFieldXL_Red, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_Red
+}
+
+# Dark foggy asteroid fields
+{ +Entity Name: Eden_AsteroidFieldXL_DarkBrown, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkBrown
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkBrown2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkBrown2
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkBrown3, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkBrown3
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkBrownSilent, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkBrownSilent
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkCyan, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkCyan
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkGreen, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkGreen
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkGreen2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkGreen2
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkGreen3, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkGreen3
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkGreen4, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkGreen4
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkPurple, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkPurple
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkPurple2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkPurple2
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkPurple3, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkPurple3
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkRed, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkRed
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkRed2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkRed2
+}
+{ +Entity Name: Eden_AsteroidFieldXL_DarkRed3, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_DarkRed3
+}
+{ +Entity Name: Eden_AsteroidFieldXL_Test1, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_Test1
+}
+{ +Entity Name: Eden_AsteroidFieldXL_Test2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_Test2
+}
+{ +Entity Name: Eden_AsteroidFieldXL_Test3, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_Test3
+}
+{ +Entity Name: Eden_AsteroidFieldXL_Test4, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_Test4
+}
+{ +Entity Name: Eden_AsteroidFieldXL_Test5, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_Test5
+}
+{ +Entity Name: Eden_AsteroidFieldXL_Test5Rotate, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_Test5Rotate
+}
+
+# Lava Fields
+{ +Entity Name: Eden_AsteroidFieldL_Lava, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_Lava
+}
+{ +Entity Name: Eden_AsteroidFieldL_LavaOrbit, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_LavaOrbit
+}
+{ +Entity Name: Eden_AsteroidFieldL_LavaThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_LavaThick
+}
+{ +Entity Name: Eden_AsteroidFieldL_LavaRing, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldL_LavaRing
+}
+
+# Unique fields
+{ +Entity Name: Eden_AsteroidFieldLegacy, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldLegacy
+}
+{ +Entity Name: Eden_AsteroidFieldLegacy2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldLegacy2
+}
+{ +Entity Name: Eden_AsteroidFieldLegacyThick, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_AsteroidFieldLegacyThick
+}
+
+# new ion storms
+{ +Entity Name: Eden_IonStormNew_BlueLTest, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_IonStormNew_BlueLTest
+}
+{ +Entity Name: Eden_IonStormNew_BlueLTest2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_IonStormNew_BlueLTest2
+}
+{ +Entity Name: Eden_IonStormNew_BlueL, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_IonStormNew_BlueL
+}
+{ +Entity Name: Eden_IonStormNew_BlueL2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_IonStormNew_BlueL2
+}
+{ +Entity Name: Eden_IonStormNew_GreenL, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_IonStormNew_GreenL
+}
+{ +Entity Name: Eden_IonStormNew_GreenL2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_IonStormNew_GreenL2
+}
+{ +Entity Name: Eden_IonStormNew_RedL, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_IonStormNew_RedL
+}
+{ +Entity Name: Eden_IonStormNew_RedL2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_IonStormNew_RedL2
+}
+
+# -------------------------------------------------------------------------------------------------
+
+# Sector wide asteroid fields.
 { +Entity Name: Eden_SectorAsteroidFieldThin, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_SectorAsteroidFieldThin
 }
@@ -15325,19 +16649,25 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   AllowUserInstantiate: true
   Parent: Others
   MaxHealth: 100
-  ShowInDistance: true
-  Lod0Distance: 20000
+  # ShowInDistance: true
+  Lod0Distance: 50000
 }
 
 # Pirate Nebula
 { +Entity Name: Eden_SectorNebulaPirateYellow, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_SectorNebulaPirateYellow
 }
+{ +Entity Name: Eden_SectorNebulaPirateYellow2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_SectorNebulaPirateYellow2
+}
 
-{ +Entity Name: Eden_GasCloudPirate, Ref: Eden_GasTemplate
+# { +Entity Name: Eden_GasCloudPirate, Ref: Eden_GasTemplate
+{ +Entity Name: Eden_GasCloudPirate, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_GasCloudLODPirate
 }
 
+
+# Replace these in RE2.
 { +Entity Name: Eden_NebulaBlueGreenL, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_SectorNebulaBlueGreenL
 }
@@ -15346,15 +16676,15 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   Prefab: @eden_blockmodels/Eden_SectorNebulaGreenL
 }
 
-{ +Entity Name: Eden_NebulaOrange, Ref: Eden_NebulaTemplate
+{ +Entity Name: Eden_NebulaOrange, Ref: Eden_NebulaTemplate # Still used, replace in playfields and update model.
   Prefab: @eden_blockmodels/Eden_SectorNebulaOrange
 }
 
-{ +Entity Name: Eden_NebulaRustSmall, Ref: Eden_NebulaTemplate
+{ +Entity Name: Eden_NebulaRustSmall, Ref: Eden_NebulaTemplate # Still used. Keep.
   Prefab: @eden_blockmodels/Eden_SectorNebulaRustS
 }
 
-{ +Entity Name: Eden_NebulaOrangeL, Ref: Eden_NebulaTemplate
+{ +Entity Name: Eden_NebulaOrangeL, Ref: Eden_NebulaTemplate # Still used, replace in playfields and update model.
   Prefab: @eden_blockmodels/Eden_SectorNebulaOrangeL
 }
 
@@ -15366,15 +16696,15 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   Prefab: @eden_blockmodels/Eden_SectorNebulaRedL
 }
 
-{ +Entity Name: Eden_SectorNebulaRedLDim, Ref: Eden_NebulaTemplate
+{ +Entity Name: Eden_SectorNebulaRedLDim, Ref: Eden_NebulaTemplate # Still used, replace in playfields and update model.
   Prefab: @eden_blockmodels/Eden_SectorNebulaRedLDim
 }
 
-{ +Entity Name: Eden_SectorNebulaRedXL, Ref: Eden_NebulaTemplate
+{ +Entity Name: Eden_SectorNebulaRedXL, Ref: Eden_NebulaTemplate # Still used, replace in playfields and update model.
   Prefab: @eden_blockmodels/Eden_SectorNebulaRedXL
 }
 
-{ +Entity Name: Eden_SectorNebulaXLRedDim, Ref: Eden_NebulaTemplate
+{ +Entity Name: Eden_SectorNebulaXLRedDim, Ref: Eden_NebulaTemplate # Still used, replace in playfields and update model.
   Prefab: @eden_blockmodels/Eden_SectorNebulaXLRedDim
 }
 
@@ -15394,8 +16724,12 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
 { +Entity Name: Eden_NebulaObject1, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_SectorNebulaObject1
 }
+{ +Entity Name: Eden_SectorNebulaObject2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_SectorNebulaObject2
+}
 
-{ +Entity Name: Eden_SectorNebulaAnomalyRing1, Ref: Eden_GasTemplate
+# { +Entity Name: Eden_SectorNebulaAnomalyRing1, Ref: Eden_GasTemplate
+{ +Entity Name: Eden_SectorNebulaAnomalyRing1, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_SectorNebulaAnomalyRing1
 }
 
@@ -15457,23 +16791,23 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
 # }
 
 # Test
-{ +Entity Name: Eden_TestSkybox, Ref: Eden_NebulaTemplateDistant2
+{ +Entity Name: Eden_TestSkybox, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_TestSkybox
 }
 
-{ +Entity Name: Eden_TestSkybox2, Ref: Eden_NebulaTemplateDistant2
+{ +Entity Name: Eden_TestSkybox2, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_TestSkybox2
 }
 
-{ +Entity Name: Eden_TestSkybox3, Ref: Eden_NebulaTemplateDistant2
+{ +Entity Name: Eden_TestSkybox3, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_TestSkybox3
 }
 
-{ +Entity Name: Eden_PFNebulaRed, Ref: Eden_NebulaTemplateDistant2
+{ +Entity Name: Eden_PFNebulaRed, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_PFNebulaRed
 }
 
-{ +Entity Name: Eden_PFNebulaLegacyHomeworld, Ref: Eden_NebulaTemplateDistant2
+{ +Entity Name: Eden_PFNebulaLegacyHomeworld, Ref: Eden_NebulaTemplate
   Prefab: @eden_blockmodels/Eden_PFNebulaLegacyHomeworld
 }
 
@@ -15518,6 +16852,105 @@ distance, he will get 0, at 0 distance, he will get the FearFromEnemy value per 
   UpdateClusterInfo: true
   AllowUserInstantiate: true
   AllowInSpawners: true
-  ShowInDistance: true
-  Lod0Distance: 500
+  # ShowInDistance: true
+  # Lod0Distance: 500
 }
+
+# Test
+{ +Entity Name: Eden_SectorNebulaRockFieldLavaTest, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_SectorNebulaRockFieldLavaTest
+}
+
+{ +Entity Name: Eden_SectorNebulaIceFieldTest, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_SectorNebulaIceFieldTest
+}
+
+{ +Entity Name: Eden_SectorNebulaIceFieldXLTest, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_SectorNebulaIceFieldXLTest
+}
+
+{ +Entity Name: Eden_SectorNebulaIceFieldXLTest2, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_SectorNebulaIceFieldXLTest2
+}
+
+{ +Entity Name: Eden_SectorNebulaIceFieldXLTest3, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_SectorNebulaIceFieldXLTest3
+}
+
+{ +Entity Name: Eden_SectorNebulaIceFieldXLTest4, Ref: Eden_NebulaTemplate
+  Prefab: @eden_blockmodels/Eden_SectorNebulaIceFieldXLTest4
+}
+
+
+# TEST
+
+{ Entity Name: Eden_DropContainerTest
+  EntityType: DropContainer
+  /* Mesh and class properties */
+  Mesh: Misc/DropContainerNewPrefab
+  BlockColor: "0,100,255"
+  ModelType: Custom
+  Prefab: Backpack
+  Class: Container
+  Parent: Backpack
+  /*property name=AvatarController value=Enemy */
+
+  TimeStayAfterDeath: 60
+  AllowUserInstantiate: false
+
+  IsEnemy: false
+  LootListOnDeath: 80
+  HudInfo: false
+}
+
+# For testing loot. You will not find these in any POIs.
+{ +Entity Name: Eden_NPCLootTestVeryRare, Ref: Mechanoid
+  LootListOnDeath: 40
+}
+
+{ +Entity Name: Eden_NPCLootTestUltraRare, Ref: Mechanoid
+  LootListOnDeath: 41
+}
+
+{ +Entity Name: Eden_NPCLootTest, Ref: AlienCivilian1Static
+  MaxHealth: 5
+  TimeStayAfterDeath: 60
+  LootListOnDeath: 682
+}
+
+{ +Entity Name: Eden_NPCLootTest2, Ref: Eden_NPCLootTest
+  LootListOnDeath: 684
+}
+
+{ +Entity Name: Eden_NPCLootTest3, Ref: Eden_NPCLootTest
+  LootListOnDeath: 641
+}
+
+{ +Entity Name: Eden_NPCLootTest4, Ref: Eden_NPCLootTest
+  LootListOnDeath: 642
+}
+
+{ +Entity Name: Eden_NPCLootTest5, Ref: Eden_NPCLootTest
+  LootListOnDeath: 674
+}
+
+
+
+# { +Entity Name: Eden_AsteroidFieldXL_TestRendering, Ref: Eden_NebulaTemplate
+  # Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_TestRendering
+# }
+
+# { +Entity Name: Eden_AsteroidFieldXL_TestRendering2, Ref: Eden_NebulaTemplate
+  # Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_TestRendering2
+# }
+
+# { +Entity Name: Eden_AsteroidFieldXL_TestRendering3, Ref: Eden_NebulaTemplate
+  # Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_TestRendering3
+# }
+
+# { +Entity Name: Eden_AsteroidFieldXL_TestRendering4, Ref: Eden_NebulaTemplate
+  # Prefab: @eden_blockmodels/Eden_AsteroidFieldXL_TestRendering4
+# }
+
+
+

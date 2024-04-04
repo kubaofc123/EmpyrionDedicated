@@ -1,24 +1,44 @@
 ---
 # Playfield Configuration
 # IMPORTANT: YAML files use spaces as indentation. Please don't use TABs - tab indentation is forbidden: http://yaml.org/faq.html
-Description: "Difficulty: [c][00ff00][b]Easy[/b][-][/c]
+# Description: "[sup]Location: [c][A9A9A9][-][/c][c][[c][00ffff][b]Haven[/b][-][/c][c]][-][/c] [c][60C060]Akua[-][/c]  [c][60C060]Tallodar[-][/c]                                              [c][6F6F6F]01 of 17[-][/c]
+# Description: "[sup]Location: [c][A9A9A9][-][/c][c][[c][00ffff][b]Haven[/b][-][/c][c]][-][/c] [c][60C060]Akua[-][/c]  [c][60C060]Tallodar[-][/c]                                                    [c][6F6F6F]>>[-][/c]
+Description: "[sup]Location: [c][A9A9A9][-][/c][c][[c][00ffff][b]Haven[/b][-][/c][c]][-][/c] [c][60C060]Akua[-][/c]  [c][60C060]Tallodar[-][/c]                                              [c][6F6F6F]01 of 17[-][/c]
 
-[c][00ffff][b]Beginner[/b][-][/c], Temperate, Temperate2
+System: [c][[c][00ff00][b]Alpha[/b][-][/c][c]][-][/c] [c][A9A9A9]Beta  Delta  Epsilon  Rogue[-][/c]
 
-[c][FFFFFF]_______________________________________________[-][/c]
+Difficulty: [c][00ffff][b]Beginner[/b][-][/c]                                     Start: [c][FFFFFF]Escape Pod[-][/c]
 
-Start: [c][FFFFFF]Escape Pod[-][/c]                 Equipment: [c][FFFFFF]Basic[-][/c]
+Starting Missions: [c][FFFFFF]Reforged Story[-][/c]             Equipment: [c][FFFFFF]Basic[-][/c]
 
-Missions: [c][FFFFFF]Default[-][/c]                 Solar System: [c][FFFFFF]Alpha[-][/c] 
+[c][A9A9A9]- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[-][/c]
 
-[c][00ffff]Cycle through available starting locations in Project Eden by left or right clicking on the [c][ffff00]Start Location[-][/c] [c][00ffff]botton on the right window.[-][/c]
+[c][43BBFF]Left/Right click on [b]Start Location[/b] to the right to change your start.[-][/c]
 
-This is a very easy Temperate starting planet with no base attacks and increased resources for a more casual starting experience.
+Haven is a very easy Temperate starting planet with no base attacks, few dangers, and increased resources. Good for new players or those who want a casual starting experience.[/sup]"
 
 
-There are one way portals available near the crash site to 2 other beginner starting planets to prevent overcrowding on multiplayer servers.
 
-[c][ffffff][i]Information on the scenario can be accessed in the Empyriopedia section of the PDA (F1).[-][/i][/c]"
+# Description: "[sup]Difficulty: [c][00ff00][b]Easy[/b][-][/c]
+
+# [c][00ffff][b]Beginner[/b][-][/c], Temperate, Temperate2
+
+# [c][FFFFFF]_______________________________________________[-][/c]
+
+# Start: [c][FFFFFF]Escape Pod[-][/c]                 Equipment: [c][FFFFFF]Basic[-][/c]
+
+# Missions: [c][FFFFFF]Default[-][/c]                 Solar System: [c][FFFFFF]Alpha[-][/c] 
+
+# [c][00ffff]Cycle through available starting locations in Project Eden by left or right clicking on the [c][ffff00]Start Location[-][/c] [c][00ffff]botton on the right window.[-][/c]
+
+# This is a very easy Temperate starting planet with no base attacks and increased resources for a more casual starting experience.
+
+
+# There are one way portals available near the crash site to 2 other beginner starting planets to prevent overcrowding on multiplayer servers.
+
+# [c][ffffff][i]Information on the scenario can be accessed in the Empyriopedia section of the PDA (F1).[-][/i][/c][/sup]"
+
+
 
 PlanetClass: Beginner Starter
 PlanetType: TemperateStarter
@@ -307,6 +327,7 @@ POIs:
 # Portals to other beginner planets, for servers.
         - GroupName: Eden_HavenPortals
           Faction: Admin
+          # UseEachGroupPoiOnlyOnce: True # Example that's missing from example playfield.
           CountMinMax: [ 1, 1 ]
           IsImportant: True
           SpawnPOINear: [START]
@@ -1432,13 +1453,15 @@ POIs:
 
     Fixed:
         - Type: BA_Player
-          Faction: Public  
-          Prefab: BA_Outpost-AkuaV2    
-          Mode: Creative             
-          SubMode: Normal             
-          Name: Outpost Akua          
-          Pos: [ -1143, 28.9, 1482.5 ] 
-          Rot: [ 0, -85, 0 ]          
+          Faction: Admin
+          Prefab: Eden_BA_CreativeStart
+          Mode: Creative
+          SubMode: Normal
+          Name: Reforged Creative Library
+          # Pos: [ -1143, 28.9, 1482.5 ]
+          Pos: [ -2390, 34.5, 1100 ]
+          # Rot: [ 0, -85, 0 ]
+          Rot: [ 0, 90, 0 ]
           InitPower: True
 
         - Type: SV_Player
@@ -1456,24 +1479,26 @@ POIs:
         - Mode: Creative             
           SubMode: Empty             
           Armor: ArmorLight
-          Pos: [ -1177, 37.6, 1452.6 ]  
-          RotY: 105   
+          Pos: [ -2385, 40.6, 1093 ]
+          RotY: 135
           Items: [ 
-          "FusionCell:4000, OxygenBottleLarge:4000, MultiCharge:4000, MultiToolT2, TextureColorTool", 
-          "FusionCell:4000, OxygenBottleLarge:4000, MultiCharge:4000, MultiToolT2, TextureColorTool", 
-          "FusionCell:4000, OxygenBottleLarge:4000, MultiCharge:4000, MultiToolT2, TextureColorTool", 
-          "#FreshStart: FusionCell:4000, OxygenBottleLarge:4000, MultiCharge:4000, MultiToolT2, TextureColorTool" ]
+          "Token:1:6997, Token:1:6998, FusionCell:4000, OxygenBottleLarge:4000, PentaxidCrystal:4000, MultiCharge:4000, MultiToolT2, TextureColorTool, Core:1000, SpawnNewBase:1000, SpawnNewGV:1000, SpawnNewSV:1000, SpawnNewCV:1000", 
+          "Token:1:6997, Token:1:6998, FusionCell:4000, OxygenBottleLarge:4000, PentaxidCrystal:4000, MultiCharge:4000, MultiToolT2, TextureColorTool, Core:1000, SpawnNewBase:1000, SpawnNewGV:1000, SpawnNewSV:1000, SpawnNewCV:1000", 
+          "Token:1:6997, Token:1:6998, FusionCell:4000, OxygenBottleLarge:4000, PentaxidCrystal:4000, MultiCharge:4000, MultiToolT2, TextureColorTool, Core:1000, SpawnNewBase:1000, SpawnNewGV:1000, SpawnNewSV:1000, SpawnNewCV:1000",
+          "#FreshStart: Token:1:6999, Token:1:6998, FusionCell:4000, OxygenBottleLarge:4000, PentaxidCrystal:4000, MultiCharge:4000, MultiToolT2, TextureColorTool, Core:1000, SpawnNewBase:1000, SpawnNewGV:1000, SpawnNewSV:1000, SpawnNewCV:1000" ]
 
         - Mode: Creative             
           SubMode: Normal            
           Armor: ArmorLight   
-          Pos: [-1114.4, 44.9, 1476 ]  
-          RotY: 150   
+          # Pos: [-1114.4, 44.9, 1476 ]  
+          # RotY: 150   
+          Pos: [ -2385, 40.6, 1093 ]
+          RotY: 135
           Items: [ 
-          "FusionCell:4000, OxygenBottleLarge:4000, MultiCharge:4000, MultiToolT2, TextureColorTool", 
-          "FusionCell:4000, OxygenBottleLarge:4000, MultiCharge:4000, MultiToolT2, TextureColorTool", 
-          "FusionCell:4000, OxygenBottleLarge:4000, MultiCharge:4000, MultiToolT2, TextureColorTool", 
-          "#FreshStart: FusionCell:4000, OxygenBottleLarge:4000, MultiCharge:4000, MultiToolT2, TextureColorTool" ]
+          "Token:1:6997, Token:1:6998, FusionCell:4000, OxygenBottleLarge:4000, PentaxidCrystal:4000, MultiCharge:4000, MultiToolT2, TextureColorTool, Core:1000, SpawnNewBase:1000, SpawnNewGV:1000, SpawnNewSV:1000, SpawnNewCV:1000", 
+          "Token:1:6997, Token:1:6998, FusionCell:4000, OxygenBottleLarge:4000, PentaxidCrystal:4000, MultiCharge:4000, MultiToolT2, TextureColorTool, Core:1000, SpawnNewBase:1000, SpawnNewGV:1000, SpawnNewSV:1000, SpawnNewCV:1000", 
+          "Token:1:6997, Token:1:6998, FusionCell:4000, OxygenBottleLarge:4000, PentaxidCrystal:4000, MultiCharge:4000, MultiToolT2, TextureColorTool, Core:1000, SpawnNewBase:1000, SpawnNewGV:1000, SpawnNewSV:1000, SpawnNewCV:1000", 
+          "#FreshStart: Token:1:6999, Token:1:6998, FusionCell:4000, OxygenBottleLarge:4000, PentaxidCrystal:4000, MultiCharge:4000, MultiToolT2, TextureColorTool, Core:1000, SpawnNewBase:1000, SpawnNewGV:1000, SpawnNewSV:1000, SpawnNewCV:1000" ]
 
         - Mode: Debug
           Armor: ArmorLight

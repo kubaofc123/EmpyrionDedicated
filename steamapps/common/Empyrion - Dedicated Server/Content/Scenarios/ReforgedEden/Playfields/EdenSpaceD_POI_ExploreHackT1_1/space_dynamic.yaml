@@ -2,7 +2,7 @@
 Description: "Type: [c][7FFFD4]Exploration Site[-][/c] - [c][00ff00]Class 2[-][/c]
 
 
-Sensors pick up feint subspace signals coming from this sector.
+Sensors pick up faint subspace signals coming from this sector.
 
 
 [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]"
@@ -15,9 +15,8 @@ UseFixed: True
 # Cold Star
 Radiation: [5,10]
 TemperatureDay: [-250,-200]
-# Music: [moonstone, Migration, Adrift, 2473, Transit, DarkSoundscape, DarkSoundscape2, DarkSoundscape3, alien2] # Alien
-# Music: [moonstone, Adrift, 2473, Transit, Anomalous, Blight, Dusk, Magnitude, alien2, EnergyMatrix] # Orbit
-Music: [JumpingTheRift, Voyage, EnergyMatrix, Anomalous, Magnitude, DistantWorlds] # POI_Exploration
+# Mysterious Music
+Music: [alien2, AnAridPlace, Anomalous, ColdSpace, desert2, Dusk, EnergyMatrix, FirstHours, Goliath, JumpingTheRift, moonstone, MorningLight, Obelisk, TidalLock, Voyage]
 
 
 PlayfieldType: Space
@@ -79,6 +78,13 @@ POIs:
       Probability: 0.3
       BaseField: True
       RandomRotation: True
+
+    - Name: [Eden_NebulaM_RandomBlue, Eden_NebulaM_RandomBlue2, Eden_NebulaM_RandomCyan, Eden_NebulaM_RandomCyan2, Eden_NebulaM_RandomGreen, Eden_NebulaM_RandomGreen2, Eden_NebulaM_RandomPink, Eden_NebulaM_RandomPink2] #EdenReplace_NebulaSite_HackT1A
+      FieldName: [Eden_NebulaM_RandomBlue, Eden_NebulaM_RandomBlue2, Eden_NebulaM_RandomCyan, Eden_NebulaM_RandomCyan2, Eden_NebulaM_RandomGreen, Eden_NebulaM_RandomGreen2, Eden_NebulaM_RandomPink, Eden_NebulaM_RandomPink2] #EdenReplace_NebulaSite_HackT1B
+      CountMinMax: [ 1, 1 ]
+      Probability: 0.5
+      Pos: [0, 0, 0]
+      Rot: [0, 0, 0]
 
 # Hacking Compound
     - Type: BA_Alien
@@ -170,7 +176,7 @@ POIs:
 
     - Type: BA_Alien
       Name: [CompoundGasCloudHack2]
-      GroupName: Eden_GasCloudBlueRandom
+      GroupName: Eden_GasCloudBlue
       Faction: Eden_Wreck
       FactionTerritory: [All]
       Mode: Survival
