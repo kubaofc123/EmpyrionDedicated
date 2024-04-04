@@ -1,0 +1,274 @@
+PlayfieldType: Space
+TemperatureDay: -119
+Radiation: 5.48948765
+PlanetType: Asteroid Field
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][00ff00]Easy[-][/c]
+
+
+  An unclaimed asteroid field.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Asteroid Field
+UseFixed: true
+Build: 4470
+Music: space
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidField
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Iron
+    Prefab: AsteroidVoxel03Iron
+    Name: Iron Asteroid
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -5212
+    - -854
+    - 4938
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Iron
+    Prefab: AsteroidVoxel03Iron
+    Name: Iron Asteroid
+    Properties: *o0
+    Pos:
+    - 18799
+    - -1745
+    - -9040
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Cobalt
+    Prefab: AsteroidVoxel02Cobalt
+    Name: Cobalt Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -1100
+    - 860
+    - 12082
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Titan
+    Prefab: AsteroidVoxel02Titan
+    Name: Titan Asteroid
+    Properties: &o1
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -10768
+    - 474
+    - 7075
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Titan
+    Prefab: AsteroidVoxel01Titan
+    Name: Titan Asteroid
+    Properties: *o1
+    Pos:
+    - -2703
+    - -360
+    - -3213
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_PolarisAsteroidMining
+    Mode: Survival
+    Name: Mining Facility
+    InitPower: true
+    Faction: Polaris
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - 5873
+    - -1579
+    - 6112
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: RBAO_PolarisAlloySynthesis
+    Mode: Survival
+    Name: Alloy Synthesis Factory
+    InitPower: true
+    Faction: Polaris
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - 10281
+    - -647
+    - -1096
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_XenuProduction
+    Mode: Survival
+    Name: Orbital Production
+    InitPower: true
+    Faction: Zirax
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - -19371
+    - 325
+    - -7741
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_PiratesBlackMarket
+    Mode: Survival
+    Name: Asteroid Station
+    InitPower: true
+    Faction: Pirates
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: NebularClouds
+    Pos:
+    - 19659
+    - -1584
+    - 6974
+    Rot:
+    - 0
+    - 0
+    - 0
+DroneBaseSetup:
+  Fixed:
+  - Name: MainDroneBase
+    Pos:
+    - -1368.59155
+    - 954
+    - 6007.06934
+    DroneOnDuty:
+    - Name: SpaceDronePlasma
+      Pos:
+      - -2011.41907
+      - 957
+      - 5936.49902
+      Radius: 2991
+    - Name: SpaceDronePlasma
+      Pos:
+      - 562.528198
+      - -2387
+      - 1609.53003
+      Radius: 1924
+    - Name: SpaceDronePlasma
+      Pos:
+      - -106.689537
+      - -1968
+      - -748.43396
+      Radius: 1882
+    - Name: SpaceDronePlasma
+      Pos:
+      - -1394.43945
+      - 125
+      - 7036.1543
+      Radius: 1888
+    - Name: SpaceDronePlasma
+      Pos:
+      - 1587.95325
+      - -2041
+      - -5734.18701
+      Radius: 2911
+    - Name: SpaceDroneLaser
+      Pos:
+      - 2228.90405
+      - 314
+      - 6194.18066
+      Radius: 1644
+    SpaceVessel:
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 39
+      Mission: Freighter
+      DelayBetweenRespawn: 360
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 540
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - 2138
+          - 7574
+          - -7816
+        - - 3265
+          - -8973
+          - -1693
+        - - 909
+          - -6582
+          - -237
+        - - -1174
+          - 1910
+          - 3128
+        - - 3733
+          - 2290
+          - -2759
+        - - 0
+          - -8469
+          - 5
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 3
+        Extra: 0
+      Properties:
+      - Key: MapDistance
+        Value: 6000
+    - Name: RBAO_XenuSupplyStation
+      Faction: Zirax
+      Mission: Immobile
+      DelayBeforeSelfDestruction: 30
+      Immobile:
+        Position3D:
+        - -874.132996
+        - -2776.88965
+        - -3856.68335
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 19
+        Extra: 0
+      Properties:
+      - Key: RegenAfter
+        Value: 720

@@ -1,0 +1,211 @@
+PlayfieldType: Space
+TemperatureDay: -132
+Radiation: 5.24493408
+PlanetType: OrbitSectorStart
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: OrbitSectorStart
+UseFixed: true
+Build: 4470
+Music: space
+POIs:
+  Fixed:
+  - Type: AsteroidFieldFewBoxExclude
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 7
+    - 114
+    - 152
+  - Type: BA_Alien
+    Prefab: BAO_WaystationStory
+    Mode: Survival
+    Name: Waystation
+    InitPower: true
+    Faction: Colonists
+    Properties:
+    - Key: Music
+      Value: NebularClouds
+    - Key: Discovery
+      Value: False
+    - Key: PvEArea
+      Value: 500
+    - Key: StationInterface
+      Value: Fuel:1.1,O2:1.1,Warp:1.1,Ammo:2,Repair:2,Shield:2,IfNeutral:1,IfFriendly:-0.08,IfHonored:-0.16
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 20714
+    - -76
+    - -2462
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_XenuProduction
+    Mode: Survival
+    Name: Orbital Production
+    InitPower: true
+    Faction: Zirax
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    - Key: StationInterface
+      Value: Fuel:1.6,O2:1.6,IfNeutral:0.2,IfFriendly:-0.05,IfHonored:-0.10
+    Pos:
+    - -6475
+    - -1919
+    - -11236
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - 5955.67529
+    - -1693
+    - 538.823364
+    DroneOnDuty:
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - 4774.66504
+      - -276
+      - 3037.57397
+      Radius: 4930
+      Properties: &o0
+      - Key: AIManPatrolFactions
+        Value: Polaris, Trader
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - -5668.6709
+      - 482
+      - 4664.38086
+      Radius: 4875
+      Properties: *o0
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - -3320.63135
+      - -2464
+      - -5469.97363
+      Radius: 6829
+      Properties: *o0
+    - Name: SpaceDronePolarisLaser
+      Faction: Polaris
+      Pos:
+      - -4234.75049
+      - 858
+      - -4558.52686
+      Radius: 2886
+      Properties: *o0
+    - Name: SpaceDroneBattered01
+      Faction: Pirates
+      Pos:
+      - -6285.92139
+      - -2179
+      - -1165.17664
+      Radius: 4238
+      Properties: &o1
+      - Key: AIManPatrolFactions
+        Value: Pirates
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: SpaceDroneBattered02
+      Faction: Pirates
+      Pos:
+      - 5166.52295
+      - 2136
+      - 1079.0387
+      Radius: 7577
+      Properties: *o1
+    SpaceVessel:
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 26
+      Mission: Freighter
+      DelayBetweenRespawn: 557
+      DelayBeforeSelfDestruction: 212
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 405
+        DelayBeforeSelfDestruction: 216
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - -3675
+          - -2811
+          - -8539
+        - - -8219
+          - 927
+          - -4136
+        - - -8610
+          - -8710
+          - 2033
+        - - -5605
+          - 6072
+          - 7517
+        - - 521
+          - 2878
+          - 9078
+        - - 6335
+          - -3938
+          - 6726
+        - - 10367
+          - 5717
+          - 1220
+        - - 7936
+          - 8782
+          - -5211
+        - - 2804
+          - 5634
+          - -9339
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 3
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 30
+      Mission: Freighter
+      DelayBetweenRespawn: 381
+      DelayBeforeSelfDestruction: 201
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 445
+        DelayBeforeSelfDestruction: 240
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - -2645
+          - -2577
+          - 1626
+        - - -3736
+          - 3611
+          - -2021
+        - - -127
+          - -2765
+          - -4616
+        - - 3911
+          - -4334
+          - -2404
+        - - 4131
+          - 2681
+          - 2235
+        - - 131
+          - -1738
+          - 4775
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 3

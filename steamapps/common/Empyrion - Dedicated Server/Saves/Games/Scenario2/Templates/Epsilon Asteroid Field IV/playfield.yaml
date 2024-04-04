@@ -1,0 +1,251 @@
+PlayfieldType: Space
+TemperatureDay: -117
+Radiation: 5.24431658
+PlanetType: Asteroid Field
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][00ff00]Easy[-][/c]
+
+
+  An unclaimed asteroid field.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Asteroid Field
+UseFixed: true
+Build: 4470
+Music: moonstone
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidField
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Copper
+    Prefab: AsteroidVoxel02Copper
+    Name: Copper Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -1994
+    - -1743
+    - -11864
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Silicon
+    Prefab: AsteroidVoxel02Silicon
+    Name: Silicon Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 12752
+    - 1987
+    - -671
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Neodymium
+    Prefab: AsteroidVoxel03Neodymium
+    Name: Neodymium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 4497
+    - -1854
+    - 597
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence1
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: &o0
+    - Key: HudDistance
+      Value: 2500
+    - Key: MapDistance
+      Value: 2500
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - -8762
+    - -1265
+    - 8874
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence1
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: *o0
+    Pos:
+    - -3552
+    - -313
+    - 20555
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_TornThrusterArray
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: None
+    Properties: &o1
+    - Key: HudDistance
+      Value: 0
+    - Key: MapDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -18533
+    - -1397
+    - -9576
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_JettisonedCargoPod
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: None
+    Properties: *o1
+    Pos:
+    - 1777
+    - -804
+    - 10277
+    Rot:
+    - 0
+    - 0
+    - 0
+DroneBaseSetup:
+  Fixed:
+  - Name: MainDroneBase
+    Pos:
+    - -6047.98584
+    - -2233
+    - -1527.9115
+    DroneOnDuty:
+    - Name: SpaceDroneLaser
+      Pos:
+      - -4789.36865
+      - -710
+      - 3301.42993
+      Radius: 2719
+    - Name: SpaceDroneLaser
+      Pos:
+      - -960.805359
+      - 1679
+      - 1577.42249
+      Radius: 1790
+    - Name: SpaceDronePlasma
+      Pos:
+      - -3104.83667
+      - 92
+      - -3286.24878
+      Radius: 2439
+    - Name: SpaceDroneLaser
+      Pos:
+      - 5392.0542
+      - 142
+      - 5294.71436
+      Radius: 2827
+    - Name: SpaceDroneLaser
+      Pos:
+      - -4532.20068
+      - 2115
+      - 4685.77783
+      Radius: 2218
+    - Name: SpaceDronePlasma
+      Pos:
+      - 1908.75513
+      - -2231
+      - 4074.02173
+      Radius: 2317
+    - Name: SpaceDronePlasma
+      Pos:
+      - -888.139648
+      - 1363
+      - -2904.23438
+      Radius: 2243
+    - Name: SpaceDronePlasma
+      Pos:
+      - -3202.56421
+      - 2373
+      - -6196.30566
+      Radius: 2977
+    SpaceVessel:
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 25
+      Mission: Freighter
+      DelayBetweenRespawn: 497
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 567
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - -1614
+          - -4022
+          - 4895
+        - - -31
+          - -4068
+          - 424
+        - - 308
+          - -2989
+          - -2902
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 3
+        Extra: 0
+      Properties:
+      - Key: MapDistance
+        Value: 6000
+    - Name: RBAO_GhystShipyard
+      Faction: Zirax
+      Mission: Immobile
+      DelayBeforeSelfDestruction: 30
+      Immobile:
+        Position3D:
+        - 3032.86841
+        - -2748.60303
+        - 3640.58179
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 17
+        Extra: 0
+      Properties:
+      - Key: RegenAfter
+        Value: 720

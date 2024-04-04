@@ -1,0 +1,584 @@
+PlayfieldType: Space
+TemperatureDay: -104
+Radiation: 11.5728998
+PlanetType: Beacon
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  A warp beacon of Kriel origin.
+
+  [c][ffff00]WARNING:[-][/c] A Kriel blockade guards the warp arrival point of this beacon.
+
+
+  [c][ffff00]Warp Rift:[-][/c] [c][ffffff]This sector cannot be locked or directly warped to. You can only warp to it from a different star system. Building here is disabled.[-][/c]
+
+  [c][ffffff][i]Don't leave anything behind.[/i][-][/c]
+PlayfieldLevel: 7
+BaseAttackCount: 0
+PlanetClass: Beacon
+UseFixed: true
+Build: 4470
+Music: Magnitude
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: Eden_SectorNebulaNewBlueFog2
+    Name: Asteroid Field
+    Pos:
+    - 10500
+    - -4250
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Iron
+    Prefab: AsteroidVoxel03Iron
+    Name: Iron Asteroid
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 2356
+    - -35
+    - 1115
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Iron
+    Prefab: AsteroidVoxel01Iron
+    Name: Iron Asteroid
+    Properties: *o0
+    Pos:
+    - 4060
+    - -18
+    - 3272
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Silicon
+    Prefab: AsteroidVoxel01Silicon
+    Name: Silicon Asteroid
+    Properties: &o1
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -5146
+    - 30
+    - -848
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Silicon
+    Prefab: AsteroidVoxel01Silicon
+    Name: Silicon Asteroid
+    Properties: *o1
+    Pos:
+    - 2678
+    - 33
+    - 20687
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Sathium
+    Prefab: AsteroidVoxel02Sathium
+    Name: Sathium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -726
+    - -40
+    - -10405
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyKriel
+    Mode: Survival
+    Name: Kriel Rally Point
+    InitPower: true
+    Faction: Kriel
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 10500
+    - -4250
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_KrielBeacon1
+    Mode: Survival
+    Name: Kriel Warp Beacon
+    InitPower: true
+    Faction: Kriel
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 10500
+    - -4250
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_KrielBeacon1
+    Mode: Survival
+    Name: Kriel Warp Beacon
+    InitPower: true
+    Faction: Kriel
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 7500
+    - -3500
+    - 1000
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_KrielBeacon1
+    Mode: Survival
+    Name: Kriel Warp Beacon
+    InitPower: true
+    Faction: Kriel
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 11500
+    - -3500
+    - 1000
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - -1119.44531
+    - 786
+    - 2323.37744
+    DroneOnDuty:
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: &o2
+      - Eden_DummyKriel
+      Pos:
+      - -1088.55005
+      - 1691
+      - 5346.30664
+      Radius: 5691
+      Properties: &o3
+      - Key: AIManPatrolFactions
+        Value: Kriel
+      - Key: AIManMaxPursuitRange
+        Value: 15000
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - 3384.67334
+      - 644
+      - 3079.57178
+      Radius: 7213
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - 146.531448
+      - 1461
+      - 604.493591
+      Radius: 5989
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - 3077.17969
+      - 400
+      - 1902.86316
+      Radius: 9986
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - 196.096725
+      - -646
+      - -3621.69507
+      Radius: 3753
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - -2896.052
+      - -729
+      - 457.718536
+      Radius: 6212
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - -2124.75342
+      - 19
+      - -6691.77588
+      Radius: 2866
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - -6783.33398
+      - -2159
+      - -3712.90552
+      Radius: 6041
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - -5365.39746
+      - -1131
+      - -4387.62695
+      Radius: 2506
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - 492.737518
+      - -1590
+      - -3257.94946
+      Radius: 6807
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - -4944.74268
+      - -59
+      - 2913.01245
+      Radius: 4121
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - 1234.92712
+      - 1873
+      - 557.655701
+      Radius: 3071
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - -507.805695
+      - -603
+      - -14.0493193
+      Radius: 1953
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - -2068.99976
+      - 975
+      - 0.664785266
+      Radius: 4813
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - 6158.49023
+      - -1038
+      - -422.999817
+      Radius: 3677
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - 901.203186
+      - 505
+      - -6768.26563
+      Radius: 8746
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - 1802.08289
+      - -149
+      - 2289.95508
+      Radius: 8684
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - 4783.73438
+      - -1223
+      - -5492.95361
+      Radius: 6297
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - -5667.57275
+      - -183
+      - -808.854004
+      Radius: 7711
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - -3935.65503
+      - 2340
+      - -1029.19531
+      Radius: 6078
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - -2388.21484
+      - -1788
+      - -2638.73267
+      Radius: 4125
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - 1764.6366
+      - 1481
+      - 2296.27393
+      Radius: 3187
+      Properties: *o3
+    - Name: SpaceDroneKrielLaser
+      Faction: Kriel
+      POINameAsPositionRef: *o2
+      Pos:
+      - -224.751923
+      - 1810
+      - 212.055588
+      Radius: 1367
+      Properties: *o3
+    SpaceVessel:
+    - Name: Eden_OPVKrielBlockadeT1
+      Faction: Kriel
+      FixedMaxSpeed: 91
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3725
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 2858.50317
+        - -9705.94336
+        - -12470.9658
+        POINameAsPositionRef: &o4
+        - Eden_BA_DummyKriel
+        Radius: 3282
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 15
+        Extra: 0
+      Properties: &o5
+      - Key: AIManMaxPursuitRange
+        Value: 25000
+    - Name: Eden_OPVKrielBlockadeT1
+      Faction: Kriel
+      FixedMaxSpeed: 80
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3685
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -4127.32227
+        - 2556.33228
+        - 2896.61035
+        POINameAsPositionRef: *o4
+        Radius: 4595
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 19
+        Extra: 0
+      Properties: *o5
+    - Name: Eden_OPVKrielBlockadeT1
+      Faction: Kriel
+      FixedMaxSpeed: 81
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3673
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -1057.16406
+        - 1136.10803
+        - -8535.63672
+        POINameAsPositionRef: *o4
+        Radius: 5029
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 16
+        Extra: 0
+      Properties: *o5
+    - Name: Eden_OPVKrielBlockadeT1
+      Faction: Kriel
+      FixedMaxSpeed: 88
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3761
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 14506.6436
+        - -5033.69336
+        - -3163.62061
+        POINameAsPositionRef: *o4
+        Radius: 7843
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 13
+        Extra: 0
+      Properties: *o5
+    - Name: Eden_OPVKrielBlockadeT1
+      Faction: Kriel
+      FixedMaxSpeed: 98
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 4018
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 7644.87646
+        - -2037.73694
+        - -3324.69727
+        POINameAsPositionRef: *o4
+        Radius: 7275
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 12
+        Extra: 0
+      Properties: *o5
+    - Name: Eden_OPVKrielBlockadeT1
+      Faction: Kriel
+      FixedMaxSpeed: 80
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 4062
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 2638.47974
+        - 2934.11938
+        - 12861.6221
+        POINameAsPositionRef: *o4
+        Radius: 3607
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 13
+        Extra: 0
+      Properties: *o5
+    - Name: Eden_OPVKrielBlockadeT2
+      Faction: Kriel
+      FixedMaxSpeed: 42
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3681
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -3299.03589
+        - -4376.94727
+        - 903.20343
+        POINameAsPositionRef: &o6
+        - Eden_BA_DummyKriel
+        Radius: 5743
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 17
+        Extra: 0
+      Properties: &o7
+      - Key: AIManMaxPursuitRange
+        Value: 25000
+    - Name: Eden_OPVKrielBlockadeT2
+      Faction: Kriel
+      FixedMaxSpeed: 40
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 4247
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 1066.79907
+        - 5380.30615
+        - 1108.93884
+        POINameAsPositionRef: *o6
+        Radius: 2529
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 19
+        Extra: 0
+      Properties: *o7
+    - Name: Eden_OPVKrielBlockadeT2
+      Faction: Kriel
+      FixedMaxSpeed: 45
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 4009
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -6135.7085
+        - -1516.56104
+        - -3498.66943
+        POINameAsPositionRef: *o6
+        Radius: 2543
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 16
+        Extra: 0
+      Properties: *o7
+    - Name: Eden_OPVKrielBoss
+      Faction: Kriel
+      FixedMaxSpeed: 12
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3532
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -4093.68604
+        - 6990.90039
+        - -8099.49121
+        POINameAsPositionRef:
+        - Eden_BA_DummyKriel
+        Radius: 7389
+      Stock:
+      - Name: SpaceDroneKrielLaser
+        Amount: 19
+        Extra: 0
+      Properties:
+      - Key: AIManMaxPursuitRange
+        Value: 10000

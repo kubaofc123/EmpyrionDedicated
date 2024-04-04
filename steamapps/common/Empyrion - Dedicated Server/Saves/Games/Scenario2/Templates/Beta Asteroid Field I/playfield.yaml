@@ -1,0 +1,230 @@
+PlayfieldType: Space
+TemperatureDay: -193
+Radiation: 5.393785
+PlanetType: Asteroid Field
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][00ff00]Easy[-][/c]
+
+
+  An unclaimed asteroid field.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Asteroid Field
+UseFixed: true
+Build: 4470
+Music: moonstone
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldRectangle2
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Iron
+    Prefab: AsteroidVoxel01Iron
+    Name: Iron Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 11752
+    - 382
+    - 2774
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Cobalt
+    Prefab: AsteroidVoxel03Cobalt
+    Name: Cobalt Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -8059
+    - -512
+    - 19240
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Titan
+    Prefab: AsteroidVoxel03Titan
+    Name: Titan Asteroid
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -9439
+    - 418
+    - -6819
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Titan
+    Prefab: AsteroidVoxel01Titan
+    Name: Titan Asteroid
+    Properties: *o0
+    Pos:
+    - 3204
+    - -599
+    - 4642
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence1
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: &o1
+    - Key: HudDistance
+      Value: 2500
+    - Key: MapDistance
+      Value: 2500
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - -12358
+    - 1379
+    - -4250
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_GhystDefence1
+    Mode: Survival
+    Name: Defence Station
+    InitPower: true
+    Faction: Zirax
+    Properties: *o1
+    Pos:
+    - 468
+    - 1698
+    - -12652
+    Rot:
+    - 0
+    - 0
+    - 0
+DroneBaseSetup:
+  Fixed:
+  - Name: MainDroneBase
+    Pos:
+    - -1087.89001
+    - 2114
+    - -3289.79028
+    DroneOnDuty:
+    - Name: SpaceDronePlasma
+      Pos:
+      - 1696.45325
+      - 1379
+      - 2020.17102
+      Radius: 1658
+    - Name: SpaceDroneLaser
+      Pos:
+      - -1431.78479
+      - 2254
+      - 24.8267059
+      Radius: 2766
+    - Name: SpaceDroneLaser
+      Pos:
+      - 558.31842
+      - 775.583679
+      - -635.590637
+      Radius: 2110
+    - Name: SpaceDroneLaser
+      Pos:
+      - -1028.38989
+      - -1867
+      - -494.26239
+      Radius: 2889
+    - Name: SpaceDroneLaser
+      Pos:
+      - -1354.11597
+      - -782
+      - -1655.8053
+      Radius: 2949
+    - Name: SpaceDronePlasma
+      Pos:
+      - -2750.23853
+      - 1848
+      - -5933.61523
+      Radius: 2875
+    - Name: SpaceDroneLaser
+      Pos:
+      - 1353.38879
+      - 2363
+      - -4000.25854
+      Radius: 1572
+    SpaceVessel:
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 39
+      Mission: Freighter
+      DelayBetweenRespawn: 479
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 441
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - 1979
+          - 3274
+          - -1418
+        - - -746
+          - -7272
+          - -4328
+        - - -506
+          - -5102
+          - -871
+        - - 4883
+          - -4937
+          - -132
+        - - -541
+          - -9058
+          - 1064
+        - - -1957
+          - 8101
+          - -2792
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 4
+        Extra: 0
+      Properties:
+      - Key: MapDistance
+        Value: 6000
+    - Name: BAO_Thermica-Station
+      Faction: Zirax
+      Mission: Immobile
+      DelayBeforeSelfDestruction: 30
+      Immobile:
+        Position3D:
+        - 1494.76245
+        - -2912.771
+        - -2098.99341
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 22
+        Extra: 0
+      Properties:
+      - Key: RegenAfter
+        Value: 720

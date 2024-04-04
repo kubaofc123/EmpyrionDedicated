@@ -1,0 +1,538 @@
+PlayfieldType: Space
+TemperatureDay: -162
+Radiation: 7.72906971
+PlanetType: Zirax Blockade
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][ff0000]Hard[-][/c]
+
+
+  The famed 5th Imperial Fleet maintains a blockade here preventing any passage to the Zirax homeworld.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 15
+BaseAttackCount: 0
+PlanetClass: Zirax Blockade
+UseFixed: true
+Build: 4470
+Music: Encryptor
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidVoxel02Silicon
+    Prefab: AsteroidVoxel02Silicon
+    Name: Silicon Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 2505
+    - 95
+    - 20708
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: Eden_SectorAudio_Zirax
+    Prefab: Eden_SectorAudio_Zirax
+    Mode: Survival
+    Name: Ambience
+    InitPower: true
+    Faction: None
+    FactionTerritory: &o0
+    - Rados
+    Properties: &o1
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 8917
+    - -1032
+    - -18858
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: Eden_SectorAudio_Zirax
+    Prefab: Eden_SectorAudio_Zirax
+    Mode: Survival
+    Name: Ambience
+    InitPower: true
+    Faction: None
+    FactionTerritory: *o0
+    Properties: *o1
+    Pos:
+    - -5634
+    - -450
+    - -6882
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyZirax
+    Mode: Survival
+    Name: Zirax Rally Point
+    InitPower: true
+    Faction: None
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    Pos:
+    - 11500
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - 2052.26001
+    - 967
+    - 6112.68652
+    DroneOnDuty:
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      POINameAsPositionRef: &o2
+      - Eden_BA_DummyZirax
+      Pos:
+      - -5016.83447
+      - -1326
+      - 2629.11938
+      Radius: 615
+      Properties: &o3
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      POINameAsPositionRef: *o2
+      Pos:
+      - 6810.72314
+      - 1735
+      - -4046.24927
+      Radius: 1253
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      POINameAsPositionRef: *o2
+      Pos:
+      - 2398.78784
+      - -1333
+      - 1290.73352
+      Radius: 701
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      POINameAsPositionRef: *o2
+      Pos:
+      - -2082.32422
+      - 281
+      - 2936.6521
+      Radius: 827
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      POINameAsPositionRef: *o2
+      Pos:
+      - -931.568848
+      - -1826
+      - -90.9696045
+      Radius: 1482
+      Properties: *o3
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      POINameAsPositionRef: *o2
+      Pos:
+      - -3229.09668
+      - -481
+      - -4019.6106
+      Radius: 1116
+      Properties: *o3
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      POINameAsPositionRef: *o2
+      Pos:
+      - 1766.79761
+      - 218
+      - -558.601135
+      Radius: 736
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      POINameAsPositionRef: *o2
+      Pos:
+      - -5028.69482
+      - -2029
+      - -924.661804
+      Radius: 852
+      Properties: *o3
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      POINameAsPositionRef: *o2
+      Pos:
+      - 1515.60205
+      - 1969
+      - -1214.21338
+      Radius: 1115
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      POINameAsPositionRef: *o2
+      Pos:
+      - -1772.36353
+      - 1928
+      - 1400.64575
+      Radius: 1217
+      Properties: *o3
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      POINameAsPositionRef: *o2
+      Pos:
+      - -5533.96729
+      - -1038
+      - 5574.60596
+      Radius: 744
+      Properties: *o3
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      POINameAsPositionRef: &o4
+      - Eden_BA_DummyZirax
+      Pos:
+      - -102.790909
+      - 197
+      - 173.890854
+      Radius: 4101
+      Properties: &o5
+      - Key: AIManPatrolFactions
+        Value: Zirax
+      - Key: AIManMaxPursuitRange
+        Value: 5000
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      POINameAsPositionRef: *o4
+      Pos:
+      - -31.7577705
+      - -709
+      - 650.224915
+      Radius: 3255
+      Properties: *o5
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      POINameAsPositionRef: *o4
+      Pos:
+      - -119.018188
+      - 714
+      - -102.389793
+      Radius: 4419
+      Properties: *o5
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      POINameAsPositionRef: *o4
+      Pos:
+      - 1835.31335
+      - -744
+      - -1738.50769
+      Radius: 1524
+      Properties: *o5
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      POINameAsPositionRef: *o4
+      Pos:
+      - 2653.1062
+      - 1361
+      - -4033.68506
+      Radius: 2511
+      Properties: *o5
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      POINameAsPositionRef: *o4
+      Pos:
+      - -4519.0249
+      - -681
+      - -3256.27295
+      Radius: 1627
+      Properties: *o5
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      POINameAsPositionRef: *o4
+      Pos:
+      - -832.575256
+      - 2020
+      - -765.492981
+      Radius: 2578
+      Properties: *o5
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      POINameAsPositionRef: *o4
+      Pos:
+      - 2010.46057
+      - -1197
+      - 4216.19385
+      Radius: 1501
+      Properties: *o5
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      POINameAsPositionRef: *o4
+      Pos:
+      - 4061.15796
+      - 1840
+      - 2115.23901
+      Radius: 2275
+      Properties: *o5
+    - Name: SpaceDronePlasma
+      Faction: Zirax
+      POINameAsPositionRef: *o4
+      Pos:
+      - 4140.75684
+      - 531
+      - -475.767944
+      Radius: 4851
+      Properties: *o5
+    - Name: SpaceDroneLaser
+      Faction: Zirax
+      POINameAsPositionRef: *o4
+      Pos:
+      - -3423.55713
+      - -506
+      - -1452.65894
+      Radius: 1908
+      Properties: *o5
+    SpaceVessel:
+    - Name: OPVZiraxRG
+      Faction: Zirax
+      FixedMaxSpeed: 75
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -4245.28613
+        - 145.050125
+        - 1259.89709
+        POINameAsPositionRef: &o6
+        - Eden_BA_DummyZirax
+        Radius: 788
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 10
+        Extra: 0
+      Properties: &o7
+      - Key: AIManMaxPursuitRange
+        Value: 10000
+    - Name: OPVZiraxRG
+      Faction: Zirax
+      FixedMaxSpeed: 68
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 1712.59729
+        - -1328.59155
+        - 4585.43213
+        POINameAsPositionRef: *o6
+        Radius: 850
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 11
+        Extra: 0
+      Properties: *o7
+    - Name: OPVZiraxRG
+      Faction: Zirax
+      FixedMaxSpeed: 73
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -4434.76953
+        - 225.791794
+        - 467.928986
+        POINameAsPositionRef: *o6
+        Radius: 1246
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 8
+        Extra: 0
+      Properties: *o7
+    - Name: OPVZiraxRG
+      Faction: Zirax
+      FixedMaxSpeed: 67
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -1099.8208
+        - -139.314194
+        - -8556.36816
+        POINameAsPositionRef: *o6
+        Radius: 1042
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 14
+        Extra: 0
+      Properties: *o7
+    - Name: OPVZiraxRG
+      Faction: Zirax
+      FixedMaxSpeed: 70
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -2206.58032
+        - 1225.13367
+        - 4542.56592
+        POINameAsPositionRef: *o6
+        Radius: 621
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 8
+        Extra: 0
+      Properties: *o7
+    - Name: Freighter
+      Faction: Rados
+      FixedMaxSpeed: 86
+      Mission: Freighter
+      DelayBetweenRespawn: 2817
+      DelayBeforeSelfDestruction: 3600
+      Freighter:
+        DelayBetweenRespawn: 2249
+        DelayBeforeSelfDestruction: 3600
+        PathWayPoint:
+        - - -746
+          - -1301
+          - -3198
+        - - 12577
+          - 1923
+          - -15048
+        - - 2286
+          - -4647
+          - -845
+        - - 3406
+          - 6052
+          - 9802
+        - - -4046
+          - -902
+          - -11884
+        - - 8518
+          - 97
+          - -3498
+        - - 6957
+          - -8520
+          - -17203
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 5
+        Extra: 0
+    - Name: Freighter
+      Faction: Rados
+      FixedMaxSpeed: 79
+      Mission: Freighter
+      DelayBetweenRespawn: 3404
+      DelayBeforeSelfDestruction: 3600
+      Freighter:
+        DelayBetweenRespawn: 3070
+        DelayBeforeSelfDestruction: 3600
+        PathWayPoint:
+        - - 4943
+          - -1110
+          - 6632
+        - - 8923
+          - 1552
+          - 4223
+        - - 2610
+          - -2763
+          - 1155
+        - - 385
+          - 4939
+          - 5759
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 4
+        Extra: 0
+    - Name: Eden_Freighter_T3
+      Faction: Rados
+      FixedMaxSpeed: 6
+      Mission: Freighter
+      DelayBetweenRespawn: 2424
+      DelayBeforeSelfDestruction: 3600
+      Freighter:
+        DelayBetweenRespawn: 3553
+        DelayBeforeSelfDestruction: 3600
+        PathWayPoint:
+        - - -4303
+          - 10523
+          - -339
+        - - 2684
+          - 680
+          - 3214
+        - - -3934
+          - -12096
+          - -8519
+        - - -2828
+          - -6421
+          - -2516
+        - - 1266
+          - 7891
+          - -62
+        - - -4222
+          - -5241
+          - 3538
+        - - -839
+          - 5833
+          - 1560
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 5
+        Extra: 0
+    - Name: Eden_Freighter_T3
+      Faction: Rados
+      FixedMaxSpeed: 5
+      Mission: Freighter
+      DelayBetweenRespawn: 2804
+      DelayBeforeSelfDestruction: 3600
+      Freighter:
+        DelayBetweenRespawn: 2512
+        DelayBeforeSelfDestruction: 3600
+        PathWayPoint:
+        - - -2621
+          - -3681
+          - 731
+        - - 2634
+          - -6186
+          - 5353
+        - - 3009
+          - 10474
+          - 7617
+        - - 1131
+          - 12000
+          - 4164
+        - - -3118
+          - -2673
+          - 5022
+        - - 4277
+          - 6861
+          - 5032
+        - - 8393
+          - 5755
+          - -1763
+        - - 8150
+          - 7569
+          - -5768
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 5
+        Extra: 0

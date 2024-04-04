@@ -1,0 +1,214 @@
+PlayfieldType: Space
+TemperatureDay: -173
+Radiation: 6.43683481
+PlanetType: Asteroid Field
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][00ff00]Easy[-][/c]
+
+
+  An unclaimed asteroid field.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Asteroid Field
+UseFixed: true
+Build: 4470
+Music: moonstone
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldRectangle2
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Copper
+    Prefab: AsteroidVoxel02Copper
+    Name: Copper Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 14964
+    - 286
+    - 14532
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Silicon
+    Prefab: AsteroidVoxel02Silicon
+    Name: Silicon Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 14003
+    - 910
+    - -2692
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Neodymium
+    Prefab: AsteroidVoxel03Neodymium
+    Name: Neodymium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -8343
+    - 1704
+    - 6061
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_XenuProduction
+    Mode: Survival
+    Name: Orbital Production
+    InitPower: true
+    Faction: Zirax
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    Pos:
+    - -2565
+    - 1273
+    - 14327
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_PiratesSlaveMarket
+    Mode: Survival
+    Name: Asteroid Station
+    InitPower: true
+    Faction: Pirates
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: NebularClouds
+    Pos:
+    - 14319
+    - 590
+    - 2747
+    Rot:
+    - 0
+    - 0
+    - 0
+DroneBaseSetup:
+  Fixed:
+  - Name: MainDroneBase
+    Pos:
+    - -4433.50732
+    - 1329
+    - 5490.46973
+    DroneOnDuty:
+    - Name: SpaceDroneLaser
+      Pos:
+      - -2781.40503
+      - 1633
+      - -1413.57227
+      Radius: 1660
+    - Name: SpaceDronePlasma
+      Pos:
+      - -1563.38281
+      - -732
+      - 5514.67627
+      Radius: 1741
+    - Name: SpaceDroneLaser
+      Pos:
+      - 1299.13904
+      - -907
+      - 5744.94043
+      Radius: 2234
+    - Name: SpaceDroneLaser
+      Pos:
+      - 349.003418
+      - -1804
+      - -1075.80554
+      Radius: 1726
+    - Name: SpaceDroneLaser
+      Pos:
+      - 433.557098
+      - -2461
+      - -6089.58594
+      Radius: 1663
+    - Name: SpaceDronePlasma
+      Pos:
+      - -585.569214
+      - 502.7005
+      - -2003.74683
+      Radius: 2195
+    - Name: SpaceDroneLaser
+      Pos:
+      - 1087.22351
+      - 1215
+      - 1726.13574
+      Radius: 2439
+    - Name: SpaceDronePlasma
+      Pos:
+      - -880.855042
+      - -1950
+      - -673.776917
+      Radius: 1797
+    SpaceVessel:
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 28
+      Mission: Freighter
+      DelayBetweenRespawn: 412
+      DelayBeforeSelfDestruction: 3600
+      IsRespawnAfterDestruction: true
+      Freighter:
+        DelayBetweenRespawn: 437
+        DelayBeforeSelfDestruction: 3600
+        IsRespawnAfterDestruction: true
+        PathWayPoint:
+        - - 8087
+          - 3175
+          - 3374
+        - - 1893
+          - -3208
+          - 720
+        - - 7147
+          - 451
+          - 602
+        - - 2565
+          - -5714
+          - -9608
+        - - -4953
+          - -7085
+          - 6578
+        - - -11167
+          - -4618
+          - 2120
+        - - 3292
+          - 1996
+          - -3201
+        - - 91
+          - 4374
+          - -3346
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 3
+        Extra: 0
+      Properties:
+      - Key: MapDistance
+        Value: 6000

@@ -1,0 +1,971 @@
+PlayfieldType: Space
+TemperatureDay: -167
+Radiation: 7.18799448
+PlanetType: Orbit
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][00ff00]Easy[-][/c]
+
+
+  Sun-like stars are often home to civilian, Zirax, and smuggler outposts.
+
+  Orbits in the Alpha and Beta system have less powerful drones. Use caution when traveling to other systems.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: Orbit
+UseFixed: true
+Build: 4470
+Music: moonstone
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldRingOld
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 85
+    - -36
+    - 36
+  - Type: AsteroidVoxel01Iron
+    Prefab: AsteroidVoxel01Iron
+    Name: Iron Asteroid
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -9115
+    - 908
+    - 9060
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Iron
+    Prefab: AsteroidVoxel02Iron
+    Name: Iron Asteroid
+    Properties: *o0
+    Pos:
+    - 20422
+    - -900
+    - -4250
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Magnesium
+    Prefab: AsteroidVoxel02Magnesium
+    Name: Magnesium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -5914
+    - 8
+    - -9223
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Neodymium
+    Prefab: AsteroidVoxel02Neodymium
+    Name: Neodymium Asteroid
+    Properties: &o1
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - 1406
+    - -825
+    - -10863
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Neodymium
+    Prefab: AsteroidVoxel01Neodymium
+    Name: Neodymium Asteroid
+    Properties: *o1
+    Pos:
+    - 8185
+    - 824
+    - -19187
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Neodymium
+    Prefab: AsteroidVoxel01Neodymium
+    Name: Neodymium Asteroid
+    Properties: *o1
+    Pos:
+    - 10083
+    - -642
+    - -9345
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Titan
+    Prefab: AsteroidVoxel03Titan
+    Name: Titan Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -7989
+    - -1681
+    - -8405
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: BAO_XenuProduction
+    Mode: Survival
+    Name: Orbital Production
+    InitPower: true
+    Faction: Zirax
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    - Key: StationInterface
+      Value: Fuel:1.6,O2:1.6,IfNeutral:0.2,IfFriendly:-0.05,IfHonored:-0.10
+    Pos:
+    - 19435
+    - -641
+    - 7576
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_ST_Ion2
+    Mode: Survival
+    Name: Plasma Sentry II
+    InitPower: true
+    Faction: Zirax
+    FactionTerritory: &o2
+    - Epsilon
+    Properties: &o3
+    - Key: HudDistance
+      Value: 2500
+    - Key: MapDistance
+      Value: 2500
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -8803
+    - -947
+    - 8673
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry2
+    Mode: Survival
+    Name: Sentry II
+    InitPower: true
+    Faction: Zirax
+    FactionTerritory: *o2
+    Properties: *o3
+    Pos:
+    - -20670
+    - 637
+    - -2813
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: AsteroidFieldRectangle2
+    Prefab: AsteroidFieldRectangle2
+    Mode: Survival
+    Name: Asteroid Field
+    InitPower: true
+    Faction: None
+    Pos:
+    - -19624
+    - -627
+    - 7075
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_ST_Ion1
+    Mode: Survival
+    Name: Ion Sentry I
+    InitPower: true
+    Faction: Zirax
+    Properties: &o4
+    - Key: HudDistance
+      Value: 2500
+    - Key: MapDistance
+      Value: 2500
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -21383.3945
+    - -689.105652
+    - 6948.91699
+    Rot:
+    - 269
+    - 203
+    - 83
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Laser1
+    Mode: Survival
+    Name: Laser Sentry I
+    InitPower: true
+    Faction: Zirax
+    Properties: &o5
+    - Key: HudDistance
+      Value: 2500
+    - Key: MapDistance
+      Value: 2500
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -18698.127
+    - -1159.39819
+    - 7645.81738
+    Rot:
+    - 116
+    - 50
+    - 3
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Ion1
+    Mode: Survival
+    Name: Ion Sentry I
+    InitPower: true
+    Faction: Zirax
+    Properties: *o4
+    Pos:
+    - -20044.5605
+    - -903.922119
+    - 7657.53174
+    Rot:
+    - 326
+    - 37
+    - 183
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Laser1
+    Mode: Survival
+    Name: Laser Sentry I
+    InitPower: true
+    Faction: Zirax
+    Properties: *o5
+    Pos:
+    - -19474.8789
+    - -1469.32373
+    - 6648.16309
+    Rot:
+    - 66
+    - 311
+    - 91
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Ion1
+    Mode: Survival
+    Name: Ion Sentry I
+    InitPower: true
+    Faction: Zirax
+    Properties: *o4
+    Pos:
+    - -19214.9824
+    - 291.166504
+    - 8299.22656
+    Rot:
+    - 337
+    - 280
+    - 290
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Laser1
+    Mode: Survival
+    Name: Laser Sentry I
+    InitPower: true
+    Faction: Zirax
+    Properties: *o5
+    Pos:
+    - -17862.209
+    - -486.423523
+    - 7345.69531
+    Rot:
+    - 188
+    - 25
+    - 96
+    SpaceDefenseOverrideDefaults: true
+  - Type: AsteroidVoxel01Iron
+    Prefab: Eden_AsteroidIron1
+    Mode: Survival
+    Name: Iron Asteroid
+    Faction: None
+    Properties: &o6
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -19638.4629
+    - -835.877808
+    - 7254.82471
+    Rot:
+    - 117
+    - 90
+    - 265
+  - Type: AsteroidVoxel01Iron
+    Prefab: Eden_AsteroidIron2
+    Mode: Survival
+    Name: Iron Asteroid
+    Faction: None
+    Properties: *o6
+    Pos:
+    - -19880.0801
+    - -400.413635
+    - 6703.37305
+    Rot:
+    - 45
+    - 218
+    - 91
+  - Type: AsteroidVoxel01Silicon
+    Prefab: Eden_AsteroidSilicon1
+    Mode: Survival
+    Name: Silicon Asteroid
+    Faction: None
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -18586.1094
+    - -2150.33447
+    - 6929.96777
+    Rot:
+    - 189
+    - 34
+    - 164
+  - Type: AsteroidVoxel01Copper
+    Prefab: Eden_AsteroidCopper3
+    Mode: Survival
+    Name: Copper Asteroid
+    Faction: None
+    Properties:
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -19577.6973
+    - -685.161804
+    - 7837.38379
+    Rot:
+    - 351
+    - 103
+    - 31
+  - Type: BA_Alien
+    Prefab: RBAO_PolarisAsteroidMining
+    Mode: Survival
+    Name: Mining Facility
+    InitPower: true
+    Faction: Polaris
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    - Key: Music
+      Value: Vanguard
+    - Key: StationInterface
+      Value: Fuel:4,O2:4,IfNeutral:0,IfFriendly:-0.1,IfHonored:-0.20
+    Pos:
+    - -11314
+    - -319
+    - -1552
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_SmugOutpost3
+    Mode: Survival
+    Name: Smuggler Outpost
+    InitPower: true
+    Faction: Pirates
+    Properties: &o7
+    - Key: MapDistance
+      Value: 6000
+    - Key: HudDistance
+      Value: 6000
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -17710
+    - -793
+    - -11023
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_SmugOutpost1b
+    Mode: Survival
+    Name: Smuggler Waystation
+    InitPower: true
+    Faction: Pirates
+    Properties: *o7
+    Pos:
+    - -11806
+    - -66
+    - 17198
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAO_SmugOutpost5
+    Mode: Survival
+    Name: Smuggler Barge
+    InitPower: true
+    Faction: Pirates
+    Properties: *o7
+    Pos:
+    - -20023
+    - -572
+    - -5853
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash2V3
+    Mode: Survival
+    Name: Smuggler Stash
+    InitPower: true
+    Faction: Pirates
+    Properties: &o8
+    - Key: MapDistance
+      Value: 3000
+    - Key: HudDistance
+      Value: 3000
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 16757
+    - 962
+    - 12423
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash2V2
+    Mode: Survival
+    Name: Smuggler Stash
+    InitPower: true
+    Faction: Pirates
+    Properties: *o8
+    Pos:
+    - 20822
+    - -728
+    - 1242
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash2V3
+    Mode: Survival
+    Name: Smuggler Stash
+    InitPower: true
+    Faction: Pirates
+    Properties: *o8
+    Pos:
+    - 20827
+    - -252
+    - 1167
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash2
+    Mode: Survival
+    Name: Smuggler Stash
+    InitPower: true
+    Faction: Pirates
+    Properties: *o8
+    Pos:
+    - 18846
+    - 545
+    - -8942
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash5V2
+    Mode: Survival
+    Name: Suspicious Asteroid
+    InitPower: true
+    Faction: Pirates
+    Properties: *o8
+    Pos:
+    - 12721
+    - -691
+    - 16531
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash5V3
+    Mode: Survival
+    Name: Suspicious Asteroid
+    InitPower: true
+    Faction: Pirates
+    Properties: *o8
+    Pos:
+    - 20510
+    - 299
+    - -3802
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_SJ_Stash2V2
+    Mode: Survival
+    Name: Smuggler Stash
+    InitPower: true
+    Faction: Pirates
+    Properties: *o8
+    Pos:
+    - -7330
+    - 255
+    - -19530
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_1
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: &o9
+    - Key: MapDistance
+      Value: 6000
+    - Key: HudDistance
+      Value: 6000
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -8560
+    - 419
+    - -9376
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_4
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o9
+    Pos:
+    - 11897
+    - -218
+    - -7795
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_4
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o9
+    Pos:
+    - 7622
+    - -500
+    - -19418
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_4
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o9
+    Pos:
+    - -7512
+    - -629
+    - 12624
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_4
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o9
+    Pos:
+    - -6155
+    - -507
+    - 9146
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_2
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o9
+    Pos:
+    - 7557
+    - -640
+    - -8683
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_3
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o9
+    Pos:
+    - -1193
+    - 765
+    - -20826
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT2_1
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: &o10
+    - Key: RegenAfter
+      Value: 180
+    Pos:
+    - -7261
+    - 373
+    - 10002
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry2
+    Mode: Survival
+    Name: Sentry II
+    InitPower: true
+    Faction: Zirax
+    Properties: &o11
+    - Key: HudDistance
+      Value: 2500
+    - Key: MapDistance
+      Value: 2500
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -7193.07324
+    - 405.885895
+    - 9972.58008
+    Rot:
+    - 149
+    - 332
+    - 159
+    SpaceDefenseOverrideDefaults: true
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT2_1
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o10
+    Pos:
+    - -3814
+    - 617
+    - 11461
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry2
+    Mode: Survival
+    Name: Sentry II
+    InitPower: true
+    Faction: Zirax
+    Properties: *o11
+    Pos:
+    - -3737.47974
+    - 643.563477
+    - 11460.8799
+    Rot:
+    - 206
+    - 6
+    - 299
+    SpaceDefenseOverrideDefaults: true
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT2_1
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o10
+    Pos:
+    - 11970
+    - 703
+    - -3563
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry2
+    Mode: Survival
+    Name: Sentry II
+    InitPower: true
+    Faction: Zirax
+    Properties: *o11
+    Pos:
+    - 11954.9824
+    - 749.751343
+    - -3622.31079
+    Rot:
+    - 319
+    - 257
+    - 120
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Ion1
+    Mode: Survival
+    Name: Ion Sentry I
+    InitPower: true
+    Faction: Zirax
+    Properties: *o4
+    Pos:
+    - 12011.3613
+    - 638.607666
+    - -3506.71631
+    Rot:
+    - 330
+    - 70
+    - 317
+    SpaceDefenseOverrideDefaults: true
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT2_1
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o10
+    Pos:
+    - 12126
+    - -667
+    - 4733
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_ST_Sentry2
+    Mode: Survival
+    Name: Sentry II
+    InitPower: true
+    Faction: Zirax
+    Properties: *o11
+    Pos:
+    - 12125.5879
+    - -615.54187
+    - 4669.15723
+    Rot:
+    - 146
+    - 171
+    - 30
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_ST_Laser1
+    Mode: Survival
+    Name: Laser Sentry I
+    InitPower: true
+    Faction: Zirax
+    Properties: *o5
+    Pos:
+    - 12164.4365
+    - -605.576294
+    - 4681.32031
+    Rot:
+    - 222
+    - 250
+    - 74
+    SpaceDefenseOverrideDefaults: true
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - 19712.2656
+    - -2836.15649
+    - -5697.82324
+    DroneOnDuty:
+    - Name: Eden_SpaceDroneLaserEasy
+      Faction: Zirax
+      Pos:
+      - 14823.8877
+      - -3477.27783
+      - 16247.1973
+      Radius: 7068
+      Properties: &o12
+      - Key: AIManMaxPursuitRange
+        Value: 4000
+    - Name: Eden_SpaceDroneLaserEasy
+      Faction: Zirax
+      Pos:
+      - 4820.45361
+      - 6371.74463
+      - 20695.3418
+      Radius: 2816
+      Properties: *o12
+    - Name: Eden_SpaceDroneLaserEasy
+      Faction: Zirax
+      Pos:
+      - -20739.2871
+      - 452.256836
+      - 10000.5967
+      Radius: 5117
+      Properties: *o12
+    - Name: Eden_SpaceDroneLaserEasy
+      Faction: Zirax
+      Pos:
+      - -23523.5957
+      - -115.808884
+      - -1760.47046
+      Radius: 5151
+      Properties: *o12
+    - Name: Eden_SpaceDroneLaserEasy
+      Faction: Warlord
+      Pos:
+      - 16124.5117
+      - -6728.45508
+      - -14262.4609
+      Radius: 7120
+      Properties: &o13
+      - Key: AIManMaxPursuitRange
+        Value: 2500
+    - Name: Eden_SpaceDroneLaserEasy
+      Faction: Warlord
+      Pos:
+      - -18021.5352
+      - 1054.02991
+      - 10873.3418
+      Radius: 1017
+      Properties: *o13
+    SpaceVessel:
+    - Name: OPVZiraxStarterRG
+      Faction: Zirax
+      FixedMaxSpeed: 32
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - 6106.40527
+        - 13439.5732
+        - 11829.2197
+        Radius: 3617
+        RangePatrolAvoidArea:
+        - POIName: TSO_Variant1
+          Radius: 3000
+        - POIName: TSO_Variant2
+          Radius: 3000
+        - POIName: TSO_Variant3
+          Radius: 3000
+        - POIName: TSO_Variant4
+          Radius: 3000
+        - POIName: TSO_Variant5
+          Radius: 3000
+        - POIName: TSO_Variant6
+          Radius: 3000
+        - POIName: TSO_Variant7
+          Radius: 3000
+        - POIName: TSO_AkuaOrbit
+          Radius: 3000
+        - POIName: Eden_TSO_PolRefinery
+          Radius: 3000
+        - POIName: Eden_TSOPolarisCivilian
+          Radius: 3000
+        - POIName: Eden_TSOPolarisIndustrial
+          Radius: 3000
+      Stock:
+      - Name: SpaceDroneLaser
+        Amount: 3
+        Extra: 0
+      Properties:
+      - Key: AIManMaxPursuitRange
+        Value: 4000
+    - Name: Freighter
+      Faction: Polaris
+      FixedMaxSpeed: 25
+      Mission: Freighter
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      Freighter:
+        DelayBetweenRespawn: 3600
+        DelayBeforeSelfDestruction: 3600
+        PathWayPoint:
+        - - 11075
+          - -9954
+          - 11784
+        - - -517
+          - 13367
+          - 16675
+        - - -11446
+          - -17288
+          - 10757
+        - - -13748
+          - 16928
+          - -426
+        - - -8735
+          - 11689
+          - -9294
+        - - 375
+          - -7349
+          - -12101
+        - - 9080
+          - -1375
+          - -8533
+        - - 12656
+          - 15176
+          - 392
+      Stock:
+      - Name: SpaceDronePolarisLaser
+        Amount: 1
+        Extra: 0

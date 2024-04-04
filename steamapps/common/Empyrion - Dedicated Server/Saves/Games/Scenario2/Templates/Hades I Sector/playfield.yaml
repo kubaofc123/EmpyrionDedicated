@@ -1,0 +1,387 @@
+PlayfieldType: Space
+TemperatureDay: -219
+Radiation: 7.35344076
+PlanetType: Hades Orbit
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][ffff00]Medium[-][/c]
+
+
+  Space around a cold star.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 8
+BaseAttackCount: 0
+PlanetClass: Hades Orbit
+UseFixed: true
+Build: 4470
+Music: 2473
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidRingPlanet
+    Name: Asteroid Field
+    Properties:
+    - Key: Color
+      Value: 0.0, 0.7, 0.7 - 0.0, 0.0, 0.5
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - 0
+    - 0
+    - 10
+  - Type: AsteroidVoxel03Magnesium
+    Prefab: AsteroidVoxel03Magnesium
+    Name: Magnesium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 5215
+    - -1080
+    - 11633
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Cobalt
+    Prefab: AsteroidVoxel02Cobalt
+    Name: Cobalt Asteroid
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 21350
+    - 3866
+    - -4113
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Cobalt
+    Prefab: AsteroidVoxel02Cobalt
+    Name: Cobalt Asteroid
+    Properties: *o0
+    Pos:
+    - -20113
+    - -3445
+    - 4491
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Titan
+    Prefab: AsteroidVoxel01Titan
+    Name: Titan Asteroid
+    Properties: &o1
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -6828
+    - -1103
+    - 23128
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Titan
+    Prefab: AsteroidVoxel03Titan
+    Name: Titan Asteroid
+    Properties: *o1
+    Pos:
+    - 22349
+    - 4042
+    - -7171
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Sathium
+    Prefab: AsteroidVoxel01Sathium
+    Name: Sathium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -15471
+    - -2627
+    - -21462
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Erestrum
+    Prefab: AsteroidVoxel01Erestrum
+    Name: Erestrum Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 11107
+    - -937
+    - -2718
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Ice
+    Prefab: AsteroidVoxel03Ice
+    Name: Ice Asteroid
+    Properties: &o2
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 36826
+    - 6594
+    - -975
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Ice
+    Prefab: AsteroidVoxel03Ice
+    Name: Ice Asteroid
+    Properties: *o2
+    Pos:
+    - -21750
+    - -3734
+    - -26068
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Admin
+    Prefab: Eden_BAO_LostArtemis
+    Mode: Survival
+    Name: UCHN Artemis
+    InitPower: true
+    Faction: UCH
+    FactionTerritory:
+    - All
+    Properties:
+    - Key: Discovery
+      Value: False
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 14500
+    - 3000
+    - 13000
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAO_LostAbyss
+    Mode: Survival
+    Name: Abyssal Vessel
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory:
+    - All
+    Properties:
+    - Key: MapDistance
+      Value: 1000
+    - Key: HudDistance
+      Value: 1000
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 16500
+    - 500
+    - -1500
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: Eden_SectorNebulaIceField
+    Prefab: Eden_SectorNebulaIceField
+    Mode: Survival
+    Name: Ice Field
+    InitPower: true
+    Faction: None
+    FactionTerritory:
+    - All
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 16500
+    - 500
+    - -1500
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_AsteroidIceT3Rich_6
+    Mode: Survival
+    Name: Rich Ice Asteroids
+    InitPower: true
+    Faction: Eden_Resource
+    FactionTerritory: &o3
+    - All
+    Properties: &o4
+    - Key: MapDistance
+      Value: 3000
+    - Key: HudDistance
+      Value: 3000
+    - Key: RegenAfter
+      Value: 4320
+    - Key: MapMarker
+      Value: Neutral
+    Pos:
+    - 16545.2324
+    - 383.007904
+    - -1936.32886
+    Rot:
+    - 321
+    - 236
+    - 174
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_AsteroidIceT3Rich_1
+    Mode: Survival
+    Name: Rich Ice Asteroids
+    InitPower: true
+    Faction: Eden_Resource
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 16408.002
+    - 712.671997
+    - -1883.42004
+    Rot:
+    - 94
+    - 307
+    - 21
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_AsteroidIceT3Rich_3
+    Mode: Survival
+    Name: Rich Ice Asteroids
+    InitPower: true
+    Faction: Eden_Resource
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 16227.9697
+    - 205.427185
+    - -1708.63904
+    Rot:
+    - 44
+    - 178
+    - 288
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_AsteroidIceT3Rich_6
+    Mode: Survival
+    Name: Rich Ice Asteroids
+    InitPower: true
+    Faction: Eden_Resource
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 16212.9697
+    - 296.602783
+    - -1318.17798
+    Rot:
+    - 248
+    - 52
+    - 61
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_AsteroidIceT3Rich_6
+    Mode: Survival
+    Name: Rich Ice Asteroids
+    InitPower: true
+    Faction: Eden_Resource
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 16245.1318
+    - 504.998535
+    - -1568.65283
+    Rot:
+    - 266
+    - 115
+    - 235
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_AsteroidIceT3Rich_4
+    Mode: Survival
+    Name: Rich Ice Asteroids
+    InitPower: true
+    Faction: Eden_Resource
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 16593.8867
+    - 396.794952
+    - -1724.12048
+    Rot:
+    - 316
+    - 218
+    - 205
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_AsteroidIceT3Rich_4
+    Mode: Survival
+    Name: Rich Ice Asteroids
+    InitPower: true
+    Faction: Eden_Resource
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 16732.0977
+    - 295.959778
+    - -1221.51416
+    Rot:
+    - 85
+    - 128
+    - 284
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_AsteroidIceT3Rich_5
+    Mode: Survival
+    Name: Rich Ice Asteroids
+    InitPower: true
+    Faction: Eden_Resource
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 16310.1689
+    - 732.259827
+    - -1504.40173
+    Rot:
+    - 323
+    - 157
+    - 288
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_AsteroidIceT3Rich_4
+    Mode: Survival
+    Name: Rich Ice Asteroids
+    InitPower: true
+    Faction: Eden_Resource
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 16880.5996
+    - 661.043579
+    - -1695.08325
+    Rot:
+    - 268
+    - 138
+    - 173
+    SpaceDefenseOverrideDefaults: true
