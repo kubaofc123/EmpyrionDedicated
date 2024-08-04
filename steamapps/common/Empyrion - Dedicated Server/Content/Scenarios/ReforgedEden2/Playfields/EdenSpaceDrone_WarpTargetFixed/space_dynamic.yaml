@@ -1,0 +1,48 @@
+# Playfield Characteristics
+Description: "A warp arrival point for a star.
+
+[c][ffff00]Warp Rift:[-][/c] [c][ffffff]This sector cannot be locked or directly warped to. You can only warp to it from a different star system or via waypoint. Blueprint factory is disabled.[-][/c]
+
+[c][ffffff][i]Don't leave anything behind.[/i][-][/c]"
+
+Gravity: 0
+AtmosphereEnabled: False
+PvPProb: 0 #Starter
+UseFixed: True
+
+# Standard Star
+Radiation: [5,10]
+TemperatureDay: [-200,-100]
+# Dark Ambient Music
+Music: [alien2, AnAridPlace, barren, Blight, Cypher, DarkSoundscape, DarkSoundscape2, DarkSoundscape3, lava2]
+
+
+PlayfieldType: Space
+LandClaimZone: Device
+PlanetType: SunOrbit
+# PlanetClass: Sun Warp Target
+PlayfieldLevelOverride: [1,2]
+
+AllowBlueprintSV: False
+AllowBlueprintCV: False
+AllowBlueprintBA: False
+AllowBlueprintHV: False
+
+### Resource Asteroid
+Resources:
+    - Name: [ AsteroidVoxel01Iron, AsteroidVoxel02Iron, AsteroidVoxel03Iron]
+      DisplayName: Iron Asteroid
+      CountMinMax: [ 1, 2 ]
+      Probability: 0
+      Properties:
+        - Key: RegenAfter
+          Value: 720
+
+### POIs
+POIs:
+    - Name: [AsteroidFieldBoxExclude, AsteroidFieldFewBoxExclude]
+      FieldName: [AsteroidFieldBoxExclude, AsteroidFieldFewBoxExclude] # used if playfield is not an orbit
+      CountMinMax: [ 1, 1 ]
+      Probability: 0
+      BaseField: True
+      RandomRotation: True
