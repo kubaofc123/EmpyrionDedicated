@@ -1,0 +1,40 @@
+---
+GenerationParams:
+  MapScale: 1.0          # how much the sectors are spread out  
+  # float [0..1] solar systems are more like a cookie than a ball. the lower the value, the flatter the system
+  SolarSystemSqueezeMinMax: [0.005, 0.010]
+  # float [0..1] probability a warp connection will be one-way
+  OneWayWarpProb: 0
+  UniqueStarterPlanet: false
+  
+  #==== 1st Step of SolarSystem Generation: setting amount and playfield types  for System Content  ===
+
+  PlanetCountProbs:
+# ======================================================================================================================================================== Planets
+     - '0 : 1.0,   1 : 0.0,  2 : 0.0,  3 : 0.0,  4 : 0.0,  5 : 0.0,  6 : 0.0,  7 : 0.0,  8 : 0.0'                 # 1 - Random Events
+
+
+  PlanetLists:           # Lable name depicts, in a descriptive way, the class or global or visual approach of the playfields summarized under this lable; playfields are added in the *Types sections
+# ======================================================================================================================================================== Planets
+    - 'SpaceEmpty:1.0'                                                                                            # 1 Random Events
+
+
+# ======================================================================================================================================================== POIs
+  POICountProbs: '0 : 1.00,  1 : 0.00,  2 : 0.00,  3 : 0.00,  4 : 0.00,  5 : 0.00,  6 : 0.00,  7 : 0.00,  8: 0.00'
+# -------------------------------------------------------------------------------------------------------------------------------------------------------- POI counts
+  POIs: 'SpaceEmpty: 1.00, POICombatT4: 0.00, POIHackT2: 0.00, POIMiningT2: 0.00'
+# --------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# =================================================================================================================================================================================
+#                                                                                                                Orbits
+# =================================================================================================================================================================================
+  OrbitTypes:
+# -------------------------------------------------------------------------- DefaultOrbit
+      - Name: DefaultOrbit     # definition of default name 'DefaultOrbit' is mandatory
+        Color: [0.3, 0.3, 0.3]
+        Distance: [270, 870]
+        HasOrbit: false
+        HasTerrain: false
+        PlayfieldLevel: [6,10]
+        Playfields:
+            - SpaceEmpty

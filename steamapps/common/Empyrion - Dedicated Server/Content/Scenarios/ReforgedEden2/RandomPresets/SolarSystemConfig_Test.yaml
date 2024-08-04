@@ -1,0 +1,92 @@
+---
+GenerationParams:
+  # MapScale: 1          # how much the sectors are spread out  
+  MapScale: 1          # how much the sectors are spread out  
+  # float [0..1] solar systems are more like a cookie than a ball. the lower the value, the flatter the system
+  SolarSystemSqueezeMinMax: [0.005, 0.2]
+  # float [0..1] probability a warp connection will be one-way
+  OneWayWarpProb: 0
+  UniqueStarterPlanet: false
+  # SectorsPerAU: 2
+  
+  #==== 1st Step of SolarSystem Generation: setting amount and playfield types  for System Content  ===
+
+  PlanetCountProbs:
+# ======================================================================================================================================================== Planets
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------- Gas Giants
+     - '2 : 1'                 # 1 - Test Planets
+
+
+  PlanetLists:           # Lable name depicts, in a descriptive way, the class or global or visual approach of the playfields summarized under this lable; playfields are added in the *Types sections
+# ======================================================================================================================================================== Planets
+
+# ------------------------------------------------------------------------------------------------- Gas Giants
+    - 'TestPlanet:1'                                                                   # 1 Gas
+
+# ======================================================================================================================================================== POIs
+  POICountProbs: '0 : 0.00,  1 : 0.00,  2 : 0.00,  3 : 0.00,  4 : 0.00,  5 : 1.00,  6 : 0.00,  7 : 0.00,  8: 0.00'
+# -------------------------------------------------------------------------------------------------------------------------------------------------------- POI counts
+  POIs: 'SpaceEmpty: 0.00, TestSite: 1.00'
+# --------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# =================================================================================================================================================================================
+#                                                                                                                Stations
+# =================================================================================================================================================================================
+  # StationTypes:
+      # - Name: SpaceTradingStation
+        # Color: [0.7, 0.5, 0.0]
+        # Icon: Station
+        # Distance: [200, 300]
+        # Placement: 
+          # - InnerSystem
+        # HasOrbit: false
+        # HasTerrain: false
+        # PlayfieldLevel: [2,10]
+        # Playfields:
+            # - SpaceTradingStation
+            
+  OrbitTypes:
+# -------------------------------------------------------------------------- DefaultOrbit
+      - Name: DefaultOrbit     # definition of default name 'DefaultOrbit' is mandatory
+        Color: [0.3, 0.3, 0.3]
+        Distance: [270, 870]
+        HasOrbit: false
+        HasTerrain: false
+        PlayfieldLevel: [2,6]
+        Playfields:
+            - EdenSpaceG_Orbit
+
+
+# =================================================================================================================================================================================
+#                                                                                                                Stations
+# =================================================================================================================================================================================
+  StationTypes:
+      # - Name: SpaceTradingStation
+        # Faction: [Zirax, Polaris, Pirates, Trader, Colonists, Tesch, Kriel]
+        # Color: [1, 1, 1]
+        # Icon: Station
+        # Distance: [200, 300]
+        # Placement:
+            # - InnerSystem
+            # - HabitableHot
+            # - HabitableTemperate
+            # - HabitableCold
+        # HasOrbit: false
+        # HasTerrain: false
+        # PlayfieldLevel: [2,10]
+        # Playfields:
+            # # - SpaceTradingStation
+            # - EdenSpace_TradingStation
+
+  # WarpTargetOrbitTypes:
+# # -------------------------------------------------------------------------- Sun Playfield
+      # - Name: WarpTarget
+        # Color: [0.3, 0.3, 0.3]
+        # Distance: [270, 870]
+        # HasOrbit: false
+        # HasTerrain: false
+        # PlayfieldLevel: [1,4]
+        # Playfields:
+            # - EdenSpaceWarpTargetG
