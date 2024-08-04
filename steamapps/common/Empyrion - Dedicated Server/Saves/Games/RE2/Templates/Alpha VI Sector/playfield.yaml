@@ -1,0 +1,573 @@
+PlayfieldType: Space
+TemperatureDay: -131
+Radiation: 9.3481636
+PlanetType: OrbitEasy
+AtmosphereEnabled: false
+FogCloudIntensity: 1
+CloudsSharpness: 1
+Description: >-
+  Difficulty: [c][00ff00]Easy[-][/c]
+
+  Starting System Orbit.
+
+  Orbits in the starting system as a bit easier than normal, but can still be dangerous. Caution is advised for the unprepared.
+
+
+  [c][ffffff][i]Mining asteroids claimed by a faction is considered an act of war. Presence of POIs affected by galaxy faction territory.[/i][-][/c]
+PlayfieldLevel: 1
+BaseAttackCount: 0
+PlanetClass: OrbitEasy
+UseFixed: true
+Build: 4480
+Music: DistantWorlds
+LandClaimZone: Device
+POIs:
+  Fixed:
+  - Type: AsteroidFieldRingOld
+    Name: Asteroid Field
+    Pos:
+    - 0
+    - 0
+    - 0
+    Rot:
+    - -148
+    - 47
+    - 90
+  - Type: AsteroidVoxel01Silicon
+    Prefab: AsteroidVoxel01Silicon
+    Name: Silicon Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -9925
+    - 1900
+    - -9119
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Silicon
+    Prefab: AsteroidVoxel01Silicon
+    Name: Silicon Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -4298
+    - -529
+    - -5650
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Magnesium
+    Prefab: AsteroidVoxel02Magnesium
+    Name: Magnesium Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -5976
+    - -978
+    - 19985
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Cobalt
+    Prefab: AsteroidVoxel03Cobalt
+    Name: Cobalt Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 833
+    - -14079
+    - 914
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel03Titan
+    Prefab: AsteroidVoxel03Titan
+    Name: Titan Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 9668
+    - 3326
+    - 9153
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel02Titan
+    Prefab: AsteroidVoxel02Titan
+    Name: Titan Asteroid
+    Properties:
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -4617
+    - 1206
+    - -5652
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: R2BAO_ZiraxSolarArrayT1
+    Mode: Survival
+    Name: Solar Array
+    InitPower: true
+    Faction: Zirax
+    Properties: &o0
+    - Key: RegenAfter
+      Value: 720
+    - Key: StationInterface
+      Value: Fuel:1.5,O2:1.5,Warp:1.5,Ammo:1.5,Repair:1.75,Shield:1.5,IfNeutral:0.15,IfHonored:-0.15
+    Pos:
+    - -15166
+    - -168
+    - -14324
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+    SpaceDefenseProbability: 0.25
+    SpaceDefensePrice:
+      Min: 15
+      Max: 30
+    SpaceDefensePriceMinMax:
+    - 15
+    - 30
+  - Type: BA_Alien
+    Prefab: R2BAO_ZiraxOutpostT1
+    Mode: Survival
+    Name: Orbital Outpost
+    InitPower: true
+    Faction: Zirax
+    Properties: *o0
+    Pos:
+    - -8366
+    - -956
+    - -6230
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+    SpaceDefenseProbability: 0.25
+    SpaceDefensePrice:
+      Min: 15
+      Max: 30
+    SpaceDefensePriceMinMax:
+    - 15
+    - 30
+  - Type: BA_Alien
+    Prefab: Eden_BA_DummyBandit
+    Mode: Survival
+    Name: Bandit Rally Point
+    InitPower: true
+    Faction: Warlord
+    FactionTerritory:
+    - Warlord
+    Properties:
+    - Key: MapDistance
+      Value: 0
+    - Key: HudDistance
+      Value: 0
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 8041
+    - 283
+    - 31991
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: SV_Player
+    Prefab: SVJ_RevolutionFrontWreck
+    Mode: Survival
+    Name: Revolution Front  Wreck
+    InitPower: true
+    Faction: None
+    FactionTerritory:
+    - Rados
+    - Eden_PolarisTerritory
+    - Eden_TraderTerritory
+    - Farr
+    - Eden_ColonistsTerritory
+    - Pirates
+    - Warlord
+    - Wastelanders
+    Properties:
+    - Key: MapMarker
+      Value: Neutral
+    Pos:
+    - 20653
+    - -716
+    - 2928
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: SV_Player
+    Prefab: SVJ_Intrepid_Fighter
+    Mode: Survival
+    Name: Destroyed Intrepid-F
+    InitPower: true
+    Faction: None
+    FactionTerritory: &o1
+    - Pirates
+    - Warlord
+    - Wastelanders
+    Properties: &o2
+    - Key: MapMarker
+      Value: Neutral
+    Pos:
+    - -9819
+    - -932
+    - -3520
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: SV_Player
+    Prefab: SVJ_AureliaMK2Wreck
+    Mode: Survival
+    Name: Aurelia MK2 Wreck
+    InitPower: true
+    Faction: None
+    FactionTerritory: *o1
+    Properties: *o2
+    Pos:
+    - -20805
+    - 113
+    - 1514
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: BA_Alien
+    Prefab: Eden_BAOJ_JunkT1_03
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: &o3
+    - Pirates
+    - Warlord
+    - Wastelanders
+    Properties: &o4
+    - Key: MapDistance
+      Value: 3000
+    - Key: HudDistance
+      Value: 3000
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - -10192
+    - 785
+    - -2219
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAOJ_JunkT1_02
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 5956
+    - -548
+    - 8561
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAOJ_JunkT1_19
+    Mode: Survival
+    Name: Boobytrapped Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 8824
+    - 664
+    - -5561
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAOJ_JunkT1_10
+    Mode: Survival
+    Name: Severed Antenna Array
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 9985
+    - -265
+    - 3014
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAOJ_JunkT1_34
+    Mode: Survival
+    Name: Emergency Beacon
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - -5459
+    - 908
+    - -8888
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAOJ_JunkT1_51
+    Mode: Survival
+    Name: Rockhopper Wreck
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 16815
+    - -241
+    - -12344
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAOJ_JunkT1_12
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - -10169
+    - -962
+    - -2320
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAOJ_JunkT1_20
+    Mode: Survival
+    Name: Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - -19164
+    - -899
+    - -8242
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAOJ_JunkT1_53
+    Mode: Survival
+    Name: Unstable Promethium Tanks
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - 14746
+    - -599
+    - 14754
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAOJ_JunkT1_43
+    Mode: Survival
+    Name: Abandoned Pallet
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o3
+    Properties: *o4
+    Pos:
+    - -2885
+    - 43
+    - -10024
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAOJ_JunkT2_08
+    Mode: Survival
+    Name: Wrecked Cargo Dock
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: &o5
+    - Pirates
+    - Warlord
+    - Wastelanders
+    Properties: &o6
+    - Key: MapDistance
+      Value: 9000
+    - Key: HudDistance
+      Value: 9000
+    - Key: MapMarker
+      Value: Neutral
+    - Key: RegenAfter
+      Value: 4320
+    Pos:
+    - -5244
+    - 136
+    - -4291
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: BA_Alien
+    Prefab: Eden_BAOJ_JunkT2_02
+    Mode: Survival
+    Name: Large Wreckage
+    InitPower: true
+    Faction: Eden_Wreck
+    FactionTerritory: *o5
+    Properties: *o6
+    Pos:
+    - 4791
+    - -231
+    - 3811
+    Rot:
+    - 0
+    - 0
+    - 0
+    SpaceDefenseOverrideDefaults: true
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_2
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: &o7
+    - Key: MapDistance
+      Value: 6500
+    - Key: HudDistance
+      Value: 6500
+    - Key: RegenAfter
+      Value: 720
+    Pos:
+    - 13033
+    - 363
+    - 7046
+    Rot:
+    - 0
+    - 0
+    - 0
+  - Type: AsteroidVoxel01Pentaxid
+    Prefab: Eden_Asteroid_PentT1_1
+    Mode: Survival
+    Name: Pentaxid Asteroid
+    Faction: None
+    Properties: *o7
+    Pos:
+    - -13064
+    - 169
+    - -1688
+    Rot:
+    - 0
+    - 0
+    - 0
+DroneBaseSetup:
+  Fixed:
+  - Pos:
+    - -13387.3701
+    - 2989.45508
+    - -5448.49805
+    DroneOnDuty:
+    - Name: DroneSpaceZiraxLaser
+      Faction: Zirax
+      Pos:
+      - 9161.5625
+      - 5282.13916
+      - -9570.23828
+      Radius: 1470
+      Properties: &o8
+      - Key: AIManMaxPursuitRange
+        Value: 3500
+    - Name: DroneSpaceZiraxLaser
+      Faction: Zirax
+      Pos:
+      - -8573.7168
+      - 3070.57788
+      - 10884.1953
+      Radius: 9870
+      Properties: *o8
+    - Name: DroneSpaceZiraxLaser
+      Faction: Zirax
+      Pos:
+      - 10341.2275
+      - -3995.31934
+      - 7436.06641
+      Radius: 3760
+      Properties:
+      - Key: AIManPatrolFactions
+        Value: Zirax, Rados, Ghyst, Epsilon, Xenu
+      - Key: AIManMaxPursuitRange
+        Value: 3500
+    SpaceVessel:
+    - Name: R2OPVZiraxT1
+      Faction: Zirax
+      FixedMaxSpeed: 39
+      Mission: SpacePatrol
+      DelayBetweenRespawn: 3600
+      DelayBeforeSelfDestruction: 3600
+      RangePatrol:
+        Position3D:
+        - -10039.6299
+        - -3159.39575
+        - -7220.25488
+        Radius: 7262
+      Stock:
+      - Name: SpaceDronePlasma
+        Amount: 3
+        Extra: 0
+      Properties:
+      - Key: AIManMaxPursuitRange
+        Value: 5000
