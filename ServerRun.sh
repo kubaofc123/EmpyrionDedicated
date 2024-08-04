@@ -12,7 +12,7 @@ git pull
 ssh-add -D
 
 # Ask which save to launch
-read -p "Select your game save: DedGame(1), Scenariusz2(2), Shared-1(3), Shared-2(4): " selected_save
+read -p "Select your game save: DedGame(1), Scenariusz2(2), Shared-1(3), Shared-2(4), RE2(5): " selected_save
 read -p "Update server? (y/n): " update_server    
 if [ "$update_server" == "y" ]; then 
     read -p "Validate after update? (y/n):  " validate_update
@@ -32,3 +32,4 @@ if [ "$selected_save" = 1 ]; then ./MyEmpyrionDedicatedScen1.cmd; fi
 if [ "$selected_save" = 2 ]; then ./MyEmpyrionDedicatedScen2.cmd; fi
 if [ "$selected_save" = 3 ]; then ./MyEmpyrionDedicatedScen3.cmd; fi
 if [ "$selected_save" = 4 ]; then ./MyEmpyrionDedicatedScen4.cmd; fi
+if [ "$selected_save" = 5 ]; then ./MyEmpyrionDedicatedRE2.cmd; fi
